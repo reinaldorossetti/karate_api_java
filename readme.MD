@@ -1,8 +1,8 @@
 # 🥋 Karate API Testing - ServeRest
 
-[![Karate](https://img.shields.io/badge/Karate-1.5.0-blue.svg)](https://github.com/karatelabs/karate)
+[![Karate](https://img.shields.io/badge/Karate-1.5.2-blue.svg)](https://github.com/karatelabs/karate)
 [![JUnit5](https://img.shields.io/badge/JUnit-5.10.1-green.svg)](https://junit.org/junit5/)
-[![Java](https://img.shields.io/badge/Java-17-orange.svg)](https://www.oracle.com/java/)
+[![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://www.oracle.com/java/)
 
 Projeto de automação de testes de API utilizando **Karate Framework** para testar a API REST **ServeRest** - uma API gratuita que simula uma loja virtual.
 
@@ -124,10 +124,14 @@ karate_api_java/
 
 ## 🔧 Pré-requisitos
 
-- **Java JDK 17** ou superior
+- **Java JDK 21** (LTS) ou superior
 - **Maven 3.6+**
 - **IDE** (IntelliJ IDEA, Eclipse, VS Code)
 - Conexão com internet (para acessar a API ServeRest)
+
+### Download do Java 21
+
+- Oracle JDK 21: https://www.oracle.com/java/technologies/downloads/#java21
 
 ### Verificar instalação
 
@@ -135,6 +139,19 @@ karate_api_java/
 java -version
 mvn -version
 ```
+
+---
+
+## 📦 Versões das dependências (pom.xml)
+
+| Componente                         | Artefato                                      | Versão  |
+|------------------------------------|-----------------------------------------------|---------|
+| Karate Core                        | io.karatelabs:karate-core                     | 1.5.2   |
+| Karate JUnit5                      | io.karatelabs:karate-junit5                   | 1.5.2   |
+| JUnit 5 (Jupiter API)             | org.junit.jupiter:junit-jupiter-api           | 5.10.1  |
+| JUnit 5 (Jupiter Engine)          | org.junit.jupiter:junit-jupiter-engine        | 5.10.1  |
+| Maven Surefire Plugin             | org.apache.maven.plugins:maven-surefire-plugin| 3.2.5   |
+| Maven Compiler Plugin             | org.apache.maven.plugins:maven-compiler-plugin| 3.11.0  |
 
 ---
 

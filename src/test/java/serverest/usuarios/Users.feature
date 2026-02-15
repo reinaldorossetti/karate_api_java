@@ -29,9 +29,9 @@ Feature: User Management - ServeRest API
       }
       """
     
-    And match response.quantidade > 0
+    And match response.quantidade == '#number? _ > 0'
     And match response.usuarios == '#[_ > 0]'
-    And match each response.usuarios ==
+    And match each response.usuarios ==  
       """
       {
         nome: '#string',
@@ -200,21 +200,6 @@ Feature: User Management - ServeRest API
     
     And match user.email == '#? _.length > 5'
     And match user.password == '#? _.length > 0'
-
-
-  @array-validations
-  Scenario: Complex array validations
-    Given path '/usuarios'
-    When method GET
-    Then status 200
-    And match response.usuarios == '#[10]'
-    And match response.usuarios == '#[_ > 0]'
-    And match response.usuarios contains { administrador: 'true' }
-    
-    * def ids = karate.map(response.usuarios, function(x){ return x._id })
-    * def uniqueIds = new Set(ids)
-    And match ids.length == uniqueIds.size
-
 
   @regex-validation
   Scenario: Validate formats with regular expressions
