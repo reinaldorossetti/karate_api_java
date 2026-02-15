@@ -1,19 +1,16 @@
 function fn() {
-  var env = karate.env || 'dev';
-
   var config = {
     baseUrl: 'https://serverest.dev',
-    authUrl: 'https://serverest.dev',
-    timeout: 30000
+    timeout: 10000
   };
-
-  // Environment-specific overrides
-//   if (env == 'dev') {
-//     config.baseUrl = 'https://serverest.dev';
-//   } else if (env == 'prod') {
-//     config.baseUrl = 'https://serverest.prod';
-//     config.timeout = 60000;
-//   }
-
+  
+  // Configuração por ambiente
+  var env = karate.env;
+  if (env === 'dev') {
+    config.baseUrl = 'http://localhost:3000';
+  } else if (env === 'prod') {
+    config.baseUrl = 'https://serverest.dev';
+  }
+  
   return config;
 }

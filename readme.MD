@@ -84,37 +84,39 @@ karate_api_java/
 │
 ├── src/
 │   ├── main/
-│   │   └── java/
-│   │       └── com/intuit/karate/junit5/
-│   │           ├── FeatureNode.java
-│   │           └── Karate.java
+│   │   └── java/                         # (vazio neste projeto)
 │   │
 │   └── test/
 │       └── java/
 │           ├── karate-config.js          # Configuração global do Karate
 │           ├── logback-test.xml          # Configuração de logs
+│           ├── ParallelTest.java         # Execução paralela de todas as features
 │           │
-│           ├── karate/                   # Exemplos básicos do Karate
-│           │   ├── sample.feature
-│           │   ├── SampleTest.java
-│           │   ├── customTags.feature
-│           │   └── ...
+│           ├── karate/                   # Exemplos oficiais do Karate
+│           │   └── samples/
+│           │       ├── sample.feature
+│           │       ├── SampleTest.java
+│           │       ├── customTags.feature
+│           │       ├── SampleCustomTagsTest.java
+│           │       ├── embed.feature
+│           │       ├── noFeatureNoScenario.feature
+│           │       └── ...
 │           │
 │           └── serverest/                # Testes da API ServeRest
 │               ├── usuarios/
-│               │   ├── usuarios.feature
-│               │   └── UsuariosTest.java
+│               │   ├── Users.feature
+│               │   └── UsersTest.java
 │               ├── produtos/
-│               │   ├── produtos.feature
-│               │   └── ProdutosTest.java
+│               │   ├── Products.feature
+│               │   └── ProductsTest.java
 │               ├── login/
-│               │   ├── login.feature
+│               │   ├── Login.feature
 │               │   └── LoginTest.java
-│               └── carrinhos/
-│                   ├── carrinhos.feature
-│                   └── CarrinhosTest.java
+│               └── exemplosvalidacoes/
+│                   ├── JsonValidations.feature
+│                   └── JsonValidationsTest.java
 │
-├── pom.xml                               # Maven dependencies
+├── pom.xml                               # Dependências Maven
 └── README.md                             # Este arquivo
 ```
 
@@ -170,7 +172,7 @@ mvn test
 ### Executar um teste específico
 
 ```bash
-mvn test -Dtest=UsuariosTest
+mvn test -Dtest=UsersTest
 ```
 
 ### Executar por tags
@@ -198,22 +200,27 @@ mvn test -Dkarate.options="--threads 5"
 
 ### Exemplo 1: Listar Usuários (GET)
 
-**Feature**: `src/test/java/serverest/usuarios/usuarios.feature`
+**Feature**: `src/test/java/serverest/usuarios/Users.feature`
 
 ```gherkin
-@usuarios
-Feature: Gerenciamento de Usuários
+@users
+Feature: User Management - ServeRest API
 
   Background:
-    * url baseUrl + '/usuarios'
+    * url 'https://serverest.dev'
 
-  @listar @smoke
-  Scenario: Listar todos os usuários
-    Given path ''
+  @list @smoke
+  Scenario: List all users and validate JSON structure
+    Given path '/usuarios'
     When method GET
     Then status 200
-    And match response.quantidade == '#number'
-    And match response.usuarios == '#array'
+    And match response ==
+      """
+      {
+        quantidade: '#number',
+        usuarios: '#array'
+      }
+      """
 ```
 
 ### Exemplo 2: Cadastrar Usuário (POST)
@@ -241,60 +248,69 @@ Feature: Gerenciamento de Usuários
 
 ### Exemplo 3: Login e Autenticação
 
+**Feature**: `src/test/java/serverest/login/Login.feature`
+
 ```gherkin
 @login
-Feature: Autenticação de Usuários
+Feature: User Authentication - Login
 
   Background:
-    * url baseUrl + '/login'
+    * url 'https://serverest.dev'
 
-  @login-sucesso
-  Scenario: Realizar login com credenciais válidas
-    Given path ''
-    And request
+  @login-success @smoke
+  Scenario: Perform login with valid credentials and validate token
+    * def credentials =
       """
       {
         "email": "fulano@qa.com",
         "password": "teste"
       }
       """
+
+    Given path '/login'
+    And request credentials
     When method POST
     Then status 200
-    And match response.message == 'Login realizado com sucesso'
-    And match response.authorization == '#string'
-    * def token = response.authorization
+    And match response ==
+      """
+      {
+        message: '#string',
+        authorization: '#string'
+      }
+      """
 ```
 
 ### Exemplo 4: Testes com Autenticação (Produtos)
 
+**Feature**: `src/test/java/serverest/produtos/Products.feature`
+
 ```gherkin
-@produtos
-Feature: Gerenciamento de Produtos (Requer Autenticação)
+@products
+Feature: Product Management (Requires Admin Authentication)
 
   Background:
-    * url baseUrl
-    # Realizar login primeiro
-    * def loginResponse = call read('classpath:serverest/login/login.feature@login-sucesso')
+    * url 'https://serverest.dev'
+    * def loginResponse = call read('classpath:serverest/login/Login.feature@reusable-login')
     * def token = loginResponse.token
-    * path '/produtos'
 
-  @cadastrar-produto
-  Scenario: Cadastrar produto como administrador
-    * def randomName = 'Produto ' + karate.randomString(5)
-    Given path ''
-    And header Authorization = token
-    And request
+  @create-product @smoke
+  Scenario: Create a new product as an administrator
+    * def productName = 'Product ' + new Date().getTime()
+    * def productData =
       """
       {
-        "nome": "#(randomName)",
-        "preco": 470,
-        "descricao": "Produto de teste",
-        "quantidade": 381
+        "nome": "#(productName)",
+        "preco": 250,
+        "descricao": "Automated test product",
+        "quantidade": 100
       }
       """
+
+    Given path '/products'
+    And header Authorization = token
+    And request productData
     When method POST
     Then status 201
-    And match response.message == 'Cadastro realizado com sucesso'
 ```
 
 ### Exemplo 5: Data-Driven Testing
@@ -323,21 +339,24 @@ Feature: Gerenciamento de Produtos (Requer Autenticação)
       | email           |
 ```
 
-### Exemplo 6: Schema Validation
+### Exemplo 6: Schema Validation (JsonValidations)
+
+**Feature**: `src/test/java/serverest/exemplosvalidacoes/JsonValidations.feature`
 
 ```gherkin
-  @validacao-schema
-  Scenario: Validar estrutura da resposta ao listar usuários
-    Given path ''
+  @schema-validation
+  Scenario: Validate the complete JSON structure
+    Given path '/usuarios'
     When method GET
     Then status 200
     And match response ==
       """
       {
         quantidade: '#number',
-        usuarios: '#[] #object'
+        usuarios: '#array'
       }
       """
+
     And match each response.usuarios ==
       """
       {
