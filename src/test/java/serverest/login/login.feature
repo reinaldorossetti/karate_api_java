@@ -1,13 +1,13 @@
-# language: pt
+# language: en
 @login
-Funcionalidade: Autenticação de Usuários - Login
+Feature: User Authentication - Login
 
-  Contexto:
+  Background:
     * url 'https://serverest.dev'
 
-  @login-sucesso @smoke
-  Cenario: Realizar login com credenciais válidas e validar token
-    * def credenciais =
+  @login-success @smoke
+  Scenario: Perform login with valid credentials and validate token
+    * def credentials =
       """
       {
         "email": "fulano@qa.com",
@@ -15,12 +15,12 @@ Funcionalidade: Autenticação de Usuários - Login
       }
       """
     
-    Dado caminho '/login'
-    E request credenciais
-    Quando método POST
-    Então status 200
+    Given path '/login'
+    And request credentials
+    When method POST
+    Then status 200
     
-    E combina resposta ==
+    And match response ==
       """
       {
         message: '#string',
@@ -28,18 +28,18 @@ Funcionalidade: Autenticação de Usuários - Login
       }
       """
     
-    E combina resposta.message == 'Login realizado com sucesso'
+    And match response.message == 'Login realizado com sucesso'
     
-    E combina resposta.authorization == '#notnull'
-    E combina resposta.authorization == '#? _.length > 50'
+    And match response.authorization == '#notnull'
+    And match response.authorization == '#? _.length > 50'
     
-    * def authToken = resposta.authorization
-    * print 'Token gerado:', authToken
+    * def authToken = response.authorization
+    * print 'Generated Token:', authToken
 
 
-  @login-invalido
-  Cenario: Tentar login com credenciais inválidas
-    * def credenciaisInvalidas =
+  @login-invalid
+  Scenario: Attempt login with invalid credentials
+    * def invalidCredentials =
       """
       {
         "email": "usuario@inexistente.com",
@@ -47,17 +47,17 @@ Funcionalidade: Autenticação de Usuários - Login
       }
       """
     
-    Dado caminho '/login'
-    E request credenciaisInvalidas
-    Quando método POST
-    Então status 401
-    E combina resposta.message == 'Email e/ou senha inválidos'
-    E combina resposta !contains { authorization: '#string' }
+    Given path '/login'
+    And request invalidCredentials
+    When method POST
+    Then status 401
+    And match response.message == 'Email e/ou senha inválidos'
+    And match response !contains { authorization: '#string' }
 
 
-  @validacao-campos-obrigatorios
-  Esquema do Cenário: Validar campos obrigatórios no login
-    * def dadosIncompletos =
+  @required-fields-validation
+  Scenario Outline: Validate required fields on login
+    * def incompleteData =
       """
       {
         "email": "<email>",
@@ -65,73 +65,73 @@ Funcionalidade: Autenticação de Usuários - Login
       }
       """
     
-    Dado caminho '/login'
-    E request dadosIncompletos
-    Quando método POST
-    Então status 400
-    E combina resposta contains { email: '#string' }
+    Given path '/login'
+    And request incompleteData
+    When method POST
+    Then status 400
+    And match response contains { email: '#string' }
     
-    Exemplos:
+    Examples:
       | email              | password |
       |                    | senha123 |
-      | teste@email.com    |          |
+      | test@email.com     |          |
       |                    |          |
 
 
-  @login-e-usar-token
-  Cenario: Fazer login e usar token para acessar recurso protegido
-    * def credenciais = { "email": "fulano@qa.com", "password": "teste" }
+  @login-and-use-token
+  Scenario: Login and use token to access a protected resource
+    * def credentials = { "email": "fulano@qa.com", "password": "teste" }
     
-    Dado caminho '/login'
-    E request credenciais
-    Quando método POST
-    Então status 200
-    * def token = resposta.authorization
+    Given path '/login'
+    And request credentials
+    When method POST
+    Then status 200
+    * def token = response.authorization
     
-    * def novoProduto =
+    * def newProduct =
       """
       {
-        "nome": "Produto Auth Test",
+        "nome": "Auth Test Product",
         "preco": 100,
-        "descricao": "Produto de teste com autenticação",
+        "descricao": "Authentication test product",
         "quantidade": 10
       }
       """
     
-    Dado caminho '/produtos'
-    E header Authorization = token
-    E request novoProduto
-    Quando método POST
-    Então status 201
-    E combina resposta.message == 'Cadastro realizado com sucesso'
+    Given path '/produtos'
+    And header Authorization = token
+    And request newProduct
+    When method POST
+    Then status 201
+    And match response.message == 'Cadastro realizado com sucesso'
 
 
-  @validacao-formato-email
-  Esquema do Cenário: Validar formato de email inválido
-    * def loginInvalido = { "email": "<emailInvalido>", "password": "senha123" }
+  @email-format-validation
+  Scenario Outline: Validate invalid email format
+    * def invalidLogin = { "email": "<invalidEmail>", "password": "senha123" }
     
-    Dado caminho '/login'
-    E request loginInvalido
-    Quando método POST
-    Então status 400
-    E combina resposta contains { email: '#string' }
+    Given path '/login'
+    And request invalidLogin
+    When method POST
+    Then status 400
+    And match response contains { email: '#string' }
     
-    Exemplos:
-      | emailInvalido    |
-      | emailsemarroba   |
-      | @semnome.com     |
-      | email@semdominio |
+    Examples:
+      | invalidEmail     |
+      | emailwithoutat   |
+      | @noname.com      |
+      | email@nodomain   |
       | email            |
 
 
-  @login-reutilizavel
-  Cenario: Login reutilizável para outros testes
-    * def credenciais = { "email": "fulano@qa.com", "password": "teste" }
+  @reusable-login
+  Scenario: Reusable login for other tests
+    * def credentials = { "email": "fulano@qa.com", "password": "teste" }
     
-    Dado caminho '/login'
-    E request credenciais
-    Quando método POST
-    Então status 200
+    Given path '/login'
+    And request credentials
+    When method POST
+    Then status 200
     
-    * def token = resposta.authorization
-    * def mensagem = resposta.message
+    * def token = response.authorization
+    * def message = response.message
