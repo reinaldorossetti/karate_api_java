@@ -34,25 +34,10 @@ jobs:
           name: karate-reports
           path: target/karate-reports
 
-  deploy-pages:
-    needs: test
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download Karate Reports Artifact
-        uses: actions/download-artifact@v4
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          name: karate-reports
-          path: ./site
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload Pages Artifact
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: ./site
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages  # default: gh-pages
+          publish_dir: karate-reports
+          destination_dir: reports
