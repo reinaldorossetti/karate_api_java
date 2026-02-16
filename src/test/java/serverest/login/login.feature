@@ -6,7 +6,7 @@ Feature: User Authentication - Login
     * url 'https://serverest.dev'
 
   @login-success @smoke
-  Scenario: Perform login with valid credentials and validate token
+  Scenario: CT01 - Perform login with valid credentials and validate token
     * def credentials =
       """
       {
@@ -38,7 +38,7 @@ Feature: User Authentication - Login
 
 
   @login-invalid
-  Scenario: Attempt login with invalid credentials
+  Scenario: CT02 - Attempt login with invalid credentials
     * def invalidCredentials =
       """
       {
@@ -56,7 +56,7 @@ Feature: User Authentication - Login
 
 
   @required-fields-validation
-  Scenario Outline: Validate required fields on login
+  Scenario Outline: CT03 - Validate required fields on login
     * def incompleteData =
       """
       {
@@ -79,7 +79,7 @@ Feature: User Authentication - Login
 
 
   @login-and-use-token
-  Scenario: Login and use token to access a protected resource
+  Scenario: CT04 - Login and use token to access a protected resource
     * def credentials = { "email": "fulano@qa.com", "password": "teste" }
     
     Given path '/login'
@@ -107,7 +107,7 @@ Feature: User Authentication - Login
 
 
   @email-format-validation
-  Scenario Outline: Validate invalid email format
+  Scenario Outline: CT05 - Validate invalid email format
     * def invalidLogin = { "email": "<invalidEmail>", "password": "senha123" }
     
     Given path '/login'
@@ -125,7 +125,7 @@ Feature: User Authentication - Login
 
 
   @reusable-login
-  Scenario: Reusable login for other tests
+  Scenario: CT06 - Reusable login for other tests
     * def credentials = { "email": "fulano@qa.com", "password": "teste" }
     
     Given path '/login'
@@ -135,3 +135,14 @@ Feature: User Authentication - Login
     
     * def token = response.authorization
     * def message = response.message
+
+
+  @login-from-json
+  Scenario: CT07 - Perform login using fixed JSON payload
+    * def loginPayload = read('resources/loginPayload.json')
+    Given path '/login'
+    And request loginPayload
+    When method POST
+    Then status 200
+    And match response.message == 'Login realizado com sucesso'
+    And match response.authorization == '#string'

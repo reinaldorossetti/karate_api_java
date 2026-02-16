@@ -6,7 +6,7 @@ Feature: Complete Examples of JSON Validations with Karate
     * url 'https://serverest.dev'
 
   @type-validation
-  Scenario: Validate data types in JSON
+  Scenario: CT01 - Validate data types in JSON
     Given path '/usuarios'
     When method GET
     Then status 200
@@ -21,7 +21,7 @@ Feature: Complete Examples of JSON Validations with Karate
 
 
   @schema-validation
-  Scenario: Validate the complete JSON structure
+  Scenario: CT02 - Validate the complete JSON structure
     Given path '/usuarios'
     When method GET
     Then status 200
@@ -53,7 +53,7 @@ Feature: Complete Examples of JSON Validations with Karate
 
 
   @regex-validation
-  Scenario: Use regular expressions to validate formats
+  Scenario: CT03 - Use regular expressions to validate formats
     Given path '/usuarios'
     When method GET
     Then status 200
@@ -65,7 +65,7 @@ Feature: Complete Examples of JSON Validations with Karate
 
 
   @array-validations
-  Scenario: Advanced array validations
+  Scenario: CT04 - Advanced array validations
     Given path '/usuarios'
     When method GET
     Then status 200
@@ -80,7 +80,7 @@ Feature: Complete Examples of JSON Validations with Karate
     And match response.usuarios[lastIndex] == '#object'
 
   @predicate-validations
-  Scenario: Use JavaScript predicates for complex validations
+  Scenario: CT05 - Use JavaScript predicates for complex validations
     Given path '/produtos'
     When method GET
     Then status 200
@@ -95,7 +95,7 @@ Feature: Complete Examples of JSON Validations with Karate
     And match ids.length == uniqueIds.size
 
   @contains-validation
-  Scenario: Validate presence and absence of fields
+  Scenario: CT06 - Validate presence and absence of fields
     Given path '/usuarios'
     When method GET
     Then status 200
@@ -108,7 +108,7 @@ Feature: Complete Examples of JSON Validations with Karate
 
 
   @only-validation
-  Scenario: Validate that JSON contains ONLY the specified fields
+  Scenario: CT07 - Validate that JSON contains ONLY the specified fields
     Given path '/usuarios'
     When method GET
     Then status 200
@@ -125,7 +125,7 @@ Feature: Complete Examples of JSON Validations with Karate
       """
 
   @jsonpath-validation
-  Scenario: Use JSON Path to extract and validate data
+  Scenario: CT08 - Use JSON Path to extract and validate data
     Given path '/usuarios'
     When method GET
     Then status 200
@@ -143,7 +143,7 @@ Feature: Complete Examples of JSON Validations with Karate
 
 
   @javascript-validation
-  Scenario: Use JavaScript for custom validations
+  Scenario: CT09 - Use JavaScript for custom validations
     Given path '/produtos'
     When method GET
     Then status 200
@@ -163,7 +163,7 @@ Feature: Complete Examples of JSON Validations with Karate
 
 
   @fuzzy-validation
-  Scenario: Flexible validations (fuzzy matching)
+  Scenario: CT10 - Flexible validations (fuzzy matching)
     Given path '/usuarios'
     When method GET
     Then status 200
@@ -185,7 +185,7 @@ Feature: Complete Examples of JSON Validations with Karate
 
 
   @value-validation
-  Scenario: Compare with specific expected values
+  Scenario: CT11 - Compare with specific expected values
     * def expectedEmail = 'fulano@qa.com'
     
     Given path '/usuarios'
@@ -202,7 +202,7 @@ Feature: Complete Examples of JSON Validations with Karate
 
 
   @error-validations
-  Scenario: Validate error message structure
+  Scenario: CT12 - Validate error message structure
     * def duplicateEmail = 'test' + new Date().getTime() + '@test.com'
     * def user =
       """
@@ -235,7 +235,7 @@ Feature: Complete Examples of JSON Validations with Karate
 
 
   @nested-validation
-  Scenario: Validate JSON with complex nested objects
+  Scenario: CT13 - Validate JSON with complex nested objects
     * def complexJson =
       """
       {
@@ -260,7 +260,7 @@ Feature: Complete Examples of JSON Validations with Karate
 
 
   @numeric-validation
-  Scenario: Number comparison validations
+  Scenario: CT14 - Number comparison validations
     Given path '/produtos'
     When method GET
     Then status 200
@@ -275,7 +275,7 @@ Feature: Complete Examples of JSON Validations with Karate
 
 
   @combined-validation
-  Scenario: Combine multiple validation techniques
+  Scenario: CT15 - Combine multiple validation techniques
     Given path '/usuarios'
     And param administrador = 'true'
     When method GET

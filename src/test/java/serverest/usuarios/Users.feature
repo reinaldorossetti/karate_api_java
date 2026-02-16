@@ -4,17 +4,22 @@ Feature: User Management - ServeRest API
 
   Background:
     * url 'https://serverest.dev'
-    * def randomEmail = function(){ return 'user' + new Date().getTime() + '@test.com' }
+    * def FakerUtils = Java.type('serverest.utils.FakerUtils')
+    * def randomEmail = function(){ return FakerUtils.randomEmail() }
+    * def randomName = function(){ return FakerUtils.randomName() }
+    * def randomPassword = function(){ return FakerUtils.randomPassword() }
 
   @list @smoke
-  Scenario: List all users and validate JSON structure
+  Scenario: CT01 - List all users and validate JSON structure
     * def newEmail = randomEmail()
+    * def newName = randomName()
+    * def newPassword = randomPassword()
     * def userData =
       """
       {
-        "nome": "John Doe",
+        "nome": "#(newName)",
         "email": "#(newEmail)",
-        "password": "senha@123",
+        "password": "#(newPassword)",
         "administrador": "true"
       }
       """
@@ -49,7 +54,7 @@ Feature: User Management - ServeRest API
 
 
   @get-by-id
-  Scenario: Get a specific user by ID
+  Scenario: CT02 - Get a specific user by ID
     * def newEmail = randomEmail()
     Given path '/usuarios'
     When method GET
@@ -74,14 +79,16 @@ Feature: User Management - ServeRest API
 
 
   @create @smoke
-  Scenario: Create a new user with complete validations
+  Scenario: CT03 - Create a new user with complete validations
     * def newEmail = randomEmail()
+    * def name = randomName()
+    * def password = randomPassword()
     * def userData =
       """
       {
-        "nome": "John Doe",
+        "nome": "#(name)",
         "email": "#(newEmail)",
-        "password": "senha@123",
+        "password": "#(password)",
         "administrador": "true"
       }
       """
@@ -99,12 +106,12 @@ Feature: User Management - ServeRest API
     Given path '/usuarios/' + newUserId
     When method GET
     Then status 200
-    And match response.nome == 'John Doe'
+    And match response.nome == name
     And match response.email == newEmail
 
 
   @advanced-validations
-  Scenario: Advanced JSON validations with filters
+  Scenario: CT04 - Advanced JSON validations with filters
     Given path '/usuarios'
     When method GET
     Then status 200
@@ -124,7 +131,7 @@ Feature: User Management - ServeRest API
 
 
   @error-validation
-  Scenario: Validate error messages when creating a duplicate email
+  Scenario: CT05 - Validate error messages when creating a duplicate email
     * def duplicateEmail = randomEmail()
     * def user1 =
       """
@@ -166,7 +173,7 @@ Feature: User Management - ServeRest API
 
 
   @fuzzy-validation
-  Scenario: Validate with fuzzy matching
+  Scenario: CT06 - Validate with fuzzy matching
     Given path '/usuarios'
     And param administrador = 'true'
     When method GET
@@ -189,7 +196,7 @@ Feature: User Management - ServeRest API
 
 
   @conditional-validation
-  Scenario: Conditional validations based on values
+  Scenario: CT07 - Conditional validations based on values
     Given path '/usuarios'
     When method GET
     Then status 200
@@ -202,7 +209,7 @@ Feature: User Management - ServeRest API
     And match user.password == '#? _.length > 0'
 
   @regex-validation
-  Scenario: Validate formats with regular expressions
+  Scenario: CT08 - Validate formats with regular expressions
     * def newEmail = 'test.regex.' + new Date().getTime() + '@example.com'
     * def userData =
       """
@@ -228,7 +235,7 @@ Feature: User Management - ServeRest API
 
 
   @negative-validation
-  Scenario: Validate absence of fields
+  Scenario: CT09 - Validate absence of fields
     Given path '/usuarios'
     When method GET
     Then status 200
@@ -240,10 +247,15 @@ Feature: User Management - ServeRest API
 
 
   @variable-validation
-  Scenario: Use variables for dynamic validations
-    * def expectedEmail = 'fulano@qa.com'
-    * def expectedName = 'Fulano da Silva'
-    
+  Scenario: CT10 - Use variables for dynamic validations
+    * def expectedEmail = randomEmail()
+    * def userPayload = read('resources/userPayload.json')
+    * userPayload.email = expectedEmail
+    Given path '/usuarios'
+    And request userPayload
+    When method POST
+    Then status 201
+
     Given path '/usuarios'
     And param email = expectedEmail
     When method GET
@@ -254,7 +266,7 @@ Feature: User Management - ServeRest API
 
 
   @nested-json-validation
-  Scenario: Prepare data for nested object validation
+  Scenario: CT11 - Prepare data for nested object validation
     * def complexData =
       """
       {
@@ -278,3 +290,16 @@ Feature: User Management - ServeRest API
       """
     And match response.message == 'Cadastro realizado com sucesso'
     And match response._id == '#? _.length > 10'
+
+
+  @create-from-json
+  Scenario: CT12 - Create a user from fixed JSON file
+    * def userPayload = read('resources/userPayload.json')
+    # opcional: evitar erro de e-mail duplicado sobrescrevendo apenas o e-mail
+    * userPayload.email = randomEmail()
+    Given path '/usuarios'
+    And request userPayload
+    When method POST
+    Then status 201
+    And match response.message == 'Cadastro realizado com sucesso'
+    And match response._id == '#string'

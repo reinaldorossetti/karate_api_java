@@ -9,7 +9,7 @@ Feature: Product Management (Requires Admin Authentication)
     * def randomName = function(){ return 'Product ' + new Date().getTime() }
 
   @list-products @smoke
-  Scenario: List all products and validate JSON structure
+  Scenario: CT01 - List all products and validate JSON structure
     Given path '/products'
     When method GET
     Then status 200
@@ -39,7 +39,7 @@ Feature: Product Management (Requires Admin Authentication)
 
 
   @create-product @smoke
-  Scenario: Create a new product as an administrator
+  Scenario: CT02 - Create a new product as an administrator
     * def productName = randomName()
     * def productData =
       """
@@ -76,7 +76,7 @@ Feature: Product Management (Requires Admin Authentication)
 
 
   @duplicate-product
-  Scenario: Validate error when creating a product with a duplicate name
+  Scenario: CT03 - Validate error when creating a product with a duplicate name
     * def duplicateName = 'Duplicate Product Test ' + new Date().getTime()
     * def product =
       """
@@ -110,7 +110,7 @@ Feature: Product Management (Requires Admin Authentication)
 
 
   @search-with-filters
-  Scenario: Search for products using query parameters
+  Scenario: CT04 - Search for products using query parameters
     Given path '/products'
     And param nome = 'Logitech'
     When method GET
@@ -127,7 +127,7 @@ Feature: Product Management (Requires Admin Authentication)
 
 
   @update-product
-  Scenario: Update information of an existing product
+  Scenario: CT05 - Update information of an existing product
     * def productName = randomName()
     * def initialProduct =
       """
@@ -172,7 +172,7 @@ Feature: Product Management (Requires Admin Authentication)
 
 
   @price-validation
-  Scenario: Validate price calculations and comparisons
+  Scenario: CT06 - Validate price calculations and comparisons
     Given path '/products'
     When method GET
     Then status 200
@@ -193,7 +193,7 @@ Feature: Product Management (Requires Admin Authentication)
 
 
   @unauthorized
-  Scenario: Attempt to create a product without an authentication token
+  Scenario: CT07 - Attempt to create a product without an authentication token
     * def product =
       """
       {
@@ -218,7 +218,7 @@ Feature: Product Management (Requires Admin Authentication)
 
 
   @field-validation
-  Scenario Outline: Validate required fields when creating a product
+  Scenario Outline: CT08 - Validate required fields when creating a product
     * def incompleteProduct =
       """
       {
@@ -244,7 +244,7 @@ Feature: Product Management (Requires Admin Authentication)
 
 
   @complex-json
-  Scenario: Work with complex JSON data
+  Scenario: CT09 - Work with complex JSON data
     Given path '/products'
     When method GET
     Then status 200
@@ -270,7 +270,7 @@ Feature: Product Management (Requires Admin Authentication)
 
 
   @delete-product
-  Scenario: Delete an existing product
+  Scenario: CT10 - Delete an existing product
     * def productName = randomName()
     * def product =
       """
@@ -299,3 +299,15 @@ Feature: Product Management (Requires Admin Authentication)
     When method GET
     Then status 400
     And match response.message == 'Produto não encontrado'
+
+
+  @create-product-from-json
+  Scenario: CT11 - Create a product from fixed JSON payload
+    * def productPayload = read('resources/productPayload.json')
+    Given path '/products'
+    And header Authorization = token
+    And request productPayload
+    When method POST
+    Then status 201
+    And match response.message == 'Cadastro realizado com sucesso'
+    And match response._id == '#string'
