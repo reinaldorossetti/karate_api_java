@@ -96,7 +96,7 @@ karate_api_java/
 │       └── java/
 │           ├── karate-config.js          # Configuração global do Karate
 │           ├── logback-test.xml          # Configuração de logs
-│           ├── ParallelTest.java         # Execução paralela de todas as features
+│           ├── ParallelRunner.java       # Execução paralela centralizada (JUnit 5)
 │           │
 │           ├── karate/                   # Exemplos oficiais do Karate
 │           │   └── samples/
@@ -111,16 +111,21 @@ karate_api_java/
 │           └── serverest/                # Testes da API ServeRest
 │               ├── usuarios/
 │               │   ├── Users.feature
-│               │   └── UsersTest.java
+│               │   ├── UsersTest.java
+│               │   └── resources/
+│               │       └── userPayload.json
 │               ├── produtos/
 │               │   ├── Products.feature
-│               │   └── ProductsTest.java
+│               │   ├── ProductsTest.java
+│               │   └── resources/
+│               │       └── productPayload.json
 │               ├── login/
 │               │   ├── Login.feature
-│               │   └── LoginTest.java
-│               └── exemplosvalidacoes/
-│                   ├── JsonValidations.feature
-│                   └── JsonValidationsTest.java
+│               │   ├── LoginTest.java
+│               │   └── resources/
+│               │       └── loginPayload.json
+│               └── utils/
+│                   └── FakerUtils.java
 │
 ├── pom.xml                               # Dependências Maven
 └── README.md                             # Este arquivo
@@ -166,7 +171,7 @@ mvn -version
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/karate_api_java.git
+git clone https://github.com/reinaldorossetti/karate_api_java.git
 cd karate_api_java
 ```
 
@@ -192,6 +197,12 @@ mvn test
 mvn test
 ```
 
+### Executar suíte principal (ParallelRunner)
+
+```bash
+mvn test -Dtest=ParallelRunner
+```
+
 ### Executar um teste específico
 
 ```bash
@@ -211,11 +222,47 @@ mvn test -Dkarate.env=dev
 mvn test -Dkarate.env=prod
 ```
 
-### Executar em paralelo
+### Executar em paralelo (via Karate CLI)
 
 ```bash
 mvn test -Dkarate.options="--threads 5"
 ```
+
+---
+
+## ⚙️ Esteira CI/CD - GitHub Actions
+
+Este projeto possui integração contínua configurada no GitHub Actions em:
+
+- Arquivo: `.github/workflows/api-tests.yml`
+
+### 🔁 Quando a esteira é executada
+
+- `push` em qualquer branch
+- `pull_request` aberto ou atualizado
+
+### 🧱 Passos principais do job `test`
+
+1. **Checkout do código**
+  - `actions/checkout@v4`
+2. **Configuração do Java 21**
+  - `actions/setup-java@v5` com:
+    - `java-version: '21'`
+    - `distribution: 'temurin'`
+3. **Execução dos testes Karate via Maven**
+  - Comando: `mvn test -Dtest=ParallelRunner`
+  - Usa a classe `ParallelRunner` para executar as features em paralelo, filtrando cenários (ex.: `@regression`).
+4. **Publicação de relatórios do Karate**
+  - Publica `target/karate-reports` via `peaceiris/actions-gh-pages@v4` na branch `gh-pages`, pasta `karate-reports`.
+
+### 🌐 Acesso ao relatório no GitHub Pages
+
+Após a execução da esteira (branch padrão configurada no repositório):
+
+- URL do relatório: 
+  - `https://reinaldorossetti.github.io/karate_api_java/karate-reports/karate-summary.html`
+
+Certifique-se de que nas **Settings → Pages** do repositório o GitHub Pages esteja apontando para a branch `gh-pages`.
 
 ---
 
@@ -231,17 +278,25 @@ Feature: User Management - ServeRest API
 
   Background:
     * url 'https://serverest.dev'
+    * def FakerUtils = Java.type('serverest.utils.FakerUtils')
+    * def randomEmail = function(){ return FakerUtils.randomEmail() }
+    * def randomName = function(){ return FakerUtils.randomName() }
+    * def randomPassword = function(){ return FakerUtils.randomPassword() }
 
-  @list @smoke
-  Scenario: List all users and validate JSON structure
+  @list @smoke @regression
+  Scenario: CT01 - List all users and validate JSON structure
     Given path '/usuarios'
     When method GET
     Then status 200
-    And match response ==
+    And match response.quantidade == '#number? _ > 0'
+    And match each response.usuarios ==  
       """
       {
-        quantidade: '#number',
-        usuarios: '#array'
+        nome: '#string',
+        email: '#regex .+@.+\\..+',
+        password: '#string',
+        administrador: '#string',
+        _id: '#string'
       }
       """
 ```
@@ -249,24 +304,27 @@ Feature: User Management - ServeRest API
 ### Exemplo 2: Cadastrar Usuário (POST)
 
 ```gherkin
-  @cadastrar
-  Scenario: Cadastrar novo usuário com sucesso
-    * def randomEmail = 'teste' + karate.randomString(5) + '@email.com'
-    Given path ''
-    And request
+  @create @smoke @regression
+  Scenario: CT03 - Create a new user with complete validations
+    * def newEmail = randomEmail()
+    * def name = randomName()
+    * def password = randomPassword()
+    * def userData =
       """
       {
-        "nome": "Fulano da Silva",
-        "email": "#(randomEmail)",
-        "password": "senha123",
+        "nome": "#(name)",
+        "email": "#(newEmail)",
+        "password": "#(password)",
         "administrador": "true"
       }
       """
+    
+    Given path '/usuarios'
+    And request userData
     When method POST
     Then status 201
     And match response.message == 'Cadastro realizado com sucesso'
     And match response._id == '#string'
-    * def userId = response._id
 ```
 
 ### Exemplo 3: Login e Autenticação
@@ -279,28 +337,22 @@ Feature: User Authentication - Login
 
   Background:
     * url 'https://serverest.dev'
+    * def FakerUtils = Java.type('serverest.utils.FakerUtils')
+    * def randomProductName = function(){ return FakerUtils.randomProduct() }
 
-  @login-success @smoke
-  Scenario: Perform login with valid credentials and validate token
-    * def credentials =
-      """
-      {
-        "email": "fulano@qa.com",
-        "password": "teste"
-      }
-      """
-
+  @regression @smoke @login-success
+  Scenario: CT01 - Perform login with valid credentials and validate token
+    * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json')
     Given path '/login'
-    And request credentials
+    And request loginPayload
     When method POST
     Then status 200
-    And match response ==
-      """
-      {
-        message: '#string',
-        authorization: '#string'
-      }
-      """
+    * def message = response.message
+    * def authToken = response.authorization
+
+    And match message == 'Login realizado com sucesso'
+    And match authToken == '#notnull'
+    And match authToken == '#? _.length > 50'
 ```
 
 ### Exemplo 4: Testes com Autenticação (Produtos)
@@ -339,57 +391,43 @@ Feature: Product Management (Requires Admin Authentication)
 ### Exemplo 5: Data-Driven Testing
 
 ```gherkin
-  @validacao-email
-  Scenario Outline: Validar cadastro com emails inválidos
-    Given path ''
-    And request
+  @regression
+  Scenario Outline: CT03 - Validate required fields on login
+    * def incompleteData =
       """
       {
-        "nome": "Teste",
         "email": "<email>",
-        "password": "senha123",
-        "administrador": "true"
+        "password": "<password>"
       }
       """
+    
+    Given path '/login'
+    And request incompleteData
     When method POST
     Then status 400
-
+    * if (!incompleteData.email) karate.match(response, { email: '#string' })
+    * if (!incompleteData.password) karate.match(response, { password: '#string' })
+    
     Examples:
-      | email           |
-      | email.invalido  |
-      | @email.com      |
-      | email@          |
-      | email           |
+      | email          | password |
+      |                | senha123 |
+      | test@email.com |          |
+      |                |          |
 ```
 
-### Exemplo 6: Schema Validation (JsonValidations)
+### Exemplo 6: Validações avançadas com filtros (Users)
 
-**Feature**: `src/test/java/serverest/exemplosvalidacoes/JsonValidations.feature`
+**Feature**: `src/test/java/serverest/usuarios/Users.feature`
 
 ```gherkin
-  @schema-validation
-  Scenario: Validate the complete JSON structure
+  @advanced-validations @regression
+  Scenario: CT04 - Advanced JSON validations with filters
     Given path '/usuarios'
     When method GET
     Then status 200
-    And match response ==
-      """
-      {
-        quantidade: '#number',
-        usuarios: '#array'
-      }
-      """
-
-    And match each response.usuarios ==
-      """
-      {
-        nome: '#string',
-        email: '#string',
-        password: '#string',
-        administrador: '#string',
-        _id: '#string'
-      }
-      """
+    
+    * def admins = karate.filter(response.usuarios, function(x){ return x.administrador == 'true' })
+    * print 'Total administrators:', admins.length
 ```
 
 ---
@@ -403,29 +441,29 @@ function fn() {
   var config = {
     baseUrl: 'https://serverest.dev',
     timeout: 10000
-  };
-  
-  // Configuração por ambiente
-  var env = karate.env;
-  if (env === 'dev') {
-    config.baseUrl = 'http://localhost:3000';
-  } else if (env === 'prod') {
-    config.baseUrl = 'https://serverest.dev';
-  }
-  
-  return config;
-}
-```
+    * url 'https://serverest.dev'
+    * def loginResponse = call read('classpath:serverest/login/Login.feature@login-success')
+    * def token = loginResponse.authToken
+    * def randomName = function(){ return 'Product ' + new Date().getTime() }
 
-### 2. Assertions Poderosas
+  @create-product @smoke @regression
+  Scenario: CT02 - Create a new product as an administrator
+    * def productName = randomName()
+    * def productData =
+      """
+      {
+        "nome": "#(productName)",
+        "preco": 250,
+        "descricao": "Automated test product",
+        "quantidade": 100
+      }
+      """
 
-```gherkin
-# Validar tipo
-And match response.quantidade == '#number'
-
-# Validar array
-And match response.usuarios == '#array'
-
+      Given path '/produtos'
+    And header Authorization = token
+    And request productData
+    When method POST
+    Then status 201
 # Validar cada item do array
 And match each response.usuarios contains { nome: '#string' }
 

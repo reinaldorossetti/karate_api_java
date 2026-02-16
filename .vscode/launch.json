@@ -14,18 +14,6 @@
   },
   {
     "type": "karate",
-    "name": "env-test",
-    "request": "launch",
-    "feature": "${file}",
-    "karateArgs": [
-      "-e",
-      "test",
-      "-t",
-      "@smoke"
-    ]
-  },
-  {
-    "type": "karate",
     "name": "parallel-run",
     "request": "launch",
     "feature": "src/test/java/serverest/**/*.feature",
