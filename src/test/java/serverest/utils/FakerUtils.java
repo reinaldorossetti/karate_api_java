@@ -13,6 +13,10 @@ public class FakerUtils {
         return FAKER.name().fullName();
     }
 
+    public static String randomProduct() {
+        return FAKER.commerce().productName();
+    }
+
     public static String randomEmail() {
         return FAKER.internet().emailAddress();
     }

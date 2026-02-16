@@ -303,3 +303,29 @@ Feature: User Management - ServeRest API
     Then status 201
     And match response.message == 'Cadastro realizado com sucesso'
     And match response._id == '#string'
+
+
+  @create-and-delete
+  Scenario: CT13 - Create and delete user based on JSON payload
+    * def expectedEmail = randomEmail()
+    * def userPayload = read('resources/userPayload.json')
+    * userPayload.email = expectedEmail
+
+    Given path '/usuarios'
+    And request userPayload
+    When method POST
+    Then status 201
+    And match response.message == 'Cadastro realizado com sucesso'
+    * def userId = response._id
+
+    Given path '/usuarios/' + userId
+    When method DELETE
+    Then status 200
+    And match response.message == 'Registro excluído com sucesso'
+
+    Given path '/usuarios'
+    And param email = expectedEmail
+    When method GET
+    Then status 200
+    And match response.quantidade == 0
+    And match response.usuarios == '#[0]'

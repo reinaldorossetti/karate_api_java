@@ -6,6 +6,10 @@
 
 Projeto de automação de testes de API utilizando **Karate Framework** para testar a API REST **ServeRest** - uma API gratuita que simula uma loja virtual.
 
+Projeto estruturado com boas práticas, exemplos de testes, validações avançadas e integração com JUnit 5 para execução e relatórios.
+
+URI do repositório: [https://github.com/seu-usuario/karate_api_java](https://github.com/seu-usuario/karate_api_java)
+
 ---
 
 ## 📚 Índice
@@ -52,7 +56,7 @@ Projeto de automação de testes de API utilizando **Karate Framework** para tes
 
 ## 🌐 Sobre a API ServeRest
 
-[ServeRest](https://serverest.dev/) é uma API REST gratuita que simula uma loja virtual, criada por [Paulo Gonçalves](https://github.com/PauloGoncalvesBH) para fins educacionais e prática de testes de API.
+[ServeRest](https://serverest.dev/) é uma API REST gratuita que simula uma loja virtual para fins educacionais e prática de testes de API.
 
 ### 🛍️ Endpoints Disponíveis
 

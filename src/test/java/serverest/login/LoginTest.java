@@ -12,7 +12,7 @@ public class LoginTest {
     @Karate.Test
     Karate testLoginSmoke() {
         return Karate.run("Login")
-                .tags("@smoke")
+                .tags("@login")
                 .relativeTo(getClass());
     }
 }

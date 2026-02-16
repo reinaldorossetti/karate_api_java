@@ -4,38 +4,39 @@ Feature: Product Management (Requires Admin Authentication)
 
   Background:
     * url 'https://serverest.dev'
-    * def loginResponse = call read('classpath:serverest/login/Login.feature@reusable-login')
-    * def token = loginResponse.token
+    * def loginResponse = call read('classpath:serverest/login/Login.feature@login-success')
+    * def token = loginResponse.authToken
     * def randomName = function(){ return 'Product ' + new Date().getTime() }
 
   @list-products @smoke
   Scenario: CT01 - List all products and validate JSON structure
-    Given path '/products'
+    Given path '/produtos'
     When method GET
     Then status 200
     
     And match response ==
       """
       {
-        quantity: '#number',
-        products: '#array'
-      }
-      """
-    
-    And match each response.products ==
-      """
-      {
-        nome: '#string',
-        preco: '#number',
-        descricao: '#string',
         quantidade: '#number',
-        _id: '#string'
+        produtos: '#array'
       }
       """
     
-    And match each response.products contains { preco: '#number? _ > 0' }
+    And match each response.produtos ==
+        """
+        {
+          nome: '#string',
+          preco: '#number',
+          descricao: '#string',
+          quantidade: '#number',
+          _id: '#string',
+          // Allow extra fields
+        }
+        """
     
-    And match each response.products contains { quantidade: '#number? _ >= 0' }
+    And match each response.produtos contains { preco: '#number? _ > 0' }
+    
+    And match each response.produtos contains { quantidade: '#number? _ >= 0' }
 
 
   @create-product @smoke
@@ -51,7 +52,7 @@ Feature: Product Management (Requires Admin Authentication)
       }
       """
     
-    Given path '/products'
+      Given path '/produtos'
     And header Authorization = token
     And request productData
     When method POST
@@ -67,7 +68,7 @@ Feature: Product Management (Requires Admin Authentication)
     
     * def productId = response._id
     
-    Given path '/products/' + productId
+    Given path '/produtos/' + productId
     When method GET
     Then status 200
     And match response.nome == productName
@@ -88,39 +89,38 @@ Feature: Product Management (Requires Admin Authentication)
       }
       """
     
-    Given path '/products'
+      Given path '/produtos'
     And header Authorization = token
     And request product
     When method POST
     Then status 201
     
-    Given path '/products'
+    Given path '/produtos'
     And header Authorization = token
     And request product
     When method POST
     Then status 400
     
     And match response ==
-      """
-      {
-        message: 'Já existe produto com esse nome',
-        idProduto: '#string'
-      }
-      """
+        """
+        {
+          message: 'Já existe produto com esse nome'
+        }
+        """
 
 
   @search-with-filters
   Scenario: CT04 - Search for products using query parameters
-    Given path '/products'
+    Given path '/produtos'
     And param nome = 'Logitech'
     When method GET
     Then status 200
     
-    * def products = response.products
+    * def products = response.produtos
     * def allContainName = karate.filter(products, function(x){ return x.nome.includes('Logitech') })
-    And match allContainName.length > 0
+      And assert allContainName.length > 0
     
-    Given path '/products'
+    Given path '/produtos'
     And param preco = 100
     When method GET
     Then status 200
@@ -139,7 +139,7 @@ Feature: Product Management (Requires Admin Authentication)
       }
       """
     
-    Given path '/products'
+      Given path '/produtos'
     And header Authorization = token
     And request initialProduct
     When method POST
@@ -156,14 +156,14 @@ Feature: Product Management (Requires Admin Authentication)
       }
       """
     
-    Given path '/products/' + productId
+    Given path '/produtos/' + productId
     And header Authorization = token
     And request updatedProduct
     When method PUT
     Then status 200
     And match response.message == 'Registro alterado com sucesso'
     
-    Given path '/products/' + productId
+    Given path '/produtos/' + productId
     When method GET
     Then status 200
     And match response.preco == 200
@@ -173,11 +173,11 @@ Feature: Product Management (Requires Admin Authentication)
 
   @price-validation
   Scenario: CT06 - Validate price calculations and comparisons
-    Given path '/products'
+    Given path '/produtos'
     When method GET
     Then status 200
     
-    * def products = response.products
+    * def products = response.produtos
     * def prices = karate.map(products, function(x){ return x.preco })
     * def maxPrice = Math.max.apply(null, prices)
     * print 'Highest Price:', maxPrice
@@ -204,7 +204,7 @@ Feature: Product Management (Requires Admin Authentication)
       }
       """
     
-    Given path '/products'
+      Given path '/produtos'
     And request product
     When method POST
     Then status 401
@@ -229,7 +229,7 @@ Feature: Product Management (Requires Admin Authentication)
       }
       """
     
-    Given path '/products'
+      Given path '/produtos'
     And header Authorization = token
     And request incompleteProduct
     When method POST
@@ -245,13 +245,13 @@ Feature: Product Management (Requires Admin Authentication)
 
   @complex-json
   Scenario: CT09 - Work with complex JSON data
-    Given path '/products'
+    Given path '/produtos'
     When method GET
     Then status 200
     
-    * def cheapProducts = karate.filter(response.products, function(x){ return x.preco < 100 })
-    * def mediumProducts = karate.filter(response.products, function(x){ return x.preco >= 100 && x.preco < 500 })
-    * def expensiveProducts = karate.filter(response.products, function(x){ return x.preco >= 500 })
+    * def cheapProducts = karate.filter(response.produtos, function(x){ return x.preco < 100 })
+    * def mediumProducts = karate.filter(response.produtos, function(x){ return x.preco >= 100 && x.preco < 500 })
+    * def expensiveProducts = karate.filter(response.produtos, function(x){ return x.preco >= 500 })
     
     * def grouping =
       """
@@ -282,20 +282,20 @@ Feature: Product Management (Requires Admin Authentication)
       }
       """
     
-    Given path '/products'
+      Given path '/produtos'
     And header Authorization = token
     And request product
     When method POST
     Then status 201
     * def productId = response._id
     
-    Given path '/products/' + productId
+    Given path '/produtos/' + productId
     And header Authorization = token
     When method DELETE
     Then status 200
     And match response.message == 'Registro excluído com sucesso'
     
-    Given path '/products/' + productId
+    Given path '/produtos/' + productId
     When method GET
     Then status 400
     And match response.message == 'Produto não encontrado'
@@ -304,7 +304,7 @@ Feature: Product Management (Requires Admin Authentication)
   @create-product-from-json
   Scenario: CT11 - Create a product from fixed JSON payload
     * def productPayload = read('resources/productPayload.json')
-    Given path '/products'
+    Given path '/produtos'
     And header Authorization = token
     And request productPayload
     When method POST

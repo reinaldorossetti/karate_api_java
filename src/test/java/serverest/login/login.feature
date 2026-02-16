@@ -4,40 +4,25 @@ Feature: User Authentication - Login
 
   Background:
     * url 'https://serverest.dev'
+    * def FakerUtils = Java.type('serverest.utils.FakerUtils')
+    * def randomProductName = function(){ return FakerUtils.randomProduct() }
 
-  @login-success @smoke
+  @regression @smoke @login-success
   Scenario: CT01 - Perform login with valid credentials and validate token
-    * def credentials =
-      """
-      {
-        "email": "fulano@qa.com",
-        "password": "teste"
-      }
-      """
-    
+    * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json')
     Given path '/login'
-    And request credentials
+    And request loginPayload
     When method POST
     Then status 200
-    
-    And match response ==
-      """
-      {
-        message: '#string',
-        authorization: '#string'
-      }
-      """
-    
-    And match response.message == 'Login realizado com sucesso'
-    
-    And match response.authorization == '#notnull'
-    And match response.authorization == '#? _.length > 50'
-    
+    * def message = response.message
     * def authToken = response.authorization
+
+    And match message == 'Login realizado com sucesso'
+    And match authToken == '#notnull'
+    And match authToken == '#? _.length > 50'
     * print 'Generated Token:', authToken
 
-
-  @login-invalid
+  @regression
   Scenario: CT02 - Attempt login with invalid credentials
     * def invalidCredentials =
       """
@@ -55,7 +40,7 @@ Feature: User Authentication - Login
     And match response !contains { authorization: '#string' }
 
 
-  @required-fields-validation
+  @regression
   Scenario Outline: CT03 - Validate required fields on login
     * def incompleteData =
       """
@@ -69,7 +54,8 @@ Feature: User Authentication - Login
     And request incompleteData
     When method POST
     Then status 400
-    And match response contains { email: '#string' }
+    * if (!incompleteData.email) karate.match(response, { email: '#string' })
+    * if (!incompleteData.password) karate.match(response, { password: '#string' })
     
     Examples:
       | email              | password |
@@ -77,36 +63,37 @@ Feature: User Authentication - Login
       | test@email.com     |          |
       |                    |          |
 
-
-  @login-and-use-token
+  @regression
   Scenario: CT04 - Login and use token to access a protected resource
-    * def credentials = { "email": "fulano@qa.com", "password": "teste" }
-    
+    * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json')
     Given path '/login'
-    And request credentials
+    And request loginPayload
     When method POST
     Then status 200
-    * def token = response.authorization
-    
+    * def message = response.message
+    * def authToken = response.authorization
+    And match message == 'Login realizado com sucesso'
+
+    * def productName = randomProductName()
     * def newProduct =
       """
       {
-        "nome": "Auth Test Product",
+        "nome": "#(productName)",
         "preco": 100,
-        "descricao": "Authentication test product",
+        "descricao": "Produto gerado com Faker para teste de autenticação",
         "quantidade": 10
       }
       """
     
     Given path '/produtos'
-    And header Authorization = token
+    And header Authorization = authToken
     And request newProduct
     When method POST
     Then status 201
     And match response.message == 'Cadastro realizado com sucesso'
+    And match response._id == '#string'
 
-
-  @email-format-validation
+  @regression
   Scenario Outline: CT05 - Validate invalid email format
     * def invalidLogin = { "email": "<invalidEmail>", "password": "senha123" }
     
@@ -122,27 +109,5 @@ Feature: User Authentication - Login
       | @noname.com      |
       | email@nodomain   |
       | email            |
-
-
-  @reusable-login
-  Scenario: CT06 - Reusable login for other tests
-    * def credentials = { "email": "fulano@qa.com", "password": "teste" }
-    
-    Given path '/login'
-    And request credentials
-    When method POST
-    Then status 200
-    
-    * def token = response.authorization
-    * def message = response.message
-
-
-  @login-from-json
-  Scenario: CT07 - Perform login using fixed JSON payload
-    * def loginPayload = read('resources/loginPayload.json')
-    Given path '/login'
-    And request loginPayload
-    When method POST
-    Then status 200
-    And match response.message == 'Login realizado com sucesso'
-    And match response.authorization == '#string'
+      | 12345@test.c     |
+      | !@#$%            |
