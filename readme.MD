@@ -8,7 +8,9 @@ Projeto de automação de testes de API utilizando **Karate Framework** para tes
 
 Projeto estruturado com boas práticas, exemplos de testes, validações avançadas e integração com JUnit 5 para execução e relatórios.
 
-URI do repositório: [https://github.com/seu-usuario/karate_api_java](https://github.com/seu-usuario/karate_api_java)
+URI do repositório: [https://github.com/reinaldorossetti/karate_api_java](https://github.com/reinaldorossetti/karate_api_java)
+
+Reporte na esteira: [https://reinaldorossetti.github.io/karate_api_java/karate-reports/karate-summary.html](https://reinaldorossetti.github.io/karate_api_java/karate-reports/karate-summary.html)
 
 ---
 
