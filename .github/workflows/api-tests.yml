@@ -14,13 +14,8 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      - name: Download Karate JAR
-        run: |
-          wget https://github.com/karatelabs/karate/releases/download/v1.5.2/karate-1.5.2.jar
-          mv karate-1.5.2.jar karate.jar
-
-      - name: Run API Tests
-        run: java -jar karate.jar -T 4 --tags @regression src/test/java/serverest/**/*.feature
+      - name: Run API Tests with Maven
+        run: mvn -B test -Dkarate.options="--tags @regression"
 
       - name: Upload Test Reports
         if: always()

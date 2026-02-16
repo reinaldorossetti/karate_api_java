@@ -8,7 +8,7 @@ Feature: Product Management (Requires Admin Authentication)
     * def token = loginResponse.authToken
     * def randomName = function(){ return 'Product ' + new Date().getTime() }
 
-  @list-products @smoke
+  @list-products @smoke @regression
   Scenario: CT01 - List all products and validate JSON structure
     Given path '/produtos'
     When method GET
@@ -39,7 +39,7 @@ Feature: Product Management (Requires Admin Authentication)
     And match each response.produtos contains { quantidade: '#number? _ >= 0' }
 
 
-  @create-product @smoke
+  @create-product @smoke @regression
   Scenario: CT02 - Create a new product as an administrator
     * def productName = randomName()
     * def productData =
@@ -76,7 +76,7 @@ Feature: Product Management (Requires Admin Authentication)
     And match response.quantidade == 100
 
 
-  @duplicate-product
+  @duplicate-product @regression
   Scenario: CT03 - Validate error when creating a product with a duplicate name
     * def duplicateName = 'Duplicate Product Test ' + new Date().getTime()
     * def product =
@@ -109,7 +109,7 @@ Feature: Product Management (Requires Admin Authentication)
         """
 
 
-  @search-with-filters
+  @search-with-filters @regression
   Scenario: CT04 - Search for products using query parameters
     Given path '/produtos'
     And param nome = 'Logitech'
@@ -126,7 +126,7 @@ Feature: Product Management (Requires Admin Authentication)
     Then status 200
 
 
-  @update-product
+  @update-product @regression
   Scenario: CT05 - Update information of an existing product
     * def productName = randomName()
     * def initialProduct =
@@ -171,7 +171,7 @@ Feature: Product Management (Requires Admin Authentication)
     And match response.quantidade == 75
 
 
-  @price-validation
+  @price-validation @regression
   Scenario: CT06 - Validate price calculations and comparisons
     Given path '/produtos'
     When method GET
@@ -192,7 +192,7 @@ Feature: Product Management (Requires Admin Authentication)
     And match each products contains { preco: '#number? _ > 0 && _ < 100000' }
 
 
-  @unauthorized
+  @unauthorized @regression
   Scenario: CT07 - Attempt to create a product without an authentication token
     * def product =
       """
@@ -217,7 +217,7 @@ Feature: Product Management (Requires Admin Authentication)
       """
 
 
-  @field-validation
+  @field-validation @regression
   Scenario Outline: CT08 - Validate required fields when creating a product
     * def incompleteProduct =
       """
@@ -243,7 +243,7 @@ Feature: Product Management (Requires Admin Authentication)
       | Product Test      | 100   | Desc      | -5         | Negative quantity   |
 
 
-  @complex-json
+  @complex-json @regression
   Scenario: CT09 - Work with complex JSON data
     Given path '/produtos'
     When method GET
@@ -269,7 +269,7 @@ Feature: Product Management (Requires Admin Authentication)
     And match grouping contains { cheap: '#array', medium: '#array', expensive: '#array' }
 
 
-  @delete-product
+  @delete-product @regression
   Scenario: CT10 - Delete an existing product
     * def productName = randomName()
     * def product =
@@ -301,7 +301,7 @@ Feature: Product Management (Requires Admin Authentication)
     And match response.message == 'Produto não encontrado'
 
 
-  @create-product-from-json
+  @create-product-from-json @regression
   Scenario: CT11 - Create a product from fixed JSON payload
     * def productPayload = read('resources/productPayload.json')
     Given path '/produtos'

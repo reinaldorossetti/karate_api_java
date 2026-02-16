@@ -9,7 +9,7 @@ class ParallelTest {
     @Test
     void testParallel() {
         Results results = Runner.path("classpath:features")
-                .tags("~@ignore")
+                .tags("~@ignore", "@regression")
                 .parallel(5);  // 5 threads
         assertEquals(0, results.getFailCount(), results.getErrorMessages());
     }
