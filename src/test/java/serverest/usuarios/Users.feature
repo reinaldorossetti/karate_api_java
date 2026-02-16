@@ -9,7 +9,7 @@ Feature: User Management - ServeRest API
     * def randomName = function(){ return FakerUtils.randomName() }
     * def randomPassword = function(){ return FakerUtils.randomPassword() }
 
-  @list @smoke
+  @list @smoke @regression
   Scenario: CT01 - List all users and validate JSON structure
     * def newEmail = randomEmail()
     * def newName = randomName()
@@ -53,7 +53,7 @@ Feature: User Management - ServeRest API
     * print 'First user:', firstUser
 
 
-  @get-by-id
+  @get-by-id @regression
   Scenario: CT02 - Get a specific user by ID
     * def newEmail = randomEmail()
     Given path '/usuarios'
@@ -78,7 +78,7 @@ Feature: User Management - ServeRest API
     And match response == { nome: '#string', email: '#string', password: '#string', administrador: '#string', _id: '#string' }
 
 
-  @create @smoke
+  @create @smoke @regression
   Scenario: CT03 - Create a new user with complete validations
     * def newEmail = randomEmail()
     * def name = randomName()
@@ -110,7 +110,7 @@ Feature: User Management - ServeRest API
     And match response.email == newEmail
 
 
-  @advanced-validations
+  @advanced-validations @regression
   Scenario: CT04 - Advanced JSON validations with filters
     Given path '/usuarios'
     When method GET
@@ -130,7 +130,7 @@ Feature: User Management - ServeRest API
     And match emails == '#[] #string'
 
 
-  @error-validation
+  @error-validation @regression
   Scenario: CT05 - Validate error messages when creating a duplicate email
     * def duplicateEmail = randomEmail()
     * def user1 =
@@ -172,7 +172,7 @@ Feature: User Management - ServeRest API
     And match response.message == '#notnull'
 
 
-  @fuzzy-validation
+  @fuzzy-validation @regression
   Scenario: CT06 - Validate with fuzzy matching
     Given path '/usuarios'
     And param administrador = 'true'
@@ -195,7 +195,7 @@ Feature: User Management - ServeRest API
       """
 
 
-  @conditional-validation
+  @conditional-validation @regression
   Scenario: CT07 - Conditional validations based on values
     Given path '/usuarios'
     When method GET
@@ -208,7 +208,7 @@ Feature: User Management - ServeRest API
     And match user.email == '#? _.length > 5'
     And match user.password == '#? _.length > 0'
 
-  @regex-validation
+  @regex-validation @regression
   Scenario: CT08 - Validate formats with regular expressions
     * def newEmail = 'test.regex.' + new Date().getTime() + '@example.com'
     * def userData =
@@ -234,7 +234,7 @@ Feature: User Management - ServeRest API
     And match response._id == '#regex [A-Za-z0-9]+'
 
 
-  @negative-validation
+  @negative-validation @regression
   Scenario: CT09 - Validate absence of fields
     Given path '/usuarios'
     When method GET
@@ -246,7 +246,7 @@ Feature: User Management - ServeRest API
     And match user !contains { phone: '#string' }
 
 
-  @variable-validation
+  @variable-validation @regression
   Scenario: CT10 - Use variables for dynamic validations
     * def expectedEmail = randomEmail()
     * def userPayload = read('resources/userPayload.json')
@@ -265,7 +265,7 @@ Feature: User Management - ServeRest API
     And match user contains { email: '#(expectedEmail)', nome: '#string' }
 
 
-  @nested-json-validation
+  @nested-json-validation @regression
   Scenario: CT11 - Prepare data for nested object validation
     * def complexData =
       """
@@ -292,7 +292,7 @@ Feature: User Management - ServeRest API
     And match response._id == '#? _.length > 10'
 
 
-  @create-from-json
+  @create-from-json @regression
   Scenario: CT12 - Create a user from fixed JSON file
     * def userPayload = read('resources/userPayload.json')
     # opcional: evitar erro de e-mail duplicado sobrescrevendo apenas o e-mail
@@ -305,7 +305,7 @@ Feature: User Management - ServeRest API
     And match response._id == '#string'
 
 
-  @create-and-delete
+  @create-and-delete @regression
   Scenario: CT13 - Create and delete user based on JSON payload
     * def expectedEmail = randomEmail()
     * def userPayload = read('resources/userPayload.json')
