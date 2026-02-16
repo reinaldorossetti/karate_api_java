@@ -2,6 +2,15 @@ name: API Tests
 
 on: [push, pull_request]
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -18,11 +27,32 @@ jobs:
         run: mvn test -Dtest=ParallelRunner
         continue-on-error: true
 
-      - name: Upload Test Reports
+      - name: Upload Karate Reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-reports
-          path: |
-            target/karate-reports*
-            target/surefire-reports
+          name: karate-reports
+          path: target/karate-reports
+
+  deploy-pages:
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Karate Reports Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: karate-reports
+          path: ./site
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
