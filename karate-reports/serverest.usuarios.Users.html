@@ -21,7 +21,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
   capture_pageview:false,
   api_transport:'sendBeacon',
   loaded: function(posthog) { 
-    posthog.capture("report_feature",{distinct_id:"56e94ca7-b2ec-4f15-bd59-883e45ccfd6e",karate_version:"1.5.2",karate_meta:null});
+    posthog.capture("report_feature",{distinct_id:"ca0b8a49-7b22-4d7c-90bd-345434874d51",karate_version:"1.5.2",karate_meta:null});
   }
 });
 </script>
@@ -49,7 +49,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
     <div>Scenarios</div>
   </div>
   <div id="nav-date">
-    <div>2026-02-17 01:51:55 PM</div>
+    <div>2026-02-17 02:22:57 PM</div>
   </div>
 </div>
 
@@ -126,7 +126,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>244</span>
+              <span>ms:</span>&nbsp;<span>228</span>
             </div>
           </div>
           <div class="step-row">
@@ -177,7 +177,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def FakerUtils = Java.type(&#39;serverest.utils.FakerUtils&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">3</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -233,7 +233,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def randomName = function(){ return FakerUtils.randomName() }</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -289,7 +289,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def newEmail = randomEmail()</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">2</div>
   </div>
 
    
@@ -345,7 +345,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def newPassword = randomPassword()</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -434,7 +434,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method GET</span>
       </div>
     </div>
-    <div class="time-cell passed">221</div>
+    <div class="time-cell passed">210</div>
   </div>
 
    
@@ -443,7 +443,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.27">13:51:54.289 request:
+  <div class="preformatted" data-parent="0.27">14:22:56.557 request:
 1 &gt; GET https://serverest.dev/usuarios
 1 &gt; Host: serverest.dev
 1 &gt; Connection: Keep-Alive
@@ -451,7 +451,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-13:51:54.497 response time in milliseconds: 207
+14:22:56.766 response time in milliseconds: 208
 1 &lt; 200
 1 &lt; access-control-allow-origin: *
 1 &lt; x-dns-prefetch-control: off
@@ -461,12 +461,12 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &lt; x-content-type-options: nosniff
 1 &lt; x-xss-protection: 1; mode=block
 1 &lt; content-type: application/json; charset=utf-8
-1 &lt; x-cloud-trace-context: ae8b37e1020e757601cbbeeda253a01b
-1 &lt; date: Tue, 17 Feb 2026 13:51:54 GMT
+1 &lt; x-cloud-trace-context: e90f0c647039d1311542faaa3b87faed
+1 &lt; date: Tue, 17 Feb 2026 14:22:56 GMT
 1 &lt; server: Google Frontend
-1 &lt; Content-Length: 5755
+1 &lt; Content-Length: 3351
 {
-    &quot;quantidade&quot;: 26,
+    &quot;quantidade&quot;: 15,
     &quot;usuarios&quot;: [
         {
             &quot;nome&quot;: &quot;Fulano da Silva&quot;,
@@ -476,179 +476,102 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
             &quot;_id&quot;: &quot;0uxuPY0cbmQhpEz1&quot;
         },
         {
-            &quot;nome&quot;: &quot;rick@gmail.com&quot;,
-            &quot;email&quot;: &quot;rick@gmail.com&quot;,
+            &quot;nome&quot;: &quot;wilma@gmail.com&quot;,
+            &quot;email&quot;: &quot;wilma@gmail.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;1zfC8Y6C54gqgQDl&quot;
+            &quot;_id&quot;: &quot;3njfDSwDx7fq6fqE&quot;
         },
         {
-            &quot;nome&quot;: &quot;User Two&quot;,
-            &quot;email&quot;: &quot;guillermina@gmail.com&quot;,
-            &quot;password&quot;: &quot;Senha456@&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;2PIMR6HP1ZflZa8A&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;ernesto@gmail.com&quot;,
-            &quot;email&quot;: &quot;ernesto@gmail.com&quot;,
+            &quot;nome&quot;: &quot;danelle@gmail.com&quot;,
+            &quot;email&quot;: &quot;danelle@gmail.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;4WaahFqjsdghhTja&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;annetta@gmail.com&quot;,
-            &quot;email&quot;: &quot;annetta@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;5OH0seLKkGlb3aaf&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Cart User&quot;,
-            &quot;email&quot;: &quot;xochitl@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;A7E8xr28oklpRvFs&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;evelynn@gmail.com&quot;,
-            &quot;email&quot;: &quot;evelynn@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;AclXnfyBPiotwVM7&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;ahmad@gmail.com&quot;,
-            &quot;email&quot;: &quot;ahmad@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;Ap8qNjmWGUXhBSyF&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Complex User&quot;,
-            &quot;email&quot;: &quot;dirk@gmail.com&quot;,
-            &quot;password&quot;: &quot;senha123&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;FNDAgdMhzoTm6Uhy&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;cherry@gmail.com&quot;,
-            &quot;email&quot;: &quot;cherry@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;GgMvfLZIp1OAdRhE&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Peter.Lind&quot;,
-            &quot;email&quot;: &quot;Russ_Schneider59@hotmail.com&quot;,
-            &quot;password&quot;: &quot;368042252&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;GggEIFEQqqy26o7T&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Rodrigo5&quot;,
-            &quot;email&quot;: &quot;Mavis.Prohaska@yahoo.com&quot;,
-            &quot;password&quot;: &quot;141661674&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;Guzba7e5kUgVGgnd&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;alton@gmail.com&quot;,
-            &quot;email&quot;: &quot;alton@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;HpIqVKSOaM5iArnB&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;QA Tester&quot;,
-            &quot;email&quot;: &quot;test1771336234739@email.com&quot;,
-            &quot;password&quot;: &quot;123456&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;PhztvG1278iSrNeQ&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Reinaldo Mateus Rossetti&quot;,
-            &quot;email&quot;: &quot;penney@gmail.com&quot;,
-            &quot;password&quot;: &quot;reiload$123#&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;WhrXXg5ZqKI8m7RS&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;User One&quot;,
-            &quot;email&quot;: &quot;fallon@gmail.com&quot;,
-            &quot;password&quot;: &quot;Senha123@&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;cmf6XwPd9wV6XZX3&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;jerald@gmail.com&quot;,
-            &quot;email&quot;: &quot;jerald@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;dcl7MAwgRMefwscg&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;alejandro@gmail.com&quot;,
-            &quot;email&quot;: &quot;alejandro@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;iu9HuAdS7aO4WKdp&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;User With Cart&quot;,
-            &quot;email&quot;: &quot;leonor@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;jVWfReChCllU4HSn&quot;
+            &quot;_id&quot;: &quot;7u6gerucwczXd4pJ&quot;
         },
         {
             &quot;nome&quot;: &quot;Admin User&quot;,
-            &quot;email&quot;: &quot;admin.1771336312496@example.com&quot;,
+            &quot;email&quot;: &quot;admin.1771338175298@example.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;jsN0rWQuN7HghUKW&quot;
+            &quot;_id&quot;: &quot;Ecy5OrlFeRZGKvXy&quot;
         },
         {
-            &quot;nome&quot;: &quot;Reinaldo Mateus Rossetti&quot;,
-            &quot;email&quot;: &quot;ozzie@gmail.com&quot;,
-            &quot;password&quot;: &quot;reiload$123#&quot;,
+            &quot;nome&quot;: &quot;rosario@gmail.com&quot;,
+            &quot;email&quot;: &quot;rosario@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;Ex8d9l9H9y9eB7pg&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;antione@gmail.com&quot;,
+            &quot;email&quot;: &quot;antione@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;FOK6PzytrKZPHbeW&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;deann@gmail.com&quot;,
+            &quot;email&quot;: &quot;deann@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;UKbYWfUjhOiIZdGR&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;melina@gmail.com&quot;,
+            &quot;email&quot;: &quot;melina@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;cLjwpdnSXgRwykte&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;jesusita@gmail.com&quot;,
+            &quot;email&quot;: &quot;jesusita@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;gv7WD7b3jzXwHkOc&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;reanna@gmail.com&quot;,
+            &quot;email&quot;: &quot;reanna@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;iDubaCMHUkaQViZp&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;martina@gmail.com&quot;,
+            &quot;email&quot;: &quot;martina@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;kFonIKzRyvUTtjdj&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;Cart User&quot;,
+            &quot;email&quot;: &quot;roxanna@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;jtGqBusvWLoZkiru&quot;
+            &quot;_id&quot;: &quot;msqBOx6SqJkK0Lys&quot;
         },
         {
-            &quot;nome&quot;: &quot;louann@gmail.com&quot;,
-            &quot;email&quot;: &quot;louann@gmail.com&quot;,
+            &quot;nome&quot;: &quot;cathi@gmail.com&quot;,
+            &quot;email&quot;: &quot;cathi@gmail.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;n15Ro3nxY4Kj2Gq7&quot;
+            &quot;_id&quot;: &quot;v8y8LEyrL6Slndti&quot;
         },
         {
-            &quot;nome&quot;: &quot;Regex Test&quot;,
-            &quot;email&quot;: &quot;test.regex.1771336173718@example.com&quot;,
-            &quot;password&quot;: &quot;StrongPassword@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;qfX3092wOKsOCpLc&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Levi_OConnell84&quot;,
-            &quot;email&quot;: &quot;Kaci.Breitenberg@hotmail.com&quot;,
-            &quot;password&quot;: &quot;695141351&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;qgEdnbmSWPEzoghJ&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;jospeh@gmail.com&quot;,
-            &quot;email&quot;: &quot;jospeh@gmail.com&quot;,
+            &quot;nome&quot;: &quot;moshe@gmail.com&quot;,
+            &quot;email&quot;: &quot;moshe@gmail.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;sYFfKZZlU0bZnBuP&quot;
+            &quot;_id&quot;: &quot;wWpJA71FB5566OS9&quot;
         },
         {
-            &quot;nome&quot;: &quot;devon@gmail.com&quot;,
-            &quot;email&quot;: &quot;devon@gmail.com&quot;,
+            &quot;nome&quot;: &quot;ernie@gmail.com&quot;,
+            &quot;email&quot;: &quot;ernie@gmail.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;vrRGq5Qlpyy9dZX9&quot;
+            &quot;_id&quot;: &quot;z3qSUOczFsNWgMWV&quot;
         }
     ]
 }
@@ -731,7 +654,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match response.quantidade == &#39;#number? _ &gt; 0&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">2</div>
   </div>
 
    
@@ -787,7 +710,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match each response.usuarios ==</span>
       </div>
     </div>
-    <div class="time-cell passed">7</div>
+    <div class="time-cell passed">4</div>
   </div>
 
    
@@ -821,7 +744,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match each response.usuarios contains { administrador: &#39;#regex true|false&#39; }</span>
       </div>
     </div>
-    <div class="time-cell passed">5</div>
+    <div class="time-cell passed">3</div>
   </div>
 
    
@@ -886,7 +809,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.53">13:51:54.513 [print] First user: {
+  <div class="preformatted" data-parent="0.53">14:22:56.777 [print] First user: {
   &quot;nome&quot;: &quot;Fulano da Silva&quot;,
   &quot;email&quot;: &quot;fulano@qa.com&quot;,
   &quot;password&quot;: &quot;teste&quot;,
@@ -914,7 +837,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>345</span>
+              <span>ms:</span>&nbsp;<span>220</span>
             </div>
           </div>
           <div class="step-row">
@@ -993,7 +916,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def randomEmail = function(){ return FakerUtils.randomEmail() }</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -1049,7 +972,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def randomPassword = function(){ return FakerUtils.randomPassword() }</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">2</div>
   </div>
 
    
@@ -1077,7 +1000,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def newEmail = randomEmail()</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -1133,7 +1056,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method GET</span>
       </div>
     </div>
-    <div class="time-cell passed">209</div>
+    <div class="time-cell passed">139</div>
   </div>
 
    
@@ -1142,7 +1065,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.60">13:51:54.301 request:
+  <div class="preformatted" data-parent="0.60">14:22:56.640 request:
 1 &gt; GET https://serverest.dev/usuarios
 1 &gt; Host: serverest.dev
 1 &gt; Connection: Keep-Alive
@@ -1150,7 +1073,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-13:51:54.506 response time in milliseconds: 204
+14:22:56.777 response time in milliseconds: 136
 1 &lt; 200
 1 &lt; access-control-allow-origin: *
 1 &lt; x-dns-prefetch-control: off
@@ -1160,12 +1083,12 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &lt; x-content-type-options: nosniff
 1 &lt; x-xss-protection: 1; mode=block
 1 &lt; content-type: application/json; charset=utf-8
-1 &lt; x-cloud-trace-context: b359c0fdbd939010aa31ba971cffa88e
-1 &lt; date: Tue, 17 Feb 2026 13:51:54 GMT
+1 &lt; x-cloud-trace-context: 4f499f241677b0c0c318f419118ec534
+1 &lt; date: Tue, 17 Feb 2026 14:22:56 GMT
 1 &lt; server: Google Frontend
-1 &lt; Content-Length: 5755
+1 &lt; Content-Length: 3351
 {
-    &quot;quantidade&quot;: 26,
+    &quot;quantidade&quot;: 15,
     &quot;usuarios&quot;: [
         {
             &quot;nome&quot;: &quot;Fulano da Silva&quot;,
@@ -1175,179 +1098,102 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
             &quot;_id&quot;: &quot;0uxuPY0cbmQhpEz1&quot;
         },
         {
-            &quot;nome&quot;: &quot;rick@gmail.com&quot;,
-            &quot;email&quot;: &quot;rick@gmail.com&quot;,
+            &quot;nome&quot;: &quot;wilma@gmail.com&quot;,
+            &quot;email&quot;: &quot;wilma@gmail.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;1zfC8Y6C54gqgQDl&quot;
+            &quot;_id&quot;: &quot;3njfDSwDx7fq6fqE&quot;
         },
         {
-            &quot;nome&quot;: &quot;User Two&quot;,
-            &quot;email&quot;: &quot;guillermina@gmail.com&quot;,
-            &quot;password&quot;: &quot;Senha456@&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;2PIMR6HP1ZflZa8A&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;ernesto@gmail.com&quot;,
-            &quot;email&quot;: &quot;ernesto@gmail.com&quot;,
+            &quot;nome&quot;: &quot;danelle@gmail.com&quot;,
+            &quot;email&quot;: &quot;danelle@gmail.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;4WaahFqjsdghhTja&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;annetta@gmail.com&quot;,
-            &quot;email&quot;: &quot;annetta@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;5OH0seLKkGlb3aaf&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Cart User&quot;,
-            &quot;email&quot;: &quot;xochitl@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;A7E8xr28oklpRvFs&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;evelynn@gmail.com&quot;,
-            &quot;email&quot;: &quot;evelynn@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;AclXnfyBPiotwVM7&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;ahmad@gmail.com&quot;,
-            &quot;email&quot;: &quot;ahmad@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;Ap8qNjmWGUXhBSyF&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Complex User&quot;,
-            &quot;email&quot;: &quot;dirk@gmail.com&quot;,
-            &quot;password&quot;: &quot;senha123&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;FNDAgdMhzoTm6Uhy&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;cherry@gmail.com&quot;,
-            &quot;email&quot;: &quot;cherry@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;GgMvfLZIp1OAdRhE&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Peter.Lind&quot;,
-            &quot;email&quot;: &quot;Russ_Schneider59@hotmail.com&quot;,
-            &quot;password&quot;: &quot;368042252&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;GggEIFEQqqy26o7T&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Rodrigo5&quot;,
-            &quot;email&quot;: &quot;Mavis.Prohaska@yahoo.com&quot;,
-            &quot;password&quot;: &quot;141661674&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;Guzba7e5kUgVGgnd&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;alton@gmail.com&quot;,
-            &quot;email&quot;: &quot;alton@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;HpIqVKSOaM5iArnB&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;QA Tester&quot;,
-            &quot;email&quot;: &quot;test1771336234739@email.com&quot;,
-            &quot;password&quot;: &quot;123456&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;PhztvG1278iSrNeQ&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Reinaldo Mateus Rossetti&quot;,
-            &quot;email&quot;: &quot;penney@gmail.com&quot;,
-            &quot;password&quot;: &quot;reiload$123#&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;WhrXXg5ZqKI8m7RS&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;User One&quot;,
-            &quot;email&quot;: &quot;fallon@gmail.com&quot;,
-            &quot;password&quot;: &quot;Senha123@&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;cmf6XwPd9wV6XZX3&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;jerald@gmail.com&quot;,
-            &quot;email&quot;: &quot;jerald@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;dcl7MAwgRMefwscg&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;alejandro@gmail.com&quot;,
-            &quot;email&quot;: &quot;alejandro@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;iu9HuAdS7aO4WKdp&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;User With Cart&quot;,
-            &quot;email&quot;: &quot;leonor@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;jVWfReChCllU4HSn&quot;
+            &quot;_id&quot;: &quot;7u6gerucwczXd4pJ&quot;
         },
         {
             &quot;nome&quot;: &quot;Admin User&quot;,
-            &quot;email&quot;: &quot;admin.1771336312496@example.com&quot;,
+            &quot;email&quot;: &quot;admin.1771338175298@example.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;jsN0rWQuN7HghUKW&quot;
+            &quot;_id&quot;: &quot;Ecy5OrlFeRZGKvXy&quot;
         },
         {
-            &quot;nome&quot;: &quot;Reinaldo Mateus Rossetti&quot;,
-            &quot;email&quot;: &quot;ozzie@gmail.com&quot;,
-            &quot;password&quot;: &quot;reiload$123#&quot;,
+            &quot;nome&quot;: &quot;rosario@gmail.com&quot;,
+            &quot;email&quot;: &quot;rosario@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;Ex8d9l9H9y9eB7pg&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;antione@gmail.com&quot;,
+            &quot;email&quot;: &quot;antione@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;FOK6PzytrKZPHbeW&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;deann@gmail.com&quot;,
+            &quot;email&quot;: &quot;deann@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;UKbYWfUjhOiIZdGR&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;melina@gmail.com&quot;,
+            &quot;email&quot;: &quot;melina@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;cLjwpdnSXgRwykte&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;jesusita@gmail.com&quot;,
+            &quot;email&quot;: &quot;jesusita@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;gv7WD7b3jzXwHkOc&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;reanna@gmail.com&quot;,
+            &quot;email&quot;: &quot;reanna@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;iDubaCMHUkaQViZp&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;martina@gmail.com&quot;,
+            &quot;email&quot;: &quot;martina@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;kFonIKzRyvUTtjdj&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;Cart User&quot;,
+            &quot;email&quot;: &quot;roxanna@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;jtGqBusvWLoZkiru&quot;
+            &quot;_id&quot;: &quot;msqBOx6SqJkK0Lys&quot;
         },
         {
-            &quot;nome&quot;: &quot;louann@gmail.com&quot;,
-            &quot;email&quot;: &quot;louann@gmail.com&quot;,
+            &quot;nome&quot;: &quot;cathi@gmail.com&quot;,
+            &quot;email&quot;: &quot;cathi@gmail.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;n15Ro3nxY4Kj2Gq7&quot;
+            &quot;_id&quot;: &quot;v8y8LEyrL6Slndti&quot;
         },
         {
-            &quot;nome&quot;: &quot;Regex Test&quot;,
-            &quot;email&quot;: &quot;test.regex.1771336173718@example.com&quot;,
-            &quot;password&quot;: &quot;StrongPassword@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;qfX3092wOKsOCpLc&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Levi_OConnell84&quot;,
-            &quot;email&quot;: &quot;Kaci.Breitenberg@hotmail.com&quot;,
-            &quot;password&quot;: &quot;695141351&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;qgEdnbmSWPEzoghJ&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;jospeh@gmail.com&quot;,
-            &quot;email&quot;: &quot;jospeh@gmail.com&quot;,
+            &quot;nome&quot;: &quot;moshe@gmail.com&quot;,
+            &quot;email&quot;: &quot;moshe@gmail.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;sYFfKZZlU0bZnBuP&quot;
+            &quot;_id&quot;: &quot;wWpJA71FB5566OS9&quot;
         },
         {
-            &quot;nome&quot;: &quot;devon@gmail.com&quot;,
-            &quot;email&quot;: &quot;devon@gmail.com&quot;,
+            &quot;nome&quot;: &quot;ernie@gmail.com&quot;,
+            &quot;email&quot;: &quot;ernie@gmail.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;vrRGq5Qlpyy9dZX9&quot;
+            &quot;_id&quot;: &quot;z3qSUOczFsNWgMWV&quot;
         }
     ]
 }
@@ -1399,7 +1245,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def userId = response.usuarios[0]._id</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -1455,7 +1301,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method GET</span>
       </div>
     </div>
-    <div class="time-cell passed">132</div>
+    <div class="time-cell passed">76</div>
   </div>
 
    
@@ -1464,7 +1310,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.65">13:51:54.512 request:
+  <div class="preformatted" data-parent="0.65">14:22:56.779 request:
 2 &gt; GET https://serverest.dev/usuarios/0uxuPY0cbmQhpEz1
 2 &gt; Host: serverest.dev
 2 &gt; Connection: Keep-Alive
@@ -1472,7 +1318,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 2 &gt; Accept-Encoding: gzip,deflate
 
 
-13:51:54.641 response time in milliseconds: 129
+14:22:56.854 response time in milliseconds: 74
 2 &lt; 200
 2 &lt; access-control-allow-origin: *
 2 &lt; x-dns-prefetch-control: off
@@ -1482,8 +1328,8 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 2 &lt; x-content-type-options: nosniff
 2 &lt; x-xss-protection: 1; mode=block
 2 &lt; content-type: application/json; charset=utf-8
-2 &lt; x-cloud-trace-context: 89804fb3ce79ca7f8e02bc40dc359bef
-2 &lt; date: Tue, 17 Feb 2026 13:51:54 GMT
+2 &lt; x-cloud-trace-context: 2aadc2c06ecfbeac4d3bbd82fe4cbdad
+2 &lt; date: Tue, 17 Feb 2026 14:22:56 GMT
 2 &lt; server: Google Frontend
 2 &lt; Content-Length: 148
 {
@@ -1573,7 +1419,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match response.nome == &#39;#string&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -1686,7 +1532,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>279</span>
+              <span>ms:</span>&nbsp;<span>290</span>
             </div>
           </div>
           <div class="step-row">
@@ -1849,7 +1695,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def newEmail = randomEmail()</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -1877,7 +1723,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def name = randomName()</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -1933,7 +1779,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def userData =</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">2</div>
   </div>
 
    
@@ -2022,7 +1868,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">170</div>
+    <div class="time-cell passed">162</div>
   </div>
 
    
@@ -2031,17 +1877,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.98">13:51:54.525 request:
+  <div class="preformatted" data-parent="0.98">14:22:56.786 request:
 1 &gt; POST https://serverest.dev/usuarios
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 94
+1 &gt; Content-Length: 103
 1 &gt; Host: serverest.dev
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;nome&quot;:&quot;Soon Ledner&quot;,&quot;email&quot;:&quot;genaro@gmail.com&quot;,&quot;password&quot;:&quot;irv969i9&quot;,&quot;administrador&quot;:&quot;true&quot;}
+{&quot;nome&quot;:&quot;Marie Schmitt&quot;,&quot;email&quot;:&quot;louvenia@gmail.com&quot;,&quot;password&quot;:&quot;meyq0ufsbojs7&quot;,&quot;administrador&quot;:&quot;true&quot;}
 
-13:51:54.693 response time in milliseconds: 168
+14:22:56.947 response time in milliseconds: 160
 1 &lt; 201
 1 &lt; access-control-allow-origin: *
 1 &lt; x-dns-prefetch-control: off
@@ -2051,13 +1897,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &lt; x-content-type-options: nosniff
 1 &lt; x-xss-protection: 1; mode=block
 1 &lt; content-type: application/json; charset=utf-8
-1 &lt; x-cloud-trace-context: a92c2632e079308109aa2d6f08f8fa26
-1 &lt; date: Tue, 17 Feb 2026 13:51:54 GMT
+1 &lt; x-cloud-trace-context: 2a7bd29c0fb28008dd3aa22f9f2a0540
+1 &lt; date: Tue, 17 Feb 2026 14:22:56 GMT
 1 &lt; server: Google Frontend
 1 &lt; Content-Length: 82
 {
     &quot;message&quot;: &quot;Cadastro realizado com sucesso&quot;,
-    &quot;_id&quot;: &quot;ZqOhjjpCP3WySYLY&quot;
+    &quot;_id&quot;: &quot;sNrqIz3dil2Zx8eS&quot;
 }
 
 </div>   
@@ -2191,7 +2037,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def newUserId = response._id</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">3</div>
   </div>
 
    
@@ -2247,7 +2093,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method GET</span>
       </div>
     </div>
-    <div class="time-cell passed">103</div>
+    <div class="time-cell passed">119</div>
   </div>
 
    
@@ -2256,15 +2102,15 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.107">13:51:54.697 request:
-2 &gt; GET https://serverest.dev/usuarios/ZqOhjjpCP3WySYLY
+  <div class="preformatted" data-parent="0.107">14:22:56.952 request:
+2 &gt; GET https://serverest.dev/usuarios/sNrqIz3dil2Zx8eS
 2 &gt; Host: serverest.dev
 2 &gt; Connection: Keep-Alive
 2 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 2 &gt; Accept-Encoding: gzip,deflate
 
 
-13:51:54.796 response time in milliseconds: 99
+14:22:57.070 response time in milliseconds: 118
 2 &lt; 200
 2 &lt; access-control-allow-origin: *
 2 &lt; x-dns-prefetch-control: off
@@ -2274,16 +2120,16 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 2 &lt; x-content-type-options: nosniff
 2 &lt; x-xss-protection: 1; mode=block
 2 &lt; content-type: application/json; charset=utf-8
-2 &lt; x-cloud-trace-context: aea39dbd1bfcfb16bd1ad32910804293
-2 &lt; date: Tue, 17 Feb 2026 13:51:54 GMT
+2 &lt; x-cloud-trace-context: b8adc9c808f0c7aa7bee19990c50d539
+2 &lt; date: Tue, 17 Feb 2026 14:22:57 GMT
 2 &lt; server: Google Frontend
-2 &lt; Content-Length: 150
+2 &lt; Content-Length: 159
 {
-    &quot;nome&quot;: &quot;Soon Ledner&quot;,
-    &quot;email&quot;: &quot;genaro@gmail.com&quot;,
-    &quot;password&quot;: &quot;irv969i9&quot;,
+    &quot;nome&quot;: &quot;Marie Schmitt&quot;,
+    &quot;email&quot;: &quot;louvenia@gmail.com&quot;,
+    &quot;password&quot;: &quot;meyq0ufsbojs7&quot;,
     &quot;administrador&quot;: &quot;true&quot;,
-    &quot;_id&quot;: &quot;ZqOhjjpCP3WySYLY&quot;
+    &quot;_id&quot;: &quot;sNrqIz3dil2Zx8eS&quot;
 }
 
 </div>   
@@ -2390,7 +2236,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>193</span>
+              <span>ms:</span>&nbsp;<span>216</span>
             </div>
           </div>
           <div class="step-row">
@@ -2497,7 +2343,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def randomName = function(){ return FakerUtils.randomName() }</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -2581,7 +2427,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method GET</span>
       </div>
     </div>
-    <div class="time-cell passed">142</div>
+    <div class="time-cell passed">135</div>
   </div>
 
    
@@ -2590,7 +2436,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.116">13:51:54.561 request:
+  <div class="preformatted" data-parent="0.116">14:22:56.825 request:
 1 &gt; GET https://serverest.dev/usuarios
 1 &gt; Host: serverest.dev
 1 &gt; Connection: Keep-Alive
@@ -2598,7 +2444,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-13:51:54.702 response time in milliseconds: 139
+14:22:56.958 response time in milliseconds: 133
 1 &lt; 200
 1 &lt; access-control-allow-origin: *
 1 &lt; x-dns-prefetch-control: off
@@ -2608,12 +2454,12 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &lt; x-content-type-options: nosniff
 1 &lt; x-xss-protection: 1; mode=block
 1 &lt; content-type: application/json; charset=utf-8
-1 &lt; x-cloud-trace-context: 1ba69de3ee0d9dd1530b30a6bbc45e2f
-1 &lt; date: Tue, 17 Feb 2026 13:51:54 GMT
+1 &lt; x-cloud-trace-context: 72e391dac47299d23d2ef340b0ff9c0d
+1 &lt; date: Tue, 17 Feb 2026 14:22:56 GMT
 1 &lt; server: Google Frontend
-1 &lt; Content-Length: 6201
+1 &lt; Content-Length: 4039
 {
-    &quot;quantidade&quot;: 28,
+    &quot;quantidade&quot;: 18,
     &quot;usuarios&quot;: [
         {
             &quot;nome&quot;: &quot;Fulano da Silva&quot;,
@@ -2623,193 +2469,123 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
             &quot;_id&quot;: &quot;0uxuPY0cbmQhpEz1&quot;
         },
         {
-            &quot;nome&quot;: &quot;rick@gmail.com&quot;,
-            &quot;email&quot;: &quot;rick@gmail.com&quot;,
+            &quot;nome&quot;: &quot;wilma@gmail.com&quot;,
+            &quot;email&quot;: &quot;wilma@gmail.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;1zfC8Y6C54gqgQDl&quot;
+            &quot;_id&quot;: &quot;3njfDSwDx7fq6fqE&quot;
         },
         {
-            &quot;nome&quot;: &quot;User Two&quot;,
-            &quot;email&quot;: &quot;guillermina@gmail.com&quot;,
-            &quot;password&quot;: &quot;Senha456@&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;2PIMR6HP1ZflZa8A&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;ernesto@gmail.com&quot;,
-            &quot;email&quot;: &quot;ernesto@gmail.com&quot;,
+            &quot;nome&quot;: &quot;danelle@gmail.com&quot;,
+            &quot;email&quot;: &quot;danelle@gmail.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;4WaahFqjsdghhTja&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;annetta@gmail.com&quot;,
-            &quot;email&quot;: &quot;annetta@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;5OH0seLKkGlb3aaf&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Cart User&quot;,
-            &quot;email&quot;: &quot;xochitl@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;A7E8xr28oklpRvFs&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;evelynn@gmail.com&quot;,
-            &quot;email&quot;: &quot;evelynn@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;AclXnfyBPiotwVM7&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;ahmad@gmail.com&quot;,
-            &quot;email&quot;: &quot;ahmad@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;Ap8qNjmWGUXhBSyF&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Complex User&quot;,
-            &quot;email&quot;: &quot;dirk@gmail.com&quot;,
-            &quot;password&quot;: &quot;senha123&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;FNDAgdMhzoTm6Uhy&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;cherry@gmail.com&quot;,
-            &quot;email&quot;: &quot;cherry@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;GgMvfLZIp1OAdRhE&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Peter.Lind&quot;,
-            &quot;email&quot;: &quot;Russ_Schneider59@hotmail.com&quot;,
-            &quot;password&quot;: &quot;368042252&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;GggEIFEQqqy26o7T&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Rodrigo5&quot;,
-            &quot;email&quot;: &quot;Mavis.Prohaska@yahoo.com&quot;,
-            &quot;password&quot;: &quot;141661674&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;Guzba7e5kUgVGgnd&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;alton@gmail.com&quot;,
-            &quot;email&quot;: &quot;alton@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;HpIqVKSOaM5iArnB&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;QA Tester&quot;,
-            &quot;email&quot;: &quot;test1771336234739@email.com&quot;,
-            &quot;password&quot;: &quot;123456&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;PhztvG1278iSrNeQ&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Reinaldo Mateus Rossetti&quot;,
-            &quot;email&quot;: &quot;penney@gmail.com&quot;,
-            &quot;password&quot;: &quot;reiload$123#&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;WhrXXg5ZqKI8m7RS&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Soon Ledner&quot;,
-            &quot;email&quot;: &quot;genaro@gmail.com&quot;,
-            &quot;password&quot;: &quot;irv969i9&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;ZqOhjjpCP3WySYLY&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;User One&quot;,
-            &quot;email&quot;: &quot;fallon@gmail.com&quot;,
-            &quot;password&quot;: &quot;Senha123@&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;cmf6XwPd9wV6XZX3&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;jerald@gmail.com&quot;,
-            &quot;email&quot;: &quot;jerald@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;dcl7MAwgRMefwscg&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;alejandro@gmail.com&quot;,
-            &quot;email&quot;: &quot;alejandro@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;iu9HuAdS7aO4WKdp&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;User With Cart&quot;,
-            &quot;email&quot;: &quot;leonor@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;jVWfReChCllU4HSn&quot;
+            &quot;_id&quot;: &quot;7u6gerucwczXd4pJ&quot;
         },
         {
             &quot;nome&quot;: &quot;Admin User&quot;,
-            &quot;email&quot;: &quot;admin.1771336312496@example.com&quot;,
+            &quot;email&quot;: &quot;admin.1771338175298@example.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;jsN0rWQuN7HghUKW&quot;
+            &quot;_id&quot;: &quot;Ecy5OrlFeRZGKvXy&quot;
         },
         {
-            &quot;nome&quot;: &quot;Reinaldo Mateus Rossetti&quot;,
-            &quot;email&quot;: &quot;ozzie@gmail.com&quot;,
-            &quot;password&quot;: &quot;reiload$123#&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;jtGqBusvWLoZkiru&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;louann@gmail.com&quot;,
-            &quot;email&quot;: &quot;louann@gmail.com&quot;,
+            &quot;nome&quot;: &quot;rosario@gmail.com&quot;,
+            &quot;email&quot;: &quot;rosario@gmail.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;n15Ro3nxY4Kj2Gq7&quot;
+            &quot;_id&quot;: &quot;Ex8d9l9H9y9eB7pg&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;antione@gmail.com&quot;,
+            &quot;email&quot;: &quot;antione@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;FOK6PzytrKZPHbeW&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;deann@gmail.com&quot;,
+            &quot;email&quot;: &quot;deann@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;UKbYWfUjhOiIZdGR&quot;
         },
         {
             &quot;nome&quot;: &quot;Non Admin User&quot;,
-            &quot;email&quot;: &quot;non.admin.1771336314457@example.com&quot;,
+            &quot;email&quot;: &quot;non.admin.1771338176754@example.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;qXFs2nIaBijWlHa7&quot;
+            &quot;_id&quot;: &quot;VxuTW1lNfieNt6Ic&quot;
         },
         {
-            &quot;nome&quot;: &quot;Regex Test&quot;,
-            &quot;email&quot;: &quot;test.regex.1771336173718@example.com&quot;,
-            &quot;password&quot;: &quot;StrongPassword@123&quot;,
+            &quot;nome&quot;: &quot;melina@gmail.com&quot;,
+            &quot;email&quot;: &quot;melina@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;qfX3092wOKsOCpLc&quot;
+            &quot;_id&quot;: &quot;cLjwpdnSXgRwykte&quot;
         },
         {
-            &quot;nome&quot;: &quot;Levi_OConnell84&quot;,
-            &quot;email&quot;: &quot;Kaci.Breitenberg@hotmail.com&quot;,
-            &quot;password&quot;: &quot;695141351&quot;,
+            &quot;nome&quot;: &quot;jesusita@gmail.com&quot;,
+            &quot;email&quot;: &quot;jesusita@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;gv7WD7b3jzXwHkOc&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;reanna@gmail.com&quot;,
+            &quot;email&quot;: &quot;reanna@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;iDubaCMHUkaQViZp&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;martina@gmail.com&quot;,
+            &quot;email&quot;: &quot;martina@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;kFonIKzRyvUTtjdj&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;Cart User&quot;,
+            &quot;email&quot;: &quot;roxanna@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;qgEdnbmSWPEzoghJ&quot;
+            &quot;_id&quot;: &quot;msqBOx6SqJkK0Lys&quot;
         },
         {
-            &quot;nome&quot;: &quot;jospeh@gmail.com&quot;,
-            &quot;email&quot;: &quot;jospeh@gmail.com&quot;,
+            &quot;nome&quot;: &quot;Cart User&quot;,
+            &quot;email&quot;: &quot;cart.user.1771338176859@example.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;sYFfKZZlU0bZnBuP&quot;
+            &quot;_id&quot;: &quot;p7J16daFHOF2BmcT&quot;
         },
         {
-            &quot;nome&quot;: &quot;devon@gmail.com&quot;,
-            &quot;email&quot;: &quot;devon@gmail.com&quot;,
+            &quot;nome&quot;: &quot;Marie Schmitt&quot;,
+            &quot;email&quot;: &quot;louvenia@gmail.com&quot;,
+            &quot;password&quot;: &quot;meyq0ufsbojs7&quot;,
+            &quot;administrador&quot;: &quot;true&quot;,
+            &quot;_id&quot;: &quot;sNrqIz3dil2Zx8eS&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;cathi@gmail.com&quot;,
+            &quot;email&quot;: &quot;cathi@gmail.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;vrRGq5Qlpyy9dZX9&quot;
+            &quot;_id&quot;: &quot;v8y8LEyrL6Slndti&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;moshe@gmail.com&quot;,
+            &quot;email&quot;: &quot;moshe@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;wWpJA71FB5566OS9&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;ernie@gmail.com&quot;,
+            &quot;email&quot;: &quot;ernie@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;z3qSUOczFsNWgMWV&quot;
         }
     ]
 }
@@ -2861,7 +2637,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def admins = karate.filter(response.usuarios, function(x){ return x.administrador == &#39;true&#39; })</span>
       </div>
     </div>
-    <div class="time-cell passed">2</div>
+    <div class="time-cell passed">5</div>
   </div>
 
    
@@ -2898,7 +2674,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.120">13:51:54.705 [print] Total administrators: 13 
+  <div class="preformatted" data-parent="0.120">14:22:56.964 [print] Total administrators: 4 
 </div>   
 
   
@@ -2946,7 +2722,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def filteredUsers = karate.jsonPath(response, &quot;$.usuarios[?(@.administrador==&#39;true&#39;)]&quot;)</span>
       </div>
     </div>
-    <div class="time-cell passed">37</div>
+    <div class="time-cell passed">68</div>
   </div>
 
    
@@ -2983,7 +2759,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.125">13:51:54.745 [print] Admin users found: 13 
+  <div class="preformatted" data-parent="0.125">14:22:57.034 [print] Admin users found: 4 
 </div>   
 
   
@@ -3031,7 +2807,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>print &#39;List of emails:&#39;, emails</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -3040,35 +2816,25 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.128">13:51:54.746 [print] List of emails: [
+  <div class="preformatted" data-parent="0.128">14:22:57.035 [print] List of emails: [
   &quot;fulano@qa.com&quot;,
-  &quot;rick@gmail.com&quot;,
-  &quot;guillermina@gmail.com&quot;,
-  &quot;ernesto@gmail.com&quot;,
-  &quot;annetta@gmail.com&quot;,
-  &quot;xochitl@gmail.com&quot;,
-  &quot;evelynn@gmail.com&quot;,
-  &quot;ahmad@gmail.com&quot;,
-  &quot;dirk@gmail.com&quot;,
-  &quot;cherry@gmail.com&quot;,
-  &quot;Russ_Schneider59@hotmail.com&quot;,
-  &quot;Mavis.Prohaska@yahoo.com&quot;,
-  &quot;alton@gmail.com&quot;,
-  &quot;test1771336234739@email.com&quot;,
-  &quot;penney@gmail.com&quot;,
-  &quot;genaro@gmail.com&quot;,
-  &quot;fallon@gmail.com&quot;,
-  &quot;jerald@gmail.com&quot;,
-  &quot;alejandro@gmail.com&quot;,
-  &quot;leonor@gmail.com&quot;,
-  &quot;admin.1771336312496@example.com&quot;,
-  &quot;ozzie@gmail.com&quot;,
-  &quot;louann@gmail.com&quot;,
-  &quot;non.admin.1771336314457@example.com&quot;,
-  &quot;test.regex.1771336173718@example.com&quot;,
-  &quot;Kaci.Breitenberg@hotmail.com&quot;,
-  &quot;jospeh@gmail.com&quot;,
-  &quot;devon@gmail.com&quot;
+  &quot;wilma@gmail.com&quot;,
+  &quot;danelle@gmail.com&quot;,
+  &quot;admin.1771338175298@example.com&quot;,
+  &quot;rosario@gmail.com&quot;,
+  &quot;antione@gmail.com&quot;,
+  &quot;deann@gmail.com&quot;,
+  &quot;non.admin.1771338176754@example.com&quot;,
+  &quot;melina@gmail.com&quot;,
+  &quot;jesusita@gmail.com&quot;,
+  &quot;reanna@gmail.com&quot;,
+  &quot;martina@gmail.com&quot;,
+  &quot;roxanna@gmail.com&quot;,
+  &quot;cart.user.1771338176859@example.com&quot;,
+  &quot;louvenia@gmail.com&quot;,
+  &quot;cathi@gmail.com&quot;,
+  &quot;moshe@gmail.com&quot;,
+  &quot;ernie@gmail.com&quot;
 ]
  
 </div>   
@@ -3090,7 +2856,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match emails == &#39;#[] #string&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">5</div>
+    <div class="time-cell passed">3</div>
   </div>
 
    
@@ -3119,7 +2885,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>176</span>
+              <span>ms:</span>&nbsp;<span>192</span>
             </div>
           </div>
           <div class="step-row">
@@ -3226,7 +2992,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def randomName = function(){ return FakerUtils.randomName() }</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">3</div>
   </div>
 
    
@@ -3399,7 +3165,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">89</div>
+    <div class="time-cell passed">100</div>
   </div>
 
    
@@ -3408,17 +3174,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.148">13:51:54.650 request:
+  <div class="preformatted" data-parent="0.148">14:22:56.869 request:
 1 &gt; POST https://serverest.dev/usuarios
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 92
+1 &gt; Content-Length: 89
 1 &gt; Host: serverest.dev
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;nome&quot;:&quot;User 1&quot;,&quot;email&quot;:&quot;lakeisha@gmail.com&quot;,&quot;password&quot;:&quot;senha123&quot;,&quot;administrador&quot;:&quot;false&quot;}
+{&quot;nome&quot;:&quot;User 1&quot;,&quot;email&quot;:&quot;lakia@gmail.com&quot;,&quot;password&quot;:&quot;senha123&quot;,&quot;administrador&quot;:&quot;false&quot;}
 
-13:51:54.738 response time in milliseconds: 87
+14:22:56.968 response time in milliseconds: 99
 1 &lt; 201
 1 &lt; access-control-allow-origin: *
 1 &lt; x-dns-prefetch-control: off
@@ -3428,13 +3194,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &lt; x-content-type-options: nosniff
 1 &lt; x-xss-protection: 1; mode=block
 1 &lt; content-type: application/json; charset=utf-8
-1 &lt; x-cloud-trace-context: 712cfc732ea0aa6fa3d43c1403f7eaea
-1 &lt; date: Tue, 17 Feb 2026 13:51:54 GMT
+1 &lt; x-cloud-trace-context: 4306a7be2a790be846bc25b6cb8f8deb
+1 &lt; date: Tue, 17 Feb 2026 14:22:56 GMT
 1 &lt; server: Google Frontend
 1 &lt; Content-Length: 82
 {
     &quot;message&quot;: &quot;Cadastro realizado com sucesso&quot;,
-    &quot;_id&quot;: &quot;sp6ebvwVHZ38dfZY&quot;
+    &quot;_id&quot;: &quot;DpBgbjwVTBAqlRwU&quot;
 }
 
 </div>   
@@ -3573,7 +3339,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">85</div>
+    <div class="time-cell passed">86</div>
   </div>
 
    
@@ -3582,17 +3348,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.163">13:51:54.741 request:
+  <div class="preformatted" data-parent="0.163">14:22:56.970 request:
 2 &gt; POST https://serverest.dev/usuarios
 2 &gt; Content-Type: application/json; charset=UTF-8
-2 &gt; Content-Length: 98
+2 &gt; Content-Length: 95
 2 &gt; Host: serverest.dev
 2 &gt; Connection: Keep-Alive
 2 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 2 &gt; Accept-Encoding: gzip,deflate
-{&quot;nome&quot;:&quot;User 2&quot;,&quot;email&quot;:&quot;lakeisha@gmail.com&quot;,&quot;password&quot;:&quot;anotherpassword&quot;,&quot;administrador&quot;:&quot;true&quot;}
+{&quot;nome&quot;:&quot;User 2&quot;,&quot;email&quot;:&quot;lakia@gmail.com&quot;,&quot;password&quot;:&quot;anotherpassword&quot;,&quot;administrador&quot;:&quot;true&quot;}
 
-13:51:54.823 response time in milliseconds: 81
+14:22:57.055 response time in milliseconds: 84
 2 &lt; 400
 2 &lt; access-control-allow-origin: *
 2 &lt; x-dns-prefetch-control: off
@@ -3602,8 +3368,8 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 2 &lt; x-content-type-options: nosniff
 2 &lt; x-xss-protection: 1; mode=block
 2 &lt; content-type: application/json; charset=utf-8
-2 &lt; x-cloud-trace-context: 8659e9e6f4e8b4ff92e807123b9447f9
-2 &lt; date: Tue, 17 Feb 2026 13:51:54 GMT
+2 &lt; x-cloud-trace-context: 704db6174b1a6804dd2ac985c6c0a00b
+2 &lt; date: Tue, 17 Feb 2026 14:22:57 GMT
 2 &lt; server: Google Frontend
 2 &lt; Content-Length: 53
 {
@@ -3716,7 +3482,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>156</span>
+              <span>ms:</span>&nbsp;<span>154</span>
             </div>
           </div>
           <div class="step-row">
@@ -3767,7 +3533,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def FakerUtils = Java.type(&#39;serverest.utils.FakerUtils&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">2</div>
   </div>
 
    
@@ -3823,7 +3589,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def randomName = function(){ return FakerUtils.randomName() }</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -3935,7 +3701,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method GET</span>
       </div>
     </div>
-    <div class="time-cell passed">152</div>
+    <div class="time-cell passed">135</div>
   </div>
 
    
@@ -3944,7 +3710,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.179">13:51:54.755 request:
+  <div class="preformatted" data-parent="0.179">14:22:57.007 request:
 1 &gt; GET https://serverest.dev/usuarios?administrador=true
 1 &gt; Host: serverest.dev
 1 &gt; Connection: Keep-Alive
@@ -3952,7 +3718,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-13:51:54.906 response time in milliseconds: 150
+14:22:57.141 response time in milliseconds: 134
 1 &lt; 200
 1 &lt; access-control-allow-origin: *
 1 &lt; x-dns-prefetch-control: off
@@ -3962,12 +3728,12 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &lt; x-content-type-options: nosniff
 1 &lt; x-xss-protection: 1; mode=block
 1 &lt; content-type: application/json; charset=utf-8
-1 &lt; x-cloud-trace-context: 88495aa53cc117485165cb237f548230
-1 &lt; date: Tue, 17 Feb 2026 13:51:54 GMT
+1 &lt; x-cloud-trace-context: a20c5826415acafbdac879e590a16370
+1 &lt; date: Tue, 17 Feb 2026 14:22:57 GMT
 1 &lt; server: Google Frontend
-1 &lt; Content-Length: 2864
+1 &lt; Content-Length: 913
 {
-    &quot;quantidade&quot;: 13,
+    &quot;quantidade&quot;: 4,
     &quot;usuarios&quot;: [
         {
             &quot;nome&quot;: &quot;Fulano da Silva&quot;,
@@ -3977,88 +3743,25 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
             &quot;_id&quot;: &quot;0uxuPY0cbmQhpEz1&quot;
         },
         {
-            &quot;nome&quot;: &quot;User Two&quot;,
-            &quot;email&quot;: &quot;guillermina@gmail.com&quot;,
-            &quot;password&quot;: &quot;Senha456@&quot;,
+            &quot;nome&quot;: &quot;Admin User&quot;,
+            &quot;email&quot;: &quot;admin.1771338175298@example.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;2PIMR6HP1ZflZa8A&quot;
+            &quot;_id&quot;: &quot;Ecy5OrlFeRZGKvXy&quot;
         },
         {
             &quot;nome&quot;: &quot;Cart User&quot;,
-            &quot;email&quot;: &quot;xochitl@gmail.com&quot;,
+            &quot;email&quot;: &quot;roxanna@gmail.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;A7E8xr28oklpRvFs&quot;
+            &quot;_id&quot;: &quot;msqBOx6SqJkK0Lys&quot;
         },
         {
-            &quot;nome&quot;: &quot;Complex User&quot;,
-            &quot;email&quot;: &quot;dirk@gmail.com&quot;,
-            &quot;password&quot;: &quot;senha123&quot;,
+            &quot;nome&quot;: &quot;Marie Schmitt&quot;,
+            &quot;email&quot;: &quot;louvenia@gmail.com&quot;,
+            &quot;password&quot;: &quot;meyq0ufsbojs7&quot;,
             &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;FNDAgdMhzoTm6Uhy&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Peter.Lind&quot;,
-            &quot;email&quot;: &quot;Russ_Schneider59@hotmail.com&quot;,
-            &quot;password&quot;: &quot;368042252&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;GggEIFEQqqy26o7T&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Rodrigo5&quot;,
-            &quot;email&quot;: &quot;Mavis.Prohaska@yahoo.com&quot;,
-            &quot;password&quot;: &quot;141661674&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;Guzba7e5kUgVGgnd&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;QA Tester&quot;,
-            &quot;email&quot;: &quot;test1771336234739@email.com&quot;,
-            &quot;password&quot;: &quot;123456&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;PhztvG1278iSrNeQ&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Reinaldo Mateus Rossetti&quot;,
-            &quot;email&quot;: &quot;penney@gmail.com&quot;,
-            &quot;password&quot;: &quot;reiload$123#&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;WhrXXg5ZqKI8m7RS&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Soon Ledner&quot;,
-            &quot;email&quot;: &quot;genaro@gmail.com&quot;,
-            &quot;password&quot;: &quot;irv969i9&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;ZqOhjjpCP3WySYLY&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;User With Cart&quot;,
-            &quot;email&quot;: &quot;leonor@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;jVWfReChCllU4HSn&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Admin User&quot;,
-            &quot;email&quot;: &quot;admin.1771336312496@example.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;jsN0rWQuN7HghUKW&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Reinaldo Mateus Rossetti&quot;,
-            &quot;email&quot;: &quot;ozzie@gmail.com&quot;,
-            &quot;password&quot;: &quot;reiload$123#&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;jtGqBusvWLoZkiru&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Levi_OConnell84&quot;,
-            &quot;email&quot;: &quot;Kaci.Breitenberg@hotmail.com&quot;,
-            &quot;password&quot;: &quot;695141351&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;qgEdnbmSWPEzoghJ&quot;
+            &quot;_id&quot;: &quot;sNrqIz3dil2Zx8eS&quot;
         }
     ]
 }
@@ -4110,7 +3813,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match response ==</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">4</div>
   </div>
 
    
@@ -4141,7 +3844,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match each response.usuarios contains</span>
       </div>
     </div>
-    <div class="time-cell passed">3</div>
+    <div class="time-cell passed">11</div>
   </div>
 
    
@@ -4174,7 +3877,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>123</span>
+              <span>ms:</span>&nbsp;<span>134</span>
             </div>
           </div>
           <div class="step-row">
@@ -4365,7 +4068,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method GET</span>
       </div>
     </div>
-    <div class="time-cell passed">117</div>
+    <div class="time-cell passed">118</div>
   </div>
 
    
@@ -4374,7 +4077,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.201">13:51:54.804 request:
+  <div class="preformatted" data-parent="0.201">14:22:57.043 request:
 1 &gt; GET https://serverest.dev/usuarios
 1 &gt; Host: serverest.dev
 1 &gt; Connection: Keep-Alive
@@ -4382,7 +4085,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-13:51:54.919 response time in milliseconds: 114
+14:22:57.156 response time in milliseconds: 107
 1 &lt; 200
 1 &lt; access-control-allow-origin: *
 1 &lt; x-dns-prefetch-control: off
@@ -4392,12 +4095,12 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &lt; x-content-type-options: nosniff
 1 &lt; x-xss-protection: 1; mode=block
 1 &lt; content-type: application/json; charset=utf-8
-1 &lt; x-cloud-trace-context: c1f7b10296442aff729737a994fb6560
-1 &lt; date: Tue, 17 Feb 2026 13:51:54 GMT
+1 &lt; x-cloud-trace-context: 2e68c99058d8b94348454f60c47f27cd
+1 &lt; date: Tue, 17 Feb 2026 14:22:57 GMT
 1 &lt; server: Google Frontend
-1 &lt; Content-Length: 6640
+1 &lt; Content-Length: 4242
 {
-    &quot;quantidade&quot;: 30,
+    &quot;quantidade&quot;: 19,
     &quot;usuarios&quot;: [
         {
             &quot;nome&quot;: &quot;Fulano da Silva&quot;,
@@ -4407,207 +4110,130 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
             &quot;_id&quot;: &quot;0uxuPY0cbmQhpEz1&quot;
         },
         {
-            &quot;nome&quot;: &quot;rick@gmail.com&quot;,
-            &quot;email&quot;: &quot;rick@gmail.com&quot;,
+            &quot;nome&quot;: &quot;wilma@gmail.com&quot;,
+            &quot;email&quot;: &quot;wilma@gmail.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;1zfC8Y6C54gqgQDl&quot;
+            &quot;_id&quot;: &quot;3njfDSwDx7fq6fqE&quot;
         },
         {
-            &quot;nome&quot;: &quot;User Two&quot;,
-            &quot;email&quot;: &quot;guillermina@gmail.com&quot;,
-            &quot;password&quot;: &quot;Senha456@&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;2PIMR6HP1ZflZa8A&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;ernesto@gmail.com&quot;,
-            &quot;email&quot;: &quot;ernesto@gmail.com&quot;,
+            &quot;nome&quot;: &quot;danelle@gmail.com&quot;,
+            &quot;email&quot;: &quot;danelle@gmail.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;4WaahFqjsdghhTja&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;annetta@gmail.com&quot;,
-            &quot;email&quot;: &quot;annetta@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;5OH0seLKkGlb3aaf&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Cart User&quot;,
-            &quot;email&quot;: &quot;xochitl@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;A7E8xr28oklpRvFs&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;evelynn@gmail.com&quot;,
-            &quot;email&quot;: &quot;evelynn@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;AclXnfyBPiotwVM7&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;ahmad@gmail.com&quot;,
-            &quot;email&quot;: &quot;ahmad@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;Ap8qNjmWGUXhBSyF&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Complex User&quot;,
-            &quot;email&quot;: &quot;dirk@gmail.com&quot;,
-            &quot;password&quot;: &quot;senha123&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;FNDAgdMhzoTm6Uhy&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;cherry@gmail.com&quot;,
-            &quot;email&quot;: &quot;cherry@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;GgMvfLZIp1OAdRhE&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Peter.Lind&quot;,
-            &quot;email&quot;: &quot;Russ_Schneider59@hotmail.com&quot;,
-            &quot;password&quot;: &quot;368042252&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;GggEIFEQqqy26o7T&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Rodrigo5&quot;,
-            &quot;email&quot;: &quot;Mavis.Prohaska@yahoo.com&quot;,
-            &quot;password&quot;: &quot;141661674&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;Guzba7e5kUgVGgnd&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;alton@gmail.com&quot;,
-            &quot;email&quot;: &quot;alton@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;HpIqVKSOaM5iArnB&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;QA Tester&quot;,
-            &quot;email&quot;: &quot;test1771336234739@email.com&quot;,
-            &quot;password&quot;: &quot;123456&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;PhztvG1278iSrNeQ&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Reinaldo Mateus Rossetti&quot;,
-            &quot;email&quot;: &quot;penney@gmail.com&quot;,
-            &quot;password&quot;: &quot;reiload$123#&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;WhrXXg5ZqKI8m7RS&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Soon Ledner&quot;,
-            &quot;email&quot;: &quot;genaro@gmail.com&quot;,
-            &quot;password&quot;: &quot;irv969i9&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;ZqOhjjpCP3WySYLY&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;User One&quot;,
-            &quot;email&quot;: &quot;fallon@gmail.com&quot;,
-            &quot;password&quot;: &quot;Senha123@&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;cmf6XwPd9wV6XZX3&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;jerald@gmail.com&quot;,
-            &quot;email&quot;: &quot;jerald@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;dcl7MAwgRMefwscg&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;alejandro@gmail.com&quot;,
-            &quot;email&quot;: &quot;alejandro@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;iu9HuAdS7aO4WKdp&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;User With Cart&quot;,
-            &quot;email&quot;: &quot;leonor@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;jVWfReChCllU4HSn&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Admin User&quot;,
-            &quot;email&quot;: &quot;admin.1771336312496@example.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;jsN0rWQuN7HghUKW&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Reinaldo Mateus Rossetti&quot;,
-            &quot;email&quot;: &quot;ozzie@gmail.com&quot;,
-            &quot;password&quot;: &quot;reiload$123#&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;jtGqBusvWLoZkiru&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Cart User&quot;,
-            &quot;email&quot;: &quot;cart.user.1771336314625@example.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;lFlauoFkB8R9XX46&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;louann@gmail.com&quot;,
-            &quot;email&quot;: &quot;louann@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;n15Ro3nxY4Kj2Gq7&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Non Admin User&quot;,
-            &quot;email&quot;: &quot;non.admin.1771336314457@example.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;qXFs2nIaBijWlHa7&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Regex Test&quot;,
-            &quot;email&quot;: &quot;test.regex.1771336173718@example.com&quot;,
-            &quot;password&quot;: &quot;StrongPassword@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;qfX3092wOKsOCpLc&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Levi_OConnell84&quot;,
-            &quot;email&quot;: &quot;Kaci.Breitenberg@hotmail.com&quot;,
-            &quot;password&quot;: &quot;695141351&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;qgEdnbmSWPEzoghJ&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;jospeh@gmail.com&quot;,
-            &quot;email&quot;: &quot;jospeh@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;sYFfKZZlU0bZnBuP&quot;
+            &quot;_id&quot;: &quot;7u6gerucwczXd4pJ&quot;
         },
         {
             &quot;nome&quot;: &quot;User 1&quot;,
-            &quot;email&quot;: &quot;lakeisha@gmail.com&quot;,
+            &quot;email&quot;: &quot;lakia@gmail.com&quot;,
             &quot;password&quot;: &quot;senha123&quot;,
             &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;sp6ebvwVHZ38dfZY&quot;
+            &quot;_id&quot;: &quot;DpBgbjwVTBAqlRwU&quot;
         },
         {
-            &quot;nome&quot;: &quot;devon@gmail.com&quot;,
-            &quot;email&quot;: &quot;devon@gmail.com&quot;,
+            &quot;nome&quot;: &quot;Admin User&quot;,
+            &quot;email&quot;: &quot;admin.1771338175298@example.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;true&quot;,
+            &quot;_id&quot;: &quot;Ecy5OrlFeRZGKvXy&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;rosario@gmail.com&quot;,
+            &quot;email&quot;: &quot;rosario@gmail.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;vrRGq5Qlpyy9dZX9&quot;
+            &quot;_id&quot;: &quot;Ex8d9l9H9y9eB7pg&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;antione@gmail.com&quot;,
+            &quot;email&quot;: &quot;antione@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;FOK6PzytrKZPHbeW&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;deann@gmail.com&quot;,
+            &quot;email&quot;: &quot;deann@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;UKbYWfUjhOiIZdGR&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;Non Admin User&quot;,
+            &quot;email&quot;: &quot;non.admin.1771338176754@example.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;VxuTW1lNfieNt6Ic&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;melina@gmail.com&quot;,
+            &quot;email&quot;: &quot;melina@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;cLjwpdnSXgRwykte&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;jesusita@gmail.com&quot;,
+            &quot;email&quot;: &quot;jesusita@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;gv7WD7b3jzXwHkOc&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;reanna@gmail.com&quot;,
+            &quot;email&quot;: &quot;reanna@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;iDubaCMHUkaQViZp&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;martina@gmail.com&quot;,
+            &quot;email&quot;: &quot;martina@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;kFonIKzRyvUTtjdj&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;Cart User&quot;,
+            &quot;email&quot;: &quot;roxanna@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;true&quot;,
+            &quot;_id&quot;: &quot;msqBOx6SqJkK0Lys&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;Cart User&quot;,
+            &quot;email&quot;: &quot;cart.user.1771338176859@example.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;p7J16daFHOF2BmcT&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;Marie Schmitt&quot;,
+            &quot;email&quot;: &quot;louvenia@gmail.com&quot;,
+            &quot;password&quot;: &quot;meyq0ufsbojs7&quot;,
+            &quot;administrador&quot;: &quot;true&quot;,
+            &quot;_id&quot;: &quot;sNrqIz3dil2Zx8eS&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;cathi@gmail.com&quot;,
+            &quot;email&quot;: &quot;cathi@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;v8y8LEyrL6Slndti&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;moshe@gmail.com&quot;,
+            &quot;email&quot;: &quot;moshe@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;wWpJA71FB5566OS9&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;ernie@gmail.com&quot;,
+            &quot;email&quot;: &quot;ernie@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;z3qSUOczFsNWgMWV&quot;
         }
     ]
 }
@@ -4659,7 +4285,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def user = response.usuarios[0]</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">2</div>
   </div>
 
    
@@ -4687,7 +4313,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>if (user.administrador == &#39;true&#39;) karate.log(&#39;User is an administrator&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">8</div>
   </div>
 
    
@@ -4696,7 +4322,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.205">13:51:54.921 User is an administrator 
+  <div class="preformatted" data-parent="0.205">14:22:57.171 User is an administrator 
 </div>   
 
   
@@ -4716,7 +4342,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>if (user.administrador == &#39;false&#39;) karate.log(&#39;User is not an administrator&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -4744,7 +4370,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match user.email == &#39;#? _.length &gt; 5&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">2</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -4772,7 +4398,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match user.password == &#39;#? _.length &gt; 0&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">3</div>
   </div>
 
    
@@ -4801,7 +4427,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>220</span>
+              <span>ms:</span>&nbsp;<span>264</span>
             </div>
           </div>
           <div class="step-row">
@@ -5025,7 +4651,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>Given</span>&nbsp;<span>path &#39;/usuarios&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -5081,7 +4707,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">105</div>
+    <div class="time-cell passed">167</div>
   </div>
 
    
@@ -5090,7 +4716,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.226">13:51:54.829 request:
+  <div class="preformatted" data-parent="0.226">14:22:57.065 request:
 1 &gt; POST https://serverest.dev/usuarios
 1 &gt; Content-Type: application/json; charset=UTF-8
 1 &gt; Content-Length: 124
@@ -5098,9 +4724,9 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;nome&quot;:&quot;Regex Test&quot;,&quot;email&quot;:&quot;test.regex.1771336314828@example.com&quot;,&quot;password&quot;:&quot;StrongPassword@123&quot;,&quot;administrador&quot;:&quot;false&quot;}
+{&quot;nome&quot;:&quot;Regex Test&quot;,&quot;email&quot;:&quot;test.regex.1771338177062@example.com&quot;,&quot;password&quot;:&quot;StrongPassword@123&quot;,&quot;administrador&quot;:&quot;false&quot;}
 
-13:51:54.934 response time in milliseconds: 104
+14:22:57.230 response time in milliseconds: 164
 1 &lt; 201
 1 &lt; access-control-allow-origin: *
 1 &lt; x-dns-prefetch-control: off
@@ -5110,13 +4736,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &lt; x-content-type-options: nosniff
 1 &lt; x-xss-protection: 1; mode=block
 1 &lt; content-type: application/json; charset=utf-8
-1 &lt; x-cloud-trace-context: 855b2e109f1583396f1cd24c5a0ee685
-1 &lt; date: Tue, 17 Feb 2026 13:51:54 GMT
+1 &lt; x-cloud-trace-context: d5e57e8799d6afbf661f659d1bf3f3f4
+1 &lt; date: Tue, 17 Feb 2026 14:22:57 GMT
 1 &lt; server: Google Frontend
 1 &lt; Content-Length: 82
 {
     &quot;message&quot;: &quot;Cadastro realizado com sucesso&quot;,
-    &quot;_id&quot;: &quot;CS3X2wlxtfmMTaSs&quot;
+    &quot;_id&quot;: &quot;nmQA9iqCNe3amL4o&quot;
 }
 
 </div>   
@@ -5166,7 +4792,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>Given</span>&nbsp;<span>path &#39;/usuarios/&#39; + response._id</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">2</div>
   </div>
 
    
@@ -5194,7 +4820,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method GET</span>
       </div>
     </div>
-    <div class="time-cell passed">111</div>
+    <div class="time-cell passed">92</div>
   </div>
 
    
@@ -5203,15 +4829,15 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.230">13:51:54.935 request:
-2 &gt; GET https://serverest.dev/usuarios/CS3X2wlxtfmMTaSs
+  <div class="preformatted" data-parent="0.230">14:22:57.237 request:
+2 &gt; GET https://serverest.dev/usuarios/nmQA9iqCNe3amL4o
 2 &gt; Host: serverest.dev
 2 &gt; Connection: Keep-Alive
 2 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 2 &gt; Accept-Encoding: gzip,deflate
 
 
-13:51:55.045 response time in milliseconds: 110
+14:22:57.325 response time in milliseconds: 87
 2 &lt; 200
 2 &lt; access-control-allow-origin: *
 2 &lt; x-dns-prefetch-control: off
@@ -5221,16 +4847,16 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 2 &lt; x-content-type-options: nosniff
 2 &lt; x-xss-protection: 1; mode=block
 2 &lt; content-type: application/json; charset=utf-8
-2 &lt; x-cloud-trace-context: 941a906a332998fad13a4aa627c9e02d
-2 &lt; date: Tue, 17 Feb 2026 13:51:55 GMT
+2 &lt; x-cloud-trace-context: c79be671cffa135a7f67cb04d3f95989
+2 &lt; date: Tue, 17 Feb 2026 14:22:57 GMT
 2 &lt; server: Google Frontend
 2 &lt; Content-Length: 180
 {
     &quot;nome&quot;: &quot;Regex Test&quot;,
-    &quot;email&quot;: &quot;test.regex.1771336314828@example.com&quot;,
+    &quot;email&quot;: &quot;test.regex.1771338177062@example.com&quot;,
     &quot;password&quot;: &quot;StrongPassword@123&quot;,
     &quot;administrador&quot;: &quot;false&quot;,
-    &quot;_id&quot;: &quot;CS3X2wlxtfmMTaSs&quot;
+    &quot;_id&quot;: &quot;nmQA9iqCNe3amL4o&quot;
 }
 
 </div>   
@@ -5365,7 +4991,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>104</span>
+              <span>ms:</span>&nbsp;<span>205</span>
             </div>
           </div>
           <div class="step-row">
@@ -5472,7 +5098,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def randomName = function(){ return FakerUtils.randomName() }</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -5556,7 +5182,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method GET</span>
       </div>
     </div>
-    <div class="time-cell passed">101</div>
+    <div class="time-cell passed">202</div>
   </div>
 
    
@@ -5565,7 +5191,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.240">13:51:54.853 request:
+  <div class="preformatted" data-parent="0.240">14:22:57.078 request:
 1 &gt; GET https://serverest.dev/usuarios
 1 &gt; Host: serverest.dev
 1 &gt; Connection: Keep-Alive
@@ -5573,7 +5199,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-13:51:54.952 response time in milliseconds: 99
+14:22:57.279 response time in milliseconds: 200
 1 &lt; 200
 1 &lt; access-control-allow-origin: *
 1 &lt; x-dns-prefetch-control: off
@@ -5583,12 +5209,12 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &lt; x-content-type-options: nosniff
 1 &lt; x-xss-protection: 1; mode=block
 1 &lt; content-type: application/json; charset=utf-8
-1 &lt; x-cloud-trace-context: 0658b14e77fd49c2366df9dea74fe4d9
-1 &lt; date: Tue, 17 Feb 2026 13:51:54 GMT
+1 &lt; x-cloud-trace-context: d057787473350ce7d6cc241d5db3f9e7
+1 &lt; date: Tue, 17 Feb 2026 14:22:57 GMT
 1 &lt; server: Google Frontend
-1 &lt; Content-Length: 6878
+1 &lt; Content-Length: 4934
 {
-    &quot;quantidade&quot;: 31,
+    &quot;quantidade&quot;: 22,
     &quot;usuarios&quot;: [
         {
             &quot;nome&quot;: &quot;Fulano da Silva&quot;,
@@ -5598,214 +5224,151 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
             &quot;_id&quot;: &quot;0uxuPY0cbmQhpEz1&quot;
         },
         {
-            &quot;nome&quot;: &quot;rick@gmail.com&quot;,
-            &quot;email&quot;: &quot;rick@gmail.com&quot;,
+            &quot;nome&quot;: &quot;wilma@gmail.com&quot;,
+            &quot;email&quot;: &quot;wilma@gmail.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;1zfC8Y6C54gqgQDl&quot;
+            &quot;_id&quot;: &quot;3njfDSwDx7fq6fqE&quot;
         },
         {
-            &quot;nome&quot;: &quot;User Two&quot;,
-            &quot;email&quot;: &quot;guillermina@gmail.com&quot;,
-            &quot;password&quot;: &quot;Senha456@&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;2PIMR6HP1ZflZa8A&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;ernesto@gmail.com&quot;,
-            &quot;email&quot;: &quot;ernesto@gmail.com&quot;,
+            &quot;nome&quot;: &quot;danelle@gmail.com&quot;,
+            &quot;email&quot;: &quot;danelle@gmail.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;4WaahFqjsdghhTja&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;annetta@gmail.com&quot;,
-            &quot;email&quot;: &quot;annetta@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;5OH0seLKkGlb3aaf&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Cart User&quot;,
-            &quot;email&quot;: &quot;xochitl@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;A7E8xr28oklpRvFs&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;evelynn@gmail.com&quot;,
-            &quot;email&quot;: &quot;evelynn@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;AclXnfyBPiotwVM7&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;ahmad@gmail.com&quot;,
-            &quot;email&quot;: &quot;ahmad@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;Ap8qNjmWGUXhBSyF&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Regex Test&quot;,
-            &quot;email&quot;: &quot;test.regex.1771336314828@example.com&quot;,
-            &quot;password&quot;: &quot;StrongPassword@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;CS3X2wlxtfmMTaSs&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Complex User&quot;,
-            &quot;email&quot;: &quot;dirk@gmail.com&quot;,
-            &quot;password&quot;: &quot;senha123&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;FNDAgdMhzoTm6Uhy&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;cherry@gmail.com&quot;,
-            &quot;email&quot;: &quot;cherry@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;GgMvfLZIp1OAdRhE&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Peter.Lind&quot;,
-            &quot;email&quot;: &quot;Russ_Schneider59@hotmail.com&quot;,
-            &quot;password&quot;: &quot;368042252&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;GggEIFEQqqy26o7T&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Rodrigo5&quot;,
-            &quot;email&quot;: &quot;Mavis.Prohaska@yahoo.com&quot;,
-            &quot;password&quot;: &quot;141661674&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;Guzba7e5kUgVGgnd&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;alton@gmail.com&quot;,
-            &quot;email&quot;: &quot;alton@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;HpIqVKSOaM5iArnB&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;QA Tester&quot;,
-            &quot;email&quot;: &quot;test1771336234739@email.com&quot;,
-            &quot;password&quot;: &quot;123456&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;PhztvG1278iSrNeQ&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Reinaldo Mateus Rossetti&quot;,
-            &quot;email&quot;: &quot;penney@gmail.com&quot;,
-            &quot;password&quot;: &quot;reiload$123#&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;WhrXXg5ZqKI8m7RS&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Soon Ledner&quot;,
-            &quot;email&quot;: &quot;genaro@gmail.com&quot;,
-            &quot;password&quot;: &quot;irv969i9&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;ZqOhjjpCP3WySYLY&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;User One&quot;,
-            &quot;email&quot;: &quot;fallon@gmail.com&quot;,
-            &quot;password&quot;: &quot;Senha123@&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;cmf6XwPd9wV6XZX3&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;jerald@gmail.com&quot;,
-            &quot;email&quot;: &quot;jerald@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;dcl7MAwgRMefwscg&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;alejandro@gmail.com&quot;,
-            &quot;email&quot;: &quot;alejandro@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;iu9HuAdS7aO4WKdp&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;User With Cart&quot;,
-            &quot;email&quot;: &quot;leonor@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;jVWfReChCllU4HSn&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Admin User&quot;,
-            &quot;email&quot;: &quot;admin.1771336312496@example.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;jsN0rWQuN7HghUKW&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Reinaldo Mateus Rossetti&quot;,
-            &quot;email&quot;: &quot;ozzie@gmail.com&quot;,
-            &quot;password&quot;: &quot;reiload$123#&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;jtGqBusvWLoZkiru&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Cart User&quot;,
-            &quot;email&quot;: &quot;cart.user.1771336314625@example.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;lFlauoFkB8R9XX46&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;louann@gmail.com&quot;,
-            &quot;email&quot;: &quot;louann@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;n15Ro3nxY4Kj2Gq7&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Non Admin User&quot;,
-            &quot;email&quot;: &quot;non.admin.1771336314457@example.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;qXFs2nIaBijWlHa7&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Regex Test&quot;,
-            &quot;email&quot;: &quot;test.regex.1771336173718@example.com&quot;,
-            &quot;password&quot;: &quot;StrongPassword@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;qfX3092wOKsOCpLc&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;Levi_OConnell84&quot;,
-            &quot;email&quot;: &quot;Kaci.Breitenberg@hotmail.com&quot;,
-            &quot;password&quot;: &quot;695141351&quot;,
-            &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;qgEdnbmSWPEzoghJ&quot;
-        },
-        {
-            &quot;nome&quot;: &quot;jospeh@gmail.com&quot;,
-            &quot;email&quot;: &quot;jospeh@gmail.com&quot;,
-            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
-            &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;sYFfKZZlU0bZnBuP&quot;
+            &quot;_id&quot;: &quot;7u6gerucwczXd4pJ&quot;
         },
         {
             &quot;nome&quot;: &quot;User 1&quot;,
-            &quot;email&quot;: &quot;lakeisha@gmail.com&quot;,
+            &quot;email&quot;: &quot;lakia@gmail.com&quot;,
             &quot;password&quot;: &quot;senha123&quot;,
             &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;sp6ebvwVHZ38dfZY&quot;
+            &quot;_id&quot;: &quot;DpBgbjwVTBAqlRwU&quot;
         },
         {
-            &quot;nome&quot;: &quot;devon@gmail.com&quot;,
-            &quot;email&quot;: &quot;devon@gmail.com&quot;,
+            &quot;nome&quot;: &quot;Admin User&quot;,
+            &quot;email&quot;: &quot;admin.1771338175298@example.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;true&quot;,
+            &quot;_id&quot;: &quot;Ecy5OrlFeRZGKvXy&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;rosario@gmail.com&quot;,
+            &quot;email&quot;: &quot;rosario@gmail.com&quot;,
             &quot;password&quot;: &quot;SenhaSegura@123&quot;,
             &quot;administrador&quot;: &quot;false&quot;,
-            &quot;_id&quot;: &quot;vrRGq5Qlpyy9dZX9&quot;
+            &quot;_id&quot;: &quot;Ex8d9l9H9y9eB7pg&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;antione@gmail.com&quot;,
+            &quot;email&quot;: &quot;antione@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;FOK6PzytrKZPHbeW&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;deann@gmail.com&quot;,
+            &quot;email&quot;: &quot;deann@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;UKbYWfUjhOiIZdGR&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;Reinaldo Mateus Rossetti&quot;,
+            &quot;email&quot;: &quot;katelin@gmail.com&quot;,
+            &quot;password&quot;: &quot;reiload$123#&quot;,
+            &quot;administrador&quot;: &quot;true&quot;,
+            &quot;_id&quot;: &quot;Vjq1l5l9QQ2R5soD&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;Non Admin User&quot;,
+            &quot;email&quot;: &quot;non.admin.1771338176754@example.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;VxuTW1lNfieNt6Ic&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;melina@gmail.com&quot;,
+            &quot;email&quot;: &quot;melina@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;cLjwpdnSXgRwykte&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;Reinaldo Mateus Rossetti&quot;,
+            &quot;email&quot;: &quot;guadalupe@gmail.com&quot;,
+            &quot;password&quot;: &quot;reiload$123#&quot;,
+            &quot;administrador&quot;: &quot;true&quot;,
+            &quot;_id&quot;: &quot;fyQ6IQ9abGqPKmsx&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;jesusita@gmail.com&quot;,
+            &quot;email&quot;: &quot;jesusita@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;gv7WD7b3jzXwHkOc&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;reanna@gmail.com&quot;,
+            &quot;email&quot;: &quot;reanna@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;iDubaCMHUkaQViZp&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;martina@gmail.com&quot;,
+            &quot;email&quot;: &quot;martina@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;kFonIKzRyvUTtjdj&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;Cart User&quot;,
+            &quot;email&quot;: &quot;roxanna@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;true&quot;,
+            &quot;_id&quot;: &quot;msqBOx6SqJkK0Lys&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;Regex Test&quot;,
+            &quot;email&quot;: &quot;test.regex.1771338177062@example.com&quot;,
+            &quot;password&quot;: &quot;StrongPassword@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;nmQA9iqCNe3amL4o&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;Cart User&quot;,
+            &quot;email&quot;: &quot;cart.user.1771338176859@example.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;p7J16daFHOF2BmcT&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;Marie Schmitt&quot;,
+            &quot;email&quot;: &quot;louvenia@gmail.com&quot;,
+            &quot;password&quot;: &quot;meyq0ufsbojs7&quot;,
+            &quot;administrador&quot;: &quot;true&quot;,
+            &quot;_id&quot;: &quot;sNrqIz3dil2Zx8eS&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;cathi@gmail.com&quot;,
+            &quot;email&quot;: &quot;cathi@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;v8y8LEyrL6Slndti&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;moshe@gmail.com&quot;,
+            &quot;email&quot;: &quot;moshe@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;wWpJA71FB5566OS9&quot;
+        },
+        {
+            &quot;nome&quot;: &quot;ernie@gmail.com&quot;,
+            &quot;email&quot;: &quot;ernie@gmail.com&quot;,
+            &quot;password&quot;: &quot;SenhaSegura@123&quot;,
+            &quot;administrador&quot;: &quot;false&quot;,
+            &quot;_id&quot;: &quot;z3qSUOczFsNWgMWV&quot;
         }
     ]
 }
@@ -5998,7 +5561,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>350</span>
+              <span>ms:</span>&nbsp;<span>164</span>
             </div>
           </div>
           <div class="step-row">
@@ -6161,7 +5724,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def expectedEmail = randomEmail()</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -6189,7 +5752,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def userPayload = read(&#39;resources/userPayload.json&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -6301,7 +5864,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">97</div>
+    <div class="time-cell passed">103</div>
   </div>
 
    
@@ -6310,17 +5873,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.256">13:51:54.873 request:
+  <div class="preformatted" data-parent="0.256">14:22:57.132 request:
 1 &gt; POST https://serverest.dev/usuarios
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 109
+1 &gt; Content-Length: 114
 1 &gt; Host: serverest.dev
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;nome&quot;:&quot;Reinaldo Mateus Rossetti&quot;,&quot;email&quot;:&quot;lynn@gmail.com&quot;,&quot;password&quot;:&quot;reiload$123#&quot;,&quot;administrador&quot;:&quot;true&quot;}
+{&quot;nome&quot;:&quot;Reinaldo Mateus Rossetti&quot;,&quot;email&quot;:&quot;guadalupe@gmail.com&quot;,&quot;password&quot;:&quot;reiload$123#&quot;,&quot;administrador&quot;:&quot;true&quot;}
 
-13:51:54.968 response time in milliseconds: 94
+14:22:57.230 response time in milliseconds: 97
 1 &lt; 201
 1 &lt; access-control-allow-origin: *
 1 &lt; x-dns-prefetch-control: off
@@ -6330,13 +5893,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &lt; x-content-type-options: nosniff
 1 &lt; x-xss-protection: 1; mode=block
 1 &lt; content-type: application/json; charset=utf-8
-1 &lt; x-cloud-trace-context: 145106ce9a97ec4f4871c9028029af86
-1 &lt; date: Tue, 17 Feb 2026 13:51:54 GMT
+1 &lt; x-cloud-trace-context: 60a32b68a638a08ffc723a87075d8b8b
+1 &lt; date: Tue, 17 Feb 2026 14:22:57 GMT
 1 &lt; server: Google Frontend
 1 &lt; Content-Length: 82
 {
     &quot;message&quot;: &quot;Cadastro realizado com sucesso&quot;,
-    &quot;_id&quot;: &quot;do6TLSo0KxxLMYPj&quot;
+    &quot;_id&quot;: &quot;fyQ6IQ9abGqPKmsx&quot;
 }
 
 </div>   
@@ -6442,7 +6005,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method GET</span>
       </div>
     </div>
-    <div class="time-cell passed">249</div>
+    <div class="time-cell passed">57</div>
   </div>
 
    
@@ -6451,15 +6014,15 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.261">13:51:54.970 request:
-2 &gt; GET https://serverest.dev/usuarios?email=lynn%40gmail.com
+  <div class="preformatted" data-parent="0.261">14:22:57.236 request:
+2 &gt; GET https://serverest.dev/usuarios?email=guadalupe%40gmail.com
 2 &gt; Host: serverest.dev
 2 &gt; Connection: Keep-Alive
 2 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 2 &gt; Accept-Encoding: gzip,deflate
 
 
-13:51:55.218 response time in milliseconds: 247
+14:22:57.291 response time in milliseconds: 55
 2 &lt; 200
 2 &lt; access-control-allow-origin: *
 2 &lt; x-dns-prefetch-control: off
@@ -6469,19 +6032,19 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 2 &lt; x-content-type-options: nosniff
 2 &lt; x-xss-protection: 1; mode=block
 2 &lt; content-type: application/json; charset=utf-8
-2 &lt; x-cloud-trace-context: 840ee9d3e840ec3b46c5dcdb010ca6fa
-2 &lt; date: Tue, 17 Feb 2026 13:51:55 GMT
+2 &lt; x-cloud-trace-context: 09ff4cee6b697b66d47ac5c72812fb22
+2 &lt; date: Tue, 17 Feb 2026 14:22:57 GMT
 2 &lt; server: Google Frontend
-2 &lt; Content-Length: 270
+2 &lt; Content-Length: 275
 {
     &quot;quantidade&quot;: 1,
     &quot;usuarios&quot;: [
         {
             &quot;nome&quot;: &quot;Reinaldo Mateus Rossetti&quot;,
-            &quot;email&quot;: &quot;lynn@gmail.com&quot;,
+            &quot;email&quot;: &quot;guadalupe@gmail.com&quot;,
             &quot;password&quot;: &quot;reiload$123#&quot;,
             &quot;administrador&quot;: &quot;true&quot;,
-            &quot;_id&quot;: &quot;do6TLSo0KxxLMYPj&quot;
+            &quot;_id&quot;: &quot;fyQ6IQ9abGqPKmsx&quot;
         }
     ]
 }
@@ -6618,7 +6181,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>101</span>
+              <span>ms:</span>&nbsp;<span>111</span>
             </div>
           </div>
           <div class="step-row">
@@ -6669,7 +6232,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def FakerUtils = Java.type(&#39;serverest.utils.FakerUtils&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">3</div>
   </div>
 
    
@@ -6870,7 +6433,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">98</div>
+    <div class="time-cell passed">104</div>
   </div>
 
    
@@ -6879,17 +6442,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.282">13:51:54.915 request:
+  <div class="preformatted" data-parent="0.282">14:22:57.182 request:
 1 &gt; POST https://serverest.dev/usuarios
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 97
+1 &gt; Content-Length: 94
 1 &gt; Host: serverest.dev
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;nome&quot;:&quot;Complex User&quot;,&quot;email&quot;:&quot;federico@gmail.com&quot;,&quot;password&quot;:&quot;senha123&quot;,&quot;administrador&quot;:&quot;true&quot;}
+{&quot;nome&quot;:&quot;Complex User&quot;,&quot;email&quot;:&quot;traci@gmail.com&quot;,&quot;password&quot;:&quot;senha123&quot;,&quot;administrador&quot;:&quot;true&quot;}
 
-13:51:55.012 response time in milliseconds: 95
+14:22:57.283 response time in milliseconds: 101
 1 &lt; 201
 1 &lt; access-control-allow-origin: *
 1 &lt; x-dns-prefetch-control: off
@@ -6899,13 +6462,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &lt; x-content-type-options: nosniff
 1 &lt; x-xss-protection: 1; mode=block
 1 &lt; content-type: application/json; charset=utf-8
-1 &lt; x-cloud-trace-context: 834567e341b4f365852bb81381176d12
-1 &lt; date: Tue, 17 Feb 2026 13:51:54 GMT
+1 &lt; x-cloud-trace-context: a72de2f866c1f1e49a42f433f3fadbd6
+1 &lt; date: Tue, 17 Feb 2026 14:22:57 GMT
 1 &lt; server: Google Frontend
 1 &lt; Content-Length: 82
 {
     &quot;message&quot;: &quot;Cadastro realizado com sucesso&quot;,
-    &quot;_id&quot;: &quot;Aua4oN3GvDIG1KDM&quot;
+    &quot;_id&quot;: &quot;jVI4OY4ui7thbR5Q&quot;
 }
 
 </div>   
@@ -7043,7 +6606,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>94</span>
+              <span>ms:</span>&nbsp;<span>90</span>
             </div>
           </div>
           <div class="step-row">
@@ -7094,7 +6657,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def FakerUtils = Java.type(&#39;serverest.utils.FakerUtils&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -7122,7 +6685,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def randomEmail = function(){ return FakerUtils.randomEmail() }</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -7241,7 +6804,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>userPayload.email = randomEmail()</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">2</div>
   </div>
 
    
@@ -7325,7 +6888,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">92</div>
+    <div class="time-cell passed">84</div>
   </div>
 
    
@@ -7334,17 +6897,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.302">13:51:54.930 request:
+  <div class="preformatted" data-parent="0.302">14:22:57.188 request:
 1 &gt; POST https://serverest.dev/usuarios
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 111
+1 &gt; Content-Length: 112
 1 &gt; Host: serverest.dev
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;nome&quot;:&quot;Reinaldo Mateus Rossetti&quot;,&quot;email&quot;:&quot;harris@gmail.com&quot;,&quot;password&quot;:&quot;reiload$123#&quot;,&quot;administrador&quot;:&quot;true&quot;}
+{&quot;nome&quot;:&quot;Reinaldo Mateus Rossetti&quot;,&quot;email&quot;:&quot;katelin@gmail.com&quot;,&quot;password&quot;:&quot;reiload$123#&quot;,&quot;administrador&quot;:&quot;true&quot;}
 
-13:51:55.021 response time in milliseconds: 91
+14:22:57.271 response time in milliseconds: 82
 1 &lt; 201
 1 &lt; access-control-allow-origin: *
 1 &lt; x-dns-prefetch-control: off
@@ -7354,13 +6917,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &lt; x-content-type-options: nosniff
 1 &lt; x-xss-protection: 1; mode=block
 1 &lt; content-type: application/json; charset=utf-8
-1 &lt; x-cloud-trace-context: 16be9fa98851f94bc42aeda06475b126
-1 &lt; date: Tue, 17 Feb 2026 13:51:54 GMT
+1 &lt; x-cloud-trace-context: 907a876d14afddc90e9ae25ef256df38
+1 &lt; date: Tue, 17 Feb 2026 14:22:57 GMT
 1 &lt; server: Google Frontend
 1 &lt; Content-Length: 82
 {
     &quot;message&quot;: &quot;Cadastro realizado com sucesso&quot;,
-    &quot;_id&quot;: &quot;iHFgefCch6c1r97n&quot;
+    &quot;_id&quot;: &quot;Vjq1l5l9QQ2R5soD&quot;
 }
 
 </div>   
@@ -7410,7 +6973,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match response.message == &#39;Cadastro realizado com sucesso&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -7467,7 +7030,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>503</span>
+              <span>ms:</span>&nbsp;<span>265</span>
             </div>
           </div>
           <div class="step-row">
@@ -7658,7 +7221,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def userPayload = read(&#39;resources/userPayload.json&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -7686,7 +7249,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>userPayload.email = expectedEmail</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">4</div>
   </div>
 
    
@@ -7770,7 +7333,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">259</div>
+    <div class="time-cell passed">99</div>
   </div>
 
    
@@ -7779,17 +7342,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.316">13:51:54.961 request:
+  <div class="preformatted" data-parent="0.316">14:22:57.283 request:
 1 &gt; POST https://serverest.dev/usuarios
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 112
+1 &gt; Content-Length: 111
 1 &gt; Host: serverest.dev
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;nome&quot;:&quot;Reinaldo Mateus Rossetti&quot;,&quot;email&quot;:&quot;caroyln@gmail.com&quot;,&quot;password&quot;:&quot;reiload$123#&quot;,&quot;administrador&quot;:&quot;true&quot;}
+{&quot;nome&quot;:&quot;Reinaldo Mateus Rossetti&quot;,&quot;email&quot;:&quot;hassie@gmail.com&quot;,&quot;password&quot;:&quot;reiload$123#&quot;,&quot;administrador&quot;:&quot;true&quot;}
 
-13:51:55.218 response time in milliseconds: 256
+14:22:57.381 response time in milliseconds: 98
 1 &lt; 201
 1 &lt; access-control-allow-origin: *
 1 &lt; x-dns-prefetch-control: off
@@ -7799,13 +7362,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &lt; x-content-type-options: nosniff
 1 &lt; x-xss-protection: 1; mode=block
 1 &lt; content-type: application/json; charset=utf-8
-1 &lt; x-cloud-trace-context: ad93422f8c4f260b98e630f11474e4da
-1 &lt; date: Tue, 17 Feb 2026 13:51:55 GMT
+1 &lt; x-cloud-trace-context: dd177c974dd71195ff9dced3734260c6
+1 &lt; date: Tue, 17 Feb 2026 14:22:57 GMT
 1 &lt; server: Google Frontend
 1 &lt; Content-Length: 82
 {
     &quot;message&quot;: &quot;Cadastro realizado com sucesso&quot;,
-    &quot;_id&quot;: &quot;URGqFS0qBNscnnkl&quot;
+    &quot;_id&quot;: &quot;N6pEaVM2NsScJ9cQ&quot;
 }
 
 </div>   
@@ -7939,7 +7502,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method DELETE</span>
       </div>
     </div>
-    <div class="time-cell passed">142</div>
+    <div class="time-cell passed">71</div>
   </div>
 
    
@@ -7948,15 +7511,15 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.322">13:51:55.220 request:
-2 &gt; DELETE https://serverest.dev/usuarios/URGqFS0qBNscnnkl
+  <div class="preformatted" data-parent="0.322">14:22:57.385 request:
+2 &gt; DELETE https://serverest.dev/usuarios/N6pEaVM2NsScJ9cQ
 2 &gt; Host: serverest.dev
 2 &gt; Connection: Keep-Alive
 2 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 2 &gt; Accept-Encoding: gzip,deflate
 
 
-13:51:55.361 response time in milliseconds: 140
+14:22:57.454 response time in milliseconds: 68
 2 &lt; 200
 2 &lt; access-control-allow-origin: *
 2 &lt; x-dns-prefetch-control: off
@@ -7966,8 +7529,8 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 2 &lt; x-content-type-options: nosniff
 2 &lt; x-xss-protection: 1; mode=block
 2 &lt; content-type: application/json; charset=utf-8
-2 &lt; x-cloud-trace-context: 8e7a82f166963a1c50abb1c65513646c
-2 &lt; date: Tue, 17 Feb 2026 13:51:55 GMT
+2 &lt; x-cloud-trace-context: d990905ef81e181800e6e8d8c9dcbe01
+2 &lt; date: Tue, 17 Feb 2026 14:22:57 GMT
 2 &lt; server: Google Frontend
 2 &lt; Content-Length: 51
 {
@@ -8021,7 +7584,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match response.message == &#39;Registro excluído com sucesso&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">2</div>
   </div>
 
    
@@ -8105,7 +7668,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method GET</span>
       </div>
     </div>
-    <div class="time-cell passed">97</div>
+    <div class="time-cell passed">84</div>
   </div>
 
    
@@ -8114,15 +7677,15 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.328">13:51:55.362 request:
-3 &gt; GET https://serverest.dev/usuarios?email=caroyln%40gmail.com
+  <div class="preformatted" data-parent="0.328">14:22:57.457 request:
+3 &gt; GET https://serverest.dev/usuarios?email=hassie%40gmail.com
 3 &gt; Host: serverest.dev
 3 &gt; Connection: Keep-Alive
 3 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 3 &gt; Accept-Encoding: gzip,deflate
 
 
-13:51:55.450 response time in milliseconds: 88
+14:22:57.540 response time in milliseconds: 82
 3 &lt; 200
 3 &lt; access-control-allow-origin: *
 3 &lt; x-dns-prefetch-control: off
@@ -8132,8 +7695,8 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 3 &lt; x-content-type-options: nosniff
 3 &lt; x-xss-protection: 1; mode=block
 3 &lt; content-type: application/json; charset=utf-8
-3 &lt; x-cloud-trace-context: a9a7cfe01c141a153762b79490032f3b
-3 &lt; date: Tue, 17 Feb 2026 13:51:55 GMT
+3 &lt; x-cloud-trace-context: e01f3b31d97abceed157a2e15f55014d
+3 &lt; date: Tue, 17 Feb 2026 14:22:57 GMT
 3 &lt; server: Google Frontend
 3 &lt; Content-Length: 43
 {
@@ -8245,7 +7808,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>842</span>
+              <span>ms:</span>&nbsp;<span>501</span>
             </div>
           </div>
           <div class="step-row">
@@ -8296,7 +7859,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def FakerUtils = Java.type(&#39;serverest.utils.FakerUtils&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">2</div>
   </div>
 
    
@@ -8415,7 +7978,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def userEmail = randomEmail()</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -8471,7 +8034,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def userData =</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -8560,7 +8123,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">327</div>
+    <div class="time-cell passed">141</div>
   </div>
 
    
@@ -8569,7 +8132,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.351">13:51:55.020 request:
+  <div class="preformatted" data-parent="0.351">14:22:57.290 request:
 1 &gt; POST https://serverest.dev/usuarios
 1 &gt; Content-Type: application/json; charset=UTF-8
 1 &gt; Content-Length: 104
@@ -8577,9 +8140,9 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;nome&quot;:&quot;User With Cart&quot;,&quot;email&quot;:&quot;versie@gmail.com&quot;,&quot;password&quot;:&quot;SenhaSegura@123&quot;,&quot;administrador&quot;:&quot;true&quot;}
+{&quot;nome&quot;:&quot;User With Cart&quot;,&quot;email&quot;:&quot;bernie@gmail.com&quot;,&quot;password&quot;:&quot;SenhaSegura@123&quot;,&quot;administrador&quot;:&quot;true&quot;}
 
-13:51:55.346 response time in milliseconds: 325
+14:22:57.430 response time in milliseconds: 140
 1 &lt; 201
 1 &lt; access-control-allow-origin: *
 1 &lt; x-dns-prefetch-control: off
@@ -8589,13 +8152,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &lt; x-content-type-options: nosniff
 1 &lt; x-xss-protection: 1; mode=block
 1 &lt; content-type: application/json; charset=utf-8
-1 &lt; x-cloud-trace-context: 06bed26130d3b253faed6861a9c59820
-1 &lt; date: Tue, 17 Feb 2026 13:51:55 GMT
+1 &lt; x-cloud-trace-context: d8364b7cacc6300dc55071dfdd3f97ad
+1 &lt; date: Tue, 17 Feb 2026 14:22:57 GMT
 1 &lt; server: Google Frontend
 1 &lt; Content-Length: 82
 {
     &quot;message&quot;: &quot;Cadastro realizado com sucesso&quot;,
-    &quot;_id&quot;: &quot;51RSRL5bKcWaBx1y&quot;
+    &quot;_id&quot;: &quot;FPDXKdoBzx9U1H0P&quot;
 }
 
 </div>   
@@ -8795,7 +8358,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">104</div>
+    <div class="time-cell passed">66</div>
   </div>
 
    
@@ -8804,7 +8367,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.367">13:51:55.348 request:
+  <div class="preformatted" data-parent="0.367">14:22:57.433 request:
 2 &gt; POST https://serverest.dev/login
 2 &gt; Content-Type: application/json; charset=UTF-8
 2 &gt; Content-Length: 57
@@ -8812,9 +8375,9 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 2 &gt; Connection: Keep-Alive
 2 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 2 &gt; Accept-Encoding: gzip,deflate
-{&quot;email&quot;:&quot;versie@gmail.com&quot;,&quot;password&quot;:&quot;SenhaSegura@123&quot;}
+{&quot;email&quot;:&quot;bernie@gmail.com&quot;,&quot;password&quot;:&quot;SenhaSegura@123&quot;}
 
-13:51:55.450 response time in milliseconds: 101
+14:22:57.497 response time in milliseconds: 63
 2 &lt; 200
 2 &lt; access-control-allow-origin: *
 2 &lt; x-dns-prefetch-control: off
@@ -8824,13 +8387,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 2 &lt; x-content-type-options: nosniff
 2 &lt; x-xss-protection: 1; mode=block
 2 &lt; content-type: application/json; charset=utf-8
-2 &lt; x-cloud-trace-context: e73a50e6293cb4aa7738ef603daa407b
-2 &lt; date: Tue, 17 Feb 2026 13:51:55 GMT
+2 &lt; x-cloud-trace-context: 68b8095cbc33c0201fc319d115055acb
+2 &lt; date: Tue, 17 Feb 2026 14:22:57 GMT
 2 &lt; server: Google Frontend
 2 &lt; Content-Length: 283
 {
     &quot;message&quot;: &quot;Login realizado com sucesso&quot;,
-    &quot;authorization&quot;: &quot;Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZlcnNpZUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IlNlbmhhU2VndXJhQDEyMyIsImlhdCI6MTc3MTMzNjMxNSwiZXhwIjoxNzcxMzM2OTE1fQ.eyX0JN78v4AL2RM_uaJb1x1LiIOWOah7fxg7tNQBDU8&quot;
+    &quot;authorization&quot;: &quot;Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJlcm5pZUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IlNlbmhhU2VndXJhQDEyMyIsImlhdCI6MTc3MTMzODE3NywiZXhwIjoxNzcxMzM4Nzc3fQ.CgLhxPSq8A4O9Oytdgj_hZyp_oFK0aWTRvK-JHPrDBw&quot;
 }
 
 </div>   
@@ -9004,7 +8567,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>Given</span>&nbsp;<span>path &#39;/produtos&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -9088,7 +8651,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">104</div>
+    <div class="time-cell passed">75</div>
   </div>
 
    
@@ -9097,18 +8660,18 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.387">13:51:55.464 request:
+  <div class="preformatted" data-parent="0.387">14:22:57.503 request:
 3 &gt; POST https://serverest.dev/produtos
-3 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZlcnNpZUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IlNlbmhhU2VndXJhQDEyMyIsImlhdCI6MTc3MTMzNjMxNSwiZXhwIjoxNzcxMzM2OTE1fQ.eyX0JN78v4AL2RM_uaJb1x1LiIOWOah7fxg7tNQBDU8
+3 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJlcm5pZUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IlNlbmhhU2VndXJhQDEyMyIsImlhdCI6MTc3MTMzODE3NywiZXhwIjoxNzcxMzM4Nzc3fQ.CgLhxPSq8A4O9Oytdgj_hZyp_oFK0aWTRvK-JHPrDBw
 3 &gt; Content-Type: application/json; charset=UTF-8
 3 &gt; Content-Length: 119
 3 &gt; Host: serverest.dev
 3 &gt; Connection: Keep-Alive
 3 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 3 &gt; Accept-Encoding: gzip,deflate
-{&quot;nome&quot;:&quot;Product for user cart 1771336315461&quot;,&quot;preco&quot;:100,&quot;descricao&quot;:&quot;Product associated to user cart&quot;,&quot;quantidade&quot;:5}
+{&quot;nome&quot;:&quot;Product for user cart 1771338177498&quot;,&quot;preco&quot;:100,&quot;descricao&quot;:&quot;Product associated to user cart&quot;,&quot;quantidade&quot;:5}
 
-13:51:55.566 response time in milliseconds: 101
+14:22:57.575 response time in milliseconds: 71
 3 &lt; 201
 3 &lt; access-control-allow-origin: *
 3 &lt; x-dns-prefetch-control: off
@@ -9118,13 +8681,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 3 &lt; x-content-type-options: nosniff
 3 &lt; x-xss-protection: 1; mode=block
 3 &lt; content-type: application/json; charset=utf-8
-3 &lt; x-cloud-trace-context: 8405d6884ae1229c35821fcca7000331
-3 &lt; date: Tue, 17 Feb 2026 13:51:55 GMT
+3 &lt; x-cloud-trace-context: addc5e1f459ef6d34e962d8cc89b51e8
+3 &lt; date: Tue, 17 Feb 2026 14:22:57 GMT
 3 &lt; server: Google Frontend
 3 &lt; Content-Length: 82
 {
     &quot;message&quot;: &quot;Cadastro realizado com sucesso&quot;,
-    &quot;_id&quot;: &quot;bBDtkplD2JKFr9r0&quot;
+    &quot;_id&quot;: &quot;6t4XaH0QgZXQc6W0&quot;
 }
 
 </div>   
@@ -9265,7 +8828,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method DELETE</span>
       </div>
     </div>
-    <div class="time-cell passed">99</div>
+    <div class="time-cell passed">76</div>
   </div>
 
    
@@ -9274,16 +8837,16 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.394">13:51:55.569 request:
+  <div class="preformatted" data-parent="0.394">14:22:57.579 request:
 4 &gt; DELETE https://serverest.dev/carrinhos/cancelar-compra
-4 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZlcnNpZUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IlNlbmhhU2VndXJhQDEyMyIsImlhdCI6MTc3MTMzNjMxNSwiZXhwIjoxNzcxMzM2OTE1fQ.eyX0JN78v4AL2RM_uaJb1x1LiIOWOah7fxg7tNQBDU8
+4 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJlcm5pZUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IlNlbmhhU2VndXJhQDEyMyIsImlhdCI6MTc3MTMzODE3NywiZXhwIjoxNzcxMzM4Nzc3fQ.CgLhxPSq8A4O9Oytdgj_hZyp_oFK0aWTRvK-JHPrDBw
 4 &gt; Host: serverest.dev
 4 &gt; Connection: Keep-Alive
 4 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 4 &gt; Accept-Encoding: gzip,deflate
 
 
-13:51:55.665 response time in milliseconds: 96
+14:22:57.652 response time in milliseconds: 72
 4 &lt; 200
 4 &lt; access-control-allow-origin: *
 4 &lt; x-dns-prefetch-control: off
@@ -9293,8 +8856,8 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 4 &lt; x-content-type-options: nosniff
 4 &lt; x-xss-protection: 1; mode=block
 4 &lt; content-type: application/json; charset=utf-8
-4 &lt; x-cloud-trace-context: 685a3b94b9c69d680afbb07330028a89
-4 &lt; date: Tue, 17 Feb 2026 13:51:55 GMT
+4 &lt; x-cloud-trace-context: 71f60d72d2cf14f1b18d9b3ec30bdf32
+4 &lt; date: Tue, 17 Feb 2026 14:22:57 GMT
 4 &lt; server: Google Frontend
 4 &lt; Content-Length: 68
 {
@@ -9355,7 +8918,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def cartBody =</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -9390,7 +8953,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>Given</span>&nbsp;<span>path &#39;/carrinhos&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -9474,7 +9037,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">114</div>
+    <div class="time-cell passed">77</div>
   </div>
 
    
@@ -9483,18 +9046,18 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.413">13:51:55.668 request:
+  <div class="preformatted" data-parent="0.413">14:22:57.655 request:
 5 &gt; POST https://serverest.dev/carrinhos
-5 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InZlcnNpZUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IlNlbmhhU2VndXJhQDEyMyIsImlhdCI6MTc3MTMzNjMxNSwiZXhwIjoxNzcxMzM2OTE1fQ.eyX0JN78v4AL2RM_uaJb1x1LiIOWOah7fxg7tNQBDU8
+5 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJlcm5pZUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IlNlbmhhU2VndXJhQDEyMyIsImlhdCI6MTc3MTMzODE3NywiZXhwIjoxNzcxMzM4Nzc3fQ.CgLhxPSq8A4O9Oytdgj_hZyp_oFK0aWTRvK-JHPrDBw
 5 &gt; Content-Type: application/json; charset=UTF-8
 5 &gt; Content-Length: 62
 5 &gt; Host: serverest.dev
 5 &gt; Connection: Keep-Alive
 5 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 5 &gt; Accept-Encoding: gzip,deflate
-{&quot;produtos&quot;:[{&quot;idProduto&quot;:&quot;bBDtkplD2JKFr9r0&quot;,&quot;quantidade&quot;:1}]}
+{&quot;produtos&quot;:[{&quot;idProduto&quot;:&quot;6t4XaH0QgZXQc6W0&quot;,&quot;quantidade&quot;:1}]}
 
-13:51:55.781 response time in milliseconds: 112
+14:22:57.731 response time in milliseconds: 70
 5 &lt; 201
 5 &lt; access-control-allow-origin: *
 5 &lt; x-dns-prefetch-control: off
@@ -9504,13 +9067,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 5 &lt; x-content-type-options: nosniff
 5 &lt; x-xss-protection: 1; mode=block
 5 &lt; content-type: application/json; charset=utf-8
-5 &lt; x-cloud-trace-context: 3321952fb7bf18f25435cb3f530de1e2
-5 &lt; date: Tue, 17 Feb 2026 13:51:55 GMT
+5 &lt; x-cloud-trace-context: 65479a50deee5e3b5df96dd92436231c
+5 &lt; date: Tue, 17 Feb 2026 14:22:57 GMT
 5 &lt; server: Google Frontend
 5 &lt; Content-Length: 82
 {
     &quot;message&quot;: &quot;Cadastro realizado com sucesso&quot;,
-    &quot;_id&quot;: &quot;BuCprRXBzvNLkXJc&quot;
+    &quot;_id&quot;: &quot;OXbIsS0nJLfEZlH8&quot;
 }
 
 </div>   
@@ -9567,7 +9130,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>Given</span>&nbsp;<span>path &#39;/usuarios/&#39; + userId</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -9595,7 +9158,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method DELETE</span>
       </div>
     </div>
-    <div class="time-cell passed">87</div>
+    <div class="time-cell passed">54</div>
   </div>
 
    
@@ -9604,15 +9167,15 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.418">13:51:55.783 request:
-6 &gt; DELETE https://serverest.dev/usuarios/51RSRL5bKcWaBx1y
+  <div class="preformatted" data-parent="0.418">14:22:57.733 request:
+6 &gt; DELETE https://serverest.dev/usuarios/FPDXKdoBzx9U1H0P
 6 &gt; Host: serverest.dev
 6 &gt; Connection: Keep-Alive
 6 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 6 &gt; Accept-Encoding: gzip,deflate
 
 
-13:51:55.868 response time in milliseconds: 85
+14:22:57.786 response time in milliseconds: 52
 6 &lt; 400
 6 &lt; access-control-allow-origin: *
 6 &lt; x-dns-prefetch-control: off
@@ -9622,13 +9185,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 6 &lt; x-content-type-options: nosniff
 6 &lt; x-xss-protection: 1; mode=block
 6 &lt; content-type: application/json; charset=utf-8
-6 &lt; x-cloud-trace-context: 1d66640957ec43b4a075bc138a8a4a78
-6 &lt; date: Tue, 17 Feb 2026 13:51:55 GMT
+6 &lt; x-cloud-trace-context: fabea68673d5edbfae246e05e7459811
+6 &lt; date: Tue, 17 Feb 2026 14:22:57 GMT
 6 &lt; server: Google Frontend
 6 &lt; Content-Length: 117
 {
     &quot;message&quot;: &quot;Não é permitido excluir usuário com carrinho cadastrado&quot;,
-    &quot;idCarrinho&quot;: &quot;BuCprRXBzvNLkXJc&quot;
+    &quot;idCarrinho&quot;: &quot;OXbIsS0nJLfEZlH8&quot;
 }
 
 </div>   
@@ -9678,7 +9241,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match response.message == &#39;Não é permitido excluir usuário com carrinho cadastrado&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -9735,7 +9298,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>323</span>
+              <span>ms:</span>&nbsp;<span>97</span>
             </div>
           </div>
           <div class="step-row">
@@ -9842,7 +9405,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def randomName = function(){ return FakerUtils.randomName() }</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">2</div>
   </div>
 
    
@@ -9926,7 +9489,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method GET</span>
       </div>
     </div>
-    <div class="time-cell passed">322</div>
+    <div class="time-cell passed">94</div>
   </div>
 
    
@@ -9935,7 +9498,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.427">13:51:55.026 request:
+  <div class="preformatted" data-parent="0.427">14:22:57.290 request:
 1 &gt; GET https://serverest.dev/usuarios/3F7K9P2XQ8M1R6TB
 1 &gt; Host: serverest.dev
 1 &gt; Connection: Keep-Alive
@@ -9943,7 +9506,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-13:51:55.348 response time in milliseconds: 320
+14:22:57.384 response time in milliseconds: 93
 1 &lt; 400
 1 &lt; access-control-allow-origin: *
 1 &lt; x-dns-prefetch-control: off
@@ -9953,8 +9516,8 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &lt; x-content-type-options: nosniff
 1 &lt; x-xss-protection: 1; mode=block
 1 &lt; content-type: application/json; charset=utf-8
-1 &lt; x-cloud-trace-context: c1fccce459591e4d6906ab7e91896c56
-1 &lt; date: Tue, 17 Feb 2026 13:51:55 GMT
+1 &lt; x-cloud-trace-context: 1ff4bb45458714e4cf78bf2678d3074b
+1 &lt; date: Tue, 17 Feb 2026 14:22:57 GMT
 1 &lt; server: Google Frontend
 1 &lt; Content-Length: 45
 {
@@ -10037,7 +9600,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>521</span>
+              <span>ms:</span>&nbsp;<span>306</span>
             </div>
           </div>
           <div class="step-row">
@@ -10385,7 +9948,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">340</div>
+    <div class="time-cell passed">134</div>
   </div>
 
    
@@ -10394,17 +9957,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.460">13:51:55.053 request:
+  <div class="preformatted" data-parent="0.460">14:22:57.299 request:
 1 &gt; POST https://serverest.dev/usuarios
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 90
+1 &gt; Content-Length: 93
 1 &gt; Host: serverest.dev
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;nome&quot;:&quot;User One&quot;,&quot;email&quot;:&quot;gia@gmail.com&quot;,&quot;password&quot;:&quot;Senha123@&quot;,&quot;administrador&quot;:&quot;false&quot;}
+{&quot;nome&quot;:&quot;User One&quot;,&quot;email&quot;:&quot;anibal@gmail.com&quot;,&quot;password&quot;:&quot;Senha123@&quot;,&quot;administrador&quot;:&quot;false&quot;}
 
-13:51:55.391 response time in milliseconds: 338
+14:22:57.432 response time in milliseconds: 133
 1 &lt; 201
 1 &lt; access-control-allow-origin: *
 1 &lt; x-dns-prefetch-control: off
@@ -10414,13 +9977,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &lt; x-content-type-options: nosniff
 1 &lt; x-xss-protection: 1; mode=block
 1 &lt; content-type: application/json; charset=utf-8
-1 &lt; x-cloud-trace-context: d41dc7c4822bfcd2839fbc851508a82e
-1 &lt; date: Tue, 17 Feb 2026 13:51:55 GMT
+1 &lt; x-cloud-trace-context: 9dc505380639b97b2a312d8752e96a64
+1 &lt; date: Tue, 17 Feb 2026 14:22:57 GMT
 1 &lt; server: Google Frontend
 1 &lt; Content-Length: 82
 {
     &quot;message&quot;: &quot;Cadastro realizado com sucesso&quot;,
-    &quot;_id&quot;: &quot;bPAUnNHCXImHLyk8&quot;
+    &quot;_id&quot;: &quot;f1QGQkeN8DhA5zbp&quot;
 }
 
 </div>   
@@ -10561,7 +10124,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">96</div>
+    <div class="time-cell passed">107</div>
   </div>
 
    
@@ -10570,17 +10133,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.467">13:51:55.393 request:
+  <div class="preformatted" data-parent="0.467">14:22:57.434 request:
 2 &gt; POST https://serverest.dev/usuarios
 2 &gt; Content-Type: application/json; charset=UTF-8
-2 &gt; Content-Length: 93
+2 &gt; Content-Length: 92
 2 &gt; Host: serverest.dev
 2 &gt; Connection: Keep-Alive
 2 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 2 &gt; Accept-Encoding: gzip,deflate
-{&quot;nome&quot;:&quot;User Two&quot;,&quot;email&quot;:&quot;eulalia@gmail.com&quot;,&quot;password&quot;:&quot;Senha456@&quot;,&quot;administrador&quot;:&quot;true&quot;}
+{&quot;nome&quot;:&quot;User Two&quot;,&quot;email&quot;:&quot;shakia@gmail.com&quot;,&quot;password&quot;:&quot;Senha456@&quot;,&quot;administrador&quot;:&quot;true&quot;}
 
-13:51:55.488 response time in milliseconds: 94
+14:22:57.540 response time in milliseconds: 106
 2 &lt; 201
 2 &lt; access-control-allow-origin: *
 2 &lt; x-dns-prefetch-control: off
@@ -10590,13 +10153,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 2 &lt; x-content-type-options: nosniff
 2 &lt; x-xss-protection: 1; mode=block
 2 &lt; content-type: application/json; charset=utf-8
-2 &lt; x-cloud-trace-context: 75c235d50492bde5b960999f02f13cf9
-2 &lt; date: Tue, 17 Feb 2026 13:51:55 GMT
+2 &lt; x-cloud-trace-context: 142b9824ea3676e29b4a29ca9fba4a79
+2 &lt; date: Tue, 17 Feb 2026 14:22:57 GMT
 2 &lt; server: Google Frontend
 2 &lt; Content-Length: 82
 {
     &quot;message&quot;: &quot;Cadastro realizado com sucesso&quot;,
-    &quot;_id&quot;: &quot;7l2s3e5CFEvRBwqI&quot;
+    &quot;_id&quot;: &quot;QzUlFM9Qhd62f54r&quot;
 }
 
 </div>   
@@ -10742,7 +10305,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method PUT</span>
       </div>
     </div>
-    <div class="time-cell passed">82</div>
+    <div class="time-cell passed">61</div>
   </div>
 
    
@@ -10751,17 +10314,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.483">13:51:55.490 request:
-3 &gt; PUT https://serverest.dev/usuarios/bPAUnNHCXImHLyk8
+  <div class="preformatted" data-parent="0.483">14:22:57.542 request:
+3 &gt; PUT https://serverest.dev/usuarios/f1QGQkeN8DhA5zbp
 3 &gt; Content-Type: application/json; charset=UTF-8
-3 &gt; Content-Length: 101
+3 &gt; Content-Length: 100
 3 &gt; Host: serverest.dev
 3 &gt; Connection: Keep-Alive
 3 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 3 &gt; Accept-Encoding: gzip,deflate
-{&quot;nome&quot;:&quot;User One Updated&quot;,&quot;email&quot;:&quot;eulalia@gmail.com&quot;,&quot;password&quot;:&quot;Senha123@&quot;,&quot;administrador&quot;:&quot;true&quot;}
+{&quot;nome&quot;:&quot;User One Updated&quot;,&quot;email&quot;:&quot;shakia@gmail.com&quot;,&quot;password&quot;:&quot;Senha123@&quot;,&quot;administrador&quot;:&quot;true&quot;}
 
-13:51:55.570 response time in milliseconds: 80
+14:22:57.602 response time in milliseconds: 58
 3 &lt; 400
 3 &lt; access-control-allow-origin: *
 3 &lt; x-dns-prefetch-control: off
@@ -10771,8 +10334,8 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 3 &lt; x-content-type-options: nosniff
 3 &lt; x-xss-protection: 1; mode=block
 3 &lt; content-type: application/json; charset=utf-8
-3 &lt; x-cloud-trace-context: e36692af45c0ac3dc28fe3ced7faa26c
-3 &lt; date: Tue, 17 Feb 2026 13:51:55 GMT
+3 &lt; x-cloud-trace-context: 93af83b414ff0d8da3f596bbbb013183
+3 &lt; date: Tue, 17 Feb 2026 14:22:57 GMT
 3 &lt; server: Google Frontend
 3 &lt; Content-Length: 53
 {

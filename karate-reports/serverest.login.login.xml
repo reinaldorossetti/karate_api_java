@@ -1,4 +1,4 @@
-<testsuite failures="0" name="serverest/login/login.feature" skipped="0" tests="12" time="5.087195"><testcase classname="serverest.login.login" name="CT01 - Perform login with valid credentials and validate token" time="0.411983"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testsuite failures="0" name="serverest/login/login.feature" skipped="0" tests="12" time="4.270565"><testcase classname="serverest.login.login" name="CT01 - Perform login with valid credentials and validate token" time="0.320096"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('resources/loginPayload.json') .................. passed
@@ -21,7 +21,7 @@ And match authToken == '#notnull' ......................................... pass
 And match authToken == '#? _.length &gt; 50' ................................. passed
 * print 'Generated Token:', authToken ..................................... passed
 </system-out></testcase>
-<testcase classname="serverest.login.login" name="CT02 - Attempt login with invalid credentials" time="0.387445"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.login.login" name="CT02 - Attempt login with invalid credentials" time="0.47994"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('resources/loginPayload.json') .................. passed
@@ -41,7 +41,7 @@ Then status 401 ........................................................... pass
 And match response.message == 'Email e/ou senha inválidos' ................ passed
 And match response !contains { authorization: '#string' } ................. passed
 </system-out></testcase>
-<testcase classname="serverest.login.login" name="CT03 - Validate required fields on login" time="0.33259"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.login.login" name="CT03 - Validate required fields on login" time="0.535848"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('resources/loginPayload.json') .................. passed
@@ -61,7 +61,7 @@ Then status 400 ........................................................... pass
 * if (!incompleteData.email) karate.match(response, { email: '#string' }) . passed
 * if (!incompleteData.password) karate.match(response, { password: '#string' }) . passed
 </system-out></testcase>
-<testcase classname="serverest.login.login" name="CT03 - Validate required fields on login" time="0.409715"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.login.login" name="CT03 - Validate required fields on login" time="0.536433"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('resources/loginPayload.json') .................. passed
@@ -81,7 +81,7 @@ Then status 400 ........................................................... pass
 * if (!incompleteData.email) karate.match(response, { email: '#string' }) . passed
 * if (!incompleteData.password) karate.match(response, { password: '#string' }) . passed
 </system-out></testcase>
-<testcase classname="serverest.login.login" name="CT03 - Validate required fields on login" time="0.38933"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.login.login" name="CT03 - Validate required fields on login" time="0.381545"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('resources/loginPayload.json') .................. passed
@@ -101,7 +101,7 @@ Then status 400 ........................................................... pass
 * if (!incompleteData.email) karate.match(response, { email: '#string' }) . passed
 * if (!incompleteData.password) karate.match(response, { password: '#string' }) . passed
 </system-out></testcase>
-<testcase classname="serverest.login.login" name="CT04 - Login and use token to access a protected resource" time="0.818536"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.login.login" name="CT04 - Login and use token to access a protected resource" time="0.610822"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('resources/loginPayload.json') .................. passed
@@ -137,7 +137,7 @@ Then status 403 ........................................................... pass
 And match response.message == "Rota exclusiva para administradores" ....... passed
 And match response.message == '#string' ................................... passed
 </system-out></testcase>
-<testcase classname="serverest.login.login" name="CT05 - Validate invalid email format" time="0.432682"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.login.login" name="CT05 - Validate invalid email format" time="0.267731"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('resources/loginPayload.json') .................. passed
@@ -156,7 +156,7 @@ When method POST .......................................................... pass
 Then status 400 ........................................................... passed
 And match response contains { email: '#string' } .......................... passed
 </system-out></testcase>
-<testcase classname="serverest.login.login" name="CT05 - Validate invalid email format" time="0.285438"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.login.login" name="CT05 - Validate invalid email format" time="0.234228"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('resources/loginPayload.json') .................. passed
@@ -175,7 +175,7 @@ When method POST .......................................................... pass
 Then status 400 ........................................................... passed
 And match response contains { email: '#string' } .......................... passed
 </system-out></testcase>
-<testcase classname="serverest.login.login" name="CT05 - Validate invalid email format" time="0.392275"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.login.login" name="CT05 - Validate invalid email format" time="0.234462"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('resources/loginPayload.json') .................. passed
@@ -194,7 +194,7 @@ When method POST .......................................................... pass
 Then status 400 ........................................................... passed
 And match response contains { email: '#string' } .......................... passed
 </system-out></testcase>
-<testcase classname="serverest.login.login" name="CT05 - Validate invalid email format" time="0.385497"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.login.login" name="CT05 - Validate invalid email format" time="0.175439"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('resources/loginPayload.json') .................. passed
@@ -213,7 +213,7 @@ When method POST .......................................................... pass
 Then status 400 ........................................................... passed
 And match response contains { email: '#string' } .......................... passed
 </system-out></testcase>
-<testcase classname="serverest.login.login" name="CT05 - Validate invalid email format" time="0.396477"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.login.login" name="CT05 - Validate invalid email format" time="0.213811"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('resources/loginPayload.json') .................. passed
@@ -232,7 +232,7 @@ When method POST .......................................................... pass
 Then status 400 ........................................................... passed
 And match response contains { email: '#string' } .......................... passed
 </system-out></testcase>
-<testcase classname="serverest.login.login" name="CT05 - Validate invalid email format" time="0.445226"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.login.login" name="CT05 - Validate invalid email format" time="0.28021"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('resources/loginPayload.json') .................. passed
