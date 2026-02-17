@@ -7,15 +7,34 @@ Feature: Cart Management - ServeRest API
     * def FakerUtils = Java.type('serverest.utils.FakerUtils')
     * def randomProductName = function(){ return FakerUtils.randomProduct() }
     * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json')
+    * def email = function(){ return FakerUtils.randomEmail() }
 
-  @carts @regression
+  @carts @regression @ct001
   Scenario: CT01 - Full cart lifecycle for authenticated user
-    * def randomEmail = function(){ return FakerUtils.randomEmail() }
+    # Create a dedicated user for this cart scenario
+    * def userEmail = email()
+    * def userPassword = 'SenhaSegura@123'
+    * def newUser =
+      """
+      {
+        "nome": "Cart User",
+        "email": "#(userEmail)",
+        "password": "#(userPassword)",
+        "administrador": "true"
+      }
+      """
+
+    Given path '/usuarios'
+    And request newUser
+    When method POST
+    Then status 201
+
+    # Update login payload to use the created user's credentials
+    * set loginPayload.email = userEmail
+    * set loginPayload.password = userPassword
+
     Given path '/login'
-    And request {
-      "email": "#(randomEmail())",
-      "password": "minhaSenha123"
-    }
+    And request loginPayload
     When method POST
     Then status 200
     * def token = response.authorization
@@ -91,12 +110,8 @@ Feature: Cart Management - ServeRest API
 
   @carts @regression
   Scenario: CT02 - Cancel purchase and return products to stock
-    * def randomEmail = function(){ return FakerUtils.randomEmail() }
     Given path '/login'
-    And request {
-      "email": "#(randomEmail())",
-      "password": "minhaSenha123"
-    }
+    And request loginPayload
     When method POST
     Then status 200
     * def token = response.authorization

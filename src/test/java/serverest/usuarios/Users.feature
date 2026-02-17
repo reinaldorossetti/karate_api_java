@@ -333,7 +333,7 @@ Feature: User Management - ServeRest API
 
   @delete-with-cart @regression
   Scenario: CT14 - Prevent deleting user that has an associated cart
-    # Create a non-admin user
+    # Create an admin user
     * def userEmail = randomEmail()
     * def userPassword = 'SenhaSegura@123'
     * def userData =
@@ -342,7 +342,7 @@ Feature: User Management - ServeRest API
         "nome": "User With Cart",
         "email": "#(userEmail)",
         "password": "#(userPassword)",
-        "administrador": "false"
+        "administrador": "true"
       }
       """
 

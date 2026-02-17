@@ -18,7 +18,7 @@ public class FakerUtils {
     }
 
     public static String randomEmail() {
-        return FAKER.internet().emailAddress();
+        return "" + FAKER.name().firstName().toLowerCase() + "@gmail.com";
     }
 
     public static String randomPassword() {

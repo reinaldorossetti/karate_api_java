@@ -68,7 +68,24 @@ Feature: User Authentication - Login
 
   @regression
   Scenario: CT04 - Login and use token to access a protected resource
-    * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json')
+    * def adminEmail = 'admin.' + new Date().getTime() + '@example.com'
+    * def adminPassword = 'SenhaSegura@123'
+    * def adminUser =
+      """
+      {
+        "nome": "Admin User",
+        "email": "#(adminEmail)",
+        "password": "#(adminPassword)",
+        "administrador": "true"
+      }
+      """
+
+    Given path '/usuarios'
+    And request adminUser
+    When method POST
+    Then status 201
+
+    * def loginPayload = { email: adminEmail, password: adminPassword }
     Given path '/login'
     And request loginPayload
     When method POST

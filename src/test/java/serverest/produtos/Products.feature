@@ -4,8 +4,12 @@ Feature: Product Management (Requires Admin Authentication)
 
   Background:
     * url 'https://serverest.dev'
-    * def loginResponse = call read('classpath:serverest/login/Login.feature@login-success')
-    * def token = loginResponse.authToken
+    * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json')
+    Given path '/login'
+    And request loginPayload
+    When method POST
+    Then status 200
+    * def token = response.authorization
     * def randomName = function(){ return 'Product ' + new Date().getTime() }
 
   @list-products @smoke @regression
