@@ -1,50 +1,41 @@
-<testsuite failures="6" name="serverest/carrinhos/Carts.feature" skipped="0" tests="6" time="0.45403"><testcase classname="serverest.carrinhos.Carts" name="CT01 - Full cart lifecycle for authenticated user" time="0.068844"><failure message="js failed:&#10;&gt;&gt;&gt;&gt;&#10;01: read('classpath:serverest/login/Login.feature@login-success')&#10;&lt;&lt;&lt;&lt;&#10;org.graalvm.polyglot.PolyglotException: not found: serverest/login/Login.feature&#10;- com.intuit.karate.resource.ResourceUtils.getResource(ResourceUtils.java:126)&#10;- com.intuit.karate.core.ScenarioFileReader.toResource(ScenarioFileReader.java:129)&#10;- com.intuit.karate.core.ScenarioFileReader.readFile(ScenarioFileReader.java:64)&#10;- com.intuit.karate.core.ScenarioEngine.lambda$new$0(ScenarioEngine.java:109)&#10;- &lt;js&gt;.:program(Unnamed:1)&#10;&#10;classpath:serverest/carrinhos/Carts.feature:10">* url 'https://serverest.dev' ............................................. passed
+<testsuite failures="3" name="serverest/carrinhos/Carts.feature" skipped="0" tests="6" time="5.342037"><testcase classname="serverest.carrinhos.Carts" name="CT01 - Full cart lifecycle for authenticated user" time="1.434576"><failure message="status code was: 400, expected: 201, response time in milliseconds: 119, url: https://serverest.dev/carrinhos, response: &#10;{&#10;    &quot;message&quot;: &quot;Não é permitido ter mais de 1 carrinho&quot;&#10;}&#10;classpath:serverest/carrinhos/Carts.feature:63">* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
-* def loginResponse = call read('classpath:serverest/login/Login.feature@login-success') . failed
+* def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
+Given path '/login' ....................................................... passed
+And request loginPayload .................................................. passed
+When method POST .......................................................... passed
+Then status 200 ........................................................... passed
+* def token = response.authorization ...................................... passed
+Given path '/carrinhos/cancelar-compra' ................................... passed
+And header Authorization = token .......................................... passed
+When method DELETE ........................................................ passed
+Then status 200 ........................................................... passed
+* def productName = randomProductName() ................................... passed
+* def productData = ....................................................... passed
+Given path '/produtos' .................................................... passed
+And header Authorization = token .......................................... passed
+And request productData ................................................... passed
+When method POST .......................................................... passed
+Then status 201 ........................................................... passed
+And match response.message == 'Cadastro realizado com sucesso' ............ passed
+* def productId = response._id ............................................ passed
+* def cartBody = .......................................................... passed
+Given path '/carrinhos' ................................................... passed
+And header Authorization = token .......................................... passed
+And request cartBody ...................................................... passed
+When method POST .......................................................... passed
+Then status 201 ........................................................... failed
 
 Stack Trace:
-com.intuit.karate.KarateException: js failed:
-&gt;&gt;&gt;&gt;
-01: read('classpath:serverest/login/Login.feature@login-success')
-&lt;&lt;&lt;&lt;
-org.graalvm.polyglot.PolyglotException: not found: serverest/login/Login.feature
-- com.intuit.karate.resource.ResourceUtils.getResource(ResourceUtils.java:126)
-- com.intuit.karate.core.ScenarioFileReader.toResource(ScenarioFileReader.java:129)
-- com.intuit.karate.core.ScenarioFileReader.readFile(ScenarioFileReader.java:64)
-- com.intuit.karate.core.ScenarioEngine.lambda$new$0(ScenarioEngine.java:109)
-- &lt;js&gt;.:program(Unnamed:1)
+com.intuit.karate.KarateException: status code was: 400, expected: 201, response time in milliseconds: 119, url: https://serverest.dev/carrinhos, response: 
+{
+    "message": "Não é permitido ter mais de 1 carrinho"
+}
+classpath:serverest/carrinhos/Carts.feature:63
+	at &lt;feature&gt;.: Then status 201 (classpath:serverest/carrinhos/Carts.feature:63:63)
 
-classpath:serverest/carrinhos/Carts.feature:10
-	at &lt;feature&gt;.: * def loginResponse = call read('classpath:serverest/login/Login.feature@login-success') (classpath:serverest/carrinhos/Carts.feature:10:10)
-
-* def authToken = loginResponse.authToken ................................. skipped
-Given path '/carrinhos/concluir-compra' ................................... skipped
-And header Authorization = authToken ...................................... skipped
-When method DELETE ........................................................ skipped
-Then status 200 ........................................................... skipped
-* def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . skipped
-Given path '/login' ....................................................... skipped
-And request loginPayload .................................................. skipped
-When method POST .......................................................... skipped
-Then status 200 ........................................................... skipped
-* def token = response.authorization ...................................... skipped
-* def productName = randomProductName() ................................... skipped
-* def productData = ....................................................... skipped
-Given path '/produtos' .................................................... skipped
-And header Authorization = token .......................................... skipped
-And request productData ................................................... skipped
-When method POST .......................................................... skipped
-Then status 201 ........................................................... skipped
-And match response.message == 'Cadastro realizado com sucesso' ............ skipped
-* def productId = response._id ............................................ skipped
-* def cartBody = .......................................................... skipped
-Given path '/carrinhos' ................................................... skipped
-And header Authorization = token .......................................... skipped
-And request cartBody ...................................................... skipped
-When method POST .......................................................... skipped
-Then status 201 ........................................................... skipped
 And match response.message == 'Cadastro realizado com sucesso' ............ skipped
 And match response._id == '#string' ....................................... skipped
 * def cartId = response._id ............................................... skipped
@@ -58,7 +49,49 @@ When method DELETE ........................................................ skip
 Then status 200 ........................................................... skipped
 And match response.message contains 'Registro excluído com sucesso' ....... skipped
 </failure></testcase>
-<testcase classname="serverest.carrinhos.Carts" name="CT02 - Cancel purchase and return products to stock" time="0.085092"><failure message="js failed:&#10;&gt;&gt;&gt;&gt;&#10;01: read('classpath:serverest/login/Login.feature@login-success')&#10;&lt;&lt;&lt;&lt;&#10;org.graalvm.polyglot.PolyglotException: not found: serverest/login/Login.feature&#10;- com.intuit.karate.resource.ResourceUtils.getResource(ResourceUtils.java:126)&#10;- com.intuit.karate.core.ScenarioFileReader.toResource(ScenarioFileReader.java:129)&#10;- com.intuit.karate.core.ScenarioFileReader.readFile(ScenarioFileReader.java:64)&#10;- com.intuit.karate.core.ScenarioEngine.lambda$new$0(ScenarioEngine.java:109)&#10;- &lt;js&gt;.:program(Unnamed:1)&#10;&#10;classpath:serverest/carrinhos/Carts.feature:10">* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.carrinhos.Carts" name="CT02 - Cancel purchase and return products to stock" time="1.519974"><system-out>* url 'https://serverest.dev' ............................................. passed
+* def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
+* def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
+* def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
+* def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
+Given path '/login' ....................................................... passed
+And request loginPayload .................................................. passed
+When method POST .......................................................... passed
+Then status 200 ........................................................... passed
+* def token = response.authorization ...................................... passed
+* def productName = randomProductName() ................................... passed
+* def productData = ....................................................... passed
+Given path '/produtos' .................................................... passed
+* print 'Using auth token:', token ........................................ passed
+And header Authorization = token .......................................... passed
+And request productData ................................................... passed
+When method POST .......................................................... passed
+Then status 201 ........................................................... passed
+* def productId = response._id ............................................ passed
+* def cartBody = .......................................................... passed
+Given path '/carrinhos' ................................................... passed
+And header Authorization = token .......................................... passed
+And request cartBody ...................................................... passed
+When method POST .......................................................... passed
+Then status 201 ........................................................... passed
+Given path '/carrinhos/cancelar-compra' ................................... passed
+And header Authorization = token .......................................... passed
+When method DELETE ........................................................ passed
+Then status 200 ........................................................... passed
+And match response.message == '#string' ................................... passed
+</system-out></testcase>
+<testcase classname="serverest.carrinhos.Carts" name="CT03 - Prevent creating cart without authentication token" time="0.984721"><system-out>* url 'https://serverest.dev' ............................................. passed
+* def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
+* def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
+* def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
+* def cartBody = .......................................................... passed
+Given path '/carrinhos' ................................................... passed
+And request cartBody ...................................................... passed
+When method POST .......................................................... passed
+Then status 401 ........................................................... passed
+And match response.message == 'Token de acesso ausente, inválido, expirado ou usuário do token não existe mais' . passed
+</system-out></testcase>
+<testcase classname="serverest.carrinhos.Carts" name="CT04 - Prevent creating more than one cart for the same user" time="0.183684"><failure message="js failed:&#10;&gt;&gt;&gt;&gt;&#10;01: read('classpath:serverest/login/Login.feature@login-success')&#10;&lt;&lt;&lt;&lt;&#10;org.graalvm.polyglot.PolyglotException: not found: serverest/login/Login.feature&#10;- com.intuit.karate.resource.ResourceUtils.getResource(ResourceUtils.java:126)&#10;- com.intuit.karate.core.ScenarioFileReader.toResource(ScenarioFileReader.java:129)&#10;- com.intuit.karate.core.ScenarioFileReader.readFile(ScenarioFileReader.java:64)&#10;- com.intuit.karate.core.ScenarioEngine.lambda$new$0(ScenarioEngine.java:109)&#10;- &lt;js&gt;.:program(Unnamed:1)&#10;&#10;classpath:serverest/carrinhos/Carts.feature:168">* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
@@ -76,95 +109,9 @@ org.graalvm.polyglot.PolyglotException: not found: serverest/login/Login.feature
 - com.intuit.karate.core.ScenarioEngine.lambda$new$0(ScenarioEngine.java:109)
 - &lt;js&gt;.:program(Unnamed:1)
 
-classpath:serverest/carrinhos/Carts.feature:10
-	at &lt;feature&gt;.: * def loginResponse = call read('classpath:serverest/login/Login.feature@login-success') (classpath:serverest/carrinhos/Carts.feature:10:10)
+classpath:serverest/carrinhos/Carts.feature:168
+	at &lt;feature&gt;.: * def loginResponse = call read('classpath:serverest/login/Login.feature@login-success') (classpath:serverest/carrinhos/Carts.feature:168:168)
 
-* def authToken = loginResponse.authToken ................................. skipped
-Given path '/carrinhos/concluir-compra' ................................... skipped
-And header Authorization = authToken ...................................... skipped
-When method DELETE ........................................................ skipped
-Then status 200 ........................................................... skipped
-* def productName = randomProductName() ................................... skipped
-* def productData = ....................................................... skipped
-Given path '/produtos' .................................................... skipped
-* print 'Using auth token:', authToken .................................... skipped
-And header Authorization = authToken ...................................... skipped
-And request productData ................................................... skipped
-When method POST .......................................................... skipped
-Then status 201 ........................................................... skipped
-* def productId = response._id ............................................ skipped
-* def cartBody = .......................................................... skipped
-Given path '/carrinhos' ................................................... skipped
-And header Authorization = authToken ...................................... skipped
-And request cartBody ...................................................... skipped
-When method POST .......................................................... skipped
-Then status 201 ........................................................... skipped
-Given path '/carrinhos/cancelar-compra' ................................... skipped
-And header Authorization = authToken ...................................... skipped
-When method DELETE ........................................................ skipped
-Then status 200 ........................................................... skipped
-And match response.message contains 'Registro excluído com sucesso' ....... skipped
-</failure></testcase>
-<testcase classname="serverest.carrinhos.Carts" name="CT03 - Prevent creating cart without authentication token" time="0.076875"><failure message="js failed:&#10;&gt;&gt;&gt;&gt;&#10;01: read('classpath:serverest/login/Login.feature@login-success')&#10;&lt;&lt;&lt;&lt;&#10;org.graalvm.polyglot.PolyglotException: not found: serverest/login/Login.feature&#10;- com.intuit.karate.resource.ResourceUtils.getResource(ResourceUtils.java:126)&#10;- com.intuit.karate.core.ScenarioFileReader.toResource(ScenarioFileReader.java:129)&#10;- com.intuit.karate.core.ScenarioFileReader.readFile(ScenarioFileReader.java:64)&#10;- com.intuit.karate.core.ScenarioEngine.lambda$new$0(ScenarioEngine.java:109)&#10;- &lt;js&gt;.:program(Unnamed:1)&#10;&#10;classpath:serverest/carrinhos/Carts.feature:10">* url 'https://serverest.dev' ............................................. passed
-* def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
-* def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
-* def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
-* def loginResponse = call read('classpath:serverest/login/Login.feature@login-success') . failed
-
-Stack Trace:
-com.intuit.karate.KarateException: js failed:
-&gt;&gt;&gt;&gt;
-01: read('classpath:serverest/login/Login.feature@login-success')
-&lt;&lt;&lt;&lt;
-org.graalvm.polyglot.PolyglotException: not found: serverest/login/Login.feature
-- com.intuit.karate.resource.ResourceUtils.getResource(ResourceUtils.java:126)
-- com.intuit.karate.core.ScenarioFileReader.toResource(ScenarioFileReader.java:129)
-- com.intuit.karate.core.ScenarioFileReader.readFile(ScenarioFileReader.java:64)
-- com.intuit.karate.core.ScenarioEngine.lambda$new$0(ScenarioEngine.java:109)
-- &lt;js&gt;.:program(Unnamed:1)
-
-classpath:serverest/carrinhos/Carts.feature:10
-	at &lt;feature&gt;.: * def loginResponse = call read('classpath:serverest/login/Login.feature@login-success') (classpath:serverest/carrinhos/Carts.feature:10:10)
-
-* def authToken = loginResponse.authToken ................................. skipped
-Given path '/carrinhos/concluir-compra' ................................... skipped
-And header Authorization = authToken ...................................... skipped
-When method DELETE ........................................................ skipped
-Then status 200 ........................................................... skipped
-* def cartBody = .......................................................... skipped
-Given path '/carrinhos' ................................................... skipped
-And request cartBody ...................................................... skipped
-When method POST .......................................................... skipped
-Then status 401 ........................................................... skipped
-And match response.message == 'Token de acesso ausente, inválido, expirado ou usuário do token não existe mais' . skipped
-</failure></testcase>
-<testcase classname="serverest.carrinhos.Carts" name="CT04 - Prevent creating more than one cart for the same user" time="0.076479"><failure message="js failed:&#10;&gt;&gt;&gt;&gt;&#10;01: read('classpath:serverest/login/Login.feature@login-success')&#10;&lt;&lt;&lt;&lt;&#10;org.graalvm.polyglot.PolyglotException: not found: serverest/login/Login.feature&#10;- com.intuit.karate.resource.ResourceUtils.getResource(ResourceUtils.java:126)&#10;- com.intuit.karate.core.ScenarioFileReader.toResource(ScenarioFileReader.java:129)&#10;- com.intuit.karate.core.ScenarioFileReader.readFile(ScenarioFileReader.java:64)&#10;- com.intuit.karate.core.ScenarioEngine.lambda$new$0(ScenarioEngine.java:109)&#10;- &lt;js&gt;.:program(Unnamed:1)&#10;&#10;classpath:serverest/carrinhos/Carts.feature:10">* url 'https://serverest.dev' ............................................. passed
-* def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
-* def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
-* def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
-* def loginResponse = call read('classpath:serverest/login/Login.feature@login-success') . failed
-
-Stack Trace:
-com.intuit.karate.KarateException: js failed:
-&gt;&gt;&gt;&gt;
-01: read('classpath:serverest/login/Login.feature@login-success')
-&lt;&lt;&lt;&lt;
-org.graalvm.polyglot.PolyglotException: not found: serverest/login/Login.feature
-- com.intuit.karate.resource.ResourceUtils.getResource(ResourceUtils.java:126)
-- com.intuit.karate.core.ScenarioFileReader.toResource(ScenarioFileReader.java:129)
-- com.intuit.karate.core.ScenarioFileReader.readFile(ScenarioFileReader.java:64)
-- com.intuit.karate.core.ScenarioEngine.lambda$new$0(ScenarioEngine.java:109)
-- &lt;js&gt;.:program(Unnamed:1)
-
-classpath:serverest/carrinhos/Carts.feature:10
-	at &lt;feature&gt;.: * def loginResponse = call read('classpath:serverest/login/Login.feature@login-success') (classpath:serverest/carrinhos/Carts.feature:10:10)
-
-* def authToken = loginResponse.authToken ................................. skipped
-Given path '/carrinhos/concluir-compra' ................................... skipped
-And header Authorization = authToken ...................................... skipped
-When method DELETE ........................................................ skipped
-Then status 200 ........................................................... skipped
-* def loginResponse = call read('classpath:serverest/login/Login.feature@login-success') . skipped
 * def token = loginResponse.authToken ..................................... skipped
 * def productName = randomProductName() ................................... skipped
 * def productData = ....................................................... skipped
@@ -188,7 +135,16 @@ When method POST .......................................................... skip
 Then status 400 ........................................................... skipped
 And match response.message contains 'Não é permitido ter mais de 1 carrinho' . skipped
 </failure></testcase>
-<testcase classname="serverest.carrinhos.Carts" name="CT05 - Cart not found by ID" time="0.0677"><failure message="js failed:&#10;&gt;&gt;&gt;&gt;&#10;01: read('classpath:serverest/login/Login.feature@login-success')&#10;&lt;&lt;&lt;&lt;&#10;org.graalvm.polyglot.PolyglotException: not found: serverest/login/Login.feature&#10;- com.intuit.karate.resource.ResourceUtils.getResource(ResourceUtils.java:126)&#10;- com.intuit.karate.core.ScenarioFileReader.toResource(ScenarioFileReader.java:129)&#10;- com.intuit.karate.core.ScenarioFileReader.readFile(ScenarioFileReader.java:64)&#10;- com.intuit.karate.core.ScenarioEngine.lambda$new$0(ScenarioEngine.java:109)&#10;- &lt;js&gt;.:program(Unnamed:1)&#10;&#10;classpath:serverest/carrinhos/Carts.feature:10">* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.carrinhos.Carts" name="CT05 - Cart not found by ID" time="1.042461"><system-out>* url 'https://serverest.dev' ............................................. passed
+* def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
+* def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
+* def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
+Given path '/carrinhos/invalid-cart-id-123' ............................... passed
+When method GET ........................................................... passed
+Then status 400 ........................................................... passed
+And match response == { id: 'id deve ter exatamente 16 caracteres alfanuméricos' } . passed
+</system-out></testcase>
+<testcase classname="serverest.carrinhos.Carts" name="CT06 - Prevent cart creation when product stock is insufficient" time="0.176621"><failure message="js failed:&#10;&gt;&gt;&gt;&gt;&#10;01: read('classpath:serverest/login/Login.feature@login-success')&#10;&lt;&lt;&lt;&lt;&#10;org.graalvm.polyglot.PolyglotException: not found: serverest/login/Login.feature&#10;- com.intuit.karate.resource.ResourceUtils.getResource(ResourceUtils.java:126)&#10;- com.intuit.karate.core.ScenarioFileReader.toResource(ScenarioFileReader.java:129)&#10;- com.intuit.karate.core.ScenarioFileReader.readFile(ScenarioFileReader.java:64)&#10;- com.intuit.karate.core.ScenarioEngine.lambda$new$0(ScenarioEngine.java:109)&#10;- &lt;js&gt;.:program(Unnamed:1)&#10;&#10;classpath:serverest/carrinhos/Carts.feature:227">* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
@@ -206,47 +162,14 @@ org.graalvm.polyglot.PolyglotException: not found: serverest/login/Login.feature
 - com.intuit.karate.core.ScenarioEngine.lambda$new$0(ScenarioEngine.java:109)
 - &lt;js&gt;.:program(Unnamed:1)
 
-classpath:serverest/carrinhos/Carts.feature:10
-	at &lt;feature&gt;.: * def loginResponse = call read('classpath:serverest/login/Login.feature@login-success') (classpath:serverest/carrinhos/Carts.feature:10:10)
+classpath:serverest/carrinhos/Carts.feature:227
+	at &lt;feature&gt;.: * def loginResponse = call read('classpath:serverest/login/Login.feature@login-success') (classpath:serverest/carrinhos/Carts.feature:227:227)
 
-* def authToken = loginResponse.authToken ................................. skipped
-Given path '/carrinhos/concluir-compra' ................................... skipped
-And header Authorization = authToken ...................................... skipped
-When method DELETE ........................................................ skipped
-Then status 200 ........................................................... skipped
-Given path '/carrinhos/invalid-cart-id-123' ............................... skipped
-When method GET ........................................................... skipped
-Then status 400 ........................................................... skipped
-And match response == { id: 'id deve ter exatamente 16 caracteres alfanuméricos' } . skipped
-</failure></testcase>
-<testcase classname="serverest.carrinhos.Carts" name="CT06 - Prevent cart creation when product stock is insufficient" time="0.079038"><failure message="js failed:&#10;&gt;&gt;&gt;&gt;&#10;01: read('classpath:serverest/login/Login.feature@login-success')&#10;&lt;&lt;&lt;&lt;&#10;org.graalvm.polyglot.PolyglotException: not found: serverest/login/Login.feature&#10;- com.intuit.karate.resource.ResourceUtils.getResource(ResourceUtils.java:126)&#10;- com.intuit.karate.core.ScenarioFileReader.toResource(ScenarioFileReader.java:129)&#10;- com.intuit.karate.core.ScenarioFileReader.readFile(ScenarioFileReader.java:64)&#10;- com.intuit.karate.core.ScenarioEngine.lambda$new$0(ScenarioEngine.java:109)&#10;- &lt;js&gt;.:program(Unnamed:1)&#10;&#10;classpath:serverest/carrinhos/Carts.feature:10">* url 'https://serverest.dev' ............................................. passed
-* def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
-* def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
-* def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
-* def loginResponse = call read('classpath:serverest/login/Login.feature@login-success') . failed
-
-Stack Trace:
-com.intuit.karate.KarateException: js failed:
-&gt;&gt;&gt;&gt;
-01: read('classpath:serverest/login/Login.feature@login-success')
-&lt;&lt;&lt;&lt;
-org.graalvm.polyglot.PolyglotException: not found: serverest/login/Login.feature
-- com.intuit.karate.resource.ResourceUtils.getResource(ResourceUtils.java:126)
-- com.intuit.karate.core.ScenarioFileReader.toResource(ScenarioFileReader.java:129)
-- com.intuit.karate.core.ScenarioFileReader.readFile(ScenarioFileReader.java:64)
-- com.intuit.karate.core.ScenarioEngine.lambda$new$0(ScenarioEngine.java:109)
-- &lt;js&gt;.:program(Unnamed:1)
-
-classpath:serverest/carrinhos/Carts.feature:10
-	at &lt;feature&gt;.: * def loginResponse = call read('classpath:serverest/login/Login.feature@login-success') (classpath:serverest/carrinhos/Carts.feature:10:10)
-
-* def authToken = loginResponse.authToken ................................. skipped
-Given path '/carrinhos/concluir-compra' ................................... skipped
-And header Authorization = authToken ...................................... skipped
-When method DELETE ........................................................ skipped
-Then status 200 ........................................................... skipped
-* def loginResponse = call read('classpath:serverest/login/Login.feature@login-success') . skipped
 * def token = loginResponse.authToken ..................................... skipped
+Given path '/carrinhos/cancelar-compra' ................................... skipped
+And header Authorization = token .......................................... skipped
+When method DELETE ........................................................ skipped
+Then status 200 ........................................................... skipped
 * def productName = randomProductName() ................................... skipped
 * def productData = ....................................................... skipped
 Given path '/produtos' .................................................... skipped

@@ -1,4 +1,4 @@
-<testsuite failures="1" name="serverest/usuarios/Users.feature" skipped="0" tests="14" time="3.908884"><testcase classname="serverest.usuarios.Users" name="CT01 - List all users and validate JSON structure" time="0.623944"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testsuite failures="1" name="serverest/usuarios/Users.feature" skipped="0" tests="14" time="4.2327"><testcase classname="serverest.usuarios.Users" name="CT01 - List all users and validate JSON structure" time="0.488837"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomEmail = function(){ return FakerUtils.randomEmail() } ......... passed
 * def randomName = function(){ return FakerUtils.randomName() } ........... passed
@@ -18,7 +18,7 @@ And match each response.usuarios contains { administrador: '#regex true|false' }
 * def firstUser = response.usuarios[0] .................................... passed
 * print 'First user:', firstUser .......................................... passed
 </system-out></testcase>
-<testcase classname="serverest.usuarios.Users" name="CT02 - Get a specific user by ID" time="0.475794"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.usuarios.Users" name="CT02 - Get a specific user by ID" time="0.499449"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomEmail = function(){ return FakerUtils.randomEmail() } ......... passed
 * def randomName = function(){ return FakerUtils.randomName() } ........... passed
@@ -37,7 +37,7 @@ And match response.email == '#string' ..................................... pass
 And match response._id == userId .......................................... passed
 And match response == { nome: '#string', email: '#string', password: '#string', administrador: '#string', _id: '#string' } . passed
 </system-out></testcase>
-<testcase classname="serverest.usuarios.Users" name="CT03 - Create a new user with complete validations" time="0.484704"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.usuarios.Users" name="CT03 - Create a new user with complete validations" time="0.509148"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomEmail = function(){ return FakerUtils.randomEmail() } ......... passed
 * def randomName = function(){ return FakerUtils.randomName() } ........... passed
@@ -60,7 +60,7 @@ Then status 200 ........................................................... pass
 And match response.nome == name ........................................... passed
 And match response.email == newEmail ...................................... passed
 </system-out></testcase>
-<testcase classname="serverest.usuarios.Users" name="CT04 - Advanced JSON validations with filters" time="0.404238"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.usuarios.Users" name="CT04 - Advanced JSON validations with filters" time="0.417603"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomEmail = function(){ return FakerUtils.randomEmail() } ......... passed
 * def randomName = function(){ return FakerUtils.randomName() } ........... passed
@@ -77,7 +77,7 @@ And match admins == '#[_ &gt; 0]' ............................................ p
 * print 'List of emails:', emails ......................................... passed
 And match emails == '#[] #string' ......................................... passed
 </system-out></testcase>
-<testcase classname="serverest.usuarios.Users" name="CT05 - Validate error messages when creating a duplicate email" time="0.478886"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.usuarios.Users" name="CT05 - Validate error messages when creating a duplicate email" time="0.39285"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomEmail = function(){ return FakerUtils.randomEmail() } ......... passed
 * def randomName = function(){ return FakerUtils.randomName() } ........... passed
@@ -96,7 +96,7 @@ Then status 400 ........................................................... pass
 And match response == ..................................................... passed
 And match response.message == '#notnull' .................................. passed
 </system-out></testcase>
-<testcase classname="serverest.usuarios.Users" name="CT06 - Validate with fuzzy matching" time="0.176273"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.usuarios.Users" name="CT06 - Validate with fuzzy matching" time="0.157938"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomEmail = function(){ return FakerUtils.randomEmail() } ......... passed
 * def randomName = function(){ return FakerUtils.randomName() } ........... passed
@@ -108,7 +108,7 @@ Then status 200 ........................................................... pass
 And match response == ..................................................... passed
 And match each response.usuarios contains ................................. passed
 </system-out></testcase>
-<testcase classname="serverest.usuarios.Users" name="CT07 - Conditional validations based on values" time="0.116086"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.usuarios.Users" name="CT07 - Conditional validations based on values" time="0.143078"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomEmail = function(){ return FakerUtils.randomEmail() } ......... passed
 * def randomName = function(){ return FakerUtils.randomName() } ........... passed
@@ -122,7 +122,7 @@ Then status 200 ........................................................... pass
 And match user.email == '#? _.length &gt; 5' ................................. passed
 And match user.password == '#? _.length &gt; 0' .............................. passed
 </system-out></testcase>
-<testcase classname="serverest.usuarios.Users" name="CT08 - Validate formats with regular expressions" time="0.199103"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.usuarios.Users" name="CT08 - Validate formats with regular expressions" time="0.297681"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomEmail = function(){ return FakerUtils.randomEmail() } ......... passed
 * def randomName = function(){ return FakerUtils.randomName() } ........... passed
@@ -140,7 +140,7 @@ And match response.email == '#regex .+@.+\\..+' ........................... pass
 And match response.nome == '#regex [A-Za-z\\s]+' .......................... passed
 And match response._id == '#regex [A-Za-z0-9]+' ........................... passed
 </system-out></testcase>
-<testcase classname="serverest.usuarios.Users" name="CT09 - Validate absence of fields" time="0.122067"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.usuarios.Users" name="CT09 - Validate absence of fields" time="0.163282"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomEmail = function(){ return FakerUtils.randomEmail() } ......... passed
 * def randomName = function(){ return FakerUtils.randomName() } ........... passed
@@ -154,7 +154,7 @@ And match response !contains { errorMessage: '#string' } .................. pass
 And match user !contains { cpf: '#string' } ............................... passed
 And match user !contains { phone: '#string' } ............................. passed
 </system-out></testcase>
-<testcase classname="serverest.usuarios.Users" name="CT10 - Use variables for dynamic validations" time="0.196586"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.usuarios.Users" name="CT10 - Use variables for dynamic validations" time="0.247805"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomEmail = function(){ return FakerUtils.randomEmail() } ......... passed
 * def randomName = function(){ return FakerUtils.randomName() } ........... passed
@@ -174,7 +174,7 @@ Then status 200 ........................................................... pass
 And match user.email == expectedEmail ..................................... passed
 And match user contains { email: '#(expectedEmail)', nome: '#string' } .... passed
 </system-out></testcase>
-<testcase classname="serverest.usuarios.Users" name="CT11 - Prepare data for nested object validation" time="0.112284"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.usuarios.Users" name="CT11 - Prepare data for nested object validation" time="0.123159"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomEmail = function(){ return FakerUtils.randomEmail() } ......... passed
 * def randomName = function(){ return FakerUtils.randomName() } ........... passed
@@ -188,7 +188,7 @@ And match response == ..................................................... pass
 And match response.message == 'Cadastro realizado com sucesso' ............ passed
 And match response._id == '#? _.length &gt; 10' .............................. passed
 </system-out></testcase>
-<testcase classname="serverest.usuarios.Users" name="CT12 - Create a user from fixed JSON file" time="0.120124"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.usuarios.Users" name="CT12 - Create a user from fixed JSON file" time="0.110788"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomEmail = function(){ return FakerUtils.randomEmail() } ......... passed
 * def randomName = function(){ return FakerUtils.randomName() } ........... passed
@@ -202,7 +202,7 @@ Then status 201 ........................................................... pass
 And match response.message == 'Cadastro realizado com sucesso' ............ passed
 And match response._id == '#string' ....................................... passed
 </system-out></testcase>
-<testcase classname="serverest.usuarios.Users" name="CT13 - Create and delete user based on JSON payload" time="0.249596"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.usuarios.Users" name="CT13 - Create and delete user based on JSON payload" time="0.35675"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomEmail = function(){ return FakerUtils.randomEmail() } ......... passed
 * def randomName = function(){ return FakerUtils.randomName() } ........... passed
@@ -227,7 +227,7 @@ Then status 200 ........................................................... pass
 And match response.quantidade == 0 ........................................ passed
 And match response.usuarios == '#[0]' ..................................... passed
 </system-out></testcase>
-<testcase classname="serverest.usuarios.Users" name="CT14 - Prevent deleting user that has an associated cart" time="0.149198"><failure message="js failed:&#10;&gt;&gt;&gt;&gt;&#10;01: read('classpath:serverest/login/Login.feature@login-success')&#10;&lt;&lt;&lt;&lt;&#10;org.graalvm.polyglot.PolyglotException: not found: serverest/login/Login.feature&#10;- com.intuit.karate.resource.ResourceUtils.getResource(ResourceUtils.java:126)&#10;- com.intuit.karate.core.ScenarioFileReader.toResource(ScenarioFileReader.java:129)&#10;- com.intuit.karate.core.ScenarioFileReader.readFile(ScenarioFileReader.java:64)&#10;- com.intuit.karate.core.ScenarioEngine.lambda$new$0(ScenarioEngine.java:109)&#10;- &lt;js&gt;.:program(Unnamed:1)&#10;&#10;classpath:serverest/usuarios/Users.feature:372">* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.usuarios.Users" name="CT14 - Prevent deleting user that has an associated cart" time="0.324332"><failure message="status code was: 403, expected: 201, response time in milliseconds: 97, url: https://serverest.dev/produtos, response: &#10;{&#10;    &quot;message&quot;: &quot;Rota exclusiva para administradores&quot;&#10;}&#10;classpath:serverest/usuarios/Users.feature:388">* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomEmail = function(){ return FakerUtils.randomEmail() } ......... passed
 * def randomName = function(){ return FakerUtils.randomName() } ........... passed
@@ -247,31 +247,23 @@ And request loginPayload .................................................. pass
 When method POST .......................................................... passed
 Then status 200 ........................................................... passed
 * def userToken = response.authorization .................................. passed
-* def adminLogin = call read('classpath:serverest/login/Login.feature@login-success') . failed
+* def adminToken = userToken .............................................. passed
+* def productName = 'Product for user cart ' + new Date().getTime() ....... passed
+* def productData = ....................................................... passed
+Given path '/produtos' .................................................... passed
+And header Authorization = adminToken ..................................... passed
+And request productData ................................................... passed
+When method POST .......................................................... passed
+Then status 201 ........................................................... failed
 
 Stack Trace:
-com.intuit.karate.KarateException: js failed:
-&gt;&gt;&gt;&gt;
-01: read('classpath:serverest/login/Login.feature@login-success')
-&lt;&lt;&lt;&lt;
-org.graalvm.polyglot.PolyglotException: not found: serverest/login/Login.feature
-- com.intuit.karate.resource.ResourceUtils.getResource(ResourceUtils.java:126)
-- com.intuit.karate.core.ScenarioFileReader.toResource(ScenarioFileReader.java:129)
-- com.intuit.karate.core.ScenarioFileReader.readFile(ScenarioFileReader.java:64)
-- com.intuit.karate.core.ScenarioEngine.lambda$new$0(ScenarioEngine.java:109)
-- &lt;js&gt;.:program(Unnamed:1)
+com.intuit.karate.KarateException: status code was: 403, expected: 201, response time in milliseconds: 97, url: https://serverest.dev/produtos, response: 
+{
+    "message": "Rota exclusiva para administradores"
+}
+classpath:serverest/usuarios/Users.feature:388
+	at &lt;feature&gt;.: Then status 201 (classpath:serverest/usuarios/Users.feature:388:388)
 
-classpath:serverest/usuarios/Users.feature:372
-	at &lt;feature&gt;.: * def adminLogin = call read('classpath:serverest/login/Login.feature@login-success') (classpath:serverest/usuarios/Users.feature:372:372)
-
-* def adminToken = adminLogin.authToken ................................... skipped
-* def productName = 'Product for user cart ' + new Date().getTime() ....... skipped
-* def productData = ....................................................... skipped
-Given path '/produtos' .................................................... skipped
-And header Authorization = adminToken ..................................... skipped
-And request productData ................................................... skipped
-When method POST .......................................................... skipped
-Then status 201 ........................................................... skipped
 * def productId = response._id ............................................ skipped
 Given path '/carrinhos/cancelar-compra' ................................... skipped
 And header Authorization = userToken ...................................... skipped
