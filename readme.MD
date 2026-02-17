@@ -12,6 +12,8 @@ URI do repositório: [https://github.com/reinaldorossetti/karate_api_java](https
 
 Reporte na esteira: [https://reinaldorossetti.github.io/karate_api_java/karate-reports/karate-summary.html](https://reinaldorossetti.github.io/karate_api_java/karate-reports/karate-summary.html)
 
+Testes realizados na API: [TESTING_API.MD](TESTING_API.MD)
+
 ---
 
 ## 📚 Índice

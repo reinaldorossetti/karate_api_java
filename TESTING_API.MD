@@ -115,9 +115,9 @@ Os testes deste projeto são escritos em **Karate** e estão localizados em `src
 | Login                  | `serverest/login/Login.feature`           | 5                 | Alta                      | `@login`, `@smoke`, `@regression`  |
 | Usuários               | `serverest/usuarios/Users.feature`        | 14                | Alta                      | `@users`, `@smoke`, `@regression`  |
 | Produtos               | `serverest/produtos/Products.feature`     | 13                | Alta                      | `@products`, `@smoke`, `@regression` |
-| Carrinhos              | `serverest/carrinhos/Carts.feature`       | 6                 | Alta                      | `@carts`, `@regression`            |
+| Carrinhos              | `serverest/carrinhos/Carts.feature`       | 8                 | Alta                      | `@carts`, `@regression`            |
 
-Total de cenários automatizados: **38** (5 Login + 14 Usuários + 13 Produtos + 6 Carrinhos).
+Total de cenários automatizados: **40** (5 Login + 14 Usuários + 13 Produtos + 8 Carrinhos).
 
 > As tags `@smoke` identificam cenários de verificação rápida (happy path). A tag `@regression` cobre a bateria completa de testes funcionais e de validação. A criticidade considera impacto no fluxo principal de uso da API (autenticação, CRUD de usuários e produtos).
 
@@ -288,12 +288,20 @@ Arquivo: `src/test/java/serverest/carrinhos/Carts.feature`
 	- Criticidade: **Alta** (evita estados inconsistentes de múltiplos carrinhos por usuário).
 - **CT05 – Carrinho não encontrado por ID**  
 	- Tags: `@carts @regression`  
-	- Tipo: teste negativo de consulta com ID inválido, retornando mensagem de "Carrinho não encontrado".  
-	- Criticidade: **Média** (tratamento de erro de consulta).
+	- Tipo: teste negativo de consulta com ID inválido, validando mensagem de erro sobre o formato/quantidade de caracteres do ID (16 caracteres alfanuméricos).  
+	- Criticidade: **Média** (tratamento de erro de validação de identificador).
 - **CT06 – Impedir criação de carrinho com estoque insuficiente**  
 	- Tags: `@carts @regression`  
 	- Tipo: teste negativo que tenta adicionar ao carrinho quantidade maior que o estoque disponível, validando mensagem de erro.  
 	- Criticidade: **Alta** (protege consistência de estoque e regras de venda).
+- **CT07 – Impedir carrinho com produtos duplicados**  
+	- Tags: `@carts @regression`  
+	- Tipo: teste negativo que tenta criar um carrinho contendo o mesmo produto repetido mais de uma vez na lista, esperando mensagem de erro sobre produto duplicado.  
+	- Criticidade: **Alta** (evita inconsistências na composição do carrinho e duplicidade de itens).
+- **CT08 – Impedir criação de carrinho com produto inexistente**  
+	- Tags: `@carts @regression`  
+	- Tipo: teste negativo que tenta criar carrinho com um `idProduto` inexistente, validando mensagem de "Produto não encontrado".  
+	- Criticidade: **Alta** (garante que apenas produtos válidos sejam associados a carrinhos).
 
 ### Classificação geral dos testes
 
