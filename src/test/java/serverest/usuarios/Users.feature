@@ -329,3 +329,94 @@ Feature: User Management - ServeRest API
     Then status 200
     And match response.quantidade == 0
     And match response.usuarios == '#[0]'
+
+
+  @delete-with-cart @regression
+  Scenario: CT14 - Prevent deleting user that has an associated cart
+    # Create a non-admin user
+    * def userEmail = randomEmail()
+    * def userPassword = 'SenhaSegura@123'
+    * def userData =
+      """
+      {
+        "nome": "User With Cart",
+        "email": "#(userEmail)",
+        "password": "#(userPassword)",
+        "administrador": "false"
+      }
+      """
+
+    Given path '/usuarios'
+    And request userData
+    When method POST
+    Then status 201
+    And match response.message == 'Cadastro realizado com sucesso'
+    * def userId = response._id
+
+    # Login with the created user to obtain a token
+    * def loginPayload =
+      """
+      {
+        "email": "#(userEmail)",
+        "password": "#(userPassword)"
+      }
+      """
+
+    Given path '/login'
+    And request loginPayload
+    When method POST
+    Then status 200
+    * def userToken = response.authorization
+
+    # Create a product as admin to be used in the cart
+    * def adminLogin = call read('classpath:serverest/login/Login.feature@login-success')
+    * def adminToken = adminLogin.authToken
+    * def productName = 'Product for user cart ' + new Date().getTime()
+    * def productData =
+      """
+      {
+        "nome": "#(productName)",
+        "preco": 100,
+        "descricao": "Product associated to user cart",
+        "quantidade": 5
+      }
+      """
+
+    Given path '/produtos'
+    And header Authorization = adminToken
+    And request productData
+    When method POST
+    Then status 201
+    * def productId = response._id
+
+    # Ensure the user has no previous cart
+    Given path '/carrinhos/cancelar-compra'
+    And header Authorization = userToken
+    When method DELETE
+    Then status 200
+
+    # Create a cart for this user
+    * def cartBody =
+      """
+      {
+        "produtos": [
+          {
+            "idProduto": "#(productId)",
+            "quantidade": 1
+          }
+        ]
+      }
+      """
+
+    Given path '/carrinhos'
+    And header Authorization = userToken
+    And request cartBody
+    When method POST
+    Then status 201
+
+    # Try to delete the user and expect business rule error
+    Given path '/usuarios/' + userId
+    When method DELETE
+    Then status 400
+    And match response.message == 'Não é permitido excluir usuário com carrinho cadastrado'
+    And match response.idCarrinho == '#string'

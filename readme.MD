@@ -199,11 +199,11 @@ mvn test
 
 ### Executar suíte principal (ParallelRunner)
 
+O `ParallelRunner` é uma classe de teste JUnit 5 que executa as features em paralelo, filtrando por tags (ex.: `@regression`) e gerando relatórios em `target/karate-reports`.
+
 ```bash
 mvn test -Dtest=ParallelRunner
 ```
-
-O `ParallelRunner` é uma classe de teste JUnit 5 que executa as features em paralelo, filtrando por tags (ex.: `@regression`) e gerando relatórios em `target/karate-reports`.
 
 ```java
 class ParallelRunner {

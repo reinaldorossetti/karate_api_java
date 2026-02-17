@@ -29,8 +29,7 @@ Feature: Product Management (Requires Admin Authentication)
           preco: '#number',
           descricao: '#string',
           quantidade: '#number',
-          _id: '#string',
-          // Allow extra fields
+          _id: '#string'
         }
         """
     
@@ -304,6 +303,7 @@ Feature: Product Management (Requires Admin Authentication)
   @create-product-from-json @regression
   Scenario: CT11 - Create a product from fixed JSON payload
     * def productPayload = read('resources/productPayload.json')
+    * set productPayload.nome = randomName()
     Given path '/produtos'
     And header Authorization = token
     And request productPayload
@@ -311,3 +311,143 @@ Feature: Product Management (Requires Admin Authentication)
     Then status 201
     And match response.message == 'Cadastro realizado com sucesso'
     And match response._id == '#string'
+
+
+  @delete-product-in-cart @regression
+  Scenario: CT12 - Prevent deleting a product that is part of a cart
+    # Create a product that will be associated with a cart
+    * def productName = randomName()
+    * def product =
+      """
+      {
+        "nome": "#(productName)",
+        "preco": 300,
+        "descricao": "Product linked to cart",
+        "quantidade": 10
+      }
+      """
+
+      Given path '/produtos'
+    And header Authorization = token
+    And request product
+    When method POST
+    Then status 201
+    * def productId = response._id
+
+    # Create a non-admin user and login to create a cart
+    * def userEmail = 'cart.user.' + new Date().getTime() + '@example.com'
+    * def userPassword = 'SenhaSegura@123'
+    * def userData =
+      """
+      {
+        "nome": "Cart User",
+        "email": "#(userEmail)",
+        "password": "#(userPassword)",
+        "administrador": "false"
+      }
+      """
+
+    Given path '/usuarios'
+    And request userData
+    When method POST
+    Then status 201
+
+    * def loginPayload =
+      """
+      {
+        "email": "#(userEmail)",
+        "password": "#(userPassword)"
+      }
+      """
+
+    Given path '/login'
+    And request loginPayload
+    When method POST
+    Then status 200
+    * def userToken = response.authorization
+
+    # Ensure no existing cart for this user
+    Given path '/carrinhos/cancelar-compra'
+    And header Authorization = userToken
+    When method DELETE
+    Then status 200
+
+    # Create a cart including the created product
+    * def cartBody =
+      """
+      {
+        "produtos": [
+          {
+            "idProduto": "#(productId)",
+            "quantidade": 1
+          }
+        ]
+      }
+      """
+
+    Given path '/carrinhos'
+    And header Authorization = userToken
+    And request cartBody
+    When method POST
+    Then status 201
+
+    # Try to delete the product and expect an error because it is in a cart
+    Given path '/produtos/' + productId
+    And header Authorization = token
+    When method DELETE
+    Then status 400
+    And match response.message == 'Não é permitido excluir produto que faz parte de carrinho'
+
+
+  @admin-only-route @regression
+  Scenario: CT13 - Restrict product creation to administrators only
+    # Create a non-admin user
+    * def userEmail = 'non.admin.' + new Date().getTime() + '@example.com'
+    * def userPassword = 'SenhaSegura@123'
+    * def userData =
+      """
+      {
+        "nome": "Non Admin User",
+        "email": "#(userEmail)",
+        "password": "#(userPassword)",
+        "administrador": "false"
+      }
+      """
+
+    Given path '/usuarios'
+    And request userData
+    When method POST
+    Then status 201
+
+    # Login as non-admin user
+    * def loginPayload =
+      """
+      {
+        "email": "#(userEmail)",
+        "password": "#(userPassword)"
+      }
+      """
+
+    Given path '/login'
+    And request loginPayload
+    When method POST
+    Then status 200
+    * def nonAdminToken = response.authorization
+
+    # Try to create a product using non-admin token and expect 403
+    * def productData =
+      """
+      {
+        "nome": "Restricted Product",
+        "preco": 500,
+        "descricao": "Product should be created only by admins",
+        "quantidade": 5
+      }
+      """
+
+      Given path '/produtos'
+    And header Authorization = nonAdminToken
+    And request productData
+    When method POST
+    Then status 403
+    And match response.message == 'Rota exclusiva para administradores'
