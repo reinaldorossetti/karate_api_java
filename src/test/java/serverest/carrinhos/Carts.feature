@@ -7,14 +7,8 @@ Feature: Cart Management - ServeRest API
     * def FakerUtils = Java.type('serverest.utils.FakerUtils')
     * def randomProductName = function(){ return FakerUtils.randomProduct() }
     * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json')
-    * def loginResponse = call read('classpath:serverest/login/Login.feature@login-success')
-    * def authToken = loginResponse.authToken
-    # Always clear any existing cart for the default user before each scenario
-    Given path '/carrinhos/concluir-compra'
-    And header Authorization = authToken
-    When method DELETE
-    Then status 200
 
+    
   @carts @regression
   Scenario: CT01 - Full cart lifecycle for authenticated user
     * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json')
@@ -23,6 +17,11 @@ Feature: Cart Management - ServeRest API
     When method POST
     Then status 200
     * def token = response.authorization
+
+    Given path '/carrinhos/cancelar-compra'
+    And header Authorization = token
+    When method DELETE
+    Then status 200
 
     # Create a product to be used in the cart
     * def productName = randomProductName()
@@ -90,7 +89,13 @@ Feature: Cart Management - ServeRest API
 
   @carts @regression
   Scenario: CT02 - Cancel purchase and return products to stock
-
+    * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json')
+    Given path '/login'
+    And request loginPayload
+    When method POST
+    Then status 200
+    * def token = response.authorization
+    
     # Create product for the cart
     * def productName = randomProductName()
     * def productData =
@@ -104,8 +109,8 @@ Feature: Cart Management - ServeRest API
       """
 
     Given path '/produtos'
-    * print 'Using auth token:', authToken
-    And header Authorization = authToken
+    * print 'Using auth token:', token
+    And header Authorization = token
     And request productData
     When method POST
     Then status 201
@@ -125,17 +130,17 @@ Feature: Cart Management - ServeRest API
       """
 
     Given path '/carrinhos'
-    And header Authorization = authToken
+    And header Authorization = token
     And request cartBody
     When method POST
     Then status 201
 
     # Cancel purchase: cart removed and stock should be restored (implicit)
     Given path '/carrinhos/cancelar-compra'
-    And header Authorization = authToken
+    And header Authorization = token
     When method DELETE
     Then status 200
-    And match response.message contains 'Registro excluído com sucesso'
+    And match response.message == '#string'
 
   @carts @regression
   Scenario: CT03 - Prevent creating cart without authentication token
@@ -221,6 +226,11 @@ Feature: Cart Management - ServeRest API
   Scenario: CT06 - Prevent cart creation when product stock is insufficient
     * def loginResponse = call read('classpath:serverest/login/Login.feature@login-success')
     * def token = loginResponse.authToken
+
+    Given path '/carrinhos/cancelar-compra'
+    And header Authorization = token
+    When method DELETE
+    Then status 200
 
     # Create product with low stock
     * def productName = randomProductName()

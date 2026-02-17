@@ -369,8 +369,7 @@ Feature: User Management - ServeRest API
     * def userToken = response.authorization
 
     # Create a product as admin to be used in the cart
-    * def adminLogin = call read('classpath:serverest/login/Login.feature@login-success')
-    * def adminToken = adminLogin.authToken
+    * def adminToken = userToken
     * def productName = 'Product for user cart ' + new Date().getTime()
     * def productData =
       """
