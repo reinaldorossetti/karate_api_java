@@ -1,4 +1,4 @@
-<testsuite failures="0" name="serverest/produtos/Products.feature" skipped="0" tests="16" time="5.74703"><testcase classname="serverest.produtos.Products" name="CT01 - List all products and validate JSON structure" time="0.254719"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testsuite failures="0" name="serverest/produtos/Products.feature" skipped="0" tests="16" time="7.045024"><testcase classname="serverest.produtos.Products" name="CT01 - List all products and validate JSON structure" time="0.5609"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
@@ -14,7 +14,7 @@ And match each response.produtos == ....................................... pass
 And match each response.produtos contains { preco: '#number? _ &gt; 0' } ..... passed
 And match each response.produtos contains { quantidade: '#number? _ &gt;= 0' } . passed
 </system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT02 - Create a new product as an administrator" time="0.399435"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.produtos.Products" name="CT02 - Create a new product as an administrator" time="0.694323"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
@@ -38,7 +38,7 @@ And match response.nome == productName .................................... pass
 And match response.preco == 250 ........................................... passed
 And match response.quantidade == 100 ...................................... passed
 </system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT03 - Validate error when creating a product with a duplicate name" time="0.433853"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.produtos.Products" name="CT03 - Validate error when creating a product with a duplicate name" time="0.620193"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
@@ -60,7 +60,7 @@ When method POST .......................................................... pass
 Then status 400 ........................................................... passed
 And match response == ..................................................... passed
 </system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT04 - Search for products using query parameters" time="0.439001"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.produtos.Products" name="CT04 - Search for products using query parameters" time="0.557909"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
@@ -80,7 +80,7 @@ And param preco = 100 ..................................................... pass
 When method GET ........................................................... passed
 Then status 200 ........................................................... passed
 </system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT05 - Update information of an existing product" time="0.506449"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.produtos.Products" name="CT05 - Update information of an existing product" time="0.679157"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
@@ -110,7 +110,7 @@ And match response.preco == 200 ........................................... pass
 And match response.descricao == 'Updated description' ..................... passed
 And match response.quantidade == 75 ....................................... passed
 </system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT06 - Validate price calculations and comparisons" time="0.306896"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.produtos.Products" name="CT06 - Validate price calculations and comparisons" time="0.393778"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
@@ -132,7 +132,7 @@ Then status 200 ........................................................... pass
 * print 'Average Price:', avgPrice ........................................ passed
 And match each products contains { preco: '#number? _ &gt; 0 &amp;&amp; _ &lt; 100000' } . passed
 </system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT07 - Attempt to create a product without an authentication token" time="0.19653"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.produtos.Products" name="CT07 - Attempt to create a product without an authentication token" time="0.312883"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
@@ -147,7 +147,7 @@ When method POST .......................................................... pass
 Then status 401 ........................................................... passed
 And match response == ..................................................... passed
 </system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT08 - Validate required fields when creating a product" time="0.201005"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.produtos.Products" name="CT08 - Validate required fields when creating a product" time="0.188689"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
@@ -162,7 +162,7 @@ And request incompleteProduct ............................................. pass
 When method POST .......................................................... passed
 Then status 400 ........................................................... passed
 </system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT08 - Validate required fields when creating a product" time="0.738147"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.produtos.Products" name="CT08 - Validate required fields when creating a product" time="0.205844"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
@@ -177,7 +177,7 @@ And request incompleteProduct ............................................. pass
 When method POST .......................................................... passed
 Then status 400 ........................................................... passed
 </system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT08 - Validate required fields when creating a product" time="0.187466"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.produtos.Products" name="CT08 - Validate required fields when creating a product" time="0.295185"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
@@ -192,7 +192,7 @@ And request incompleteProduct ............................................. pass
 When method POST .......................................................... passed
 Then status 400 ........................................................... passed
 </system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT08 - Validate required fields when creating a product" time="0.177139"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.produtos.Products" name="CT08 - Validate required fields when creating a product" time="0.319108"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
@@ -207,7 +207,7 @@ And request incompleteProduct ............................................. pass
 When method POST .......................................................... passed
 Then status 400 ........................................................... passed
 </system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT09 - Work with complex JSON data" time="0.193521"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.produtos.Products" name="CT09 - Work with complex JSON data" time="0.260061"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
@@ -227,7 +227,7 @@ Then status 200 ........................................................... pass
 * print 'Expensive Products:', expensiveProducts.length ................... passed
 And match grouping contains { cheap: '#array', medium: '#array', expensive: '#array' } . passed
 </system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT10 - Delete an existing product" time="0.390414"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.produtos.Products" name="CT10 - Delete an existing product" time="0.4937"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
@@ -253,7 +253,7 @@ When method GET ........................................................... pass
 Then status 400 ........................................................... passed
 And match response.message == 'Produto não encontrado' .................... passed
 </system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT11 - Create a product from fixed JSON payload" time="0.232475"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.produtos.Products" name="CT11 - Create a product from fixed JSON payload" time="0.292963"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
@@ -271,7 +271,7 @@ Then status 201 ........................................................... pass
 And match response.message == 'Cadastro realizado com sucesso' ............ passed
 And match response._id == '#string' ....................................... passed
 </system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT12 - Prevent deleting a product that is part of a cart" time="0.717786"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.produtos.Products" name="CT12 - Prevent deleting a product that is part of a cart" time="0.774928"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
@@ -316,7 +316,7 @@ When method DELETE ........................................................ pass
 Then status 400 ........................................................... passed
 And match response.message == 'Não é permitido excluir produto que faz parte de carrinho' . passed
 </system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT13 - Restrict product creation to administrators only" time="0.372194"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.produtos.Products" name="CT13 - Restrict product creation to administrators only" time="0.395403"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed

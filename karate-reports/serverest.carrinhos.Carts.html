@@ -21,7 +21,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
   capture_pageview:false,
   api_transport:'sendBeacon',
   loaded: function(posthog) { 
-    posthog.capture("report_feature",{distinct_id:"cd7b7529-bc8f-4f2e-84eb-2fd09fcd112d",karate_version:"1.5.2",karate_meta:null});
+    posthog.capture("report_feature",{distinct_id:"92c785af-0afd-462e-938f-678b0e0efffe",karate_version:"1.5.2",karate_meta:null});
   }
 });
 </script>
@@ -38,8 +38,8 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
       <img src="karate-labs-logo-ring.svg" alt="Karate Labs"/>
     </a>
     <div class="nav-count">
-      <div id="nav-pass" class="bg-success">5</div>
-      <div id="nav-fail" class="bg-danger">1</div>
+      <div id="nav-pass" class="bg-success">6</div>
+      <div id="nav-fail" class="bg-danger">2</div>
     </div>
   </div>
   <div id="nav-env">
@@ -49,7 +49,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
     <div>Scenarios</div>
   </div>
   <div id="nav-date">
-    <div>2026-02-17 01:27:59 PM</div>
+    <div>2026-02-17 01:39:37 PM</div>
   </div>
 </div>
 
@@ -69,8 +69,14 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <div class="nav-item passed">
             <a href="#[5:243]"><span>[5:243]</span> <span>CT05 - Cart not found by ID</span></a>
           </div>
-          <div class="nav-item passed">
+          <div class="nav-item failed">
             <a href="#[6:250]"><span>[6:250]</span> <span>CT06 - Prevent cart creation when product stock is insufficient</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[7:304]"><span>[7:304]</span> <span>CT07 - Prevent cart creation with duplicated products in the same cart</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[8:362]"><span>[8:362]</span> <span>CT08 - Prevent cart creation with non-existing product</span></a>
           </div>
         </div>
       </div>
@@ -96,7 +102,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>2256</span>
+              <span>ms:</span>&nbsp;<span>1807</span>
             </div>
           </div>
           <div class="step-row">
@@ -119,7 +125,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>url &#39;https://serverest.dev&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">3</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -147,7 +153,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def FakerUtils = Java.type(&#39;serverest.utils.FakerUtils&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">11</div>
+    <div class="time-cell passed">12</div>
   </div>
 
    
@@ -231,7 +237,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def email = function(){ return FakerUtils.randomEmail() }</span>
       </div>
     </div>
-    <div class="time-cell passed">3</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -266,7 +272,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def userEmail = email()</span>
       </div>
     </div>
-    <div class="time-cell passed">280</div>
+    <div class="time-cell passed">232</div>
   </div>
 
    
@@ -322,7 +328,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def newUser =</span>
       </div>
     </div>
-    <div class="time-cell passed">5</div>
+    <div class="time-cell passed">2</div>
   </div>
 
    
@@ -383,7 +389,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>request newUser</span>
       </div>
     </div>
-    <div class="time-cell passed">2</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -411,7 +417,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">1164</div>
+    <div class="time-cell passed">508</div>
   </div>
 
    
@@ -420,17 +426,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.29">13:27:57.174 request:
+  <div class="preformatted" data-parent="0.29">13:39:36.482 request:
 1 &gt; POST https://serverest.dev/usuarios
 1 &gt; Content-Type: application/json; charset=UTF-8
-1 &gt; Content-Length: 101
+1 &gt; Content-Length: 97
 1 &gt; Host: serverest.dev
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;nome&quot;:&quot;Cart User&quot;,&quot;email&quot;:&quot;sherlene@gmail.com&quot;,&quot;password&quot;:&quot;SenhaSegura@123&quot;,&quot;administrador&quot;:&quot;true&quot;}
+{&quot;nome&quot;:&quot;Cart User&quot;,&quot;email&quot;:&quot;ruth@gmail.com&quot;,&quot;password&quot;:&quot;SenhaSegura@123&quot;,&quot;administrador&quot;:&quot;true&quot;}
 
-13:27:58.335 response time in milliseconds: 1160
+13:39:36.963 response time in milliseconds: 480
 1 &lt; 201
 1 &lt; access-control-allow-origin: *
 1 &lt; x-dns-prefetch-control: off
@@ -440,13 +446,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &lt; x-content-type-options: nosniff
 1 &lt; x-xss-protection: 1; mode=block
 1 &lt; content-type: application/json; charset=utf-8
-1 &lt; x-cloud-trace-context: b6b6594540d78d1aecc388cbce22228e
-1 &lt; date: Tue, 17 Feb 2026 13:27:58 GMT
+1 &lt; x-cloud-trace-context: aa516a728ac1cd391e3f8be50be0a4d3
+1 &lt; date: Tue, 17 Feb 2026 13:39:36 GMT
 1 &lt; server: Google Frontend
 1 &lt; Content-Length: 82
 {
     &quot;message&quot;: &quot;Cadastro realizado com sucesso&quot;,
-    &quot;_id&quot;: &quot;NQz5xZFsio43iQge&quot;
+    &quot;_id&quot;: &quot;g3cIZ9cVCPBAUv9U&quot;
 }
 
 </div>   
@@ -615,7 +621,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">108</div>
+    <div class="time-cell passed">116</div>
   </div>
 
    
@@ -624,17 +630,17 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.38">13:27:58.342 request:
+  <div class="preformatted" data-parent="0.38">13:39:36.970 request:
 2 &gt; POST https://serverest.dev/login
 2 &gt; Content-Type: application/json; charset=UTF-8
-2 &gt; Content-Length: 59
+2 &gt; Content-Length: 55
 2 &gt; Host: serverest.dev
 2 &gt; Connection: Keep-Alive
 2 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 2 &gt; Accept-Encoding: gzip,deflate
-{&quot;email&quot;:&quot;sherlene@gmail.com&quot;,&quot;password&quot;:&quot;SenhaSegura@123&quot;}
+{&quot;email&quot;:&quot;ruth@gmail.com&quot;,&quot;password&quot;:&quot;SenhaSegura@123&quot;}
 
-13:27:58.448 response time in milliseconds: 105
+13:39:37.084 response time in milliseconds: 114
 2 &lt; 200
 2 &lt; access-control-allow-origin: *
 2 &lt; x-dns-prefetch-control: off
@@ -644,13 +650,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 2 &lt; x-content-type-options: nosniff
 2 &lt; x-xss-protection: 1; mode=block
 2 &lt; content-type: application/json; charset=utf-8
-2 &lt; x-cloud-trace-context: 1dc063042aa98f292c88b3286c0c29b4
-2 &lt; date: Tue, 17 Feb 2026 13:27:58 GMT
+2 &lt; x-cloud-trace-context: 33a864e80dac6d1e94095f707b8facfa
+2 &lt; date: Tue, 17 Feb 2026 13:39:37 GMT
 2 &lt; server: Google Frontend
-2 &lt; Content-Length: 285
+2 &lt; Content-Length: 280
 {
     &quot;message&quot;: &quot;Login realizado com sucesso&quot;,
-    &quot;authorization&quot;: &quot;Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoZXJsZW5lQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiU2VuaGFTZWd1cmFAMTIzIiwiaWF0IjoxNzcxMzM0ODc4LCJleHAiOjE3NzEzMzU0Nzh9.oprjfMxcOy9o1yPrJDubQ7XAqpNFXSW-l3E3vIWH5hw&quot;
+    &quot;authorization&quot;: &quot;Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1dGhAZ21haWwuY29tIiwicGFzc3dvcmQiOiJTZW5oYVNlZ3VyYUAxMjMiLCJpYXQiOjE3NzEzMzU1NzcsImV4cCI6MTc3MTMzNjE3N30.SvFwQFtpdf6GzsWWqQTj5Ror_D1yCqx5BFRvufW3eWc&quot;
 }
 
 </div>   
@@ -700,7 +706,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def token = response.authorization</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">5</div>
   </div>
 
    
@@ -784,7 +790,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method DELETE</span>
       </div>
     </div>
-    <div class="time-cell passed">122</div>
+    <div class="time-cell passed">171</div>
   </div>
 
    
@@ -793,16 +799,16 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.44">13:27:58.452 request:
+  <div class="preformatted" data-parent="0.44">13:39:37.092 request:
 3 &gt; DELETE https://serverest.dev/carrinhos/cancelar-compra
-3 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoZXJsZW5lQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiU2VuaGFTZWd1cmFAMTIzIiwiaWF0IjoxNzcxMzM0ODc4LCJleHAiOjE3NzEzMzU0Nzh9.oprjfMxcOy9o1yPrJDubQ7XAqpNFXSW-l3E3vIWH5hw
+3 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1dGhAZ21haWwuY29tIiwicGFzc3dvcmQiOiJTZW5oYVNlZ3VyYUAxMjMiLCJpYXQiOjE3NzEzMzU1NzcsImV4cCI6MTc3MTMzNjE3N30.SvFwQFtpdf6GzsWWqQTj5Ror_D1yCqx5BFRvufW3eWc
 3 &gt; Host: serverest.dev
 3 &gt; Connection: Keep-Alive
 3 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 3 &gt; Accept-Encoding: gzip,deflate
 
 
-13:27:58.572 response time in milliseconds: 119
+13:39:37.261 response time in milliseconds: 168
 3 &lt; 200
 3 &lt; access-control-allow-origin: *
 3 &lt; x-dns-prefetch-control: off
@@ -812,8 +818,8 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 3 &lt; x-content-type-options: nosniff
 3 &lt; x-xss-protection: 1; mode=block
 3 &lt; content-type: application/json; charset=utf-8
-3 &lt; x-cloud-trace-context: 4d95470ec53300ac68cf5483ee522806
-3 &lt; date: Tue, 17 Feb 2026 13:27:58 GMT
+3 &lt; x-cloud-trace-context: 908611c816b4cbe523daeeceb37f9ec8
+3 &lt; date: Tue, 17 Feb 2026 13:39:37 GMT
 3 &lt; server: Google Frontend
 3 &lt; Content-Length: 68
 {
@@ -1019,7 +1025,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">175</div>
+    <div class="time-cell passed">226</div>
   </div>
 
    
@@ -1028,18 +1034,18 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.62">13:27:58.577 request:
+  <div class="preformatted" data-parent="0.62">13:39:37.266 request:
 4 &gt; POST https://serverest.dev/produtos
-4 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoZXJsZW5lQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiU2VuaGFTZWd1cmFAMTIzIiwiaWF0IjoxNzcxMzM0ODc4LCJleHAiOjE3NzEzMzU0Nzh9.oprjfMxcOy9o1yPrJDubQ7XAqpNFXSW-l3E3vIWH5hw
+4 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1dGhAZ21haWwuY29tIiwicGFzc3dvcmQiOiJTZW5oYVNlZ3VyYUAxMjMiLCJpYXQiOjE3NzEzMzU1NzcsImV4cCI6MTc3MTMzNjE3N30.SvFwQFtpdf6GzsWWqQTj5Ror_D1yCqx5BFRvufW3eWc
 4 &gt; Content-Type: application/json; charset=UTF-8
-4 &gt; Content-Length: 111
+4 &gt; Content-Length: 115
 4 &gt; Host: serverest.dev
 4 &gt; Connection: Keep-Alive
 4 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 4 &gt; Accept-Encoding: gzip,deflate
-{&quot;nome&quot;:&quot;Small Aluminum Car&quot;,&quot;preco&quot;:150,&quot;descricao&quot;:&quot;Product created for cart lifecycle test&quot;,&quot;quantidade&quot;:10}
+{&quot;nome&quot;:&quot;Synergistic Silk Knife&quot;,&quot;preco&quot;:150,&quot;descricao&quot;:&quot;Product created for cart lifecycle test&quot;,&quot;quantidade&quot;:10}
 
-13:27:58.747 response time in milliseconds: 170
+13:39:37.490 response time in milliseconds: 224
 4 &lt; 201
 4 &lt; access-control-allow-origin: *
 4 &lt; x-dns-prefetch-control: off
@@ -1049,13 +1055,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 4 &lt; x-content-type-options: nosniff
 4 &lt; x-xss-protection: 1; mode=block
 4 &lt; content-type: application/json; charset=utf-8
-4 &lt; x-cloud-trace-context: ca6fba931925c3b2ed4a7706df6cbdfb
-4 &lt; date: Tue, 17 Feb 2026 13:27:58 GMT
+4 &lt; x-cloud-trace-context: c1ec491c76d49eaeb129939181338377
+4 &lt; date: Tue, 17 Feb 2026 13:39:37 GMT
 4 &lt; server: Google Frontend
 4 &lt; Content-Length: 82
 {
     &quot;message&quot;: &quot;Cadastro realizado com sucesso&quot;,
-    &quot;_id&quot;: &quot;lysqqQRHQctLUO6d&quot;
+    &quot;_id&quot;: &quot;sRcit9KLsZSNagQ3&quot;
 }
 
 </div>   
@@ -1105,7 +1111,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match response.message == &#39;Cadastro realizado com sucesso&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">4</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -1133,7 +1139,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def productId = response._id</span>
       </div>
     </div>
-    <div class="time-cell passed">4</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -1203,7 +1209,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>Given</span>&nbsp;<span>path &#39;/carrinhos&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">3</div>
   </div>
 
    
@@ -1287,7 +1293,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">112</div>
+    <div class="time-cell passed">130</div>
   </div>
 
    
@@ -1296,18 +1302,18 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.83">13:27:58.761 request:
+  <div class="preformatted" data-parent="0.83">13:39:37.496 request:
 5 &gt; POST https://serverest.dev/carrinhos
-5 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoZXJsZW5lQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiU2VuaGFTZWd1cmFAMTIzIiwiaWF0IjoxNzcxMzM0ODc4LCJleHAiOjE3NzEzMzU0Nzh9.oprjfMxcOy9o1yPrJDubQ7XAqpNFXSW-l3E3vIWH5hw
+5 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1dGhAZ21haWwuY29tIiwicGFzc3dvcmQiOiJTZW5oYVNlZ3VyYUAxMjMiLCJpYXQiOjE3NzEzMzU1NzcsImV4cCI6MTc3MTMzNjE3N30.SvFwQFtpdf6GzsWWqQTj5Ror_D1yCqx5BFRvufW3eWc
 5 &gt; Content-Type: application/json; charset=UTF-8
 5 &gt; Content-Length: 62
 5 &gt; Host: serverest.dev
 5 &gt; Connection: Keep-Alive
 5 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 5 &gt; Accept-Encoding: gzip,deflate
-{&quot;produtos&quot;:[{&quot;idProduto&quot;:&quot;lysqqQRHQctLUO6d&quot;,&quot;quantidade&quot;:2}]}
+{&quot;produtos&quot;:[{&quot;idProduto&quot;:&quot;sRcit9KLsZSNagQ3&quot;,&quot;quantidade&quot;:2}]}
 
-13:27:58.867 response time in milliseconds: 105
+13:39:37.625 response time in milliseconds: 128
 5 &lt; 201
 5 &lt; access-control-allow-origin: *
 5 &lt; x-dns-prefetch-control: off
@@ -1317,13 +1323,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 5 &lt; x-content-type-options: nosniff
 5 &lt; x-xss-protection: 1; mode=block
 5 &lt; content-type: application/json; charset=utf-8
-5 &lt; x-cloud-trace-context: 54d8b3dbe12eb3e9a30cdb6bc9506e26
-5 &lt; date: Tue, 17 Feb 2026 13:27:58 GMT
+5 &lt; x-cloud-trace-context: 08dca1078ad1574f0ceed9b316ae430a
+5 &lt; date: Tue, 17 Feb 2026 13:39:37 GMT
 5 &lt; server: Google Frontend
 5 &lt; Content-Length: 82
 {
     &quot;message&quot;: &quot;Cadastro realizado com sucesso&quot;,
-    &quot;_id&quot;: &quot;DwrL9X8xa4gglYcN&quot;
+    &quot;_id&quot;: &quot;KH5VwgkMZYLOOsKv&quot;
 }
 
 </div>   
@@ -1464,7 +1470,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>Given</span>&nbsp;<span>path &#39;/carrinhos/&#39; + cartId</span>
       </div>
     </div>
-    <div class="time-cell passed">5</div>
+    <div class="time-cell passed">22</div>
   </div>
 
    
@@ -1492,7 +1498,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method GET</span>
       </div>
     </div>
-    <div class="time-cell passed">90</div>
+    <div class="time-cell passed">106</div>
   </div>
 
    
@@ -1501,15 +1507,15 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.91">13:27:58.879 request:
-6 &gt; GET https://serverest.dev/carrinhos/DwrL9X8xa4gglYcN
+  <div class="preformatted" data-parent="0.91">13:39:37.649 request:
+6 &gt; GET https://serverest.dev/carrinhos/KH5VwgkMZYLOOsKv
 6 &gt; Host: serverest.dev
 6 &gt; Connection: Keep-Alive
 6 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 6 &gt; Accept-Encoding: gzip,deflate
 
 
-13:27:58.968 response time in milliseconds: 88
+13:39:37.754 response time in milliseconds: 105
 6 &lt; 200
 6 &lt; access-control-allow-origin: *
 6 &lt; x-dns-prefetch-control: off
@@ -1519,22 +1525,22 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 6 &lt; x-content-type-options: nosniff
 6 &lt; x-xss-protection: 1; mode=block
 6 &lt; content-type: application/json; charset=utf-8
-6 &lt; x-cloud-trace-context: eabfb6e30eecdffe2c0e6c49a1a0720a
-6 &lt; date: Tue, 17 Feb 2026 13:27:58 GMT
+6 &lt; x-cloud-trace-context: 24ee50e048ccaf7b5de825a7c8dd24d9
+6 &lt; date: Tue, 17 Feb 2026 13:39:37 GMT
 6 &lt; server: Google Frontend
 6 &lt; Content-Length: 271
 {
     &quot;produtos&quot;: [
         {
-            &quot;idProduto&quot;: &quot;lysqqQRHQctLUO6d&quot;,
+            &quot;idProduto&quot;: &quot;sRcit9KLsZSNagQ3&quot;,
             &quot;quantidade&quot;: 2,
             &quot;precoUnitario&quot;: 150
         }
     ],
     &quot;precoTotal&quot;: 300,
     &quot;quantidadeTotal&quot;: 2,
-    &quot;idUsuario&quot;: &quot;NQz5xZFsio43iQge&quot;,
-    &quot;_id&quot;: &quot;DwrL9X8xa4gglYcN&quot;
+    &quot;idUsuario&quot;: &quot;g3cIZ9cVCPBAUv9U&quot;,
+    &quot;_id&quot;: &quot;KH5VwgkMZYLOOsKv&quot;
 }
 
 </div>   
@@ -1584,7 +1590,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match response ==</span>
       </div>
     </div>
-    <div class="time-cell passed">6</div>
+    <div class="time-cell passed">8</div>
   </div>
 
    
@@ -1681,7 +1687,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method DELETE</span>
       </div>
     </div>
-    <div class="time-cell passed">113</div>
+    <div class="time-cell passed">217</div>
   </div>
 
    
@@ -1690,16 +1696,16 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.107">13:27:58.976 request:
+  <div class="preformatted" data-parent="0.107">13:39:37.765 request:
 7 &gt; DELETE https://serverest.dev/carrinhos/concluir-compra
-7 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNoZXJsZW5lQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiU2VuaGFTZWd1cmFAMTIzIiwiaWF0IjoxNzcxMzM0ODc4LCJleHAiOjE3NzEzMzU0Nzh9.oprjfMxcOy9o1yPrJDubQ7XAqpNFXSW-l3E3vIWH5hw
+7 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJ1dGhAZ21haWwuY29tIiwicGFzc3dvcmQiOiJTZW5oYVNlZ3VyYUAxMjMiLCJpYXQiOjE3NzEzMzU1NzcsImV4cCI6MTc3MTMzNjE3N30.SvFwQFtpdf6GzsWWqQTj5Ror_D1yCqx5BFRvufW3eWc
 7 &gt; Host: serverest.dev
 7 &gt; Connection: Keep-Alive
 7 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 7 &gt; Accept-Encoding: gzip,deflate
 
 
-13:27:59.088 response time in milliseconds: 109
+13:39:37.980 response time in milliseconds: 214
 7 &lt; 200
 7 &lt; access-control-allow-origin: *
 7 &lt; x-dns-prefetch-control: off
@@ -1709,8 +1715,8 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 7 &lt; x-content-type-options: nosniff
 7 &lt; x-xss-protection: 1; mode=block
 7 &lt; content-type: application/json; charset=utf-8
-7 &lt; x-cloud-trace-context: a47bed71dc5cd47faed56e429c74e829
-7 &lt; date: Tue, 17 Feb 2026 13:27:59 GMT
+7 &lt; x-cloud-trace-context: ba64cdbf4b352d484e5561eca7e486e5
+7 &lt; date: Tue, 17 Feb 2026 13:39:37 GMT
 7 &lt; server: Google Frontend
 7 &lt; Content-Length: 51
 {
@@ -1793,7 +1799,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>2071</span>
+              <span>ms:</span>&nbsp;<span>1337</span>
             </div>
           </div>
           <div class="step-row">
@@ -1816,7 +1822,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>url &#39;https://serverest.dev&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">3</div>
+    <div class="time-cell passed">5</div>
   </div>
 
    
@@ -1844,7 +1850,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def FakerUtils = Java.type(&#39;serverest.utils.FakerUtils&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">9</div>
+    <div class="time-cell passed">11</div>
   </div>
 
    
@@ -1900,7 +1906,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def loginPayload = read(&#39;classpath:serverest/login/resources/loginPayload.json&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">40</div>
+    <div class="time-cell passed">42</div>
   </div>
 
    
@@ -1928,7 +1934,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def email = function(){ return FakerUtils.randomEmail() }</span>
       </div>
     </div>
-    <div class="time-cell passed">4</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -1984,7 +1990,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>request loginPayload</span>
       </div>
     </div>
-    <div class="time-cell passed">3</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -2012,7 +2018,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">1267</div>
+    <div class="time-cell passed">670</div>
   </div>
 
    
@@ -2021,7 +2027,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.115">13:27:57.163 request:
+  <div class="preformatted" data-parent="0.115">13:39:36.480 request:
 1 &gt; POST https://serverest.dev/login
 1 &gt; Content-Type: application/json; charset=UTF-8
 1 &gt; Content-Length: 44
@@ -2031,7 +2037,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 {&quot;email&quot;:&quot;fulano@qa.com&quot;,&quot;password&quot;:&quot;teste&quot;}
 
-13:27:58.153 response time in milliseconds: 989
+13:39:36.896 response time in milliseconds: 415
 1 &lt; 200
 1 &lt; access-control-allow-origin: *
 1 &lt; x-dns-prefetch-control: off
@@ -2041,13 +2047,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &lt; x-content-type-options: nosniff
 1 &lt; x-xss-protection: 1; mode=block
 1 &lt; content-type: application/json; charset=utf-8
-1 &lt; x-cloud-trace-context: dc779b0d5a63a247ff655594228978ee
-1 &lt; date: Tue, 17 Feb 2026 13:27:58 GMT
+1 &lt; x-cloud-trace-context: a903f3de04a2d01987a5c5b1886bcfde
+1 &lt; date: Tue, 17 Feb 2026 13:39:36 GMT
 1 &lt; server: Google Frontend
 1 &lt; Content-Length: 265
 {
     &quot;message&quot;: &quot;Login realizado com sucesso&quot;,
-    &quot;authorization&quot;: &quot;Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM0ODc4LCJleHAiOjE3NzEzMzU0Nzh9.n1TAqM6026JidOCf_rxGnWd-W6fjg7Gm4kwUDVkPB-k&quot;
+    &quot;authorization&quot;: &quot;Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM1NTc2LCJleHAiOjE3NzEzMzYxNzZ9.IBGVObY9BpE5P9rIR7u6sIbuK68u4SbquuxjlByVI7o&quot;
 }
 
 </div>   
@@ -2097,7 +2103,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def token = response.authorization</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">2</div>
   </div>
 
    
@@ -2230,7 +2236,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.132">13:27:58.168 [print] Using auth token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM0ODc4LCJleHAiOjE3NzEzMzU0Nzh9.n1TAqM6026JidOCf_rxGnWd-W6fjg7Gm4kwUDVkPB-k 
+  <div class="preformatted" data-parent="0.132">13:39:36.912 [print] Using auth token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM1NTc2LCJleHAiOjE3NzEzMzYxNzZ9.IBGVObY9BpE5P9rIR7u6sIbuK68u4SbquuxjlByVI7o 
 </div>   
 
   
@@ -2278,7 +2284,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>request productData</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">2</div>
   </div>
 
    
@@ -2306,7 +2312,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">491</div>
+    <div class="time-cell passed">162</div>
   </div>
 
    
@@ -2315,18 +2321,18 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.135">13:27:58.171 request:
+  <div class="preformatted" data-parent="0.135">13:39:36.917 request:
 2 &gt; POST https://serverest.dev/produtos
-2 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM0ODc4LCJleHAiOjE3NzEzMzU0Nzh9.n1TAqM6026JidOCf_rxGnWd-W6fjg7Gm4kwUDVkPB-k
+2 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM1NTc2LCJleHAiOjE3NzEzMzYxNzZ9.IBGVObY9BpE5P9rIR7u6sIbuK68u4SbquuxjlByVI7o
 2 &gt; Content-Type: application/json; charset=UTF-8
 2 &gt; Content-Length: 107
 2 &gt; Host: serverest.dev
 2 &gt; Connection: Keep-Alive
 2 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 2 &gt; Accept-Encoding: gzip,deflate
-{&quot;nome&quot;:&quot;Aerodynamic Silk Shoes&quot;,&quot;preco&quot;:200,&quot;descricao&quot;:&quot;Product for cancel purchase test&quot;,&quot;quantidade&quot;:5}
+{&quot;nome&quot;:&quot;Fantastic Copper Plate&quot;,&quot;preco&quot;:200,&quot;descricao&quot;:&quot;Product for cancel purchase test&quot;,&quot;quantidade&quot;:5}
 
-13:27:58.661 response time in milliseconds: 489
+13:39:37.076 response time in milliseconds: 159
 2 &lt; 201
 2 &lt; access-control-allow-origin: *
 2 &lt; x-dns-prefetch-control: off
@@ -2336,13 +2342,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 2 &lt; x-content-type-options: nosniff
 2 &lt; x-xss-protection: 1; mode=block
 2 &lt; content-type: application/json; charset=utf-8
-2 &lt; x-cloud-trace-context: 1582dbb497e03b70495dcb8ad4b14ad9
-2 &lt; date: Tue, 17 Feb 2026 13:27:58 GMT
+2 &lt; x-cloud-trace-context: 0d7a4909adf986146c795fb81be5264d
+2 &lt; date: Tue, 17 Feb 2026 13:39:37 GMT
 2 &lt; server: Google Frontend
 2 &lt; Content-Length: 82
 {
     &quot;message&quot;: &quot;Cadastro realizado com sucesso&quot;,
-    &quot;_id&quot;: &quot;P1H8HABhXSGmxTFG&quot;
+    &quot;_id&quot;: &quot;VUz7I3oiaUBvg87M&quot;
 }
 
 </div>   
@@ -2392,7 +2398,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def productId = response._id</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">3</div>
   </div>
 
    
@@ -2427,7 +2433,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def cartBody =</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">4</div>
   </div>
 
    
@@ -2546,7 +2552,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">134</div>
+    <div class="time-cell passed">272</div>
   </div>
 
    
@@ -2555,18 +2561,18 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.155">13:27:58.665 request:
+  <div class="preformatted" data-parent="0.155">13:39:37.085 request:
 3 &gt; POST https://serverest.dev/carrinhos
-3 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM0ODc4LCJleHAiOjE3NzEzMzU0Nzh9.n1TAqM6026JidOCf_rxGnWd-W6fjg7Gm4kwUDVkPB-k
+3 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM1NTc2LCJleHAiOjE3NzEzMzYxNzZ9.IBGVObY9BpE5P9rIR7u6sIbuK68u4SbquuxjlByVI7o
 3 &gt; Content-Type: application/json; charset=UTF-8
 3 &gt; Content-Length: 62
 3 &gt; Host: serverest.dev
 3 &gt; Connection: Keep-Alive
 3 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 3 &gt; Accept-Encoding: gzip,deflate
-{&quot;produtos&quot;:[{&quot;idProduto&quot;:&quot;P1H8HABhXSGmxTFG&quot;,&quot;quantidade&quot;:1}]}
+{&quot;produtos&quot;:[{&quot;idProduto&quot;:&quot;VUz7I3oiaUBvg87M&quot;,&quot;quantidade&quot;:1}]}
 
-13:27:58.798 response time in milliseconds: 132
+13:39:37.355 response time in milliseconds: 266
 3 &lt; 201
 3 &lt; access-control-allow-origin: *
 3 &lt; x-dns-prefetch-control: off
@@ -2576,13 +2582,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 3 &lt; x-content-type-options: nosniff
 3 &lt; x-xss-protection: 1; mode=block
 3 &lt; content-type: application/json; charset=utf-8
-3 &lt; x-cloud-trace-context: 638591429e5d1c4c5c7b8a850d2791b6
-3 &lt; date: Tue, 17 Feb 2026 13:27:58 GMT
+3 &lt; x-cloud-trace-context: fbc314012e5ecc7ea08b2d4378d1298a
+3 &lt; date: Tue, 17 Feb 2026 13:39:37 GMT
 3 &lt; server: Google Frontend
 3 &lt; Content-Length: 82
 {
     &quot;message&quot;: &quot;Cadastro realizado com sucesso&quot;,
-    &quot;_id&quot;: &quot;MHruutKPPl1T1o6x&quot;
+    &quot;_id&quot;: &quot;HC1G1aihrabbQkWR&quot;
 }
 
 </div>   
@@ -2695,7 +2701,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method DELETE</span>
       </div>
     </div>
-    <div class="time-cell passed">100</div>
+    <div class="time-cell passed">148</div>
   </div>
 
    
@@ -2704,16 +2710,16 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.161">13:27:58.800 request:
+  <div class="preformatted" data-parent="0.161">13:39:37.359 request:
 4 &gt; DELETE https://serverest.dev/carrinhos/cancelar-compra
-4 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM0ODc4LCJleHAiOjE3NzEzMzU0Nzh9.n1TAqM6026JidOCf_rxGnWd-W6fjg7Gm4kwUDVkPB-k
+4 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM1NTc2LCJleHAiOjE3NzEzMzYxNzZ9.IBGVObY9BpE5P9rIR7u6sIbuK68u4SbquuxjlByVI7o
 4 &gt; Host: serverest.dev
 4 &gt; Connection: Keep-Alive
 4 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 4 &gt; Accept-Encoding: gzip,deflate
 
 
-13:27:58.899 response time in milliseconds: 99
+13:39:37.504 response time in milliseconds: 145
 4 &lt; 200
 4 &lt; access-control-allow-origin: *
 4 &lt; x-dns-prefetch-control: off
@@ -2723,8 +2729,8 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 4 &lt; x-content-type-options: nosniff
 4 &lt; x-xss-protection: 1; mode=block
 4 &lt; content-type: application/json; charset=utf-8
-4 &lt; x-cloud-trace-context: c75a1c1100af77d138d8a1d53a587b09
-4 &lt; date: Tue, 17 Feb 2026 13:27:58 GMT
+4 &lt; x-cloud-trace-context: 1b8c4ace76f3dfd45ce4d1bcd2995f17
+4 &lt; date: Tue, 17 Feb 2026 13:39:37 GMT
 4 &lt; server: Google Frontend
 4 &lt; Content-Length: 86
 {
@@ -2807,7 +2813,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>1440</span>
+              <span>ms:</span>&nbsp;<span>742</span>
             </div>
           </div>
           <div class="step-row">
@@ -2830,7 +2836,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>url &#39;https://serverest.dev&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">2</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -2858,7 +2864,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def FakerUtils = Java.type(&#39;serverest.utils.FakerUtils&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">8</div>
+    <div class="time-cell passed">9</div>
   </div>
 
    
@@ -2886,7 +2892,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def randomProductName = function(){ return FakerUtils.randomProduct() }</span>
       </div>
     </div>
-    <div class="time-cell passed">3</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -2914,7 +2920,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def loginPayload = read(&#39;classpath:serverest/login/resources/loginPayload.json&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">39</div>
+    <div class="time-cell passed">40</div>
   </div>
 
    
@@ -2942,7 +2948,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def email = function(){ return FakerUtils.randomEmail() }</span>
       </div>
     </div>
-    <div class="time-cell passed">5</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -2977,7 +2983,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def cartBody =</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -3040,7 +3046,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>request cartBody</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -3068,7 +3074,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">1367</div>
+    <div class="time-cell passed">668</div>
   </div>
 
    
@@ -3077,7 +3083,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.182">13:27:57.165 request:
+  <div class="preformatted" data-parent="0.182">13:39:36.481 request:
 1 &gt; POST https://serverest.dev/carrinhos
 1 &gt; Content-Type: application/json; charset=UTF-8
 1 &gt; Content-Length: 62
@@ -3087,7 +3093,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 {&quot;produtos&quot;:[{&quot;idProduto&quot;:&quot;BeeJh5lz3k6kSIzA&quot;,&quot;quantidade&quot;:1}]}
 
-13:27:58.252 response time in milliseconds: 1086
+13:39:36.891 response time in milliseconds: 407
 1 &lt; 401
 1 &lt; access-control-allow-origin: *
 1 &lt; x-dns-prefetch-control: off
@@ -3097,8 +3103,8 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &lt; x-content-type-options: nosniff
 1 &lt; x-xss-protection: 1; mode=block
 1 &lt; content-type: application/json; charset=utf-8
-1 &lt; x-cloud-trace-context: 1651ff042995a9bff0f5ad8c2825631f
-1 &lt; date: Tue, 17 Feb 2026 13:27:58 GMT
+1 &lt; x-cloud-trace-context: ec425c4524c8bfe559307c1b90ba9c6d
+1 &lt; date: Tue, 17 Feb 2026 13:39:36 GMT
 1 &lt; server: Google Frontend
 1 &lt; Content-Length: 103
 {
@@ -3124,7 +3130,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>Then</span>&nbsp;<span>status 401</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">4</div>
   </div>
 
    
@@ -3152,7 +3158,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>And</span>&nbsp;<span>match response.message == &#39;Token de acesso ausente, inválido, expirado ou usuário do token não existe mais&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">14</div>
+    <div class="time-cell passed">18</div>
   </div>
 
    
@@ -3181,7 +3187,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time failed">
-              <span>ms:</span>&nbsp;<span>1977</span>
+              <span>ms:</span>&nbsp;<span>1193</span>
             </div>
           </div>
           <div class="step-row">
@@ -3232,7 +3238,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def FakerUtils = Java.type(&#39;serverest.utils.FakerUtils&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">6</div>
+    <div class="time-cell passed">9</div>
   </div>
 
    
@@ -3260,7 +3266,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def randomProductName = function(){ return FakerUtils.randomProduct() }</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">4</div>
   </div>
 
    
@@ -3288,7 +3294,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def loginPayload = read(&#39;classpath:serverest/login/resources/loginPayload.json&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">41</div>
+    <div class="time-cell passed">35</div>
   </div>
 
    
@@ -3316,7 +3322,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def email = function(){ return FakerUtils.randomEmail() }</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">6</div>
   </div>
 
    
@@ -3344,7 +3350,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def loginPayload = read(&#39;classpath:serverest/login/resources/loginPayload.json&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">6</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -3428,7 +3434,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">1453</div>
+    <div class="time-cell passed">741</div>
   </div>
 
    
@@ -3437,7 +3443,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.191">13:27:57.166 request:
+  <div class="preformatted" data-parent="0.191">13:39:36.481 request:
 1 &gt; POST https://serverest.dev/login
 1 &gt; Content-Type: application/json; charset=UTF-8
 1 &gt; Content-Length: 44
@@ -3447,7 +3453,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 {&quot;email&quot;:&quot;fulano@qa.com&quot;,&quot;password&quot;:&quot;teste&quot;}
 
-13:27:58.341 response time in milliseconds: 1174
+13:39:36.966 response time in milliseconds: 485
 1 &lt; 200
 1 &lt; access-control-allow-origin: *
 1 &lt; x-dns-prefetch-control: off
@@ -3457,13 +3463,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &lt; x-content-type-options: nosniff
 1 &lt; x-xss-protection: 1; mode=block
 1 &lt; content-type: application/json; charset=utf-8
-1 &lt; x-cloud-trace-context: 2c0ca8c079cf936861bca0e70e44884e
-1 &lt; date: Tue, 17 Feb 2026 13:27:58 GMT
+1 &lt; x-cloud-trace-context: 41c9e556d5f8ae06ecb726e6d247a820
+1 &lt; date: Tue, 17 Feb 2026 13:39:36 GMT
 1 &lt; server: Google Frontend
 1 &lt; Content-Length: 265
 {
     &quot;message&quot;: &quot;Login realizado com sucesso&quot;,
-    &quot;authorization&quot;: &quot;Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM0ODc4LCJleHAiOjE3NzEzMzU0Nzh9.n1TAqM6026JidOCf_rxGnWd-W6fjg7Gm4kwUDVkPB-k&quot;
+    &quot;authorization&quot;: &quot;Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM1NTc2LCJleHAiOjE3NzEzMzYxNzZ9.IBGVObY9BpE5P9rIR7u6sIbuK68u4SbquuxjlByVI7o&quot;
 }
 
 </div>   
@@ -3513,7 +3519,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def token = response.authorization</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">9</div>
   </div>
 
    
@@ -3576,7 +3582,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def productData =</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">3</div>
   </div>
 
    
@@ -3693,7 +3699,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">343</div>
+    <div class="time-cell passed">166</div>
   </div>
 
    
@@ -3702,18 +3708,18 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.210">13:27:58.348 request:
+  <div class="preformatted" data-parent="0.210">13:39:36.986 request:
 2 &gt; POST https://serverest.dev/produtos
-2 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM0ODc4LCJleHAiOjE3NzEzMzU0Nzh9.n1TAqM6026JidOCf_rxGnWd-W6fjg7Gm4kwUDVkPB-k
+2 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM1NTc2LCJleHAiOjE3NzEzMzYxNzZ9.IBGVObY9BpE5P9rIR7u6sIbuK68u4SbquuxjlByVI7o
 2 &gt; Content-Type: application/json; charset=UTF-8
-2 &gt; Content-Length: 104
+2 &gt; Content-Length: 105
 2 &gt; Host: serverest.dev
 2 &gt; Connection: Keep-Alive
 2 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 2 &gt; Accept-Encoding: gzip,deflate
-{&quot;nome&quot;:&quot;Ergonomic Wooden Lamp&quot;,&quot;preco&quot;:120,&quot;descricao&quot;:&quot;Product for multiple cart test&quot;,&quot;quantidade&quot;:3}
+{&quot;nome&quot;:&quot;Heavy Duty Plastic Car&quot;,&quot;preco&quot;:120,&quot;descricao&quot;:&quot;Product for multiple cart test&quot;,&quot;quantidade&quot;:3}
 
-13:27:58.689 response time in milliseconds: 340
+13:39:37.150 response time in milliseconds: 163
 2 &lt; 201
 2 &lt; access-control-allow-origin: *
 2 &lt; x-dns-prefetch-control: off
@@ -3723,13 +3729,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 2 &lt; x-content-type-options: nosniff
 2 &lt; x-xss-protection: 1; mode=block
 2 &lt; content-type: application/json; charset=utf-8
-2 &lt; x-cloud-trace-context: 95fe69afbf07b40d0fdbd08ef1f6af2e
-2 &lt; date: Tue, 17 Feb 2026 13:27:58 GMT
+2 &lt; x-cloud-trace-context: 5a652ec78920c01c28e64cced601cf51
+2 &lt; date: Tue, 17 Feb 2026 13:39:37 GMT
 2 &lt; server: Google Frontend
 2 &lt; Content-Length: 82
 {
     &quot;message&quot;: &quot;Cadastro realizado com sucesso&quot;,
-    &quot;_id&quot;: &quot;1KgdVV6Qgeu5fxd4&quot;
+    &quot;_id&quot;: &quot;77USkwk5Lh7yVJwq&quot;
 }
 
 </div>   
@@ -3933,7 +3939,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">105</div>
+    <div class="time-cell passed">203</div>
   </div>
 
    
@@ -3942,18 +3948,18 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.230">13:27:58.694 request:
+  <div class="preformatted" data-parent="0.230">13:39:37.155 request:
 3 &gt; POST https://serverest.dev/carrinhos
-3 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM0ODc4LCJleHAiOjE3NzEzMzU0Nzh9.n1TAqM6026JidOCf_rxGnWd-W6fjg7Gm4kwUDVkPB-k
+3 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM1NTc2LCJleHAiOjE3NzEzMzYxNzZ9.IBGVObY9BpE5P9rIR7u6sIbuK68u4SbquuxjlByVI7o
 3 &gt; Content-Type: application/json; charset=UTF-8
 3 &gt; Content-Length: 62
 3 &gt; Host: serverest.dev
 3 &gt; Connection: Keep-Alive
 3 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 3 &gt; Accept-Encoding: gzip,deflate
-{&quot;produtos&quot;:[{&quot;idProduto&quot;:&quot;1KgdVV6Qgeu5fxd4&quot;,&quot;quantidade&quot;:1}]}
+{&quot;produtos&quot;:[{&quot;idProduto&quot;:&quot;77USkwk5Lh7yVJwq&quot;,&quot;quantidade&quot;:1}]}
 
-13:27:58.797 response time in milliseconds: 102
+13:39:37.355 response time in milliseconds: 200
 3 &lt; 400
 3 &lt; access-control-allow-origin: *
 3 &lt; x-dns-prefetch-control: off
@@ -3963,8 +3969,8 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 3 &lt; x-content-type-options: nosniff
 3 &lt; x-xss-protection: 1; mode=block
 3 &lt; content-type: application/json; charset=utf-8
-3 &lt; x-cloud-trace-context: 84f1ba5ddfee94da96976710c90d8412
-3 &lt; date: Tue, 17 Feb 2026 13:27:58 GMT
+3 &lt; x-cloud-trace-context: bc24e67ff52f6b09178611d8a3a054fb
+3 &lt; date: Tue, 17 Feb 2026 13:39:37 GMT
 3 &lt; server: Google Frontend
 3 &lt; Content-Length: 61
 {
@@ -3990,7 +3996,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>Then</span>&nbsp;<span>status 201</span>
       </div>
     </div>
-    <div class="time-cell failed">11</div>
+    <div class="time-cell failed">9</div>
   </div>
 
    
@@ -3999,9 +4005,9 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="0.231">13:27:58.814 classpath:serverest/carrinhos/Carts.feature:231
+  <div class="preformatted" data-parent="0.231">13:39:37.368 classpath:serverest/carrinhos/Carts.feature:231
 Then status 201
-status code was: 400, expected: 201, response time in milliseconds: 102, url: https://serverest.dev/carrinhos, response: 
+status code was: 400, expected: 201, response time in milliseconds: 200, url: https://serverest.dev/carrinhos, response: 
 {
     &quot;message&quot;: &quot;Não é permitido ter mais de 1 carrinho&quot;
 }
@@ -4229,7 +4235,7 @@ classpath:serverest/carrinhos/Carts.feature:231
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>1533</span>
+              <span>ms:</span>&nbsp;<span>790</span>
             </div>
           </div>
           <div class="step-row">
@@ -4252,7 +4258,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>*</span>&nbsp;<span>url &#39;https://serverest.dev&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">3</div>
+    <div class="time-cell passed">2</div>
   </div>
 
    
@@ -4280,7 +4286,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>*</span>&nbsp;<span>def FakerUtils = Java.type(&#39;serverest.utils.FakerUtils&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">10</div>
+    <div class="time-cell passed">9</div>
   </div>
 
    
@@ -4336,7 +4342,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>*</span>&nbsp;<span>def loginPayload = read(&#39;classpath:serverest/login/resources/loginPayload.json&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">39</div>
+    <div class="time-cell passed">37</div>
   </div>
 
    
@@ -4364,7 +4370,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>*</span>&nbsp;<span>def email = function(){ return FakerUtils.randomEmail() }</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">3</div>
   </div>
 
    
@@ -4420,7 +4426,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>When</span>&nbsp;<span>method GET</span>
       </div>
     </div>
-    <div class="time-cell passed">1475</div>
+    <div class="time-cell passed">730</div>
   </div>
 
    
@@ -4429,7 +4435,7 @@ classpath:serverest/carrinhos/Carts.feature:231
 
   
 
-  <div class="preformatted" data-parent="0.245">13:27:57.161 request:
+  <div class="preformatted" data-parent="0.245">13:39:36.482 request:
 1 &gt; GET https://serverest.dev/carrinhos/invalid-cart-id-123
 1 &gt; Host: serverest.dev
 1 &gt; Connection: Keep-Alive
@@ -4437,7 +4443,7 @@ classpath:serverest/carrinhos/Carts.feature:231
 1 &gt; Accept-Encoding: gzip,deflate
 
 
-13:27:58.357 response time in milliseconds: 1195
+13:39:36.953 response time in milliseconds: 470
 1 &lt; 400
 1 &lt; access-control-allow-origin: *
 1 &lt; x-dns-prefetch-control: off
@@ -4447,8 +4453,8 @@ classpath:serverest/carrinhos/Carts.feature:231
 1 &lt; x-content-type-options: nosniff
 1 &lt; x-xss-protection: 1; mode=block
 1 &lt; content-type: application/json; charset=utf-8
-1 &lt; x-cloud-trace-context: b29389e5651c2fb3d0f3bfcce232b2cd
-1 &lt; date: Tue, 17 Feb 2026 13:27:58 GMT
+1 &lt; x-cloud-trace-context: d40acfce7bee8a814a0ae6c712ca8de7
+1 &lt; date: Tue, 17 Feb 2026 13:39:36 GMT
 1 &lt; server: Google Frontend
 1 &lt; Content-Length: 67
 {
@@ -4502,7 +4508,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>And</span>&nbsp;<span>match response == { id: &#39;id deve ter exatamente 16 caracteres alfanuméricos&#39; }</span>
       </div>
     </div>
-    <div class="time-cell passed">3</div>
+    <div class="time-cell passed">7</div>
   </div>
 
    
@@ -4530,8 +4536,8 @@ classpath:serverest/carrinhos/Carts.feature:231
                 <span></span>
               </div>
             </div>
-            <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>2159</span>
+            <div class="scenario-time failed">
+              <span>ms:</span>&nbsp;<span>1302</span>
             </div>
           </div>
           <div class="step-row">
@@ -4554,7 +4560,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>*</span>&nbsp;<span>url &#39;https://serverest.dev&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">2</div>
+    <div class="time-cell passed">4</div>
   </div>
 
    
@@ -4582,7 +4588,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>*</span>&nbsp;<span>def FakerUtils = Java.type(&#39;serverest.utils.FakerUtils&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">6</div>
+    <div class="time-cell passed">9</div>
   </div>
 
    
@@ -4610,7 +4616,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>*</span>&nbsp;<span>def randomProductName = function(){ return FakerUtils.randomProduct() }</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">4</div>
   </div>
 
    
@@ -4638,7 +4644,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>*</span>&nbsp;<span>def loginPayload = read(&#39;classpath:serverest/login/resources/loginPayload.json&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">38</div>
+    <div class="time-cell passed">32</div>
   </div>
 
    
@@ -4666,7 +4672,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>*</span>&nbsp;<span>def email = function(){ return FakerUtils.randomEmail() }</span>
       </div>
     </div>
-    <div class="time-cell passed">2</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -4694,7 +4700,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>*</span>&nbsp;<span>def loginPayload = read(&#39;classpath:serverest/login/resources/loginPayload.json&#39;)</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">2</div>
   </div>
 
    
@@ -4722,7 +4728,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>Given</span>&nbsp;<span>path &#39;/login&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">4</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -4750,7 +4756,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>And</span>&nbsp;<span>request loginPayload</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">6</div>
   </div>
 
    
@@ -4778,7 +4784,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">1257</div>
+    <div class="time-cell passed">712</div>
   </div>
 
    
@@ -4787,7 +4793,7 @@ classpath:serverest/carrinhos/Carts.feature:231
 
   
 
-  <div class="preformatted" data-parent="0.254">13:27:57.163 request:
+  <div class="preformatted" data-parent="0.254">13:39:36.480 request:
 1 &gt; POST https://serverest.dev/login
 1 &gt; Content-Type: application/json; charset=UTF-8
 1 &gt; Content-Length: 44
@@ -4797,7 +4803,7 @@ classpath:serverest/carrinhos/Carts.feature:231
 1 &gt; Accept-Encoding: gzip,deflate
 {&quot;email&quot;:&quot;fulano@qa.com&quot;,&quot;password&quot;:&quot;teste&quot;}
 
-13:27:58.143 response time in milliseconds: 977
+13:39:36.938 response time in milliseconds: 457
 1 &lt; 200
 1 &lt; access-control-allow-origin: *
 1 &lt; x-dns-prefetch-control: off
@@ -4807,13 +4813,13 @@ classpath:serverest/carrinhos/Carts.feature:231
 1 &lt; x-content-type-options: nosniff
 1 &lt; x-xss-protection: 1; mode=block
 1 &lt; content-type: application/json; charset=utf-8
-1 &lt; x-cloud-trace-context: bc3113e187783d76dc1e5afd3b6bfbe8;o=1
-1 &lt; date: Tue, 17 Feb 2026 13:27:58 GMT
+1 &lt; x-cloud-trace-context: df1eebd953a170dae1350cdabc7c4aa7
+1 &lt; date: Tue, 17 Feb 2026 13:39:36 GMT
 1 &lt; server: Google Frontend
 1 &lt; Content-Length: 265
 {
     &quot;message&quot;: &quot;Login realizado com sucesso&quot;,
-    &quot;authorization&quot;: &quot;Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM0ODc4LCJleHAiOjE3NzEzMzU0Nzh9.n1TAqM6026JidOCf_rxGnWd-W6fjg7Gm4kwUDVkPB-k&quot;
+    &quot;authorization&quot;: &quot;Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM1NTc2LCJleHAiOjE3NzEzMzYxNzZ9.IBGVObY9BpE5P9rIR7u6sIbuK68u4SbquuxjlByVI7o&quot;
 }
 
 </div>   
@@ -4835,7 +4841,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>Then</span>&nbsp;<span>status 200</span>
       </div>
     </div>
-    <div class="time-cell passed">3</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -4891,7 +4897,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>Given</span>&nbsp;<span>path &#39;/carrinhos/cancelar-compra&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -4919,7 +4925,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>And</span>&nbsp;<span>header Authorization = token</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -4947,7 +4953,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>When</span>&nbsp;<span>method DELETE</span>
       </div>
     </div>
-    <div class="time-cell passed">600</div>
+    <div class="time-cell passed">133</div>
   </div>
 
    
@@ -4956,16 +4962,16 @@ classpath:serverest/carrinhos/Carts.feature:231
 
   
 
-  <div class="preformatted" data-parent="0.260">13:27:58.153 request:
+  <div class="preformatted" data-parent="0.260">13:39:36.943 request:
 2 &gt; DELETE https://serverest.dev/carrinhos/cancelar-compra
-2 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM0ODc4LCJleHAiOjE3NzEzMzU0Nzh9.n1TAqM6026JidOCf_rxGnWd-W6fjg7Gm4kwUDVkPB-k
+2 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM1NTc2LCJleHAiOjE3NzEzMzYxNzZ9.IBGVObY9BpE5P9rIR7u6sIbuK68u4SbquuxjlByVI7o
 2 &gt; Host: serverest.dev
 2 &gt; Connection: Keep-Alive
 2 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 2 &gt; Accept-Encoding: gzip,deflate
 
 
-13:27:58.751 response time in milliseconds: 596
+13:39:37.075 response time in milliseconds: 131
 2 &lt; 200
 2 &lt; access-control-allow-origin: *
 2 &lt; x-dns-prefetch-control: off
@@ -4975,12 +4981,12 @@ classpath:serverest/carrinhos/Carts.feature:231
 2 &lt; x-content-type-options: nosniff
 2 &lt; x-xss-protection: 1; mode=block
 2 &lt; content-type: application/json; charset=utf-8
-2 &lt; x-cloud-trace-context: 61747083bde6b2ba55ebdab22daf0102
-2 &lt; date: Tue, 17 Feb 2026 13:27:58 GMT
+2 &lt; x-cloud-trace-context: c7deef727f8fa0142a627b90221e9f39
+2 &lt; date: Tue, 17 Feb 2026 13:39:37 GMT
 2 &lt; server: Google Frontend
-2 &lt; Content-Length: 86
+2 &lt; Content-Length: 68
 {
-    &quot;message&quot;: &quot;Registro excluído com sucesso. Estoque dos produtos reabastecido&quot;
+    &quot;message&quot;: &quot;Não foi encontrado carrinho para esse usuário&quot;
 }
 
 </div>   
@@ -5037,7 +5043,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>*</span>&nbsp;<span>def productName = randomProductName()</span>
       </div>
     </div>
-    <div class="time-cell passed">5</div>
+    <div class="time-cell passed">4</div>
   </div>
 
    
@@ -5065,7 +5071,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>*</span>&nbsp;<span>def productData =</span>
       </div>
     </div>
-    <div class="time-cell passed">3</div>
+    <div class="time-cell passed">1</div>
   </div>
 
    
@@ -5182,7 +5188,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">117</div>
+    <div class="time-cell passed">281</div>
   </div>
 
    
@@ -5191,18 +5197,18 @@ classpath:serverest/carrinhos/Carts.feature:231
 
   
 
-  <div class="preformatted" data-parent="0.278">13:27:58.762 request:
+  <div class="preformatted" data-parent="0.278">13:39:37.086 request:
 3 &gt; POST https://serverest.dev/produtos
-3 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM0ODc4LCJleHAiOjE3NzEzMzU0Nzh9.n1TAqM6026JidOCf_rxGnWd-W6fjg7Gm4kwUDVkPB-k
+3 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM1NTc2LCJleHAiOjE3NzEzMzYxNzZ9.IBGVObY9BpE5P9rIR7u6sIbuK68u4SbquuxjlByVI7o
 3 &gt; Content-Type: application/json; charset=UTF-8
-3 &gt; Content-Length: 107
+3 &gt; Content-Length: 105
 3 &gt; Host: serverest.dev
 3 &gt; Connection: Keep-Alive
 3 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 3 &gt; Accept-Encoding: gzip,deflate
-{&quot;nome&quot;:&quot;Aerodynamic Iron Gloves&quot;,&quot;preco&quot;:100,&quot;descricao&quot;:&quot;Low stock product for cart test&quot;,&quot;quantidade&quot;:1}
+{&quot;nome&quot;:&quot;Gorgeous Rubber Clock&quot;,&quot;preco&quot;:100,&quot;descricao&quot;:&quot;Low stock product for cart test&quot;,&quot;quantidade&quot;:1}
 
-13:27:58.878 response time in milliseconds: 115
+13:39:37.361 response time in milliseconds: 274
 3 &lt; 201
 3 &lt; access-control-allow-origin: *
 3 &lt; x-dns-prefetch-control: off
@@ -5212,13 +5218,13 @@ classpath:serverest/carrinhos/Carts.feature:231
 3 &lt; x-content-type-options: nosniff
 3 &lt; x-xss-protection: 1; mode=block
 3 &lt; content-type: application/json; charset=utf-8
-3 &lt; x-cloud-trace-context: 84ca77f45ae64747178424c100497e4d
-3 &lt; date: Tue, 17 Feb 2026 13:27:58 GMT
+3 &lt; x-cloud-trace-context: 1dd3ce4fa956059ad0d242d1ea25e7c9
+3 &lt; date: Tue, 17 Feb 2026 13:39:37 GMT
 3 &lt; server: Google Frontend
 3 &lt; Content-Length: 82
 {
     &quot;message&quot;: &quot;Cadastro realizado com sucesso&quot;,
-    &quot;_id&quot;: &quot;9dN6TBrw3Vyh2Oq8&quot;
+    &quot;_id&quot;: &quot;GCNLw4OaQQnfTnK9&quot;
 }
 
 </div>   
@@ -5303,7 +5309,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>*</span>&nbsp;<span>def cartBody =</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">5</div>
   </div>
 
    
@@ -5338,7 +5344,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>Given</span>&nbsp;<span>path &#39;/carrinhos&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">1</div>
+    <div class="time-cell passed">0</div>
   </div>
 
    
@@ -5366,7 +5372,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>And</span>&nbsp;<span>header Authorization = token</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell passed">4</div>
   </div>
 
    
@@ -5422,7 +5428,7 @@ classpath:serverest/carrinhos/Carts.feature:231
         <span>When</span>&nbsp;<span>method POST</span>
       </div>
     </div>
-    <div class="time-cell passed">112</div>
+    <div class="time-cell passed">98</div>
   </div>
 
    
@@ -5431,18 +5437,18 @@ classpath:serverest/carrinhos/Carts.feature:231
 
   
 
-  <div class="preformatted" data-parent="0.298">13:27:58.882 request:
+  <div class="preformatted" data-parent="0.298">13:39:37.374 request:
 4 &gt; POST https://serverest.dev/carrinhos
-4 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM0ODc4LCJleHAiOjE3NzEzMzU0Nzh9.n1TAqM6026JidOCf_rxGnWd-W6fjg7Gm4kwUDVkPB-k
+4 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM1NTc2LCJleHAiOjE3NzEzMzYxNzZ9.IBGVObY9BpE5P9rIR7u6sIbuK68u4SbquuxjlByVI7o
 4 &gt; Content-Type: application/json; charset=UTF-8
 4 &gt; Content-Length: 62
 4 &gt; Host: serverest.dev
 4 &gt; Connection: Keep-Alive
 4 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
 4 &gt; Accept-Encoding: gzip,deflate
-{&quot;produtos&quot;:[{&quot;idProduto&quot;:&quot;9dN6TBrw3Vyh2Oq8&quot;,&quot;quantidade&quot;:2}]}
+{&quot;produtos&quot;:[{&quot;idProduto&quot;:&quot;GCNLw4OaQQnfTnK9&quot;,&quot;quantidade&quot;:2}]}
 
-13:27:58.992 response time in milliseconds: 110
+13:39:37.471 response time in milliseconds: 95
 4 &lt; 400
 4 &lt; access-control-allow-origin: *
 4 &lt; x-dns-prefetch-control: off
@@ -5452,18 +5458,12 @@ classpath:serverest/carrinhos/Carts.feature:231
 4 &lt; x-content-type-options: nosniff
 4 &lt; x-xss-protection: 1; mode=block
 4 &lt; content-type: application/json; charset=utf-8
-4 &lt; x-cloud-trace-context: 80679c74e9ce5949a78bd09c42f2c834
-4 &lt; date: Tue, 17 Feb 2026 13:27:58 GMT
+4 &lt; x-cloud-trace-context: b7af44f9fe3dcb6233be721d8ee58f56
+4 &lt; date: Tue, 17 Feb 2026 13:39:37 GMT
 4 &lt; server: Google Frontend
-4 &lt; Content-Length: 200
+4 &lt; Content-Length: 61
 {
-    &quot;message&quot;: &quot;Produto não possui quantidade suficiente&quot;,
-    &quot;item&quot;: {
-        &quot;idProduto&quot;: &quot;9dN6TBrw3Vyh2Oq8&quot;,
-        &quot;quantidade&quot;: 2,
-        &quot;quantidadeEstoque&quot;: 1,
-        &quot;index&quot;: 0
-    }
+    &quot;message&quot;: &quot;Não é permitido ter mais de 1 carrinho&quot;
 }
 
 </div>   
@@ -5507,10 +5507,1774 @@ classpath:serverest/carrinhos/Carts.feature:231
 
   <div class="step-row">
     <div class="step-container" id="0.300">
-      <div class="step-ref passed">300</div>
+      <div class="step-ref failed">300</div>
+      
+      <div class="step-cell failed">
+        <span>And</span>&nbsp;<span>match response.message contains &#39;Produto não possui quantidade suficiente&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell failed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.300">13:39:37.473 classpath:serverest/carrinhos/Carts.feature:300
+And match response.message contains &#39;Produto não possui quantidade suficiente&#39;
+match failed: CONTAINS
+  $ | actual does not contain expected (STRING:STRING)
+  &#39;Não é permitido ter mais de 1 carrinho&#39;
+  &#39;Produto não possui quantidade suficiente&#39;
+
+classpath:serverest/carrinhos/Carts.feature:300
+</div>   
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[7:304]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                <a class="badge badge-primary" href="karate-tags.html">carts</a><a class="badge badge-primary" href="karate-tags.html">regression</a>
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[7:304]</span>
+                <span class="scenario-name">CT07 - Prevent cart creation with duplicated products in the same cart</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>634</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[7:304]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[7:304]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.6">
+      <div class="step-ref bg-step">6</div>
       
       <div class="step-cell passed">
-        <span>And</span>&nbsp;<span>match response.message contains &#39;Produto não possui quantidade suficiente&#39;</span>
+        <span>*</span>&nbsp;<span>url &#39;https://serverest.dev&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[7:304]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.7">
+      <div class="step-ref bg-step">7</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def FakerUtils = Java.type(&#39;serverest.utils.FakerUtils&#39;)</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[7:304]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.8">
+      <div class="step-ref bg-step">8</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def randomProductName = function(){ return FakerUtils.randomProduct() }</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[7:304]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.9">
+      <div class="step-ref bg-step">9</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def loginPayload = read(&#39;classpath:serverest/login/resources/loginPayload.json&#39;)</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[7:304]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.10">
+      <div class="step-ref bg-step">10</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def email = function(){ return FakerUtils.randomEmail() }</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.305">
+      <div class="step-ref passed">305</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def loginPayload = read(&#39;classpath:serverest/login/resources/loginPayload.json&#39;)</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.306">
+      <div class="step-ref passed">306</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>path &#39;/login&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.307">
+      <div class="step-ref passed">307</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>request loginPayload</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.308">
+      <div class="step-ref passed">308</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method POST</span>
+      </div>
+    </div>
+    <div class="time-cell passed">127</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.308">13:39:36.934 request:
+1 &gt; POST https://serverest.dev/login
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 44
+1 &gt; Host: serverest.dev
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;email&quot;:&quot;fulano@qa.com&quot;,&quot;password&quot;:&quot;teste&quot;}
+
+13:39:37.057 response time in milliseconds: 122
+1 &lt; 200
+1 &lt; access-control-allow-origin: *
+1 &lt; x-dns-prefetch-control: off
+1 &lt; x-frame-options: SAMEORIGIN
+1 &lt; strict-transport-security: max-age=15552000; includeSubDomains
+1 &lt; x-download-options: noopen
+1 &lt; x-content-type-options: nosniff
+1 &lt; x-xss-protection: 1; mode=block
+1 &lt; content-type: application/json; charset=utf-8
+1 &lt; x-cloud-trace-context: 7ebe37828877ffebf7ad24aad88cc610
+1 &lt; date: Tue, 17 Feb 2026 13:39:37 GMT
+1 &lt; server: Google Frontend
+1 &lt; Content-Length: 265
+{
+    &quot;message&quot;: &quot;Login realizado com sucesso&quot;,
+    &quot;authorization&quot;: &quot;Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM1NTc3LCJleHAiOjE3NzEzMzYxNzd9.SBjzzws7XNP0077k1p2yx6wXcKv7aVrL3p9OBjpv0Fc&quot;
+}
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.309">
+      <div class="step-ref passed">309</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 200</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.310">
+      <div class="step-ref passed">310</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def token = response.authorization</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.312">
+      <div class="step-ref passed">312</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>path &#39;/carrinhos/cancelar-compra&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.313">
+      <div class="step-ref passed">313</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>header Authorization = token</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.314">
+      <div class="step-ref passed">314</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method DELETE</span>
+      </div>
+    </div>
+    <div class="time-cell passed">108</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.314">13:39:37.064 request:
+2 &gt; DELETE https://serverest.dev/carrinhos/cancelar-compra
+2 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM1NTc3LCJleHAiOjE3NzEzMzYxNzd9.SBjzzws7XNP0077k1p2yx6wXcKv7aVrL3p9OBjpv0Fc
+2 &gt; Host: serverest.dev
+2 &gt; Connection: Keep-Alive
+2 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
+2 &gt; Accept-Encoding: gzip,deflate
+
+
+13:39:37.170 response time in milliseconds: 105
+2 &lt; 200
+2 &lt; access-control-allow-origin: *
+2 &lt; x-dns-prefetch-control: off
+2 &lt; x-frame-options: SAMEORIGIN
+2 &lt; strict-transport-security: max-age=15552000; includeSubDomains
+2 &lt; x-download-options: noopen
+2 &lt; x-content-type-options: nosniff
+2 &lt; x-xss-protection: 1; mode=block
+2 &lt; content-type: application/json; charset=utf-8
+2 &lt; x-cloud-trace-context: 606698facea7f216e2adacbba768be19
+2 &lt; date: Tue, 17 Feb 2026 13:39:37 GMT
+2 &lt; server: Google Frontend
+2 &lt; Content-Length: 68
+{
+    &quot;message&quot;: &quot;Não foi encontrado carrinho para esse usuário&quot;
+}
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.315">
+      <div class="step-ref passed">315</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 200</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  <div class="step-row">
+    <div class="step-container">
+      <div class="step-ref passed"></div>
+      
+      <div class="step-cell comment"># Create a product to be used in the cart</div>
+    </div>
+    <div class="time-cell comment"></div>            
+  </div>
+
+  <div class="step-row">
+    <div class="step-container" id="0.318">
+      <div class="step-ref passed">318</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def productName = randomProductName()</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.319">
+      <div class="step-ref passed">319</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def productData =</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  <div class="preformatted" data-parent="0.319">{
+  &quot;nome&quot;: &quot;#(productName)&quot;,
+  &quot;preco&quot;: 150,
+  &quot;descricao&quot;: &quot;Product created for duplicated products cart test&quot;,
+  &quot;quantidade&quot;: 10
+}</div>
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.329">
+      <div class="step-ref passed">329</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>path &#39;/produtos&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.330">
+      <div class="step-ref passed">330</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>header Authorization = token</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.331">
+      <div class="step-ref passed">331</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>request productData</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.332">
+      <div class="step-ref passed">332</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method POST</span>
+      </div>
+    </div>
+    <div class="time-cell passed">272</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.332">13:39:37.176 request:
+3 &gt; POST https://serverest.dev/produtos
+3 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM1NTc3LCJleHAiOjE3NzEzMzYxNzd9.SBjzzws7XNP0077k1p2yx6wXcKv7aVrL3p9OBjpv0Fc
+3 &gt; Content-Type: application/json; charset=UTF-8
+3 &gt; Content-Length: 119
+3 &gt; Host: serverest.dev
+3 &gt; Connection: Keep-Alive
+3 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
+3 &gt; Accept-Encoding: gzip,deflate
+{&quot;nome&quot;:&quot;Sleek Wool Chair&quot;,&quot;preco&quot;:150,&quot;descricao&quot;:&quot;Product created for duplicated products cart test&quot;,&quot;quantidade&quot;:10}
+
+13:39:37.446 response time in milliseconds: 266
+3 &lt; 201
+3 &lt; access-control-allow-origin: *
+3 &lt; x-dns-prefetch-control: off
+3 &lt; x-frame-options: SAMEORIGIN
+3 &lt; strict-transport-security: max-age=15552000; includeSubDomains
+3 &lt; x-download-options: noopen
+3 &lt; x-content-type-options: nosniff
+3 &lt; x-xss-protection: 1; mode=block
+3 &lt; content-type: application/json; charset=utf-8
+3 &lt; x-cloud-trace-context: 78476183bc1d5701a9337800d2df53b1
+3 &lt; date: Tue, 17 Feb 2026 13:39:37 GMT
+3 &lt; server: Google Frontend
+3 &lt; Content-Length: 82
+{
+    &quot;message&quot;: &quot;Cadastro realizado com sucesso&quot;,
+    &quot;_id&quot;: &quot;Qpn9CZiERN3JD9Zx&quot;
+}
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.333">
+      <div class="step-ref passed">333</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 201</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.334">
+      <div class="step-ref passed">334</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def productId = response._id</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  <div class="step-row">
+    <div class="step-container">
+      <div class="step-ref passed"></div>
+      
+      <div class="step-cell comment"># Try to create a cart with duplicated products</div>
+    </div>
+    <div class="time-cell comment"></div>            
+  </div>
+
+  <div class="step-row">
+    <div class="step-container" id="0.337">
+      <div class="step-ref passed">337</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def duplicatedCartBody =</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  <div class="preformatted" data-parent="0.337">{
+  &quot;produtos&quot;: [
+    {
+      &quot;idProduto&quot;: &quot;#(productId)&quot;,
+      &quot;quantidade&quot;: 1
+    },
+    {
+      &quot;idProduto&quot;: &quot;#(productId)&quot;,
+      &quot;quantidade&quot;: 1
+    }
+  ]
+}</div>
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.353">
+      <div class="step-ref passed">353</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>path &#39;/carrinhos&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.354">
+      <div class="step-ref passed">354</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>header Authorization = token</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.355">
+      <div class="step-ref passed">355</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>request duplicatedCartBody</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.356">
+      <div class="step-ref passed">356</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method POST</span>
+      </div>
+    </div>
+    <div class="time-cell passed">113</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.356">13:39:37.451 request:
+4 &gt; POST https://serverest.dev/carrinhos
+4 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM1NTc3LCJleHAiOjE3NzEzMzYxNzd9.SBjzzws7XNP0077k1p2yx6wXcKv7aVrL3p9OBjpv0Fc
+4 &gt; Content-Type: application/json; charset=UTF-8
+4 &gt; Content-Length: 110
+4 &gt; Host: serverest.dev
+4 &gt; Connection: Keep-Alive
+4 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
+4 &gt; Accept-Encoding: gzip,deflate
+{&quot;produtos&quot;:[{&quot;idProduto&quot;:&quot;Qpn9CZiERN3JD9Zx&quot;,&quot;quantidade&quot;:1},{&quot;idProduto&quot;:&quot;Qpn9CZiERN3JD9Zx&quot;,&quot;quantidade&quot;:1}]}
+
+13:39:37.561 response time in milliseconds: 110
+4 &lt; 400
+4 &lt; access-control-allow-origin: *
+4 &lt; x-dns-prefetch-control: off
+4 &lt; x-frame-options: SAMEORIGIN
+4 &lt; strict-transport-security: max-age=15552000; includeSubDomains
+4 &lt; x-download-options: noopen
+4 &lt; x-content-type-options: nosniff
+4 &lt; x-xss-protection: 1; mode=block
+4 &lt; content-type: application/json; charset=utf-8
+4 &lt; x-cloud-trace-context: 35ce180ddc4a985e61d380d8055f55c5
+4 &lt; date: Tue, 17 Feb 2026 13:39:37 GMT
+4 &lt; server: Google Frontend
+4 &lt; Content-Length: 128
+{
+    &quot;message&quot;: &quot;Não é permitido possuir produto duplicado&quot;,
+    &quot;idProdutosDuplicados&quot;: [
+        &quot;Qpn9CZiERN3JD9Zx&quot;
+    ]
+}
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.357">
+      <div class="step-ref passed">357</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 400</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.358">
+      <div class="step-ref passed">358</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match response.message contains &#39;Não é permitido possuir produto duplicado&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[8:362]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                <a class="badge badge-primary" href="karate-tags.html">carts</a><a class="badge badge-primary" href="karate-tags.html">regression</a>
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[8:362]</span>
+                <span class="scenario-name">CT08 - Prevent cart creation with non-existing product</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>614</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[8:362]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[8:362]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.6">
+      <div class="step-ref bg-step">6</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>url &#39;https://serverest.dev&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[8:362]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.7">
+      <div class="step-ref bg-step">7</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def FakerUtils = Java.type(&#39;serverest.utils.FakerUtils&#39;)</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[8:362]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.8">
+      <div class="step-ref bg-step">8</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def randomProductName = function(){ return FakerUtils.randomProduct() }</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[8:362]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.9">
+      <div class="step-ref bg-step">9</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def loginPayload = read(&#39;classpath:serverest/login/resources/loginPayload.json&#39;)</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[8:362]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.10">
+      <div class="step-ref bg-step">10</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def email = function(){ return FakerUtils.randomEmail() }</span>
+      </div>
+    </div>
+    <div class="time-cell passed">4</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.363">
+      <div class="step-ref passed">363</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def loginPayload = read(&#39;classpath:serverest/login/resources/loginPayload.json&#39;)</span>
+      </div>
+    </div>
+    <div class="time-cell passed">2</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.364">
+      <div class="step-ref passed">364</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>path &#39;/login&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.365">
+      <div class="step-ref passed">365</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>request loginPayload</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.366">
+      <div class="step-ref passed">366</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method POST</span>
+      </div>
+    </div>
+    <div class="time-cell passed">140</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.366">13:39:36.996 request:
+1 &gt; POST https://serverest.dev/login
+1 &gt; Content-Type: application/json; charset=UTF-8
+1 &gt; Content-Length: 44
+1 &gt; Host: serverest.dev
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;email&quot;:&quot;fulano@qa.com&quot;,&quot;password&quot;:&quot;teste&quot;}
+
+13:39:37.134 response time in milliseconds: 137
+1 &lt; 200
+1 &lt; access-control-allow-origin: *
+1 &lt; x-dns-prefetch-control: off
+1 &lt; x-frame-options: SAMEORIGIN
+1 &lt; strict-transport-security: max-age=15552000; includeSubDomains
+1 &lt; x-download-options: noopen
+1 &lt; x-content-type-options: nosniff
+1 &lt; x-xss-protection: 1; mode=block
+1 &lt; content-type: application/json; charset=utf-8
+1 &lt; x-cloud-trace-context: 7b02e56db77bdb8a4b17ed54c7df1b7f
+1 &lt; date: Tue, 17 Feb 2026 13:39:37 GMT
+1 &lt; server: Google Frontend
+1 &lt; Content-Length: 265
+{
+    &quot;message&quot;: &quot;Login realizado com sucesso&quot;,
+    &quot;authorization&quot;: &quot;Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM1NTc3LCJleHAiOjE3NzEzMzYxNzd9.SBjzzws7XNP0077k1p2yx6wXcKv7aVrL3p9OBjpv0Fc&quot;
+}
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.367">
+      <div class="step-ref passed">367</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 200</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.368">
+      <div class="step-ref passed">368</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def token = response.authorization</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.370">
+      <div class="step-ref passed">370</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>path &#39;/carrinhos/cancelar-compra&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.371">
+      <div class="step-ref passed">371</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>header Authorization = token</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.372">
+      <div class="step-ref passed">372</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method DELETE</span>
+      </div>
+    </div>
+    <div class="time-cell passed">352</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.372">13:39:37.139 request:
+2 &gt; DELETE https://serverest.dev/carrinhos/cancelar-compra
+2 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM1NTc3LCJleHAiOjE3NzEzMzYxNzd9.SBjzzws7XNP0077k1p2yx6wXcKv7aVrL3p9OBjpv0Fc
+2 &gt; Host: serverest.dev
+2 &gt; Connection: Keep-Alive
+2 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
+2 &gt; Accept-Encoding: gzip,deflate
+
+
+13:39:37.490 response time in milliseconds: 350
+2 &lt; 200
+2 &lt; access-control-allow-origin: *
+2 &lt; x-dns-prefetch-control: off
+2 &lt; x-frame-options: SAMEORIGIN
+2 &lt; strict-transport-security: max-age=15552000; includeSubDomains
+2 &lt; x-download-options: noopen
+2 &lt; x-content-type-options: nosniff
+2 &lt; x-xss-protection: 1; mode=block
+2 &lt; content-type: application/json; charset=utf-8
+2 &lt; x-cloud-trace-context: f5f3374dd844f7578635f02cc240a81f
+2 &lt; date: Tue, 17 Feb 2026 13:39:37 GMT
+2 &lt; server: Google Frontend
+2 &lt; Content-Length: 86
+{
+    &quot;message&quot;: &quot;Registro excluído com sucesso. Estoque dos produtos reabastecido&quot;
+}
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.373">
+      <div class="step-ref passed">373</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 200</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  <div class="step-row">
+    <div class="step-container">
+      <div class="step-ref passed"></div>
+      
+      <div class="step-cell comment"># Try to create a cart with an invalid product ID</div>
+    </div>
+    <div class="time-cell comment"></div>            
+  </div>
+
+  <div class="step-row">
+    <div class="step-container" id="0.376">
+      <div class="step-ref passed">376</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def invalidCartBody =</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  <div class="preformatted" data-parent="0.376">{
+  &quot;produtos&quot;: [
+    {
+      &quot;idProduto&quot;: &quot;AAAAAAAAAAAAAAAA&quot;,
+      &quot;quantidade&quot;: 1
+    }
+  ]
+}</div>
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.388">
+      <div class="step-ref passed">388</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>path &#39;/carrinhos&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.389">
+      <div class="step-ref passed">389</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>header Authorization = token</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.390">
+      <div class="step-ref passed">390</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>request invalidCartBody</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.391">
+      <div class="step-ref passed">391</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method POST</span>
+      </div>
+    </div>
+    <div class="time-cell passed">107</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.391">13:39:37.494 request:
+3 &gt; POST https://serverest.dev/carrinhos
+3 &gt; Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzcxMzM1NTc3LCJleHAiOjE3NzEzMzYxNzd9.SBjzzws7XNP0077k1p2yx6wXcKv7aVrL3p9OBjpv0Fc
+3 &gt; Content-Type: application/json; charset=UTF-8
+3 &gt; Content-Length: 62
+3 &gt; Host: serverest.dev
+3 &gt; Connection: Keep-Alive
+3 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.10)
+3 &gt; Accept-Encoding: gzip,deflate
+{&quot;produtos&quot;:[{&quot;idProduto&quot;:&quot;AAAAAAAAAAAAAAAA&quot;,&quot;quantidade&quot;:1}]}
+
+13:39:37.598 response time in milliseconds: 102
+3 &lt; 400
+3 &lt; access-control-allow-origin: *
+3 &lt; x-dns-prefetch-control: off
+3 &lt; x-frame-options: SAMEORIGIN
+3 &lt; strict-transport-security: max-age=15552000; includeSubDomains
+3 &lt; x-download-options: noopen
+3 &lt; x-content-type-options: nosniff
+3 &lt; x-xss-protection: 1; mode=block
+3 &lt; content-type: application/json; charset=utf-8
+3 &lt; x-cloud-trace-context: ef9665017bb62a81f9ff7718bf7e6414
+3 &lt; date: Tue, 17 Feb 2026 13:39:37 GMT
+3 &lt; server: Google Frontend
+3 &lt; Content-Length: 150
+{
+    &quot;message&quot;: &quot;Produto não encontrado&quot;,
+    &quot;item&quot;: {
+        &quot;idProduto&quot;: &quot;AAAAAAAAAAAAAAAA&quot;,
+        &quot;quantidade&quot;: 1,
+        &quot;index&quot;: 0
+    }
+}
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.392">
+      <div class="step-ref passed">392</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 400</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.393">
+      <div class="step-ref passed">393</div>
+      
+      <div class="step-cell passed">
+        <span>And</span>&nbsp;<span>match response.message contains &#39;Produto não encontrado&#39;</span>
       </div>
     </div>
     <div class="time-cell passed">1</div>
