@@ -17,6 +17,7 @@
         <maven.compiler.target>21</maven.compiler.target>
         <karate.version>1.5.2</karate.version>
         <junit5.version>5.10.1</junit5.version>
+        <allure.version>2.27.0</allure.version>
     </properties>
 
     <dependencies>        
@@ -48,6 +49,24 @@
             <version>1.0.2</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>5.4.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-junit5</artifactId>
+            <version>${allure.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-rest-assured</artifactId>
+            <version>${allure.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -76,7 +95,21 @@
                 <version>3.2.5</version>
                 <configuration>
                     <argLine>-Dfile.encoding=UTF-8</argLine>
+                    <!-- Execução paralela dos testes -->
+                    <parallel>methods</parallel>
+                    <useUnlimitedThreads>false</useUnlimitedThreads>
+                    <!-- threads por core: ex.: 2C = 2 threads por core -->
+                    <threadCount>6</threadCount>
+                    <perCoreThreadCount>true</perCoreThreadCount>
+                    <!-- forks em paralelo (JVMs) -->
+                    <forkCount>1C</forkCount>
+                    <reuseForks>true</reuseForks>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.11.2</version>
             </plugin>
         </plugins>
     </build>
