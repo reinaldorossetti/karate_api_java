@@ -1,348 +1,492 @@
-<testsuite failures="0" name="serverest/produtos/Products.feature" skipped="0" tests="16" time="8.180544"><testcase classname="serverest.produtos.Products" name="CT01 - List all products and validate JSON structure" time="0.341333"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testsuite failures="16" name="serverest/produtos/Products.feature" skipped="0" tests="16" time="1.227522"><testcase classname="serverest.produtos.Products" name="CT01 - List all products and validate JSON structure" time="0.067237"><failure message="status code was: 401, expected: 200, response time in milliseconds: 65, url: https://serverest.dev/login, response: &#10;{&#10;    &quot;message&quot;: &quot;Email e/ou senha inválidos&quot;&#10;}&#10;classpath:serverest/produtos/Products.feature:11">* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
 When method POST .......................................................... passed
-Then status 200 ........................................................... passed
-* def token = response.authorization ...................................... passed
-* def randomName = function(){ return 'Product ' + new Date().getTime() } . passed
-Given path '/produtos' .................................................... passed
-When method GET ........................................................... passed
-Then status 200 ........................................................... passed
-And match response == ..................................................... passed
-And match each response.produtos == ....................................... passed
-And match each response.produtos contains { preco: '#number? _ &gt; 0' } ..... passed
-And match each response.produtos contains { quantidade: '#number? _ &gt;= 0' } . passed
-</system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT02 - Create a new product as an administrator" time="0.671448"><system-out>* url 'https://serverest.dev' ............................................. passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.KarateException: status code was: 401, expected: 200, response time in milliseconds: 65, url: https://serverest.dev/login, response: 
+{
+    "message": "Email e/ou senha inválidos"
+}
+classpath:serverest/produtos/Products.feature:11
+	at &lt;feature&gt;.: Then status 200 (classpath:serverest/produtos/Products.feature:11:11)
+
+* def token = response.authorization ...................................... skipped
+* def randomName = function(){ return 'Product ' + new Date().getTime() } . skipped
+Given path '/produtos' .................................................... skipped
+When method GET ........................................................... skipped
+Then status 200 ........................................................... skipped
+And match response == ..................................................... skipped
+And match each response.produtos == ....................................... skipped
+And match each response.produtos contains { preco: '#number? _ &gt; 0' } ..... skipped
+And match each response.produtos contains { quantidade: '#number? _ &gt;= 0' } . skipped
+</failure></testcase>
+<testcase classname="serverest.produtos.Products" name="CT02 - Create a new product as an administrator" time="0.071303"><failure message="status code was: 401, expected: 200, response time in milliseconds: 68, url: https://serverest.dev/login, response: &#10;{&#10;    &quot;message&quot;: &quot;Email e/ou senha inválidos&quot;&#10;}&#10;classpath:serverest/produtos/Products.feature:11">* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
 When method POST .......................................................... passed
-Then status 200 ........................................................... passed
-* def token = response.authorization ...................................... passed
-* def randomName = function(){ return 'Product ' + new Date().getTime() } . passed
-* def productName = randomName() .......................................... passed
-* def productData = ....................................................... passed
-Given path '/produtos' .................................................... passed
-And header Authorization = token .......................................... passed
-And request productData ................................................... passed
-When method POST .......................................................... passed
-Then status 201 ........................................................... passed
-And match response == ..................................................... passed
-* def productId = response._id ............................................ passed
-Given path '/produtos/' + productId ....................................... passed
-When method GET ........................................................... passed
-Then status 200 ........................................................... passed
-And match response.nome == productName .................................... passed
-And match response.preco == 250 ........................................... passed
-And match response.quantidade == 100 ...................................... passed
-</system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT03 - Validate error when creating a product with a duplicate name" time="0.640146"><system-out>* url 'https://serverest.dev' ............................................. passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.KarateException: status code was: 401, expected: 200, response time in milliseconds: 68, url: https://serverest.dev/login, response: 
+{
+    "message": "Email e/ou senha inválidos"
+}
+classpath:serverest/produtos/Products.feature:11
+	at &lt;feature&gt;.: Then status 200 (classpath:serverest/produtos/Products.feature:11:11)
+
+* def token = response.authorization ...................................... skipped
+* def randomName = function(){ return 'Product ' + new Date().getTime() } . skipped
+* def productName = randomName() .......................................... skipped
+* def productData = ....................................................... skipped
+Given path '/produtos' .................................................... skipped
+And header Authorization = token .......................................... skipped
+And request productData ................................................... skipped
+When method POST .......................................................... skipped
+Then status 201 ........................................................... skipped
+And match response == ..................................................... skipped
+* def productId = response._id ............................................ skipped
+Given path '/produtos/' + productId ....................................... skipped
+When method GET ........................................................... skipped
+Then status 200 ........................................................... skipped
+And match response.nome == productName .................................... skipped
+And match response.preco == 250 ........................................... skipped
+And match response.quantidade == 100 ...................................... skipped
+</failure></testcase>
+<testcase classname="serverest.produtos.Products" name="CT03 - Validate error when creating a product with a duplicate name" time="0.070911"><failure message="status code was: 401, expected: 200, response time in milliseconds: 68, url: https://serverest.dev/login, response: &#10;{&#10;    &quot;message&quot;: &quot;Email e/ou senha inválidos&quot;&#10;}&#10;classpath:serverest/produtos/Products.feature:11">* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
 When method POST .......................................................... passed
-Then status 200 ........................................................... passed
-* def token = response.authorization ...................................... passed
-* def randomName = function(){ return 'Product ' + new Date().getTime() } . passed
-* def duplicateName = 'Duplicate Product Test ' + new Date().getTime() .... passed
-* def product = ........................................................... passed
-Given path '/produtos' .................................................... passed
-And header Authorization = token .......................................... passed
-And request product ....................................................... passed
-When method POST .......................................................... passed
-Then status 201 ........................................................... passed
-Given path '/produtos' .................................................... passed
-And header Authorization = token .......................................... passed
-And request product ....................................................... passed
-When method POST .......................................................... passed
-Then status 400 ........................................................... passed
-And match response == ..................................................... passed
-</system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT04 - Search for products using query parameters" time="0.600887"><system-out>* url 'https://serverest.dev' ............................................. passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.KarateException: status code was: 401, expected: 200, response time in milliseconds: 68, url: https://serverest.dev/login, response: 
+{
+    "message": "Email e/ou senha inválidos"
+}
+classpath:serverest/produtos/Products.feature:11
+	at &lt;feature&gt;.: Then status 200 (classpath:serverest/produtos/Products.feature:11:11)
+
+* def token = response.authorization ...................................... skipped
+* def randomName = function(){ return 'Product ' + new Date().getTime() } . skipped
+* def duplicateName = 'Duplicate Product Test ' + new Date().getTime() .... skipped
+* def product = ........................................................... skipped
+Given path '/produtos' .................................................... skipped
+And header Authorization = token .......................................... skipped
+And request product ....................................................... skipped
+When method POST .......................................................... skipped
+Then status 201 ........................................................... skipped
+Given path '/produtos' .................................................... skipped
+And header Authorization = token .......................................... skipped
+And request product ....................................................... skipped
+When method POST .......................................................... skipped
+Then status 400 ........................................................... skipped
+And match response == ..................................................... skipped
+</failure></testcase>
+<testcase classname="serverest.produtos.Products" name="CT04 - Search for products using query parameters" time="0.064422"><failure message="status code was: 401, expected: 200, response time in milliseconds: 59, url: https://serverest.dev/login, response: &#10;{&#10;    &quot;message&quot;: &quot;Email e/ou senha inválidos&quot;&#10;}&#10;classpath:serverest/produtos/Products.feature:11">* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
 When method POST .......................................................... passed
-Then status 200 ........................................................... passed
-* def token = response.authorization ...................................... passed
-* def randomName = function(){ return 'Product ' + new Date().getTime() } . passed
-Given path '/produtos' .................................................... passed
-And param nome = 'Logitech' ............................................... passed
-When method GET ........................................................... passed
-Then status 200 ........................................................... passed
-* def products = response.produtos ........................................ passed
-* def allContainName = karate.filter(products, function(x){ return x.nome.includes('Logitech') }) . passed
-And assert allContainName.length &gt; 0 ...................................... passed
-Given path '/produtos' .................................................... passed
-And param preco = 100 ..................................................... passed
-When method GET ........................................................... passed
-Then status 200 ........................................................... passed
-</system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT05 - Update information of an existing product" time="0.562205"><system-out>* url 'https://serverest.dev' ............................................. passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.KarateException: status code was: 401, expected: 200, response time in milliseconds: 59, url: https://serverest.dev/login, response: 
+{
+    "message": "Email e/ou senha inválidos"
+}
+classpath:serverest/produtos/Products.feature:11
+	at &lt;feature&gt;.: Then status 200 (classpath:serverest/produtos/Products.feature:11:11)
+
+* def token = response.authorization ...................................... skipped
+* def randomName = function(){ return 'Product ' + new Date().getTime() } . skipped
+Given path '/produtos' .................................................... skipped
+And param nome = 'Logitech' ............................................... skipped
+When method GET ........................................................... skipped
+Then status 200 ........................................................... skipped
+* def products = response.produtos ........................................ skipped
+* def allContainName = karate.filter(products, function(x){ return x.nome.includes('Logitech') }) . skipped
+And assert allContainName.length &gt; 0 ...................................... skipped
+Given path '/produtos' .................................................... skipped
+And param preco = 100 ..................................................... skipped
+When method GET ........................................................... skipped
+Then status 200 ........................................................... skipped
+</failure></testcase>
+<testcase classname="serverest.produtos.Products" name="CT05 - Update information of an existing product" time="0.059327"><failure message="status code was: 401, expected: 200, response time in milliseconds: 53, url: https://serverest.dev/login, response: &#10;{&#10;    &quot;message&quot;: &quot;Email e/ou senha inválidos&quot;&#10;}&#10;classpath:serverest/produtos/Products.feature:11">* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
 When method POST .......................................................... passed
-Then status 200 ........................................................... passed
-* def token = response.authorization ...................................... passed
-* def randomName = function(){ return 'Product ' + new Date().getTime() } . passed
-* def productName = randomName() .......................................... passed
-* def initialProduct = .................................................... passed
-Given path '/produtos' .................................................... passed
-And header Authorization = token .......................................... passed
-And request initialProduct ................................................ passed
-When method POST .......................................................... passed
-Then status 201 ........................................................... passed
-* def productId = response._id ............................................ passed
-* def updatedProduct = .................................................... passed
-Given path '/produtos/' + productId ....................................... passed
-And header Authorization = token .......................................... passed
-And request updatedProduct ................................................ passed
-When method PUT ........................................................... passed
-Then status 200 ........................................................... passed
-And match response.message == 'Registro alterado com sucesso' ............. passed
-Given path '/produtos/' + productId ....................................... passed
-When method GET ........................................................... passed
-Then status 200 ........................................................... passed
-And match response.preco == 200 ........................................... passed
-And match response.descricao == 'Updated description' ..................... passed
-And match response.quantidade == 75 ....................................... passed
-</system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT06 - Validate price calculations and comparisons" time="0.46668"><system-out>* url 'https://serverest.dev' ............................................. passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.KarateException: status code was: 401, expected: 200, response time in milliseconds: 53, url: https://serverest.dev/login, response: 
+{
+    "message": "Email e/ou senha inválidos"
+}
+classpath:serverest/produtos/Products.feature:11
+	at &lt;feature&gt;.: Then status 200 (classpath:serverest/produtos/Products.feature:11:11)
+
+* def token = response.authorization ...................................... skipped
+* def randomName = function(){ return 'Product ' + new Date().getTime() } . skipped
+* def productName = randomName() .......................................... skipped
+* def initialProduct = .................................................... skipped
+Given path '/produtos' .................................................... skipped
+And header Authorization = token .......................................... skipped
+And request initialProduct ................................................ skipped
+When method POST .......................................................... skipped
+Then status 201 ........................................................... skipped
+* def productId = response._id ............................................ skipped
+* def updatedProduct = .................................................... skipped
+Given path '/produtos/' + productId ....................................... skipped
+And header Authorization = token .......................................... skipped
+And request updatedProduct ................................................ skipped
+When method PUT ........................................................... skipped
+Then status 200 ........................................................... skipped
+And match response.message == 'Registro alterado com sucesso' ............. skipped
+Given path '/produtos/' + productId ....................................... skipped
+When method GET ........................................................... skipped
+Then status 200 ........................................................... skipped
+And match response.preco == 200 ........................................... skipped
+And match response.descricao == 'Updated description' ..................... skipped
+And match response.quantidade == 75 ....................................... skipped
+</failure></testcase>
+<testcase classname="serverest.produtos.Products" name="CT06 - Validate price calculations and comparisons" time="0.080791"><failure message="status code was: 401, expected: 200, response time in milliseconds: 77, url: https://serverest.dev/login, response: &#10;{&#10;    &quot;message&quot;: &quot;Email e/ou senha inválidos&quot;&#10;}&#10;classpath:serverest/produtos/Products.feature:11">* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
 When method POST .......................................................... passed
-Then status 200 ........................................................... passed
-* def token = response.authorization ...................................... passed
-* def randomName = function(){ return 'Product ' + new Date().getTime() } . passed
-Given path '/produtos' .................................................... passed
-When method GET ........................................................... passed
-Then status 200 ........................................................... passed
-* def products = response.produtos ........................................ passed
-* def prices = karate.map(products, function(x){ return x.preco }) ........ passed
-* def maxPrice = Math.max.apply(null, prices) ............................. passed
-* print 'Highest Price:', maxPrice ........................................ passed
-* def minPrice = Math.min.apply(null, prices) ............................. passed
-* print 'Lowest Price:', minPrice ......................................... passed
-* def sumPrices = prices.reduce(function(a, b){ return a + b }, 0) ........ passed
-* def avgPrice = sumPrices / prices.length ................................ passed
-* print 'Average Price:', avgPrice ........................................ passed
-And match each products contains { preco: '#number? _ &gt; 0 &amp;&amp; _ &lt; 100000' } . passed
-</system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT07 - Attempt to create a product without an authentication token" time="0.363145"><system-out>* url 'https://serverest.dev' ............................................. passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.KarateException: status code was: 401, expected: 200, response time in milliseconds: 77, url: https://serverest.dev/login, response: 
+{
+    "message": "Email e/ou senha inválidos"
+}
+classpath:serverest/produtos/Products.feature:11
+	at &lt;feature&gt;.: Then status 200 (classpath:serverest/produtos/Products.feature:11:11)
+
+* def token = response.authorization ...................................... skipped
+* def randomName = function(){ return 'Product ' + new Date().getTime() } . skipped
+Given path '/produtos' .................................................... skipped
+When method GET ........................................................... skipped
+Then status 200 ........................................................... skipped
+* def products = response.produtos ........................................ skipped
+* def prices = karate.map(products, function(x){ return x.preco }) ........ skipped
+* def maxPrice = Math.max.apply(null, prices) ............................. skipped
+* print 'Highest Price:', maxPrice ........................................ skipped
+* def minPrice = Math.min.apply(null, prices) ............................. skipped
+* print 'Lowest Price:', minPrice ......................................... skipped
+* def sumPrices = prices.reduce(function(a, b){ return a + b }, 0) ........ skipped
+* def avgPrice = sumPrices / prices.length ................................ skipped
+* print 'Average Price:', avgPrice ........................................ skipped
+And match each products contains { preco: '#number? _ &gt; 0 &amp;&amp; _ &lt; 100000' } . skipped
+</failure></testcase>
+<testcase classname="serverest.produtos.Products" name="CT07 - Attempt to create a product without an authentication token" time="0.073538"><failure message="status code was: 401, expected: 200, response time in milliseconds: 71, url: https://serverest.dev/login, response: &#10;{&#10;    &quot;message&quot;: &quot;Email e/ou senha inválidos&quot;&#10;}&#10;classpath:serverest/produtos/Products.feature:11">* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
 When method POST .......................................................... passed
-Then status 200 ........................................................... passed
-* def token = response.authorization ...................................... passed
-* def randomName = function(){ return 'Product ' + new Date().getTime() } . passed
-* def product = ........................................................... passed
-Given path '/produtos' .................................................... passed
-And request product ....................................................... passed
-When method POST .......................................................... passed
-Then status 401 ........................................................... passed
-And match response == ..................................................... passed
-</system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT08 - Validate required fields when creating a product" time="0.354433"><system-out>* url 'https://serverest.dev' ............................................. passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.KarateException: status code was: 401, expected: 200, response time in milliseconds: 71, url: https://serverest.dev/login, response: 
+{
+    "message": "Email e/ou senha inválidos"
+}
+classpath:serverest/produtos/Products.feature:11
+	at &lt;feature&gt;.: Then status 200 (classpath:serverest/produtos/Products.feature:11:11)
+
+* def token = response.authorization ...................................... skipped
+* def randomName = function(){ return 'Product ' + new Date().getTime() } . skipped
+* def product = ........................................................... skipped
+Given path '/produtos' .................................................... skipped
+And request product ....................................................... skipped
+When method POST .......................................................... skipped
+Then status 401 ........................................................... skipped
+And match response == ..................................................... skipped
+</failure></testcase>
+<testcase classname="serverest.produtos.Products" name="CT08 - Validate required fields when creating a product" time="0.086535"><failure message="status code was: 401, expected: 200, response time in milliseconds: 75, url: https://serverest.dev/login, response: &#10;{&#10;    &quot;message&quot;: &quot;Email e/ou senha inválidos&quot;&#10;}&#10;classpath:serverest/produtos/Products.feature:11">* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
 When method POST .......................................................... passed
-Then status 200 ........................................................... passed
-* def token = response.authorization ...................................... passed
-* def randomName = function(){ return 'Product ' + new Date().getTime() } . passed
-* def incompleteProduct = ................................................. passed
-Given path '/produtos' .................................................... passed
-And header Authorization = token .......................................... passed
-And request incompleteProduct ............................................. passed
-When method POST .......................................................... passed
-Then status 400 ........................................................... passed
-</system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT08 - Validate required fields when creating a product" time="0.401446"><system-out>* url 'https://serverest.dev' ............................................. passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.KarateException: status code was: 401, expected: 200, response time in milliseconds: 75, url: https://serverest.dev/login, response: 
+{
+    "message": "Email e/ou senha inválidos"
+}
+classpath:serverest/produtos/Products.feature:11
+	at &lt;feature&gt;.: Then status 200 (classpath:serverest/produtos/Products.feature:11:11)
+
+* def token = response.authorization ...................................... skipped
+* def randomName = function(){ return 'Product ' + new Date().getTime() } . skipped
+* def incompleteProduct = ................................................. skipped
+Given path '/produtos' .................................................... skipped
+And header Authorization = token .......................................... skipped
+And request incompleteProduct ............................................. skipped
+When method POST .......................................................... skipped
+Then status 400 ........................................................... skipped
+</failure></testcase>
+<testcase classname="serverest.produtos.Products" name="CT08 - Validate required fields when creating a product" time="0.073548"><failure message="status code was: 401, expected: 200, response time in milliseconds: 68, url: https://serverest.dev/login, response: &#10;{&#10;    &quot;message&quot;: &quot;Email e/ou senha inválidos&quot;&#10;}&#10;classpath:serverest/produtos/Products.feature:11">* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
 When method POST .......................................................... passed
-Then status 200 ........................................................... passed
-* def token = response.authorization ...................................... passed
-* def randomName = function(){ return 'Product ' + new Date().getTime() } . passed
-* def incompleteProduct = ................................................. passed
-Given path '/produtos' .................................................... passed
-And header Authorization = token .......................................... passed
-And request incompleteProduct ............................................. passed
-When method POST .......................................................... passed
-Then status 400 ........................................................... passed
-</system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT08 - Validate required fields when creating a product" time="0.387415"><system-out>* url 'https://serverest.dev' ............................................. passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.KarateException: status code was: 401, expected: 200, response time in milliseconds: 68, url: https://serverest.dev/login, response: 
+{
+    "message": "Email e/ou senha inválidos"
+}
+classpath:serverest/produtos/Products.feature:11
+	at &lt;feature&gt;.: Then status 200 (classpath:serverest/produtos/Products.feature:11:11)
+
+* def token = response.authorization ...................................... skipped
+* def randomName = function(){ return 'Product ' + new Date().getTime() } . skipped
+* def incompleteProduct = ................................................. skipped
+Given path '/produtos' .................................................... skipped
+And header Authorization = token .......................................... skipped
+And request incompleteProduct ............................................. skipped
+When method POST .......................................................... skipped
+Then status 400 ........................................................... skipped
+</failure></testcase>
+<testcase classname="serverest.produtos.Products" name="CT08 - Validate required fields when creating a product" time="0.0673"><failure message="status code was: 401, expected: 200, response time in milliseconds: 59, url: https://serverest.dev/login, response: &#10;{&#10;    &quot;message&quot;: &quot;Email e/ou senha inválidos&quot;&#10;}&#10;classpath:serverest/produtos/Products.feature:11">* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
 When method POST .......................................................... passed
-Then status 200 ........................................................... passed
-* def token = response.authorization ...................................... passed
-* def randomName = function(){ return 'Product ' + new Date().getTime() } . passed
-* def incompleteProduct = ................................................. passed
-Given path '/produtos' .................................................... passed
-And header Authorization = token .......................................... passed
-And request incompleteProduct ............................................. passed
-When method POST .......................................................... passed
-Then status 400 ........................................................... passed
-</system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT08 - Validate required fields when creating a product" time="0.382457"><system-out>* url 'https://serverest.dev' ............................................. passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.KarateException: status code was: 401, expected: 200, response time in milliseconds: 59, url: https://serverest.dev/login, response: 
+{
+    "message": "Email e/ou senha inválidos"
+}
+classpath:serverest/produtos/Products.feature:11
+	at &lt;feature&gt;.: Then status 200 (classpath:serverest/produtos/Products.feature:11:11)
+
+* def token = response.authorization ...................................... skipped
+* def randomName = function(){ return 'Product ' + new Date().getTime() } . skipped
+* def incompleteProduct = ................................................. skipped
+Given path '/produtos' .................................................... skipped
+And header Authorization = token .......................................... skipped
+And request incompleteProduct ............................................. skipped
+When method POST .......................................................... skipped
+Then status 400 ........................................................... skipped
+</failure></testcase>
+<testcase classname="serverest.produtos.Products" name="CT08 - Validate required fields when creating a product" time="0.066607"><failure message="status code was: 401, expected: 200, response time in milliseconds: 64, url: https://serverest.dev/login, response: &#10;{&#10;    &quot;message&quot;: &quot;Email e/ou senha inválidos&quot;&#10;}&#10;classpath:serverest/produtos/Products.feature:11">* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
 When method POST .......................................................... passed
-Then status 200 ........................................................... passed
-* def token = response.authorization ...................................... passed
-* def randomName = function(){ return 'Product ' + new Date().getTime() } . passed
-* def incompleteProduct = ................................................. passed
-Given path '/produtos' .................................................... passed
-And header Authorization = token .......................................... passed
-And request incompleteProduct ............................................. passed
-When method POST .......................................................... passed
-Then status 400 ........................................................... passed
-</system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT09 - Work with complex JSON data" time="0.440805"><system-out>* url 'https://serverest.dev' ............................................. passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.KarateException: status code was: 401, expected: 200, response time in milliseconds: 64, url: https://serverest.dev/login, response: 
+{
+    "message": "Email e/ou senha inválidos"
+}
+classpath:serverest/produtos/Products.feature:11
+	at &lt;feature&gt;.: Then status 200 (classpath:serverest/produtos/Products.feature:11:11)
+
+* def token = response.authorization ...................................... skipped
+* def randomName = function(){ return 'Product ' + new Date().getTime() } . skipped
+* def incompleteProduct = ................................................. skipped
+Given path '/produtos' .................................................... skipped
+And header Authorization = token .......................................... skipped
+And request incompleteProduct ............................................. skipped
+When method POST .......................................................... skipped
+Then status 400 ........................................................... skipped
+</failure></testcase>
+<testcase classname="serverest.produtos.Products" name="CT09 - Work with complex JSON data" time="0.093458"><failure message="status code was: 401, expected: 200, response time in milliseconds: 87, url: https://serverest.dev/login, response: &#10;{&#10;    &quot;message&quot;: &quot;Email e/ou senha inválidos&quot;&#10;}&#10;classpath:serverest/produtos/Products.feature:11">* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
 When method POST .......................................................... passed
-Then status 200 ........................................................... passed
-* def token = response.authorization ...................................... passed
-* def randomName = function(){ return 'Product ' + new Date().getTime() } . passed
-Given path '/produtos' .................................................... passed
-When method GET ........................................................... passed
-Then status 200 ........................................................... passed
-* def cheapProducts = karate.filter(response.produtos, function(x){ return x.preco &lt; 100 }) . passed
-* def mediumProducts = karate.filter(response.produtos, function(x){ return x.preco &gt;= 100 &amp;&amp; x.preco &lt; 500 }) . passed
-* def expensiveProducts = karate.filter(response.produtos, function(x){ return x.preco &gt;= 500 }) . passed
-* def grouping = .......................................................... passed
-* print 'Cheap Products:', cheapProducts.length ........................... passed
-* print 'Medium Products:', mediumProducts.length ......................... passed
-* print 'Expensive Products:', expensiveProducts.length ................... passed
-And match grouping contains { cheap: '#array', medium: '#array', expensive: '#array' } . passed
-</system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT10 - Delete an existing product" time="0.746857"><system-out>* url 'https://serverest.dev' ............................................. passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.KarateException: status code was: 401, expected: 200, response time in milliseconds: 87, url: https://serverest.dev/login, response: 
+{
+    "message": "Email e/ou senha inválidos"
+}
+classpath:serverest/produtos/Products.feature:11
+	at &lt;feature&gt;.: Then status 200 (classpath:serverest/produtos/Products.feature:11:11)
+
+* def token = response.authorization ...................................... skipped
+* def randomName = function(){ return 'Product ' + new Date().getTime() } . skipped
+Given path '/produtos' .................................................... skipped
+When method GET ........................................................... skipped
+Then status 200 ........................................................... skipped
+* def cheapProducts = karate.filter(response.produtos, function(x){ return x.preco &lt; 100 }) . skipped
+* def mediumProducts = karate.filter(response.produtos, function(x){ return x.preco &gt;= 100 &amp;&amp; x.preco &lt; 500 }) . skipped
+* def expensiveProducts = karate.filter(response.produtos, function(x){ return x.preco &gt;= 500 }) . skipped
+* def grouping = .......................................................... skipped
+* print 'Cheap Products:', cheapProducts.length ........................... skipped
+* print 'Medium Products:', mediumProducts.length ......................... skipped
+* print 'Expensive Products:', expensiveProducts.length ................... skipped
+And match grouping contains { cheap: '#array', medium: '#array', expensive: '#array' } . skipped
+</failure></testcase>
+<testcase classname="serverest.produtos.Products" name="CT10 - Delete an existing product" time="0.083065"><failure message="status code was: 401, expected: 200, response time in milliseconds: 78, url: https://serverest.dev/login, response: &#10;{&#10;    &quot;message&quot;: &quot;Email e/ou senha inválidos&quot;&#10;}&#10;classpath:serverest/produtos/Products.feature:11">* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
 When method POST .......................................................... passed
-Then status 200 ........................................................... passed
-* def token = response.authorization ...................................... passed
-* def randomName = function(){ return 'Product ' + new Date().getTime() } . passed
-* def productName = randomName() .......................................... passed
-* def product = ........................................................... passed
-Given path '/produtos' .................................................... passed
-And header Authorization = token .......................................... passed
-And request product ....................................................... passed
-When method POST .......................................................... passed
-Then status 201 ........................................................... passed
-* def productId = response._id ............................................ passed
-Given path '/produtos/' + productId ....................................... passed
-And header Authorization = token .......................................... passed
-When method DELETE ........................................................ passed
-Then status 200 ........................................................... passed
-And match response.message == 'Registro excluído com sucesso' ............. passed
-Given path '/produtos/' + productId ....................................... passed
-When method GET ........................................................... passed
-Then status 400 ........................................................... passed
-And match response.message == 'Produto não encontrado' .................... passed
-</system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT11 - Create a product from fixed JSON payload" time="0.362978"><system-out>* url 'https://serverest.dev' ............................................. passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.KarateException: status code was: 401, expected: 200, response time in milliseconds: 78, url: https://serverest.dev/login, response: 
+{
+    "message": "Email e/ou senha inválidos"
+}
+classpath:serverest/produtos/Products.feature:11
+	at &lt;feature&gt;.: Then status 200 (classpath:serverest/produtos/Products.feature:11:11)
+
+* def token = response.authorization ...................................... skipped
+* def randomName = function(){ return 'Product ' + new Date().getTime() } . skipped
+* def productName = randomName() .......................................... skipped
+* def product = ........................................................... skipped
+Given path '/produtos' .................................................... skipped
+And header Authorization = token .......................................... skipped
+And request product ....................................................... skipped
+When method POST .......................................................... skipped
+Then status 201 ........................................................... skipped
+* def productId = response._id ............................................ skipped
+Given path '/produtos/' + productId ....................................... skipped
+And header Authorization = token .......................................... skipped
+When method DELETE ........................................................ skipped
+Then status 200 ........................................................... skipped
+And match response.message == 'Registro excluído com sucesso' ............. skipped
+Given path '/produtos/' + productId ....................................... skipped
+When method GET ........................................................... skipped
+Then status 400 ........................................................... skipped
+And match response.message == 'Produto não encontrado' .................... skipped
+</failure></testcase>
+<testcase classname="serverest.produtos.Products" name="CT11 - Create a product from fixed JSON payload" time="0.072221"><failure message="status code was: 401, expected: 200, response time in milliseconds: 66, url: https://serverest.dev/login, response: &#10;{&#10;    &quot;message&quot;: &quot;Email e/ou senha inválidos&quot;&#10;}&#10;classpath:serverest/produtos/Products.feature:11">* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
 When method POST .......................................................... passed
-Then status 200 ........................................................... passed
-* def token = response.authorization ...................................... passed
-* def randomName = function(){ return 'Product ' + new Date().getTime() } . passed
-* def productPayload = read('resources/productPayload.json') .............. passed
-* set productPayload.nome = randomName() .................................. passed
-Given path '/produtos' .................................................... passed
-And header Authorization = token .......................................... passed
-And request productPayload ................................................ passed
-When method POST .......................................................... passed
-Then status 201 ........................................................... passed
-And match response.message == 'Cadastro realizado com sucesso' ............ passed
-And match response._id == '#string' ....................................... passed
-</system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT12 - Prevent deleting a product that is part of a cart" time="0.863678"><system-out>* url 'https://serverest.dev' ............................................. passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.KarateException: status code was: 401, expected: 200, response time in milliseconds: 66, url: https://serverest.dev/login, response: 
+{
+    "message": "Email e/ou senha inválidos"
+}
+classpath:serverest/produtos/Products.feature:11
+	at &lt;feature&gt;.: Then status 200 (classpath:serverest/produtos/Products.feature:11:11)
+
+* def token = response.authorization ...................................... skipped
+* def randomName = function(){ return 'Product ' + new Date().getTime() } . skipped
+* def productPayload = read('resources/productPayload.json') .............. skipped
+* set productPayload.nome = randomName() .................................. skipped
+Given path '/produtos' .................................................... skipped
+And header Authorization = token .......................................... skipped
+And request productPayload ................................................ skipped
+When method POST .......................................................... skipped
+Then status 201 ........................................................... skipped
+And match response.message == 'Cadastro realizado com sucesso' ............ skipped
+And match response._id == '#string' ....................................... skipped
+</failure></testcase>
+<testcase classname="serverest.produtos.Products" name="CT12 - Prevent deleting a product that is part of a cart" time="0.080465"><failure message="status code was: 401, expected: 200, response time in milliseconds: 78, url: https://serverest.dev/login, response: &#10;{&#10;    &quot;message&quot;: &quot;Email e/ou senha inválidos&quot;&#10;}&#10;classpath:serverest/produtos/Products.feature:11">* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
 When method POST .......................................................... passed
-Then status 200 ........................................................... passed
-* def token = response.authorization ...................................... passed
-* def randomName = function(){ return 'Product ' + new Date().getTime() } . passed
-* def productName = randomName() .......................................... passed
-* def product = ........................................................... passed
-Given path '/produtos' .................................................... passed
-And header Authorization = token .......................................... passed
-And request product ....................................................... passed
-When method POST .......................................................... passed
-Then status 201 ........................................................... passed
-* def productId = response._id ............................................ passed
-* def userEmail = 'cart.user.' + new Date().getTime() + '@example.com' .... passed
-* def userPassword = 'SenhaSegura@123' .................................... passed
-* def userData = .......................................................... passed
-Given path '/usuarios' .................................................... passed
-And request userData ...................................................... passed
-When method POST .......................................................... passed
-Then status 201 ........................................................... passed
-* def loginPayload = ...................................................... passed
-Given path '/login' ....................................................... passed
-And request loginPayload .................................................. passed
-When method POST .......................................................... passed
-Then status 200 ........................................................... passed
-* def userToken = response.authorization .................................. passed
-Given path '/carrinhos/cancelar-compra' ................................... passed
-And header Authorization = userToken ...................................... passed
-When method DELETE ........................................................ passed
-Then status 200 ........................................................... passed
-* def cartBody = .......................................................... passed
-Given path '/carrinhos' ................................................... passed
-And header Authorization = userToken ...................................... passed
-And request cartBody ...................................................... passed
-When method POST .......................................................... passed
-Then status 201 ........................................................... passed
-Given path '/produtos/' + productId ....................................... passed
-And header Authorization = token .......................................... passed
-When method DELETE ........................................................ passed
-Then status 400 ........................................................... passed
-And match response.message == 'Não é permitido excluir produto que faz parte de carrinho' . passed
-</system-out></testcase>
-<testcase classname="serverest.produtos.Products" name="CT13 - Restrict product creation to administrators only" time="0.59463"><system-out>* url 'https://serverest.dev' ............................................. passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.KarateException: status code was: 401, expected: 200, response time in milliseconds: 78, url: https://serverest.dev/login, response: 
+{
+    "message": "Email e/ou senha inválidos"
+}
+classpath:serverest/produtos/Products.feature:11
+	at &lt;feature&gt;.: Then status 200 (classpath:serverest/produtos/Products.feature:11:11)
+
+* def token = response.authorization ...................................... skipped
+* def randomName = function(){ return 'Product ' + new Date().getTime() } . skipped
+* def productName = randomName() .......................................... skipped
+* def product = ........................................................... skipped
+Given path '/produtos' .................................................... skipped
+And header Authorization = token .......................................... skipped
+And request product ....................................................... skipped
+When method POST .......................................................... skipped
+Then status 201 ........................................................... skipped
+* def productId = response._id ............................................ skipped
+* def userEmail = 'cart.user.' + new Date().getTime() + '@example.com' .... skipped
+* def userPassword = 'SenhaSegura@123' .................................... skipped
+* def userData = .......................................................... skipped
+Given path '/usuarios' .................................................... skipped
+And request userData ...................................................... skipped
+When method POST .......................................................... skipped
+Then status 201 ........................................................... skipped
+* def loginPayload = ...................................................... skipped
+Given path '/login' ....................................................... skipped
+And request loginPayload .................................................. skipped
+When method POST .......................................................... skipped
+Then status 200 ........................................................... skipped
+* def userToken = response.authorization .................................. skipped
+Given path '/carrinhos/cancelar-compra' ................................... skipped
+And header Authorization = userToken ...................................... skipped
+When method DELETE ........................................................ skipped
+Then status 200 ........................................................... skipped
+* def cartBody = .......................................................... skipped
+Given path '/carrinhos' ................................................... skipped
+And header Authorization = userToken ...................................... skipped
+And request cartBody ...................................................... skipped
+When method POST .......................................................... skipped
+Then status 201 ........................................................... skipped
+Given path '/produtos/' + productId ....................................... skipped
+And header Authorization = token .......................................... skipped
+When method DELETE ........................................................ skipped
+Then status 400 ........................................................... skipped
+And match response.message == 'Não é permitido excluir produto que faz parte de carrinho' . skipped
+</failure></testcase>
+<testcase classname="serverest.produtos.Products" name="CT13 - Restrict product creation to administrators only" time="0.116794"><failure message="status code was: 401, expected: 200, response time in milliseconds: 109, url: https://serverest.dev/login, response: &#10;{&#10;    &quot;message&quot;: &quot;Email e/ou senha inválidos&quot;&#10;}&#10;classpath:serverest/produtos/Products.feature:11">* url 'https://serverest.dev' ............................................. passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
 When method POST .......................................................... passed
-Then status 200 ........................................................... passed
-* def token = response.authorization ...................................... passed
-* def randomName = function(){ return 'Product ' + new Date().getTime() } . passed
-* def userEmail = 'non.admin.' + new Date().getTime() + '@example.com' .... passed
-* def userPassword = 'SenhaSegura@123' .................................... passed
-* def userData = .......................................................... passed
-Given path '/usuarios' .................................................... passed
-And request userData ...................................................... passed
-When method POST .......................................................... passed
-Then status 201 ........................................................... passed
-* def loginPayload = ...................................................... passed
-Given path '/login' ....................................................... passed
-And request loginPayload .................................................. passed
-When method POST .......................................................... passed
-Then status 200 ........................................................... passed
-* def nonAdminToken = response.authorization .............................. passed
-* def productData = ....................................................... passed
-Given path '/produtos' .................................................... passed
-And header Authorization = nonAdminToken .................................. passed
-And request productData ................................................... passed
-When method POST .......................................................... passed
-Then status 403 ........................................................... passed
-And match response.message == 'Rota exclusiva para administradores' ....... passed
-</system-out></testcase>
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.KarateException: status code was: 401, expected: 200, response time in milliseconds: 109, url: https://serverest.dev/login, response: 
+{
+    "message": "Email e/ou senha inválidos"
+}
+classpath:serverest/produtos/Products.feature:11
+	at &lt;feature&gt;.: Then status 200 (classpath:serverest/produtos/Products.feature:11:11)
+
+* def token = response.authorization ...................................... skipped
+* def randomName = function(){ return 'Product ' + new Date().getTime() } . skipped
+* def userEmail = 'non.admin.' + new Date().getTime() + '@example.com' .... skipped
+* def userPassword = 'SenhaSegura@123' .................................... skipped
+* def userData = .......................................................... skipped
+Given path '/usuarios' .................................................... skipped
+And request userData ...................................................... skipped
+When method POST .......................................................... skipped
+Then status 201 ........................................................... skipped
+* def loginPayload = ...................................................... skipped
+Given path '/login' ....................................................... skipped
+And request loginPayload .................................................. skipped
+When method POST .......................................................... skipped
+Then status 200 ........................................................... skipped
+* def nonAdminToken = response.authorization .............................. skipped
+* def productData = ....................................................... skipped
+Given path '/produtos' .................................................... skipped
+And header Authorization = nonAdminToken .................................. skipped
+And request productData ................................................... skipped
+When method POST .......................................................... skipped
+Then status 403 ........................................................... skipped
+And match response.message == 'Rota exclusiva para administradores' ....... skipped
+</failure></testcase>
 </testsuite>

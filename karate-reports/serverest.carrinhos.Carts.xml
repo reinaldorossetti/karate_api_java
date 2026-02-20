@@ -1,4 +1,4 @@
-<testsuite failures="0" name="serverest/carrinhos/Carts.feature" skipped="0" tests="8" time="62.883539"><testcase classname="serverest.carrinhos.Carts" name="CT01 - Full cart lifecycle for authenticated user" time="10.852198"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testsuite failures="5" name="serverest/carrinhos/Carts.feature" skipped="0" tests="8" time="6.417868"><testcase classname="serverest.carrinhos.Carts" name="CT01 - Full cart lifecycle for authenticated user" time="1.569473"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
@@ -49,7 +49,7 @@ When method DELETE ........................................................ pass
 Then status 200 ........................................................... passed
 And match response.message contains 'Registro excluído com sucesso' ....... passed
 </system-out></testcase>
-<testcase classname="serverest.carrinhos.Carts" name="CT02 - Cancel purchase and return products to stock" time="10.93078"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.carrinhos.Carts" name="CT02 - Cancel purchase and return products to stock" time="0.912741"><failure message="status code was: 401, expected: 200, response time in milliseconds: 563, url: https://serverest.dev/login, response: &#10;{&#10;    &quot;message&quot;: &quot;Email e/ou senha inválidos&quot;&#10;}&#10;classpath:serverest/carrinhos/Carts.feature:116">* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
@@ -57,34 +57,43 @@ And match response.message contains 'Registro excluído com sucesso' ....... pas
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
 When method POST .......................................................... passed
-Then status 200 ........................................................... passed
-* def token = response.authorization ...................................... passed
-Given path '/carrinhos/cancelar-compra' ................................... passed
-And header Authorization = token .......................................... passed
-When method DELETE ........................................................ passed
-Then status 200 ........................................................... passed
-* def productName = randomProductName() ................................... passed
-* def productData = ....................................................... passed
-Given path '/produtos' .................................................... passed
-* print 'Using auth token:', token ........................................ passed
-And header Authorization = token .......................................... passed
-And request productData ................................................... passed
-When method POST .......................................................... passed
-Then status 201 ........................................................... passed
-* def productId = response._id ............................................ passed
-* def cartBody = .......................................................... passed
-Given path '/carrinhos' ................................................... passed
-And header Authorization = token .......................................... passed
-And request cartBody ...................................................... passed
-When method POST .......................................................... passed
-Then status 201 ........................................................... passed
-Given path '/carrinhos/cancelar-compra' ................................... passed
-And header Authorization = token .......................................... passed
-When method DELETE ........................................................ passed
-Then status 200 ........................................................... passed
-And match response.message == '#string' ................................... passed
-</system-out></testcase>
-<testcase classname="serverest.carrinhos.Carts" name="CT03 - Prevent creating cart without authentication token" time="8.654086"><system-out>* url 'https://serverest.dev' ............................................. passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.KarateException: status code was: 401, expected: 200, response time in milliseconds: 563, url: https://serverest.dev/login, response: 
+{
+    "message": "Email e/ou senha inválidos"
+}
+classpath:serverest/carrinhos/Carts.feature:116
+	at &lt;feature&gt;.: Then status 200 (classpath:serverest/carrinhos/Carts.feature:116:116)
+
+* def token = response.authorization ...................................... skipped
+Given path '/carrinhos/cancelar-compra' ................................... skipped
+And header Authorization = token .......................................... skipped
+When method DELETE ........................................................ skipped
+Then status 200 ........................................................... skipped
+* def productName = randomProductName() ................................... skipped
+* def productData = ....................................................... skipped
+Given path '/produtos' .................................................... skipped
+* print 'Using auth token:', token ........................................ skipped
+And header Authorization = token .......................................... skipped
+And request productData ................................................... skipped
+When method POST .......................................................... skipped
+Then status 201 ........................................................... skipped
+* def productId = response._id ............................................ skipped
+* def cartBody = .......................................................... skipped
+Given path '/carrinhos' ................................................... skipped
+And header Authorization = token .......................................... skipped
+And request cartBody ...................................................... skipped
+When method POST .......................................................... skipped
+Then status 201 ........................................................... skipped
+Given path '/carrinhos/cancelar-compra' ................................... skipped
+And header Authorization = token .......................................... skipped
+When method DELETE ........................................................ skipped
+Then status 200 ........................................................... skipped
+And match response.message == '#string' ................................... skipped
+</failure></testcase>
+<testcase classname="serverest.carrinhos.Carts" name="CT03 - Prevent creating cart without authentication token" time="0.956799"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
@@ -96,7 +105,7 @@ When method POST .......................................................... pass
 Then status 401 ........................................................... passed
 And match response.message == 'Token de acesso ausente, inválido, expirado ou usuário do token não existe mais' . passed
 </system-out></testcase>
-<testcase classname="serverest.carrinhos.Carts" name="CT04 - Prevent creating more than one cart for the same user" time="10.71724"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.carrinhos.Carts" name="CT04 - Prevent creating more than one cart for the same user" time="0.908823"><failure message="status code was: 401, expected: 200, response time in milliseconds: 544, url: https://serverest.dev/login, response: &#10;{&#10;    &quot;message&quot;: &quot;Email e/ou senha inválidos&quot;&#10;}&#10;classpath:serverest/carrinhos/Carts.feature:198">* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
@@ -105,35 +114,44 @@ And match response.message == 'Token de acesso ausente, inválido, expirado ou u
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
 When method POST .......................................................... passed
-Then status 200 ........................................................... passed
-* def token = response.authorization ...................................... passed
-Given path '/carrinhos/cancelar-compra' ................................... passed
-And header Authorization = token .......................................... passed
-When method DELETE ........................................................ passed
-Then status 200 ........................................................... passed
-* def productName = randomProductName() ................................... passed
-* def productData = ....................................................... passed
-Given path '/produtos' .................................................... passed
-And header Authorization = token .......................................... passed
-And request productData ................................................... passed
-When method POST .......................................................... passed
-Then status 201 ........................................................... passed
-* def productId = response._id ............................................ passed
-* def firstCart = ......................................................... passed
-Given path '/carrinhos' ................................................... passed
-And header Authorization = token .......................................... passed
-And request firstCart ..................................................... passed
-When method POST .......................................................... passed
-Then status 201 ........................................................... passed
-* def secondCart = firstCart .............................................. passed
-Given path '/carrinhos' ................................................... passed
-And header Authorization = token .......................................... passed
-And request secondCart .................................................... passed
-When method POST .......................................................... passed
-Then status 400 ........................................................... passed
-And match response.message contains 'Não é permitido ter mais de 1 carrinho' . passed
-</system-out></testcase>
-<testcase classname="serverest.carrinhos.Carts" name="CT05 - Cart not found by ID" time="8.449499"><system-out>* url 'https://serverest.dev' ............................................. passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.KarateException: status code was: 401, expected: 200, response time in milliseconds: 544, url: https://serverest.dev/login, response: 
+{
+    "message": "Email e/ou senha inválidos"
+}
+classpath:serverest/carrinhos/Carts.feature:198
+	at &lt;feature&gt;.: Then status 200 (classpath:serverest/carrinhos/Carts.feature:198:198)
+
+* def token = response.authorization ...................................... skipped
+Given path '/carrinhos/cancelar-compra' ................................... skipped
+And header Authorization = token .......................................... skipped
+When method DELETE ........................................................ skipped
+Then status 200 ........................................................... skipped
+* def productName = randomProductName() ................................... skipped
+* def productData = ....................................................... skipped
+Given path '/produtos' .................................................... skipped
+And header Authorization = token .......................................... skipped
+And request productData ................................................... skipped
+When method POST .......................................................... skipped
+Then status 201 ........................................................... skipped
+* def productId = response._id ............................................ skipped
+* def firstCart = ......................................................... skipped
+Given path '/carrinhos' ................................................... skipped
+And header Authorization = token .......................................... skipped
+And request firstCart ..................................................... skipped
+When method POST .......................................................... skipped
+Then status 201 ........................................................... skipped
+* def secondCart = firstCart .............................................. skipped
+Given path '/carrinhos' ................................................... skipped
+And header Authorization = token .......................................... skipped
+And request secondCart .................................................... skipped
+When method POST .......................................................... skipped
+Then status 400 ........................................................... skipped
+And match response.message contains 'Não é permitido ter mais de 1 carrinho' . skipped
+</failure></testcase>
+<testcase classname="serverest.carrinhos.Carts" name="CT05 - Cart not found by ID" time="0.948226"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
@@ -143,7 +161,7 @@ When method GET ........................................................... pass
 Then status 400 ........................................................... passed
 And match response == { id: 'id deve ter exatamente 16 caracteres alfanuméricos' } . passed
 </system-out></testcase>
-<testcase classname="serverest.carrinhos.Carts" name="CT06 - Prevent cart creation when product stock is insufficient" time="10.164138"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.carrinhos.Carts" name="CT06 - Prevent cart creation when product stock is insufficient" time="0.924956"><failure message="status code was: 401, expected: 200, response time in milliseconds: 570, url: https://serverest.dev/login, response: &#10;{&#10;    &quot;message&quot;: &quot;Email e/ou senha inválidos&quot;&#10;}&#10;classpath:serverest/carrinhos/Carts.feature:267">* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
@@ -152,29 +170,38 @@ And match response == { id: 'id deve ter exatamente 16 caracteres alfanuméricos
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
 When method POST .......................................................... passed
-Then status 200 ........................................................... passed
-* def token = response.authorization ...................................... passed
-Given path '/carrinhos/cancelar-compra' ................................... passed
-And header Authorization = token .......................................... passed
-When method DELETE ........................................................ passed
-Then status 200 ........................................................... passed
-* def productName = randomProductName() ................................... passed
-* def productData = ....................................................... passed
-Given path '/produtos' .................................................... passed
-And header Authorization = token .......................................... passed
-And request productData ................................................... passed
-When method POST .......................................................... passed
-Then status 201 ........................................................... passed
-* def productId = response._id ............................................ passed
-* def cartBody = .......................................................... passed
-Given path '/carrinhos' ................................................... passed
-And header Authorization = token .......................................... passed
-And request cartBody ...................................................... passed
-When method POST .......................................................... passed
-Then status 400 ........................................................... passed
-And match response.message contains 'Produto não possui quantidade suficiente' . passed
-</system-out></testcase>
-<testcase classname="serverest.carrinhos.Carts" name="CT07 - Prevent cart creation with duplicated products in the same cart" time="1.842826"><system-out>* url 'https://serverest.dev' ............................................. passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.KarateException: status code was: 401, expected: 200, response time in milliseconds: 570, url: https://serverest.dev/login, response: 
+{
+    "message": "Email e/ou senha inválidos"
+}
+classpath:serverest/carrinhos/Carts.feature:267
+	at &lt;feature&gt;.: Then status 200 (classpath:serverest/carrinhos/Carts.feature:267:267)
+
+* def token = response.authorization ...................................... skipped
+Given path '/carrinhos/cancelar-compra' ................................... skipped
+And header Authorization = token .......................................... skipped
+When method DELETE ........................................................ skipped
+Then status 200 ........................................................... skipped
+* def productName = randomProductName() ................................... skipped
+* def productData = ....................................................... skipped
+Given path '/produtos' .................................................... skipped
+And header Authorization = token .......................................... skipped
+And request productData ................................................... skipped
+When method POST .......................................................... skipped
+Then status 201 ........................................................... skipped
+* def productId = response._id ............................................ skipped
+* def cartBody = .......................................................... skipped
+Given path '/carrinhos' ................................................... skipped
+And header Authorization = token .......................................... skipped
+And request cartBody ...................................................... skipped
+When method POST .......................................................... skipped
+Then status 400 ........................................................... skipped
+And match response.message contains 'Produto não possui quantidade suficiente' . skipped
+</failure></testcase>
+<testcase classname="serverest.carrinhos.Carts" name="CT07 - Prevent cart creation with duplicated products in the same cart" time="0.100885"><failure message="status code was: 401, expected: 200, response time in milliseconds: 95, url: https://serverest.dev/login, response: &#10;{&#10;    &quot;message&quot;: &quot;Email e/ou senha inválidos&quot;&#10;}&#10;classpath:serverest/carrinhos/Carts.feature:321">* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
@@ -183,29 +210,38 @@ And match response.message contains 'Produto não possui quantidade suficiente' 
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
 When method POST .......................................................... passed
-Then status 200 ........................................................... passed
-* def token = response.authorization ...................................... passed
-Given path '/carrinhos/cancelar-compra' ................................... passed
-And header Authorization = token .......................................... passed
-When method DELETE ........................................................ passed
-Then status 200 ........................................................... passed
-* def productName = randomProductName() ................................... passed
-* def productData = ....................................................... passed
-Given path '/produtos' .................................................... passed
-And header Authorization = token .......................................... passed
-And request productData ................................................... passed
-When method POST .......................................................... passed
-Then status 201 ........................................................... passed
-* def productId = response._id ............................................ passed
-* def duplicatedCartBody = ................................................ passed
-Given path '/carrinhos' ................................................... passed
-And header Authorization = token .......................................... passed
-And request duplicatedCartBody ............................................ passed
-When method POST .......................................................... passed
-Then status 400 ........................................................... passed
-And match response.message contains 'Não é permitido possuir produto duplicado' . passed
-</system-out></testcase>
-<testcase classname="serverest.carrinhos.Carts" name="CT08 - Prevent cart creation with non-existing product" time="1.272772"><system-out>* url 'https://serverest.dev' ............................................. passed
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.KarateException: status code was: 401, expected: 200, response time in milliseconds: 95, url: https://serverest.dev/login, response: 
+{
+    "message": "Email e/ou senha inválidos"
+}
+classpath:serverest/carrinhos/Carts.feature:321
+	at &lt;feature&gt;.: Then status 200 (classpath:serverest/carrinhos/Carts.feature:321:321)
+
+* def token = response.authorization ...................................... skipped
+Given path '/carrinhos/cancelar-compra' ................................... skipped
+And header Authorization = token .......................................... skipped
+When method DELETE ........................................................ skipped
+Then status 200 ........................................................... skipped
+* def productName = randomProductName() ................................... skipped
+* def productData = ....................................................... skipped
+Given path '/produtos' .................................................... skipped
+And header Authorization = token .......................................... skipped
+And request productData ................................................... skipped
+When method POST .......................................................... skipped
+Then status 201 ........................................................... skipped
+* def productId = response._id ............................................ skipped
+* def duplicatedCartBody = ................................................ skipped
+Given path '/carrinhos' ................................................... skipped
+And header Authorization = token .......................................... skipped
+And request duplicatedCartBody ............................................ skipped
+When method POST .......................................................... skipped
+Then status 400 ........................................................... skipped
+And match response.message contains 'Não é permitido possuir produto duplicado' . skipped
+</failure></testcase>
+<testcase classname="serverest.carrinhos.Carts" name="CT08 - Prevent cart creation with non-existing product" time="0.095966"><failure message="status code was: 401, expected: 200, response time in milliseconds: 88, url: https://serverest.dev/login, response: &#10;{&#10;    &quot;message&quot;: &quot;Email e/ou senha inválidos&quot;&#10;}&#10;classpath:serverest/carrinhos/Carts.feature:379">* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
@@ -214,18 +250,27 @@ And match response.message contains 'Não é permitido possuir produto duplicado
 Given path '/login' ....................................................... passed
 And request loginPayload .................................................. passed
 When method POST .......................................................... passed
-Then status 200 ........................................................... passed
-* def token = response.authorization ...................................... passed
-Given path '/carrinhos/cancelar-compra' ................................... passed
-And header Authorization = token .......................................... passed
-When method DELETE ........................................................ passed
-Then status 200 ........................................................... passed
-* def invalidCartBody = ................................................... passed
-Given path '/carrinhos' ................................................... passed
-And header Authorization = token .......................................... passed
-And request invalidCartBody ............................................... passed
-When method POST .......................................................... passed
-Then status 400 ........................................................... passed
-And match response.message contains 'Produto não encontrado' .............. passed
-</system-out></testcase>
+Then status 200 ........................................................... failed
+
+Stack Trace:
+com.intuit.karate.KarateException: status code was: 401, expected: 200, response time in milliseconds: 88, url: https://serverest.dev/login, response: 
+{
+    "message": "Email e/ou senha inválidos"
+}
+classpath:serverest/carrinhos/Carts.feature:379
+	at &lt;feature&gt;.: Then status 200 (classpath:serverest/carrinhos/Carts.feature:379:379)
+
+* def token = response.authorization ...................................... skipped
+Given path '/carrinhos/cancelar-compra' ................................... skipped
+And header Authorization = token .......................................... skipped
+When method DELETE ........................................................ skipped
+Then status 200 ........................................................... skipped
+* def invalidCartBody = ................................................... skipped
+Given path '/carrinhos' ................................................... skipped
+And header Authorization = token .......................................... skipped
+And request invalidCartBody ............................................... skipped
+When method POST .......................................................... skipped
+Then status 400 ........................................................... skipped
+And match response.message contains 'Produto não encontrado' .............. skipped
+</failure></testcase>
 </testsuite>
