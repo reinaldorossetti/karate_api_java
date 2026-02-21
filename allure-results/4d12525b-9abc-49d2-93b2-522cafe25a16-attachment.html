@@ -1,0 +1,32 @@
+<div>POST to https://serverest.dev/produtos</div>
+
+<h4>Body</h4>
+<div>
+    <pre class="preformated-text">
+    {
+    &quot;nome&quot;: &quot;Enormous Bronze Lamp&quot;,
+    &quot;preco&quot;: 150,
+    &quot;descricao&quot;: &quot;Product created for duplicated products cart test&quot;,
+    &quot;quantidade&quot;: 10
+}
+    </pre>
+</div>
+
+<h4>Headers</h4>
+<div>
+        <div>Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG5pZUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IlNlbmhhU2VndXJhQDEyMyIsImlhdCI6MTc3MTcwMDk1OSwiZXhwIjoxNzcxNzAxNTU5fQ.aAx8e1eVNAWGGvxyUP48y2rOqRv7pzVRo2ruRkjIgBw</div>
+        <div>Accept: */*</div>
+        <div>Content-Type: application/json</div>
+</div>
+
+
+
+<h4>Curl</h4>
+<div>
+curl -v -X POST &#39;https://serverest.dev/produtos&#39; -H &#39;Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG5pZUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IlNlbmhhU2VndXJhQDEyMyIsImlhdCI6MTc3MTcwMDk1OSwiZXhwIjoxNzcxNzAxNTU5fQ.aAx8e1eVNAWGGvxyUP48y2rOqRv7pzVRo2ruRkjIgBw&#39; -H &#39;Accept: */*&#39; -H &#39;Content-Type: application/json&#39; -d &#39;{
+    &quot;nome&quot;: &quot;Enormous Bronze Lamp&quot;,
+    &quot;preco&quot;: 150,
+    &quot;descricao&quot;: &quot;Product created for duplicated products cart test&quot;,
+    &quot;quantidade&quot;: 10
+}&#39;
+</div>

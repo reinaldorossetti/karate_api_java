@@ -1,0 +1,32 @@
+<div>POST to https://serverest.dev/produtos</div>
+
+<h4>Body</h4>
+<div>
+    <pre class="preformated-text">
+    {
+    &quot;nome&quot;: &quot;Duplicate Product Test 1771700971588&quot;,
+    &quot;preco&quot;: 150,
+    &quot;descricao&quot;: &quot;First product&quot;,
+    &quot;quantidade&quot;: 50
+}
+    </pre>
+</div>
+
+<h4>Headers</h4>
+<div>
+        <div>Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluLjE3NzE3MDA5NzEzMTNAZXhhbXBsZS5jb20iLCJwYXNzd29yZCI6IlNlbmhhU2VndXJhQDEyMyIsImlhdCI6MTc3MTcwMDk3MSwiZXhwIjoxNzcxNzAxNTcxfQ.qlcpyVQRu6Pohm28GT8epZ8pcTv6zGjft-j4Cu2YIn8</div>
+        <div>Accept: */*</div>
+        <div>Content-Type: application/json</div>
+</div>
+
+
+
+<h4>Curl</h4>
+<div>
+curl -v -X POST &#39;https://serverest.dev/produtos&#39; -H &#39;Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluLjE3NzE3MDA5NzEzMTNAZXhhbXBsZS5jb20iLCJwYXNzd29yZCI6IlNlbmhhU2VndXJhQDEyMyIsImlhdCI6MTc3MTcwMDk3MSwiZXhwIjoxNzcxNzAxNTcxfQ.qlcpyVQRu6Pohm28GT8epZ8pcTv6zGjft-j4Cu2YIn8&#39; -H &#39;Accept: */*&#39; -H &#39;Content-Type: application/json&#39; -d &#39;{
+    &quot;nome&quot;: &quot;Duplicate Product Test 1771700971588&quot;,
+    &quot;preco&quot;: 150,
+    &quot;descricao&quot;: &quot;First product&quot;,
+    &quot;quantidade&quot;: 50
+}&#39;
+</div>

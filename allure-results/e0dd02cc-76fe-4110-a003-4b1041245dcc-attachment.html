@@ -1,0 +1,32 @@
+<div>POST to https://serverest.dev/produtos</div>
+
+<h4>Body</h4>
+<div>
+    <pre class="preformated-text">
+    {
+    &quot;nome&quot;: &quot;Product 1771700957180&quot;,
+    &quot;preco&quot;: 300,
+    &quot;descricao&quot;: &quot;Product linked to cart&quot;,
+    &quot;quantidade&quot;: 10
+}
+    </pre>
+</div>
+
+<h4>Headers</h4>
+<div>
+        <div>Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluLjE3NzE3MDA5NTY2NzJAZXhhbXBsZS5jb20iLCJwYXNzd29yZCI6IlNlbmhhU2VndXJhQDEyMyIsImlhdCI6MTc3MTcwMDk1NywiZXhwIjoxNzcxNzAxNTU3fQ.oc3qi0Ka2VHt8YFddqnzZEZaHL6XKsxXRlexcWQ9AMU</div>
+        <div>Accept: */*</div>
+        <div>Content-Type: application/json</div>
+</div>
+
+
+
+<h4>Curl</h4>
+<div>
+curl -v -X POST &#39;https://serverest.dev/produtos&#39; -H &#39;Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluLjE3NzE3MDA5NTY2NzJAZXhhbXBsZS5jb20iLCJwYXNzd29yZCI6IlNlbmhhU2VndXJhQDEyMyIsImlhdCI6MTc3MTcwMDk1NywiZXhwIjoxNzcxNzAxNTU3fQ.oc3qi0Ka2VHt8YFddqnzZEZaHL6XKsxXRlexcWQ9AMU&#39; -H &#39;Accept: */*&#39; -H &#39;Content-Type: application/json&#39; -d &#39;{
+    &quot;nome&quot;: &quot;Product 1771700957180&quot;,
+    &quot;preco&quot;: 300,
+    &quot;descricao&quot;: &quot;Product linked to cart&quot;,
+    &quot;quantidade&quot;: 10
+}&#39;
+</div>
