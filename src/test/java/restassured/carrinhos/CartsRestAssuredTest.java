@@ -6,16 +6,45 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import restassured.BaseApiTest;
 import serverest.utils.FakerUtils;
 
+@TestInstance(Lifecycle.PER_CLASS)
+@Execution(ExecutionMode.CONCURRENT)
 public class CartsRestAssuredTest extends BaseApiTest {
 
     private Response loginWithDefaultPayload() {
-        String loginPayload = "{\"email\":\"fulano@qa.com\",\"password\":\"teste\"}";
+        // Cria um usuário administrador único para o teste e realiza o login
+        String userEmail = FakerUtils.randomEmail();
+        String userPassword = "SenhaSegura@123";
+
+        String newUser = "{" +
+                "\"nome\":\"Cart Default User\"," +
+                "\"email\":\"" + userEmail + "\"," +
+                "\"password\":\"" + userPassword + "\"," +
+                "\"administrador\":\"true\"" +
+                "}";
+
+        givenWithAllure()
+            .contentType(ContentType.JSON)
+            .basePath("/usuarios")
+            .body(newUser)
+        .when()
+            .post()
+        .then()
+            .statusCode(201);
+
+        String loginPayload = "{" +
+                "\"email\":\"" + userEmail + "\"," +
+                "\"password\":\"" + userPassword + "\"" +
+                "}";
 
         return givenWithAllure()
             .contentType(ContentType.JSON)

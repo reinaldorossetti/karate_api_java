@@ -18,6 +18,10 @@ import static org.hamcrest.Matchers.nullValue;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
@@ -25,6 +29,8 @@ import io.restassured.response.Response;
 import restassured.BaseApiTest;
 import serverest.utils.FakerUtils;
 
+@TestInstance(Lifecycle.PER_CLASS)
+@Execution(ExecutionMode.CONCURRENT)
 public class UsersRestAssuredTest extends BaseApiTest {
 
     @Test

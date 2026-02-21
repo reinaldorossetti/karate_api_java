@@ -1,20 +1,25 @@
 package restassured.login;
 
-import java.util.Arrays;
-import java.util.List;
-
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import restassured.BaseApiTest;
 import serverest.utils.FakerUtils;
 
+@TestInstance(Lifecycle.PER_CLASS)
+@Execution(ExecutionMode.CONCURRENT)
 public class LoginRestAssuredTest extends BaseApiTest {
 
     private Response createUser(String email, String password, boolean admin) {
@@ -149,29 +154,20 @@ public class LoginRestAssuredTest extends BaseApiTest {
             .body("message", equalTo("Rota exclusiva para administradores"));
     }
 
-    @Test
+    @ParameterizedTest(name = "CT05 - Validate invalid email format: {0}")
+    @CsvFileSource(resources = "/restassured/login/invalid-login-emails.csv", numLinesToSkip = 1)
+    @Execution(ExecutionMode.CONCURRENT)
     @DisplayName("CT05 - Validate invalid email format")
-    void ct05_validateInvalidEmailFormat() {
-        List<String> invalidEmails = Arrays.asList(
-            "emailwithoutat",
-            "@noname.com",
-            "email@nodomain",
-            "email",
-            "12345@test.c",
-            "!@#$%"
-        );
-
-        for (String invalidEmail : invalidEmails) {
-            givenWithAllure()
-                .contentType(ContentType.JSON)
-                .basePath("/login")
-                .body("{\"email\": \"" + invalidEmail + "\", \"password\": \"senha123\"}")
-            .when()
-                .post()
-            .then()
-                .statusCode(400)
-                .body("email", notNullValue())
-                .body("email", containsString(""));
-        }
+    void ct05_validateInvalidEmailFormat(String invalidEmail) {
+        givenWithAllure()
+            .contentType(ContentType.JSON)
+            .basePath("/login")
+            .body("{\"email\": \"" + invalidEmail + "\", \"password\": \"senha123\"}")
+        .when()
+            .post()
+        .then()
+            .statusCode(400)
+            .body("email", notNullValue())
+            .body("email", containsString(""));
     }
 }

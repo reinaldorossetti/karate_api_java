@@ -1,4 +1,4 @@
-name: API Tests
+name: API Tests - RestAssured
 
 on: [push, pull_request]
 
@@ -24,20 +24,20 @@ jobs:
           distribution: 'temurin'
 
       - name: Run API Tests with Maven
-        run: mvn test -Dtest=ParallelRunner
+        run: mvn clean test -Dtest=restassured.**.*Test
         continue-on-error: true
 
-      - name: Upload Karate Reports
+      - name: Upload RestAssured Reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: karate-reports
-          path: target/karate-reports
+          name: allure-results
+          path: target/allure-results
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages  # default: gh-pages
-          publish_dir: target/karate-reports
-          destination_dir: karate-reports
+          publish_dir: target/allure-results
+          destination_dir: allure-results
