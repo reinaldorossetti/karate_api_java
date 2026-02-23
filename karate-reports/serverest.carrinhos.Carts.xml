@@ -1,4 +1,4 @@
-<testsuite failures="3" name="serverest/carrinhos/Carts.feature" skipped="0" tests="8" time="7.974097"><testcase classname="serverest.carrinhos.Carts" name="CT01 - Full cart lifecycle for authenticated user" time="1.587982"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testsuite failures="2" name="serverest/carrinhos/Carts.feature" skipped="0" tests="8" time="13.084543"><testcase classname="serverest.carrinhos.Carts" name="CT01 - Full cart lifecycle for authenticated user" time="2.331642"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
@@ -49,7 +49,7 @@ When method DELETE ........................................................ pass
 Then status 200 ........................................................... passed
 And match response.message contains 'Registro excluído com sucesso' ....... passed
 </system-out></testcase>
-<testcase classname="serverest.carrinhos.Carts" name="CT02 - Cancel purchase and return products to stock" time="1.358098"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.carrinhos.Carts" name="CT02 - Cancel purchase and return products to stock" time="2.290454"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
@@ -84,7 +84,7 @@ When method DELETE ........................................................ pass
 Then status 200 ........................................................... passed
 And match response.message == '#string' ................................... passed
 </system-out></testcase>
-<testcase classname="serverest.carrinhos.Carts" name="CT03 - Prevent creating cart without authentication token" time="0.750819"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.carrinhos.Carts" name="CT03 - Prevent creating cart without authentication token" time="0.970472"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
@@ -96,7 +96,7 @@ When method POST .......................................................... pass
 Then status 401 ........................................................... passed
 And match response.message == 'Token de acesso ausente, inválido, expirado ou usuário do token não existe mais' . passed
 </system-out></testcase>
-<testcase classname="serverest.carrinhos.Carts" name="CT04 - Prevent creating more than one cart for the same user" time="1.276985"><failure message="status code was: 400, expected: 201, response time in milliseconds: 104, url: https://serverest.dev/carrinhos, response: &#10;{&#10;    &quot;message&quot;: &quot;Não é permitido ter mais de 1 carrinho&quot;&#10;}&#10;classpath:serverest/carrinhos/Carts.feature:243">* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.carrinhos.Carts" name="CT04 - Prevent creating more than one cart for the same user" time="2.212349"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
@@ -124,25 +124,16 @@ Given path '/carrinhos' ................................................... pass
 And header Authorization = token .......................................... passed
 And request firstCart ..................................................... passed
 When method POST .......................................................... passed
-Then status 201 ........................................................... failed
-
-Stack Trace:
-com.intuit.karate.KarateException: status code was: 400, expected: 201, response time in milliseconds: 104, url: https://serverest.dev/carrinhos, response: 
-{
-    "message": "Não é permitido ter mais de 1 carrinho"
-}
-classpath:serverest/carrinhos/Carts.feature:243
-	at &lt;feature&gt;.: Then status 201 (classpath:serverest/carrinhos/Carts.feature:243:243)
-
-* def secondCart = firstCart .............................................. skipped
-Given path '/carrinhos' ................................................... skipped
-And header Authorization = token .......................................... skipped
-And request secondCart .................................................... skipped
-When method POST .......................................................... skipped
-Then status 400 ........................................................... skipped
-And match response.message contains 'Não é permitido ter mais de 1 carrinho' . skipped
-</failure></testcase>
-<testcase classname="serverest.carrinhos.Carts" name="CT05 - Cart not found by ID" time="0.861953"><system-out>* url 'https://serverest.dev' ............................................. passed
+Then status 201 ........................................................... passed
+* def secondCart = firstCart .............................................. passed
+Given path '/carrinhos' ................................................... passed
+And header Authorization = token .......................................... passed
+And request secondCart .................................................... passed
+When method POST .......................................................... passed
+Then status 400 ........................................................... passed
+And match response.message contains 'Não é permitido ter mais de 1 carrinho' . passed
+</system-out></testcase>
+<testcase classname="serverest.carrinhos.Carts" name="CT05 - Cart not found by ID" time="0.877279"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
@@ -152,7 +143,7 @@ When method GET ........................................................... pass
 Then status 400 ........................................................... passed
 And match response == { id: 'id deve ter exatamente 16 caracteres alfanuméricos' } . passed
 </system-out></testcase>
-<testcase classname="serverest.carrinhos.Carts" name="CT06 - Prevent cart creation when product stock is insufficient" time="1.289161"><failure message="match failed: CONTAINS&#10;  $ | actual does not contain expected (STRING:STRING)&#10;  'Não é permitido ter mais de 1 carrinho'&#10;  'Produto não possui quantidade suficiente'&#10;&#10;classpath:serverest/carrinhos/Carts.feature:312">* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.carrinhos.Carts" name="CT06 - Prevent cart creation when product stock is insufficient" time="2.185273"><failure message="match failed: CONTAINS&#10;  $ | actual does not contain expected (STRING:STRING)&#10;  'Não é permitido ter mais de 1 carrinho'&#10;  'Produto não possui quantidade suficiente'&#10;&#10;classpath:serverest/carrinhos/Carts.feature:312">* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
@@ -193,7 +184,7 @@ classpath:serverest/carrinhos/Carts.feature:312
 	at &lt;feature&gt;.: And match response.message contains 'Produto não possui quantidade suficiente' (classpath:serverest/carrinhos/Carts.feature:312:312)
 
 </failure></testcase>
-<testcase classname="serverest.carrinhos.Carts" name="CT07 - Prevent cart creation with duplicated products in the same cart" time="0.503851"><failure message="match failed: CONTAINS&#10;  $ | actual does not contain expected (STRING:STRING)&#10;  'Não é permitido ter mais de 1 carrinho'&#10;  'Não é permitido possuir produto duplicado'&#10;&#10;classpath:serverest/carrinhos/Carts.feature:370">* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.carrinhos.Carts" name="CT07 - Prevent cart creation with duplicated products in the same cart" time="1.298012"><failure message="match failed: CONTAINS&#10;  $ | actual does not contain expected (STRING:STRING)&#10;  'Não é permitido ter mais de 1 carrinho'&#10;  'Não é permitido possuir produto duplicado'&#10;&#10;classpath:serverest/carrinhos/Carts.feature:370">* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
@@ -234,7 +225,7 @@ classpath:serverest/carrinhos/Carts.feature:370
 	at &lt;feature&gt;.: And match response.message contains 'Não é permitido possuir produto duplicado' (classpath:serverest/carrinhos/Carts.feature:370:370)
 
 </failure></testcase>
-<testcase classname="serverest.carrinhos.Carts" name="CT08 - Prevent cart creation with non-existing product" time="0.345248"><system-out>* url 'https://serverest.dev' ............................................. passed
+<testcase classname="serverest.carrinhos.Carts" name="CT08 - Prevent cart creation with non-existing product" time="0.919063"><system-out>* url 'https://serverest.dev' ............................................. passed
 * def FakerUtils = Java.type('serverest.utils.FakerUtils') ................ passed
 * def randomProductName = function(){ return FakerUtils.randomProduct() } . passed
 * def loginPayload = read('classpath:serverest/login/resources/loginPayload.json') . passed
