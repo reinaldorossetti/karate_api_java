@@ -285,7 +285,6 @@ public class ProductsRestAssuredTest extends BaseApiTest {
             default -> System.out.println("Unknown field");
         }
 
-
         givenWithAllure()
             .contentType(ContentType.JSON)
             .header("Authorization", token)
