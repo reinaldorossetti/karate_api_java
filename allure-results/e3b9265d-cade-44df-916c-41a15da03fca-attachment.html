@@ -1,0 +1,32 @@
+<div>POST to https://serverest.dev/produtos</div>
+
+<h4>Body</h4>
+<div>
+    <pre class="preformated-text">
+    {
+    &quot;nome&quot;: &quot;Rustic Copper Table&quot;,
+    &quot;preco&quot;: 200,
+    &quot;descricao&quot;: &quot;Product for cancel purchase test&quot;,
+    &quot;quantidade&quot;: 5
+}
+    </pre>
+</div>
+
+<h4>Headers</h4>
+<div>
+        <div>Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZyYW5jaXNjYUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IlNlbmhhU2VndXJhQDEyMyIsImlhdCI6MTc3MTg4NjYzOSwiZXhwIjoxNzcxODg3MjM5fQ.8BtSnzlyipB-R8ku4F1d4X0MFVNKaizuOzpGTB0bRLQ</div>
+        <div>Accept: */*</div>
+        <div>Content-Type: application/json</div>
+</div>
+
+
+
+<h4>Curl</h4>
+<div>
+curl -v -X POST &#39;https://serverest.dev/produtos&#39; -H &#39;Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZyYW5jaXNjYUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IlNlbmhhU2VndXJhQDEyMyIsImlhdCI6MTc3MTg4NjYzOSwiZXhwIjoxNzcxODg3MjM5fQ.8BtSnzlyipB-R8ku4F1d4X0MFVNKaizuOzpGTB0bRLQ&#39; -H &#39;Accept: */*&#39; -H &#39;Content-Type: application/json&#39; -d &#39;{
+    &quot;nome&quot;: &quot;Rustic Copper Table&quot;,
+    &quot;preco&quot;: 200,
+    &quot;descricao&quot;: &quot;Product for cancel purchase test&quot;,
+    &quot;quantidade&quot;: 5
+}&#39;
+</div>

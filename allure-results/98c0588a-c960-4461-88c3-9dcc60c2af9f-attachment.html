@@ -1,0 +1,30 @@
+<div>POST to https://serverest.dev/produtos</div>
+
+<h4>Body</h4>
+<div>
+    <pre class="preformated-text">
+    {
+    &quot;nome&quot;: &quot;Product Without Quantity&quot;,
+    &quot;preco&quot;: 100,
+    &quot;quantidade&quot;: -1
+}
+    </pre>
+</div>
+
+<h4>Headers</h4>
+<div>
+        <div>Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluLjZkMTFjNzAxLWVlZWItNGM3Yy04N2U3LWY1ZDRmMzA1YTI0Y0BleGFtcGxlLmNvbSIsInBhc3N3b3JkIjoiU2VuaGFTZWd1cmFAMTIzIiwiaWF0IjoxNzcxODg2NjQwLCJleHAiOjE3NzE4ODcyNDB9.8pBxyotk7mSiMEnc4HMdcCj3YSP4kXjp3dXHG-gMOTI</div>
+        <div>Accept: */*</div>
+        <div>Content-Type: application/json</div>
+</div>
+
+
+
+<h4>Curl</h4>
+<div>
+curl -v -X POST &#39;https://serverest.dev/produtos&#39; -H &#39;Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluLjZkMTFjNzAxLWVlZWItNGM3Yy04N2U3LWY1ZDRmMzA1YTI0Y0BleGFtcGxlLmNvbSIsInBhc3N3b3JkIjoiU2VuaGFTZWd1cmFAMTIzIiwiaWF0IjoxNzcxODg2NjQwLCJleHAiOjE3NzE4ODcyNDB9.8pBxyotk7mSiMEnc4HMdcCj3YSP4kXjp3dXHG-gMOTI&#39; -H &#39;Accept: */*&#39; -H &#39;Content-Type: application/json&#39; -d &#39;{
+    &quot;nome&quot;: &quot;Product Without Quantity&quot;,
+    &quot;preco&quot;: 100,
+    &quot;quantidade&quot;: -1
+}&#39;
+</div>

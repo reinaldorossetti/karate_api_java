@@ -1,0 +1,32 @@
+<div>POST to https://serverest.dev/produtos</div>
+
+<h4>Body</h4>
+<div>
+    <pre class="preformated-text">
+    {
+    &quot;nome&quot;: &quot;Sleek Concrete Plate&quot;,
+    &quot;preco&quot;: 100,
+    &quot;descricao&quot;: &quot;Produto gerado com Faker para teste de autenticacao&quot;,
+    &quot;quantidade&quot;: 10
+}
+    </pre>
+</div>
+
+<h4>Headers</h4>
+<div>
+        <div>Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVtZXJ5QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiU2VuaGFTZWd1cmFAMTIzIiwiaWF0IjoxNzcxODg2NjM1LCJleHAiOjE3NzE4ODcyMzV9.zXRPbM6HNlkOXbIhPuJS61kL6ALStcB9bH3gLs1KcHE</div>
+        <div>Accept: */*</div>
+        <div>Content-Type: application/json</div>
+</div>
+
+
+
+<h4>Curl</h4>
+<div>
+curl -v -X POST &#39;https://serverest.dev/produtos&#39; -H &#39;Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVtZXJ5QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiU2VuaGFTZWd1cmFAMTIzIiwiaWF0IjoxNzcxODg2NjM1LCJleHAiOjE3NzE4ODcyMzV9.zXRPbM6HNlkOXbIhPuJS61kL6ALStcB9bH3gLs1KcHE&#39; -H &#39;Accept: */*&#39; -H &#39;Content-Type: application/json&#39; -d &#39;{
+    &quot;nome&quot;: &quot;Sleek Concrete Plate&quot;,
+    &quot;preco&quot;: 100,
+    &quot;descricao&quot;: &quot;Produto gerado com Faker para teste de autenticacao&quot;,
+    &quot;quantidade&quot;: 10
+}&#39;
+</div>

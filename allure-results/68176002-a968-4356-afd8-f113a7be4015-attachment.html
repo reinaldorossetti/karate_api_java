@@ -1,0 +1,32 @@
+<div>POST to https://serverest.dev/produtos</div>
+
+<h4>Body</h4>
+<div>
+    <pre class="preformated-text">
+    {
+    &quot;nome&quot;: &quot;Heavy Duty Wool Shoes&quot;,
+    &quot;preco&quot;: 100,
+    &quot;descricao&quot;: &quot;Low stock product for cart test&quot;,
+    &quot;quantidade&quot;: 1
+}
+    </pre>
+</div>
+
+<h4>Headers</h4>
+<div>
+        <div>Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJyaXRhbnlAZ21haWwuY29tIiwicGFzc3dvcmQiOiJTZW5oYVNlZ3VyYUAxMjMiLCJpYXQiOjE3NzE4ODY2MzYsImV4cCI6MTc3MTg4NzIzNn0.eVZ6qZ1fFHIIMPe57FOkBbTWbtvzxqo-NuUjiCKFFFI</div>
+        <div>Accept: */*</div>
+        <div>Content-Type: application/json</div>
+</div>
+
+
+
+<h4>Curl</h4>
+<div>
+curl -v -X POST &#39;https://serverest.dev/produtos&#39; -H &#39;Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJyaXRhbnlAZ21haWwuY29tIiwicGFzc3dvcmQiOiJTZW5oYVNlZ3VyYUAxMjMiLCJpYXQiOjE3NzE4ODY2MzYsImV4cCI6MTc3MTg4NzIzNn0.eVZ6qZ1fFHIIMPe57FOkBbTWbtvzxqo-NuUjiCKFFFI&#39; -H &#39;Accept: */*&#39; -H &#39;Content-Type: application/json&#39; -d &#39;{
+    &quot;nome&quot;: &quot;Heavy Duty Wool Shoes&quot;,
+    &quot;preco&quot;: 100,
+    &quot;descricao&quot;: &quot;Low stock product for cart test&quot;,
+    &quot;quantidade&quot;: 1
+}&#39;
+</div>
