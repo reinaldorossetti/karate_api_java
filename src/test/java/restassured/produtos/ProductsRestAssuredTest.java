@@ -21,6 +21,8 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
@@ -268,63 +270,32 @@ public class ProductsRestAssuredTest extends BaseApiTest {
             .body("message", equalTo("Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"));
     }
 
-    @Test
     @DisplayName("CT08 - Validate required fields when creating a product")
-    void ct08_validateRequiredFieldsWhenCreatingProduct() {
+    @ParameterizedTest(name = "CT08 - Validate required fields when creating a product")
+    @ValueSource(ints = {1, 2, 3, 4}) // six numbers
+    void ct08_validateRequiredFieldsWhenCreatingProduct(int numberField) {
         String token = getAdminToken();
+        String payload = "";
+        switch (numberField) {
+            case 1 ->  payload = "{\"preco\": 0.55,\"descricao\": \"Test without price\",\"quantidade\": 10}";
+            case 2 -> payload = "{\"nome\": \"Product Without Description\",  \"descricao\": \"\",\n  \"quantidade\": 10}";
+            case 3 -> payload = "{\"nome\": \"Product Without Quantity\",\n  \"preco\": 100,\n  \"quantidade\": -1}";
+            case 4 -> payload = "{\"nome\": \"null\",\n  \"preco\": 1.99,\n  \"descricao\": \"null\"}";
+            default -> System.out.println("Unknown field");
+        }
 
-        // Empty name
-        String payloadEmptyName = "{\n  \"nome\": \"\",\n  \"preco\": 100,\n  \"descricao\": \"Desc\",\n  \"quantidade\": 10\n}";
-
-        givenWithAllure()
-            .contentType(ContentType.JSON)
-            .header("Authorization", token)
-            .basePath("/produtos")
-            .body(payloadEmptyName)
-        .when()
-            .post()
-        .then()
-            .statusCode(400);
-
-        // Negative price
-        String payloadNegativePrice = "{\n  \"nome\": \"Product Test\",\n  \"preco\": -10,\n  \"descricao\": \"Desc\",\n  \"quantidade\": 10\n}";
 
         givenWithAllure()
             .contentType(ContentType.JSON)
             .header("Authorization", token)
             .basePath("/produtos")
-            .body(payloadNegativePrice)
-        .when()
-            .post()
-        .then()
-            .statusCode(400);
-
-        // Empty description
-        String payloadEmptyDescription = "{\n  \"nome\": \"Product Test\",\n  \"preco\": 100,\n  \"descricao\": \"\",\n  \"quantidade\": 10\n}";
-
-        givenWithAllure()
-            .contentType(ContentType.JSON)
-            .header("Authorization", token)
-            .basePath("/produtos")
-            .body(payloadEmptyDescription)
-        .when()
-            .post()
-        .then()
-            .statusCode(400);
-
-        // Negative quantity
-        String payloadNegativeQuantity = "{\n  \"nome\": \"Product Test\",\n  \"preco\": 100,\n  \"descricao\": \"Desc\",\n  \"quantidade\": -5\n}";
-
-        givenWithAllure()
-            .contentType(ContentType.JSON)
-            .header("Authorization", token)
-            .basePath("/produtos")
-            .body(payloadNegativeQuantity)
+            .body(payload)
         .when()
             .post()
         .then()
             .statusCode(400);
     }
+
 
     @Test
     @DisplayName("CT09 - Work with complex JSON data")
