@@ -1,23 +1,29 @@
 package playwright_serverest.usuarios;
 
-import com.microsoft.playwright.APIResponse;
-import com.microsoft.playwright.options.RequestOptions;
+import java.util.List;
+import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
+
+import com.microsoft.playwright.APIResponse;
+import com.microsoft.playwright.options.RequestOptions;
+
 import playwright_serverest.BaseApiTest;
 import playwright_serverest.utils.FakerUtils;
 
-import java.util.List;
-import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.*;
-
 @TestInstance(Lifecycle.PER_CLASS)
 @Execution(ExecutionMode.CONCURRENT)
+@SuppressWarnings("unchecked")
 public class UsersPlaywrightTest extends BaseApiTest {
 
     @Test
@@ -27,10 +33,8 @@ public class UsersPlaywrightTest extends BaseApiTest {
 
         assertEquals(200, resp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> body = objectMapper.readValue(resp.body(), Map.class);
         int quantidade = (int) body.get("quantidade");
-        @SuppressWarnings("unchecked")
         List<Map<String, Object>> usuarios = (List<Map<String, Object>>) body.get("usuarios");
 
         assertTrue(quantidade > 0, "quantidade should be greater than 0");
@@ -55,16 +59,13 @@ public class UsersPlaywrightTest extends BaseApiTest {
         APIResponse listResp = request.get("/usuarios");
         assertEquals(200, listResp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> listBody = objectMapper.readValue(listResp.body(), Map.class);
-        @SuppressWarnings("unchecked")
         List<Map<String, Object>> usuarios = (List<Map<String, Object>>) listBody.get("usuarios");
         String userId = (String) usuarios.get(0).get("_id");
 
         APIResponse getResp = request.get("/usuarios/" + userId);
         assertEquals(200, getResp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> user = objectMapper.readValue(getResp.body(), Map.class);
         assertEquals(userId, user.get("_id"));
         assertNotNull(user.get("nome"));
@@ -92,7 +93,6 @@ public class UsersPlaywrightTest extends BaseApiTest {
 
         assertEquals(201, createResp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> createBody = objectMapper.readValue(createResp.body(), Map.class);
         assertEquals("Cadastro realizado com sucesso", createBody.get("message"));
         assertNotNull(createBody.get("_id"));
@@ -102,7 +102,6 @@ public class UsersPlaywrightTest extends BaseApiTest {
         APIResponse getResp = request.get("/usuarios/" + newUserId);
         assertEquals(200, getResp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> user = objectMapper.readValue(getResp.body(), Map.class);
         assertEquals(name, user.get("nome"));
         assertEquals(email, user.get("email"));
@@ -114,9 +113,7 @@ public class UsersPlaywrightTest extends BaseApiTest {
         APIResponse resp = request.get("/usuarios");
         assertEquals(200, resp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> body = objectMapper.readValue(resp.body(), Map.class);
-        @SuppressWarnings("unchecked")
         List<Map<String, Object>> usuarios = (List<Map<String, Object>>) body.get("usuarios");
 
         List<Map<String, Object>> admins = usuarios.stream()
@@ -160,7 +157,6 @@ public class UsersPlaywrightTest extends BaseApiTest {
                 .setData(user2));
 
         assertEquals(400, second.status());
-        @SuppressWarnings("unchecked")
         Map<String, Object> secondBody = objectMapper.readValue(second.body(), Map.class);
         assertEquals("Este email já está sendo usado", secondBody.get("message"));
         assertNotNull(secondBody.get("message"));
@@ -173,10 +169,8 @@ public class UsersPlaywrightTest extends BaseApiTest {
 
         assertEquals(200, resp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> body = objectMapper.readValue(resp.body(), Map.class);
         int quantidade = (int) body.get("quantidade");
-        @SuppressWarnings("unchecked")
         List<Map<String, Object>> usuarios = (List<Map<String, Object>>) body.get("usuarios");
 
         assertTrue(quantidade >= 0);
@@ -193,9 +187,7 @@ public class UsersPlaywrightTest extends BaseApiTest {
         APIResponse resp = request.get("/usuarios");
         assertEquals(200, resp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> body = objectMapper.readValue(resp.body(), Map.class);
-        @SuppressWarnings("unchecked")
         List<Map<String, Object>> usuarios = (List<Map<String, Object>>) body.get("usuarios");
 
         Map<String, Object> user = usuarios.get(0);
@@ -226,14 +218,12 @@ public class UsersPlaywrightTest extends BaseApiTest {
                 .setData(userData));
         assertEquals(201, createResp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> createBody = objectMapper.readValue(createResp.body(), Map.class);
         String userId = (String) createBody.get("_id");
 
         APIResponse getResp = request.get("/usuarios/" + userId);
         assertEquals(200, getResp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> user = objectMapper.readValue(getResp.body(), Map.class);
 
         String email = (String) user.get("email");
@@ -251,12 +241,10 @@ public class UsersPlaywrightTest extends BaseApiTest {
         APIResponse resp = request.get("/usuarios");
         assertEquals(200, resp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> body = objectMapper.readValue(resp.body(), Map.class);
         assertNull(body.get("error"));
         assertNull(body.get("errorMessage"));
 
-        @SuppressWarnings("unchecked")
         List<Map<String, Object>> usuarios = (List<Map<String, Object>>) body.get("usuarios");
         Map<String, Object> user = usuarios.get(0);
 
@@ -280,9 +268,7 @@ public class UsersPlaywrightTest extends BaseApiTest {
         APIResponse searchResp = request.get("/usuarios?email=" + expectedEmail);
         assertEquals(200, searchResp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> searchBody = objectMapper.readValue(searchResp.body(), Map.class);
-        @SuppressWarnings("unchecked")
         List<Map<String, Object>> usuarios = (List<Map<String, Object>>) searchBody.get("usuarios");
 
         assertFalse(usuarios.isEmpty(), "Should find the created user");
@@ -309,7 +295,6 @@ public class UsersPlaywrightTest extends BaseApiTest {
                 .setData(complexData));
         assertEquals(201, resp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> body = objectMapper.readValue(resp.body(), Map.class);
         String message = (String) body.get("message");
         String id = (String) body.get("_id");
@@ -331,7 +316,6 @@ public class UsersPlaywrightTest extends BaseApiTest {
                 .setData(objectMapper.writeValueAsString(userPayload)));
 
         assertEquals(201, resp.status());
-        @SuppressWarnings("unchecked")
         Map<String, Object> body = objectMapper.readValue(resp.body(), Map.class);
         assertEquals("Cadastro realizado com sucesso", body.get("message"));
         assertNotNull(body.get("_id"));
@@ -349,20 +333,17 @@ public class UsersPlaywrightTest extends BaseApiTest {
                 .setData(objectMapper.writeValueAsString(userPayload)));
         assertEquals(201, createResp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> createBody = objectMapper.readValue(createResp.body(), Map.class);
         assertEquals("Cadastro realizado com sucesso", createBody.get("message"));
         String userId = (String) createBody.get("_id");
 
         APIResponse deleteResp = request.delete("/usuarios/" + userId);
         assertEquals(200, deleteResp.status());
-        @SuppressWarnings("unchecked")
         Map<String, Object> deleteBody = objectMapper.readValue(deleteResp.body(), Map.class);
         assertEquals("Registro excluído com sucesso", deleteBody.get("message"));
 
         APIResponse searchResp = request.get("/usuarios?email=" + expectedEmail);
         assertEquals(200, searchResp.status());
-        @SuppressWarnings("unchecked")
         Map<String, Object> searchBody = objectMapper.readValue(searchResp.body(), Map.class);
         assertEquals(0, searchBody.get("quantidade"));
     }
@@ -386,7 +367,6 @@ public class UsersPlaywrightTest extends BaseApiTest {
                 .setData(userData));
         assertEquals(201, createUserResp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> createUserBody = objectMapper.readValue(createUserResp.body(), Map.class);
         assertEquals("Cadastro realizado com sucesso", createUserBody.get("message"));
         String userId = (String) createUserBody.get("_id");
@@ -397,7 +377,6 @@ public class UsersPlaywrightTest extends BaseApiTest {
                 .setData(loginPayload));
         assertEquals(200, loginResp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> loginBody = objectMapper.readValue(loginResp.body(), Map.class);
         String userToken = (String) loginBody.get("authorization");
 
@@ -416,7 +395,6 @@ public class UsersPlaywrightTest extends BaseApiTest {
                 .setData(productData));
         assertEquals(201, productResp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> productBody = objectMapper.readValue(productResp.body(), Map.class);
         String productId = (String) productBody.get("_id");
 
@@ -436,7 +414,6 @@ public class UsersPlaywrightTest extends BaseApiTest {
         APIResponse deleteResp = request.delete("/usuarios/" + userId);
         assertEquals(400, deleteResp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> deleteBody = objectMapper.readValue(deleteResp.body(), Map.class);
         assertEquals("Não é permitido excluir usuário com carrinho cadastrado", deleteBody.get("message"));
         assertNotNull(deleteBody.get("idCarrinho"));
@@ -448,7 +425,6 @@ public class UsersPlaywrightTest extends BaseApiTest {
         APIResponse resp = request.get("/usuarios/3F7K9P2XQ8M1R6TB");
         assertEquals(400, resp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> body = objectMapper.readValue(resp.body(), Map.class);
         assertEquals("Usuário não encontrado", body.get("message"));
     }
@@ -480,7 +456,6 @@ public class UsersPlaywrightTest extends BaseApiTest {
                 .setData(user1));
         assertEquals(201, createUser1Resp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> createUser1Body = objectMapper.readValue(createUser1Resp.body(), Map.class);
         String userId1 = (String) createUser1Body.get("_id");
 
@@ -501,7 +476,6 @@ public class UsersPlaywrightTest extends BaseApiTest {
                 .setData(updatePayload));
 
         assertEquals(400, updateResp.status());
-        @SuppressWarnings("unchecked")
         Map<String, Object> updateBody = objectMapper.readValue(updateResp.body(), Map.class);
         assertEquals("Este email já está sendo usado", updateBody.get("message"));
     }

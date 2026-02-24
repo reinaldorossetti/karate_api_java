@@ -1,7 +1,10 @@
 package playwright_serverest.login;
 
-import com.microsoft.playwright.APIResponse;
-import com.microsoft.playwright.options.RequestOptions;
+import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -10,13 +13,14 @@ import org.junit.jupiter.api.parallel.Execution;
 import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+
+import com.microsoft.playwright.APIResponse;
+import com.microsoft.playwright.options.RequestOptions;
+
 import playwright_serverest.BaseApiTest;
 import playwright_serverest.utils.FakerUtils;
 
-import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.*;
-
+@SuppressWarnings("unchecked")
 @TestInstance(Lifecycle.PER_CLASS)
 @Execution(ExecutionMode.CONCURRENT)
 public class LoginPlaywrightTest extends BaseApiTest {
@@ -53,8 +57,7 @@ public class LoginPlaywrightTest extends BaseApiTest {
 
         assertEquals(200, loginResp.status());
 
-        @SuppressWarnings("unchecked")
-        Map<String, Object> body = objectMapper.readValue(loginResp.body(), Map.class);
+        Map<String, Object> body = parseResponseBody(loginResp);
         assertEquals("Login realizado com sucesso", body.get("message"));
         assertNotNull(body.get("authorization"), "authorization token must not be null");
     }
@@ -74,8 +77,7 @@ public class LoginPlaywrightTest extends BaseApiTest {
 
         assertEquals(401, resp.status());
 
-        @SuppressWarnings("unchecked")
-        Map<String, Object> responseBody = objectMapper.readValue(resp.body(), Map.class);
+        Map<String, Object> responseBody = parseResponseBody(resp);
         assertEquals("Email e/ou senha inválidos", responseBody.get("message"));
         assertNull(responseBody.get("authorization"));
     }
@@ -89,8 +91,7 @@ public class LoginPlaywrightTest extends BaseApiTest {
                 .setHeader("Content-Type", "application/json")
                 .setData("{\"email\": \"\", \"password\": \"senha123\"}"));
         assertEquals(400, resp1.status());
-        @SuppressWarnings("unchecked")
-        Map<String, Object> body1 = objectMapper.readValue(resp1.body(), Map.class);
+        Map<String, Object> body1 = parseResponseBody(resp1);
         assertNotNull(body1.get("email"));
 
         // 2) Filled email, empty password
@@ -98,8 +99,7 @@ public class LoginPlaywrightTest extends BaseApiTest {
                 .setHeader("Content-Type", "application/json")
                 .setData("{\"email\": \"test@email.com\", \"password\": \"\"}"));
         assertEquals(400, resp2.status());
-        @SuppressWarnings("unchecked")
-        Map<String, Object> body2 = objectMapper.readValue(resp2.body(), Map.class);
+        Map<String, Object> body2 = parseResponseBody(resp2);
         assertNotNull(body2.get("password"));
 
         // 3) Both empty
@@ -107,8 +107,7 @@ public class LoginPlaywrightTest extends BaseApiTest {
                 .setHeader("Content-Type", "application/json")
                 .setData("{\"email\": \"\", \"password\": \"\"}"));
         assertEquals(400, resp3.status());
-        @SuppressWarnings("unchecked")
-        Map<String, Object> body3 = objectMapper.readValue(resp3.body(), Map.class);
+        Map<String, Object> body3 = parseResponseBody(resp3);
         assertNotNull(body3.get("email"));
         assertNotNull(body3.get("password"));
     }
@@ -129,8 +128,7 @@ public class LoginPlaywrightTest extends BaseApiTest {
                 .setData(loginBody));
         assertEquals(200, loginResp.status());
 
-        @SuppressWarnings("unchecked")
-        Map<String, Object> loginBody2 = objectMapper.readValue(loginResp.body(), Map.class);
+        Map<String, Object> loginBody2 = parseResponseBody(loginResp);
         assertEquals("Login realizado com sucesso", loginBody2.get("message"));
         String authToken = (String) loginBody2.get("authorization");
 
@@ -150,8 +148,7 @@ public class LoginPlaywrightTest extends BaseApiTest {
                 .setData(productPayload));
 
         assertEquals(403, productResp.status());
-        @SuppressWarnings("unchecked")
-        Map<String, Object> productBody = objectMapper.readValue(productResp.body(), Map.class);
+        Map<String, Object> productBody = parseResponseBody(productResp);
         assertEquals("Rota exclusiva para administradores", productBody.get("message"));
     }
 
@@ -167,8 +164,7 @@ public class LoginPlaywrightTest extends BaseApiTest {
                 .setData(body));
 
         assertEquals(400, resp.status());
-        @SuppressWarnings("unchecked")
-        Map<String, Object> responseBody = objectMapper.readValue(resp.body(), Map.class);
+        Map<String, Object> responseBody = parseResponseBody(resp);
         assertNotNull(responseBody.get("email"));
     }
 }

@@ -11,6 +11,7 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.microsoft.playwright.APIRequest;
 import com.microsoft.playwright.APIRequestContext;
+import com.microsoft.playwright.APIResponse;
 import com.microsoft.playwright.Playwright;
 
 /**
@@ -73,5 +74,9 @@ public abstract class BaseApiTest {
             Map<String, Object> map = objectMapper.readValue(is, Map.class);
             return map;
         }
+    }
+
+    public Map<String, Object> parseResponseBody(APIResponse response) throws Exception {
+        return objectMapper.readValue(response.body(), Map.class);
     }
 }

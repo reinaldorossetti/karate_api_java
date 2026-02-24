@@ -41,12 +41,12 @@ public class CartsPlaywrightTest extends BaseApiTest {
 
         String loginPayload = String.format("{\"email\": \"%s\", \"password\": \"%s\"}", userEmail, userPassword);
 
-        APIResponse loginResp = request.post("/login", RequestOptions.create()
+        APIResponse resp = request.post("/login", RequestOptions.create()
                 .setHeader("Content-Type", "application/json")
                 .setData(loginPayload));
-        assertEquals(200, loginResp.status());
+        assertEquals(200, resp.status());
 
-        Map<String, Object> loginBody = objectMapper.readValue(loginResp.body(), Map.class);
+        Map<String, Object> loginBody = objectMapper.readValue(resp.body(), Map.class);
         return (String) loginBody.get("authorization");
     }
 
@@ -68,12 +68,12 @@ public class CartsPlaywrightTest extends BaseApiTest {
 
         String loginPayload = String.format("{\"email\": \"%s\", \"password\": \"%s\"}", userEmail, userPassword);
 
-        APIResponse loginResp = request.post("/login", RequestOptions.create()
+        APIResponse resp = request.post("/login", RequestOptions.create()
                 .setHeader("Content-Type", "application/json")
                 .setData(loginPayload));
-        assertEquals(200, loginResp.status());
+        assertEquals(200, resp.status());
 
-        Map<String, Object> loginBody = objectMapper.readValue(loginResp.body(), Map.class);
+        Map<String, Object> loginBody = objectMapper.readValue(resp.body(), Map.class);
         return (String) loginBody.get("authorization");
     }
 
@@ -182,7 +182,7 @@ public class CartsPlaywrightTest extends BaseApiTest {
                 .setData(cartBody));
 
         assertEquals(401, resp.status());
-        Map<String, Object> body = objectMapper.readValue(resp.body(), Map.class);
+        Map<String, Object> body = parseResponseBody(resp);
         assertEquals("Token de acesso ausente, inválido, expirado ou usuário do token não existe mais",
                 body.get("message"));
     }
@@ -222,7 +222,7 @@ public class CartsPlaywrightTest extends BaseApiTest {
         APIResponse resp = request.get("/carrinhos/invalid-cart-id-123");
         assertEquals(400, resp.status());
 
-        Map<String, Object> body = objectMapper.readValue(resp.body(), Map.class);
+        Map<String, Object> body = parseResponseBody(resp);
         assertEquals("id deve ter exatamente 16 caracteres alfanuméricos", body.get("id"));
     }
 
@@ -245,7 +245,7 @@ public class CartsPlaywrightTest extends BaseApiTest {
                 .setData(cartBody));
 
         assertEquals(400, resp.status());
-        Map<String, Object> body = objectMapper.readValue(resp.body(), Map.class);
+        Map<String, Object> body = parseResponseBody(resp);
         assertTrue(((String) body.get("message")).contains("Produto não possui quantidade suficiente"));
     }
 
@@ -270,7 +270,7 @@ public class CartsPlaywrightTest extends BaseApiTest {
                 .setData(duplicatedCartBody));
 
         assertEquals(400, resp.status());
-        Map<String, Object> body = objectMapper.readValue(resp.body(), Map.class);
+        Map<String, Object> body = parseResponseBody(resp);
         assertTrue(((String) body.get("message")).contains("Não é permitido possuir produto duplicado"));
     }
 
@@ -291,7 +291,7 @@ public class CartsPlaywrightTest extends BaseApiTest {
                 .setData(invalidCartBody));
 
         assertEquals(400, resp.status());
-        Map<String, Object> body = objectMapper.readValue(resp.body(), Map.class);
+        Map<String, Object> body = parseResponseBody(resp);
         assertTrue(((String) body.get("message")).contains("Produto não encontrado"));
     }
 }

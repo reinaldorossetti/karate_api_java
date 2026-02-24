@@ -23,6 +23,7 @@ import playwright_serverest.BaseApiTest;
 
 @TestInstance(Lifecycle.PER_CLASS)
 @Execution(ExecutionMode.CONCURRENT)
+@SuppressWarnings("unchecked")
 public class ProductsPlaywrightTest extends BaseApiTest {
 
     private String getAdminToken() throws Exception {
@@ -47,7 +48,6 @@ public class ProductsPlaywrightTest extends BaseApiTest {
                 .setData(loginBody));
         assertEquals(200, loginResp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> loginBody2 = objectMapper.readValue(loginResp.body(), Map.class);
         return (String) loginBody2.get("authorization");
     }
@@ -58,10 +58,8 @@ public class ProductsPlaywrightTest extends BaseApiTest {
         APIResponse resp = request.get("/produtos");
         assertEquals(200, resp.status());
 
-        @SuppressWarnings("unchecked")
-        Map<String, Object> body = objectMapper.readValue(resp.body(), Map.class);
+        Map<String, Object> body = parseResponseBody(resp);
         int quantidade = (int) body.get("quantidade");
-        @SuppressWarnings("unchecked")
         List<Map<String, Object>> produtos = (List<Map<String, Object>>) body.get("produtos");
 
         assertTrue(quantidade >= 0);
@@ -81,7 +79,6 @@ public class ProductsPlaywrightTest extends BaseApiTest {
     void ct02_createProductAsAdmin() throws Exception {
         String token = getAdminToken();
         String productName = "Product " + System.currentTimeMillis();
-
         String productPayload = String.format("""
                 {
                   "nome": "%s",
@@ -97,8 +94,7 @@ public class ProductsPlaywrightTest extends BaseApiTest {
 
         assertEquals(201, createResp.status());
 
-        @SuppressWarnings("unchecked")
-        Map<String, Object> createBody = objectMapper.readValue(createResp.body(), Map.class);
+        Map<String, Object> createBody = parseResponseBody(createResp);
         assertEquals("Cadastro realizado com sucesso", createBody.get("message"));
         assertNotNull(createBody.get("_id"));
 
@@ -107,7 +103,6 @@ public class ProductsPlaywrightTest extends BaseApiTest {
         APIResponse getResp = request.get("/produtos/" + productId);
         assertEquals(200, getResp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> product = objectMapper.readValue(getResp.body(), Map.class);
         assertEquals(productName, product.get("nome"));
         assertEquals(250, product.get("preco"));
@@ -140,7 +135,6 @@ public class ProductsPlaywrightTest extends BaseApiTest {
                 .setData(productPayload));
         assertEquals(400, second.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> secondBody = objectMapper.readValue(second.body(), Map.class);
         assertEquals("Já existe produto com esse nome", secondBody.get("message"));
     }
@@ -151,9 +145,7 @@ public class ProductsPlaywrightTest extends BaseApiTest {
         APIResponse resp = request.get("/produtos?nome=Logitech");
         assertEquals(200, resp.status());
 
-        @SuppressWarnings("unchecked")
-        Map<String, Object> body = objectMapper.readValue(resp.body(), Map.class);
-        @SuppressWarnings("unchecked")
+        Map<String, Object> body = parseResponseBody(resp);
         List<Map<String, Object>> produtos = (List<Map<String, Object>>) body.get("produtos");
         if (produtos != null && !produtos.isEmpty()) {
             for (Map<String, Object> p : produtos) {
@@ -186,7 +178,6 @@ public class ProductsPlaywrightTest extends BaseApiTest {
                 .setData(initialProduct));
         assertEquals(201, createResp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> createBody = objectMapper.readValue(createResp.body(), Map.class);
         String productId = (String) createBody.get("_id");
 
@@ -204,14 +195,12 @@ public class ProductsPlaywrightTest extends BaseApiTest {
                 .setData(updatedProduct));
         assertEquals(200, updateResp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> updateBody = objectMapper.readValue(updateResp.body(), Map.class);
         assertEquals("Registro alterado com sucesso", updateBody.get("message"));
 
         APIResponse getResp = request.get("/produtos/" + productId);
         assertEquals(200, getResp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> product = objectMapper.readValue(getResp.body(), Map.class);
         assertEquals(200, product.get("preco"));
         assertEquals("Updated description", product.get("descricao"));
@@ -224,9 +213,7 @@ public class ProductsPlaywrightTest extends BaseApiTest {
         APIResponse resp = request.get("/produtos");
         assertEquals(200, resp.status());
 
-        @SuppressWarnings("unchecked")
-        Map<String, Object> body = objectMapper.readValue(resp.body(), Map.class);
-        @SuppressWarnings("unchecked")
+        Map<String, Object> body = parseResponseBody(resp);
         List<Map<String, Object>> produtos = (List<Map<String, Object>>) body.get("produtos");
 
         if (produtos == null || produtos.isEmpty()) {
@@ -264,8 +251,7 @@ public class ProductsPlaywrightTest extends BaseApiTest {
                 .setData(productPayload));
 
         assertEquals(401, resp.status());
-        @SuppressWarnings("unchecked")
-        Map<String, Object> body = objectMapper.readValue(resp.body(), Map.class);
+        Map<String, Object> body = parseResponseBody(resp);
         assertEquals("Token de acesso ausente, inválido, expirado ou usuário do token não existe mais",
                 body.get("message"));
     }
@@ -297,9 +283,7 @@ public class ProductsPlaywrightTest extends BaseApiTest {
         APIResponse resp = request.get("/produtos");
         assertEquals(200, resp.status());
 
-        @SuppressWarnings("unchecked")
-        Map<String, Object> body = objectMapper.readValue(resp.body(), Map.class);
-        @SuppressWarnings("unchecked")
+        Map<String, Object> body = parseResponseBody(resp);
         List<Map<String, Object>> produtos = (List<Map<String, Object>>) body.get("produtos");
 
         if (produtos == null) {
@@ -344,7 +328,6 @@ public class ProductsPlaywrightTest extends BaseApiTest {
                 .setData(productPayload));
         assertEquals(201, createResp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> createBody = objectMapper.readValue(createResp.body(), Map.class);
         String productId = (String) createBody.get("_id");
 
@@ -352,14 +335,12 @@ public class ProductsPlaywrightTest extends BaseApiTest {
                 .setHeader("Authorization", token));
         assertEquals(200, deleteResp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> deleteBody = objectMapper.readValue(deleteResp.body(), Map.class);
         assertEquals("Registro excluído com sucesso", deleteBody.get("message"));
 
         APIResponse getResp = request.get("/produtos/" + productId);
         assertEquals(400, getResp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> getBody = objectMapper.readValue(getResp.body(), Map.class);
         assertEquals("Produto não encontrado", getBody.get("message"));
     }
@@ -378,8 +359,7 @@ public class ProductsPlaywrightTest extends BaseApiTest {
                 .setData(objectMapper.writeValueAsString(productPayload)));
 
         assertEquals(201, resp.status());
-        @SuppressWarnings("unchecked")
-        Map<String, Object> body = objectMapper.readValue(resp.body(), Map.class);
+        Map<String, Object> body = parseResponseBody(resp);
         assertEquals("Cadastro realizado com sucesso", body.get("message"));
         assertNotNull(body.get("_id"));
     }
@@ -404,7 +384,6 @@ public class ProductsPlaywrightTest extends BaseApiTest {
                 .setData(productPayload));
         assertEquals(201, createProductResp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> createProductBody = objectMapper.readValue(createProductResp.body(), Map.class);
         String productId = (String) createProductBody.get("_id");
 
@@ -430,7 +409,6 @@ public class ProductsPlaywrightTest extends BaseApiTest {
                 .setData(loginPayload));
         assertEquals(200, loginResp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> loginBody = objectMapper.readValue(loginResp.body(), Map.class);
         String userToken = (String) loginBody.get("authorization");
 
@@ -454,7 +432,6 @@ public class ProductsPlaywrightTest extends BaseApiTest {
                 .setHeader("Authorization", adminToken));
         assertEquals(400, deleteResp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> deleteBody = objectMapper.readValue(deleteResp.body(), Map.class);
         assertEquals("Não é permitido excluir produto que faz parte de carrinho", deleteBody.get("message"));
     }
@@ -485,7 +462,6 @@ public class ProductsPlaywrightTest extends BaseApiTest {
                 .setData(loginPayload));
         assertEquals(200, loginResp.status());
 
-        @SuppressWarnings("unchecked")
         Map<String, Object> loginBody = objectMapper.readValue(loginResp.body(), Map.class);
         String nonAdminToken = (String) loginBody.get("authorization");
 
@@ -504,7 +480,6 @@ public class ProductsPlaywrightTest extends BaseApiTest {
                 .setData(productData));
 
         assertEquals(403, productResp.status());
-        @SuppressWarnings("unchecked")
         Map<String, Object> productBody = objectMapper.readValue(productResp.body(), Map.class);
         assertEquals("Rota exclusiva para administradores", productBody.get("message"));
     }
